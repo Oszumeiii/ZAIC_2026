@@ -1,0 +1,28 @@
+{
+  "business_id": "biz_109",
+  "file_inventory": [
+    "DanhSachHoaDonChiTiet.xlsx",
+    "DuLieuBanHang.xlsx"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_109\n\nFile máy POS xuất ra.\n\nCác danh sách `DanhSachHoaDon`, `DanhSachSanPham`, `DanhSachKhachHang`, `BaoCaoTonKho`, `DanhSachNhapHang`, `DanhSachChiTietNhapHang`, `SoQuy`, `DanhSachDonViTinh` nằm chung file `DuLieuBanHang.xlsx`, mỗi danh sách một sheet.\n\n## File\n- `DuLieuBanHang.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet.xlsx` (xlsx)"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 05/08/2026.\n- **Công nợ**: mỗi lần khách trả tiền cho một đơn là một dòng, **Giá trị** là số tiền trả lần đó; **Tổng sau giảm giá** là số khách phải trả cho cả đơn.\n- **Giá vốn**: **Giá vốn** là giá vốn một đơn vị bán.\n- **Tồn kho**: **Tồn cuối kỳ** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Nhập hàng**: **Đơn giá** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Cần trả NCC** là tổng tiền của cả phiếu nhập.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DuLieuBanHang.xlsx`."
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

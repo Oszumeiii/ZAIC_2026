@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_111",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "don_hang.csv",
+        "chi_tiet_don.csv"
+      ],
+      "columns": {
+        "Số KH": "mã khách",
+        "Xử lý": "trạng thái đơn",
+        "NgayBan": "ngày bán",
+        "Bán qua": "kênh bán",
+        "Còn lại": "còn nợ",
+        "Khách trả": "đã thanh toán",
+        "Tổng bill": "tổng tiền đơn",
+        "Phương thức TT": "hình thức thanh toán của đơn",
+        "Mã chứng từ": "mã đơn",
+        "SL quy đổi": "số lượng đã đổi ra đơn vị cơ bản",
+        "Thứ tự": "số thứ tự dòng trong đơn",
+        "Giá đơn vị": "đơn giá",
+        "SL": "số lượng",
+        "T.Tiền": "thành tiền sau giảm",
+        "ID SP": "mã hàng",
+        "Ma don": "mã đơn",
+        "Đơn vị (tính)": "đơn vị tính"
+      },
+      "source_refs": [
+        "readme.don_hang",
+        "readme.chi_tiet_don"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "croissant_conversion",
+      "value": "1 hộp bằng 6 cái",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "tiramisu_conversion",
+      "value": "1 hộp bằng 6 cái",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

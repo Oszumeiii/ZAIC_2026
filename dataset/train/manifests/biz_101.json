@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_101",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "columns": {
+        "Giá bán": "đơn giá",
+        "Kết quả": "trạng thái đơn",
+        "Nội dung": "tên hàng",
+        "Ngày tháng": "ngày bán",
+        "Đơn vị (tính)": "đơn vị tính",
+        "so_luong": "số lượng",
+        "Thanh tien": "thành tiền sau giảm",
+        "Quy ra ĐV lẻ": "số lượng đã đổi ra đơn vị cơ bản",
+        "Mã hóa đơn": "mã đơn",
+        "Đối tác": "tên khách"
+      },
+      "source_refs": [
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 24/08/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_127",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "don_hang.csv",
+        "chi_tiet_don.csv"
+      ],
+      "columns": {
+        "Mã chứng từ": "mã đơn",
+        "Ngày": "ngày bán",
+        "Customer ID": "mã khách",
+        "Tổng đơn": "tổng tiền đơn",
+        "Khách trả": "đã thanh toán",
+        "Còn nợ": "còn nợ",
+        "Trả bằng": "hình thức thanh toán của đơn",
+        "Tình trạng": "trạng thái đơn",
+        "Loại bán": "kênh bán",
+        "Diễn giải": "cột trống, không có dữ liệu",
+        "Mã đơn hàng": "mã đơn",
+        "No.": "số thứ tự dòng trong đơn",
+        "Mã mặt hàng": "mã hàng",
+        "SoLuong": "số lượng",
+        "DVT": "đơn vị tính",
+        "Đơn giá (đ)": "đơn giá",
+        "Amount": "thành tiền sau giảm",
+        "Số lượng lẻ": "số lượng đã đổi ra đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.don_hang",
+        "readme.chi_tiet_don"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "san_pham.csv"
+      ],
+      "columns": {
+        "Mã sản phẩm bán": "mã hàng",
+        "Tên SP": "tên",
+        "Danh mục": "nhóm hàng",
+        "Giá niêm yết": "giá bán hiện tại",
+        "Đơn vị cơ bản": "đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.san_pham",
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "max_date",
+      "value": "28/07/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

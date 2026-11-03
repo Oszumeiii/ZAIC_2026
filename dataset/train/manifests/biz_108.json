@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_108",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "DanhSachHoaDon.xlsx",
+        "DanhSachHoaDonChiTiet.xlsx"
+      ],
+      "columns": {
+        "Mã hóa đơn": "mã đơn",
+        "Thời gian": "ngày bán",
+        "Mã KH": "mã khách",
+        "Khách hàng": "tên khách",
+        "Tổng tiền hàng": "tổng tiền hàng của đơn, trước giảm giá",
+        "Giảm giá": "giảm giá",
+        "Khách đã trả": "đã thanh toán",
+        "Trạng thái": "trạng thái đơn",
+        "Thời gian tạo": "thời điểm đặt đơn",
+        "Tổng sau giảm giá": "tổng tiền đơn",
+        "Còn nợ": "số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu",
+        "Kênh bán": "kênh bán",
+        "Người bán": "mã nhân viên bán",
+        "Trạng thái HĐĐT": "cột trống, không có dữ liệu",
+        "Mã hàng": "mã hàng",
+        "Tên hàng": "tên hàng",
+        "Số lượng": "số lượng",
+        "Đơn giá": "đơn giá",
+        "Thành tiền": "thành tiền sau giảm",
+        "Số lượng quy đổi": "số lượng đã đổi ra đơn vị cơ bản",
+        "Đơn vị tính": "đơn vị tính",
+        "STT": "số thứ tự dòng trong đơn"
+      },
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "BaoCaoTonKho.xlsx"
+      ],
+      "columns": {
+        "Mã hàng": "mã hàng",
+        "Tên hàng": "tên hàng",
+        "ĐVT": "đơn vị cơ bản",
+        "Tồn cuối kỳ": "tồn kho, đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DanhSachNhapHang.xlsx",
+        "DanhSachChiTietNhapHang.xlsx"
+      ],
+      "columns": {
+        "Mã nhập hàng": "mã phiếu nhập",
+        "Thời gian": "ngày nhập",
+        "Mã NCC": "mã nhà cung cấp",
+        "Cần trả NCC": "tổng tiền phiếu nhập",
+        "Trạng thái": "trạng thái phiếu nhập",
+        "Ghi chú": "ghi chú",
+        "STT": "số thứ tự dòng trong phiếu nhập",
+        "Mã hàng": "mã hàng",
+        "ĐVT": "đơn vị tính",
+        "Số lượng": "số lượng",
+        "Đơn giá": "giá nhập một đơn vị, theo đơn vị nhập của dòng"
+      },
+      "source_refs": [
+        "readme.purchases",
+        "readme.purchases_2"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DanhSachSanPham.xlsx"
+      ],
+      "columns": {
+        "Mã hàng": "mã hàng",
+        "Tên hàng": "tên",
+        "Nhóm hàng(3 Cấp)": "nhóm hàng",
+        "Giá bán": "giá bán hiện tại",
+        "ĐVT": "đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.danhsachsanpham",
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "29/05/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

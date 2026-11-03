@@ -1,0 +1,31 @@
+{
+  "business_id": "biz_110",
+  "file_inventory": [
+    "danh_sach_hoa_don.csv"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_110\n\nDanh sách hoá đơn, một file CSV: mỗi dòng một đơn hàng (hoá đơn), không có chi tiết mặt hàng trong đơn.\n\n## File\n- `danh_sach_hoa_don.csv` (csv)"
+    },
+    {
+      "evidence_id": "readme.danh_sach_hoa_don",
+      "text": "## Cột trong `danh_sach_hoa_don.csv`\n- **Tien hang**: tiền hàng của đơn: cộng thành tiền các mặt hàng, trước giảm giá của đơn, chưa gồm phí giao\n- **TongTien**: số khách phải trả cho cả đơn (đã tính giảm giá của đơn và phí giao)\n- **Mã bill**: mã đơn\n- **Bên mua**: tên khách (Khách lẻ nếu không lưu)\n- **Ngày giao dịch**: ngày bán\n- **Status**: trạng thái đơn\n- **Da tra**: đã thanh toán\n- **Chưa trả**: số khách còn nợ của đơn (đơn huỷ: 0)"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 03/07/2026.\n- **Còn nợ**: **Chưa trả** là số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu."
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

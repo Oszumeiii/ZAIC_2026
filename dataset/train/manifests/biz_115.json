@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_115",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "So_chi_tiet_ban_hang.xlsx"
+      ],
+      "columns": {
+        "Ngày": "ngày bán",
+        "Mã đơn hàng": "mã đơn",
+        "Tên hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị tính",
+        "Số lượng": "số lượng",
+        "Đơn giá": "đơn giá",
+        "Thành tiền": "thành tiền sau giảm",
+        "Trạng thái": "trạng thái đơn",
+        "Số lượng quy đổi": "số lượng đã đổi ra đơn vị cơ bản",
+        "Khách hàng": "tên khách"
+      },
+      "source_refs": [
+        "readme.sales"
+      ]
+    },
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "Danh sách hàng hóa.xlsx"
+      ],
+      "columns": {
+        "Mã hàng hóa": "mã hàng",
+        "Tên hàng hóa": "tên",
+        "Nhóm hàng hóa": "nhóm hàng",
+        "Đơn vị tính": "đơn vị cơ bản",
+        "Giá vốn": "giá vốn"
+      },
+      "source_refs": [
+        "readme.danh_sach_hang_hoa"
+      ]
+    },
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "Bảng kê phiếu giao hàng.xlsx"
+      ],
+      "columns": {
+        "Ngày giao hàng": "ngày giao",
+        "Mã đơn hàng": "mã đơn",
+        "Lần giao": "đợt giao",
+        "Tên hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị cơ bản",
+        "Số lượng giao": "số lượng đã đổi ra đơn vị cơ bản",
+        "Biển số xe": "biển số xe",
+        "Người giao hàng": "tài xế"
+      },
+      "source_refs": [
+        "readme.bang_ke_phieu_giao_hang"
+      ]
+    },
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "Chi tiết công nợ theo hạn.xlsx"
+      ],
+      "columns": {
+        "Mã đơn hàng": "mã đơn",
+        "Số ngày được nợ": "số ngày được nợ",
+        "Hạn thanh toán": "hạn thanh toán"
+      },
+      "source_refs": [
+        "readme.chi_tiet_cong_no_theo_han"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "So_chi_tiet_ban_hang.xlsx"
+      ],
+      "columns": {
+        "Xi măng Hà Tiên PCB40 bao 50kg": "1 tấn = 20 bao",
+        "Xi măng INSEE Power-S bao 50kg": "1 tấn = 20 bao",
+        "Cát xây tô": "1 xe 4m3 = 4 m3",
+        "Cát bê tông": "1 xe 4m3 = 4 m3",
+        "Cát san lấp": "1 xe 4m3 = 4 m3",
+        "Đá 1x2": "1 xe 4m3 = 4 m3",
+        "Đá 4x6": "1 xe 4m3 = 4 m3",
+        "Đá mi bụi": "1 xe 4m3 = 4 m3",
+        "Gạch ống 8x8x18 Tuynel": "1 thiên = 1000 viên",
+        "Gạch thẻ đặc 4x8x18": "1 thiên = 1000 viên",
+        "Băng keo điện Nano 20 yard": "1 cây = 10 cuộn",
+        "Lưới B40 mạ kẽm khổ 1.5m": "1 cuộn 10m = 10 m",
+        "Ngói Đồng Nai 22 viên/m2": "1 thiên = 1000 viên",
+        "Bạt xanh cam khổ 4m": "1 cuộn 4x50m = 200 m2"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "max_date",
+      "value": "16/05/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

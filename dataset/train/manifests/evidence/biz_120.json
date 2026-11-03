@@ -1,0 +1,76 @@
+{
+  "business_id": "biz_120",
+  "file_inventory": [
+    "BaoCaoTonKho.xlsx",
+    "DanhSachChiTietNhapHang.xlsx",
+    "DanhSachHoaDon.xlsx",
+    "DanhSachHoaDonChiTiet.xlsx",
+    "DanhSachHoaDonChiTietLo.xlsx",
+    "DanhSachKhachHang.xlsx",
+    "DanhSachLoHang.xlsx",
+    "DanhSachNhapHang.xlsx",
+    "DanhSachSanPham.xlsx",
+    "DanhSachThuoc.xlsx"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_120\n\nFile Excel xuất từ phần mềm bán hàng, mỗi danh sách một file (danh sách dài tách thành nhiều file, tên thêm đuôi _1, _2… hoặc đuôi năm _2025, _2026…), nối với nhau qua mã. Ngày dạng dd/mm/yyyy.\n\nFile `DanhSachHoaDon.xlsx` chia mỗi tháng một sheet, tên sheet ghi tháng và năm.\n\n## File\n- `DanhSachHoaDon.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet.xlsx` (xlsx)\n- `DanhSachSanPham.xlsx` (xlsx)\n- `DanhSachKhachHang.xlsx` (xlsx)\n- `BaoCaoTonKho.xlsx` (xlsx)\n- `DanhSachNhapHang.xlsx` (xlsx)\n- `DanhSachLoHang.xlsx` (xlsx)\n- `DanhSachHoaDonChiTietLo.xlsx` (xlsx)\n- `DanhSachThuoc.xlsx` (xlsx)\n- `DanhSachChiTietNhapHang.xlsx` (xlsx)"
+    },
+    {
+      "evidence_id": "readme.danhsachhoadon",
+      "text": "## Cột trong `DanhSachHoaDon.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **Thời gian**: ngày bán\n- **Mã KH**: mã khách (trống nếu khách lẻ)\n- **Khách hàng**: tên khách (Khách lẻ nếu không lưu)\n- **Tổng tiền hàng**: tổng tiền hàng của đơn (cộng thành tiền các dòng), trước giảm giá của đơn\n- **Giảm giá**: giảm giá\n- **Khách đã trả**: đã thanh toán\n- **Trạng thái**: trạng thái đơn\n- **Thời gian tạo**: thời điểm đặt đơn (ngày giờ)\n- **Còn nợ**: còn nợ\n- **Kênh bán**: kênh bán\n- **Ghi chú**: cột trống, không có dữ liệu"
+    },
+    {
+      "evidence_id": "readme.danhsachhoadonchitiet",
+      "text": "## Cột trong `DanhSachHoaDonChiTiet.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên hàng\n- **Số lượng**: số lượng\n- **Đơn giá**: đơn giá\n- **Giảm giá**: giảm giá\n- **Thành tiền**: thành tiền sau giảm\n- **Số lượng quy đổi**: số lượng đã đổi ra đơn vị cơ bản"
+    },
+    {
+      "evidence_id": "readme.danhsachsanpham",
+      "text": "## Cột trong `DanhSachSanPham.xlsx`\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên\n- **Nhóm hàng(3 Cấp)**: nhóm hàng\n- **Giá bán**: giá bán hiện tại\n- **ĐVT**: đơn vị cơ bản\n- **Giá vốn**: giá vốn\n- **Thời gian tạo**: ngày tạo mặt hàng trên phần mềm"
+    },
+    {
+      "evidence_id": "readme.danhsachkhachhang",
+      "text": "## Cột trong `DanhSachKhachHang.xlsx`\n- **Mã khách hàng**: mã khách\n- **Tên khách hàng**: tên\n- **Điện thoại**: số điện thoại\n- **Địa chỉ**: địa chỉ"
+    },
+    {
+      "evidence_id": "readme.stock",
+      "text": "## Cột trong `BaoCaoTonKho.xlsx`\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên hàng\n- **ĐVT**: đơn vị cơ bản\n- **Tồn cuối kỳ**: tồn kho (đơn vị cơ bản)"
+    },
+    {
+      "evidence_id": "readme.purchases",
+      "text": "## Cột trong `DanhSachNhapHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **Thời gian**: ngày nhập\n- **Mã NCC**: mã nhà cung cấp\n- **Cần trả NCC**: tổng tiền phiếu nhập\n- **Trạng thái**: trạng thái phiếu nhập\n- **Ghi chú**: ghi chú"
+    },
+    {
+      "evidence_id": "readme.danhsachlohang",
+      "text": "## Cột trong `DanhSachLoHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **Mã hàng**: mã hàng\n- **Lô**: số lô\n- **Hạn sử dụng**: hạn sử dụng\n- **Số lượng (ĐVT cơ bản)**: số lượng nhập (đơn vị cơ bản)"
+    },
+    {
+      "evidence_id": "readme.danhsachhoadonchitietlo",
+      "text": "## Cột trong `DanhSachHoaDonChiTietLo.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **STT**: số thứ tự dòng trong đơn\n- **Lô**: số lô\n- **Số lượng (ĐVT cơ bản)**: số lượng bán lấy từ lô (đơn vị cơ bản)\n- **Số lượng trả (ĐVT cơ bản)**: số lượng khách trả lại (đơn vị cơ bản); lớn hơn 0: đơn đó có trả hàng"
+    },
+    {
+      "evidence_id": "readme.danhsachthuoc",
+      "text": "## Cột trong `DanhSachThuoc.xlsx`\n- **Mã hàng**: mã hàng\n- **Hoạt chất**: hoạt chất (trống với thực phẩm chức năng, vật tư)\n- **Thuốc kê đơn**: thuốc kê đơn"
+    },
+    {
+      "evidence_id": "readme.purchases_2",
+      "text": "## Cột trong `DanhSachChiTietNhapHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **STT**: số thứ tự dòng trong phiếu nhập\n- **Mã hàng**: mã hàng\n- **ĐVT**: đơn vị tính\n- **Số lượng**: số lượng\n- **Đơn giá**: giá nhập một đơn vị (theo đơn vị nhập của dòng)\n- **Lô**: số lô\n- **Hạn sử dụng**: hạn sử dụng"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 12/06/2026.\n- **Còn nợ**: **Còn nợ** là số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu.\n- **Tồn kho**: **Tồn cuối kỳ** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Lô, hạn dùng**: mỗi dòng nhập là một lô, số lô không trùng. Một dòng bán có thể lấy từ nhiều lô. Hàng khách trả về lại lô đã bán.\n- **Nhập hàng**: **Đơn giá** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Cần trả NCC** là tổng tiền của cả phiếu nhập.\n- **Thuốc**: **Thuốc kê đơn** đúng (TRUE/1) là thuốc kê đơn. Hoạt chất ghi không kèm hàm lượng (hàm lượng ở tên hàng); nhiều chất nối bằng \" + \".\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Panadol Extra hộp 15 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol Extra hộp 15 vỉ x 12 viên: 1 hộp = 180 viên\n  - Hapacol 250 hộp 24 gói: 1 hộp = 24 gói\n  - Panadol 500mg hộp 10 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol 500mg hộp 10 vỉ x 12 viên: 1 hộp = 120 viên\n  - Tiffy Dey hộp 25 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Tiffy Dey hộp 25 vỉ x 4 viên: 1 hộp = 100 viên\n  - Berberin 100mg Mekophar chai 100 viên: 1 chai = 100 viên\n  - Oresol 245 DHG hộp 20 gói: 1 hộp = 20 gói\n  - Amoxicillin 500mg Domesco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Amoxicillin 500mg Domesco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Salonpas cao dán hộp 24 gói x 10 miếng: 1 hộp = 24 gói\n  - Decolgen Forte hộp 30 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Decolgen Forte hộp 30 vỉ x 4 viên: 1 hộp = 120 viên\n  - Khẩu trang y tế 4 lớp Khánh An hộp 50 cái: 1 hộp = 50 cái\n  - Smecta hộp 30 gói: 1 hộp = 30 gói\n  - Efferalgan 500mg viên sủi hộp 4 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Efferalgan 500mg viên sủi hộp 4 vỉ x 4 viên: 1 hộp = 16 viên\n  - Phosphalugel hộp 26 gói: 1 hộp = 26 gói\n  - Strepsils Cool hộp 2 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Strepsils Cool hộp 2 vỉ x 12 viên: 1 hộp = 24 viên\n  - Clorpheniramin 4mg DHG hộp 10 vỉ x 20 viên: 1 hộp = 10 vỉ\n  - Yumangel hộp 20 gói: 1 hộp = 20 gói\n  - Cefuroxim 500mg Vidipha hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Cefuroxim 500mg Vidipha hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Băng cá nhân Urgo Transparent hộp 100 miếng: 1 hộp = 100 miếng\n  - Hapacol 150 hộp 24 gói: 1 hộp = 24 gói\n  - Eugica hộp 10 vỉ x 10 viên nang: 1 vỉ = 10 viên\n  - Eugica hộp 10 vỉ x 10 viên nang: 1 hộp = 100 viên\n  - UPSA-C 1g viên sủi tuýp 10 viên: 1 tuýp = 10 viên\n  - Lorastad 10mg Stella hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Lorastad 10mg Stella hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Cetirizin 10mg Domesco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Cetirizin 10mg Domesco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Amlodipin 5mg Domesco hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Amlodipin 5mg Domesco hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Panadol Cảm Cúm hộp 15 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol Cảm Cúm hộp 15 vỉ x 12 viên: 1 hộp = 180 viên\n  - Alaxan hộp 25 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Alaxan hộp 25 vỉ x 4 viên: 1 hộp = 100 viên\n  - Gofen 400 hộp 5 vỉ x 10 viên nang: 1 vỉ = 10 viên\n  - Gofen 400 hộp 5 vỉ x 10 viên nang: 1 hộp = 50 viên\n  - Acemuc Kids 200mg hộp 30 gói: 1 hộp = 30 gói\n  - Gaviscon hộp 24 gói x 10ml: 1 hộp = 24 gói\n  - Enterogermina 2 tỷ/5ml hộp 20 ống: 1 hộp = 20 ống\n  - Omeprazol 20mg DHG hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Omeprazol 20mg DHG hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Vitamin C 500mg Quapharco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Vitamin C 500mg Quapharco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Efticol 0,9% lốc 10 lọ x 10ml: 1 lốc = 10 lọ\n  - Magne-B6 Corbière hộp 5 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Magne-B6 Corbière hộp 5 vỉ x 10 viên: 1 hộp = 50 viên\n  - Loperamid 2mg Domesco hộp 5 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Loperamid 2mg Domesco hộp 5 vỉ x 10 viên: 1 hộp = 50 viên\n  - Metformin Stella 500mg hộp 6 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Metformin Stella 500mg hộp 6 vỉ x 10 viên: 1 hộp = 60 viên\n  - Clarityne 10mg hộp 1 vỉ x 10 viên: 1 hộp = 10 viên\n  - Zyrtec 10mg hộp 1 vỉ x 10 viên: 1 hộp = 10 viên\n  - Telfast HD 180mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Telfast HD 180mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Hagifen 400mg DHG hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Hagifen 400mg DHG hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Enervon hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Enervon hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Savi Losartan 50mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Savi Losartan 50mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Air-X 80mg viên nhai hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Air-X 80mg viên nhai hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Biosubtyl-II hộp 25 gói: 1 hộp = 25 gói\n  - Berocca Performance viên sủi tuýp 10 viên: 1 tuýp = 10 viên\n  - Prednisolon 5mg Boston chai 500 viên: 1 chai = 500 viên\n  - Bio-acimin Gold men vi sinh hộp 30 gói: 1 hộp = 30 gói\n  - Boganic Traphaco hộp 5 vỉ x 20 viên: 1 vỉ = 20 viên\n  - Boganic Traphaco hộp 5 vỉ x 20 viên: 1 hộp = 100 viên\n  - Calcium Corbière Extra 10ml hộp 30 ống: 1 hộp = 30 ống\n  - Bisolvon 8mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Bisolvon 8mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Augmentin 625mg hộp 2 vỉ x 7 viên: 1 vỉ = 7 viên\n  - Augmentin 625mg hộp 2 vỉ x 7 viên: 1 hộp = 14 viên\n  - Enat 400 hộp 3 vỉ x 10 viên nang: 1 vỉ = 10 viên\n  - Enat 400 hộp 3 vỉ x 10 viên nang: 1 hộp = 30 viên\n  - Kẹo ngậm Bổ phế Nam Hà Candy hộp 10 vỉ x 8 viên: 1 vỉ = 8 viên\n  - Kẹo ngậm Bổ phế Nam Hà Candy hộp 10 vỉ x 8 viên: 1 hộp = 80 viên"
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

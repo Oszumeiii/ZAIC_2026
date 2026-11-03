@@ -1,0 +1,31 @@
+{
+  "business_id": "biz_113",
+  "file_inventory": [
+    "SoBanHang.xlsx"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_113\n\nSổ bán hàng chủ tiệm tự ghi trên Excel, một sheet: mỗi dòng một mặt hàng khách mua, không ghi mã đơn, không ghi tên khách.\n\n## File\n- `SoBanHang.xlsx` (xlsx)"
+    },
+    {
+      "evidence_id": "readme.sales",
+      "text": "## Cột trong `SoBanHang.xlsx`\n- **DonVi**: đơn vị tính\n- **Ngày mua**: ngày bán\n- **Số lượng lẻ**: số lượng đã đổi ra đơn vị cơ bản\n- **thanh_tien**: thành tiền sau giảm\n- **Đơn giá bán**: đơn giá\n- **SL bán**: số lượng\n- **Ghi chú TT**: trạng thái đơn\n- **Mặt hàng**: tên hàng"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 09/08/2026.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Xi măng Hà Tiên PCB40 bao 50kg: 1 tấn = 20 bao\n  - Xi măng INSEE Power-S bao 50kg: 1 tấn = 20 bao\n  - Cát xây tô: 1 xe 4m3 = 4 m3\n  - Cát bê tông: 1 xe 4m3 = 4 m3\n  - Cát san lấp: 1 xe 4m3 = 4 m3\n  - Đá 1x2: 1 xe 4m3 = 4 m3\n  - Đá 4x6: 1 xe 4m3 = 4 m3\n  - Đá mi bụi: 1 xe 4m3 = 4 m3\n  - Gạch ống 8x8x18 Tuynel: 1 thiên = 1000 viên\n  - Gạch thẻ đặc 4x8x18: 1 thiên = 1000 viên\n  - Băng keo điện Nano 20 yard: 1 cây = 10 cuộn\n  - Lưới B40 mạ kẽm khổ 1.5m: 1 cuộn 10m = 10 m\n  - Ngói Đồng Nai 22 viên/m2: 1 thiên = 1000 viên\n  - Bạt xanh cam khổ 4m: 1 cuộn 4x50m = 200 m2"
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

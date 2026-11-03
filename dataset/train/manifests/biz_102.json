@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_102",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "DonHang_ChiTiet.xlsx"
+      ],
+      "columns": {
+        "Mã đơn hàng": "mã đơn",
+        "Ngày đặt hàng": "ngày bán",
+        "Trạng thái đơn hàng": "trạng thái đơn",
+        "Tên khách hàng": "tên khách",
+        "Tên sản phẩm": "tên hàng",
+        "Số lượng sản phẩm": "số lượng",
+        "Giá sản phẩm": "đơn giá",
+        "Tổng tiền": "thành tiền sau giảm",
+        "Đơn vị tính": "đơn vị tính"
+      },
+      "source_refs": [
+        "readme.donhang_chitiet"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DanhSachQuyDoi.xlsx"
+      ],
+      "columns": {
+        "Tên sản phẩm": "tên hàng",
+        "Đơn vị quy đổi": "đơn vị lớn",
+        "Tỉ lệ quy đổi": "hệ số",
+        "Đơn vị cơ bản": "đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.conversions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 16/06/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

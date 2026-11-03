@@ -1,0 +1,77 @@
+{
+  "business_id": "biz_105",
+  "file_inventory": [
+    "BangGia.xlsx",
+    "DanhMuc.xlsx",
+    "SoBanHang_1.xlsx",
+    "SoBanHang_2026.xlsx",
+    "SoNhapHang.xlsx",
+    "TonKho.xlsx"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_105\n\nSổ bán hàng ghi tay chuyển sang Excel, mỗi tháng một sheet.\n\n## File\n- `SoBanHang_1.xlsx` (xlsx)\n- `SoBanHang_2026.xlsx` (xlsx)\n- `DanhMuc.xlsx` (xlsx)\n- `TonKho.xlsx` (xlsx)\n- `SoNhapHang.xlsx` (xlsx)\n- `BangGia.xlsx` (xlsx)"
+    },
+    {
+      "evidence_id": "readme.sales_1",
+      "text": "## Cột trong `SoBanHang_1.xlsx`\n- **Hàng**: tên hàng\n- **so_luong**: số lượng\n- **Unit**: đơn vị tính\n- **Trị giá**: thành tiền sau giảm\n- **Status**: trạng thái đơn\n- **Giá lẻ**: đơn giá\n- **Giờ**: giờ đặt đơn (dòng trả hàng: lúc trả)\n- **Mã hóa đơn**: mã đơn\n- **Ngày giao dịch**: ngày bán\n- **Khách**: tên khách (Khách lẻ nếu không lưu)"
+    },
+    {
+      "evidence_id": "readme.sales_2026",
+      "text": "## Cột trong `SoBanHang_2026.xlsx`\n- **Hàng**: tên hàng\n- **so_luong**: số lượng\n- **Unit**: đơn vị tính\n- **Trị giá**: thành tiền sau giảm\n- **Status**: trạng thái đơn\n- **Giá lẻ**: đơn giá\n- **Giờ**: giờ đặt đơn (dòng trả hàng: lúc trả)\n- **Mã hóa đơn**: mã đơn\n- **Ngày giao dịch**: ngày bán\n- **Khách**: tên khách (Khách lẻ nếu không lưu)"
+    },
+    {
+      "evidence_id": "readme.conversions",
+      "text": "## Cột trong `DanhMuc.xlsx`\n- **Tên món**: tên hàng (file chỉ có mặt hàng có đơn vị lớn)\n- **Đơn vị gốc**: đơn vị cơ bản\n- **ĐV nhập**: đơn vị lớn (thùng, hộp, tấn...)\n- **Hệ số**: hệ số: số đơn vị cơ bản trong 1 đơn vị lớn"
+    },
+    {
+      "evidence_id": "readme.stock",
+      "text": "## Cột trong `TonKho.xlsx`\n- **Hàng hóa**: tên hàng\n- **Đơn vị tính**: đơn vị cơ bản\n- **Tồn cuối**: tồn kho (đơn vị cơ bản)"
+    },
+    {
+      "evidence_id": "readme.purchases",
+      "text": "## Cột trong `SoNhapHang.xlsx`\n- **Số phiếu**: mã phiếu nhập\n- **Ngày nhập**: ngày nhập\n- **Ghi chu**: ghi chú\n- **Thành tiền**: tiền nhập của cả dòng\n- **Nhà cung cấp**: nhà cung cấp\n- **Tên mặt hàng**: tên hàng\n- **Giá nhập**: giá nhập một đơn vị (theo đơn vị nhập của dòng)\n- **ĐVT**: đơn vị nhập\n- **SL nhập**: số lượng nhập"
+    },
+    {
+      "evidence_id": "readme.prices",
+      "text": "## Cột trong `BangGia.xlsx`\n- **Ngày áp dụng**: ngày bắt đầu áp dụng giá\n- **ten_hang**: tên hàng\n- **Giá mới**: giá bán áp dụng từ ngày đó (đơn vị cơ bản)\n- **Giá cũ**: giá trước lần đổi (trống ở dòng đầu mỗi mặt hàng)"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 24/06/2026.\n- **Trả hàng**: hàng trả ghi số lượng âm, cùng mã đơn với đơn đã bán: đơn có dòng số lượng âm là đơn có trả hàng.\n- **Tồn kho**: **Tồn cuối** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Nhập hàng**: **Giá nhập** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Thành tiền** là tiền nhập của cả dòng.\n- **Giá bán**: **Giá mới** (theo đơn vị cơ bản) áp dụng từ **Ngày áp dụng** đến trước lần đổi giá sau của cùng mặt hàng; dòng đầu mỗi mặt hàng là giá lúc bắt đầu dữ liệu (**Giá cũ** trống).\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DanhMuc.xlsx`."
+    }
+  ],
+  "survey_results": [
+    {
+      "evidence_id": "profile.sales_layout",
+      "text": "SoBanHang_1.xlsx / Thang 02 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 6492=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 03 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8141=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 04 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 7765=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 05 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8074=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 06 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8042=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 07 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8309=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 08 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8704=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 09 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8210=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 10 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8855=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 11 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8445=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 12 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8830=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 01 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9061=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 02 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 6301=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 03 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9242=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_2026.xlsx / Thang 04 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8949=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 05 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9533=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_2026.xlsx / Thang 06 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 7326=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]"
+    },
+    {
+      "evidence_id": "profile.sales_values",
+      "text": "SoBanHang_1.xlsx / Thang 02 2025 row 2: [{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"B\", \"value\": \"so_luong\"}, {\"cell\": \"C\", \"value\": \"Unit\"}, {\"cell\": \"D\", \"value\": \"Trị giá\"}, {\"cell\": \"E\", \"value\": \"Status\"}, {\"cell\": \"F\", \"value\": \"Giá lẻ\"}, {\"cell\": \"G\", \"value\": \"Giờ\"}, {\"cell\": \"H\", \"value\": \"Mã hóa đơn\"}, {\"cell\": \"I\", \"value\": \"Ngày giao dịch\"}]\nSoBanHang_2026.xlsx / Thang 02 2026 row 2: [{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"B\", \"value\": \"so_luong\"}, {\"cell\": \"C\", \"value\": \"Unit\"}, {\"cell\": \"D\", \"value\": \"Trị giá\"}, {\"cell\": \"E\", \"value\": \"Status\"}, {\"cell\": \"F\", \"value\": \"Giá lẻ\"}, {\"cell\": \"G\", \"value\": \"Giờ\"}, {\"cell\": \"H\", \"value\": \"Mã hóa đơn\"}, {\"cell\": \"I\", \"value\": \"Ngày giao dịch\"}]"
+    },
+    {
+      "evidence_id": "profile.auxiliary_layouts",
+      "text": "DanhMuc.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Tên món\"}, {\"cell\": \"B\", \"value\": \"Đơn vị gốc\"}, {\"cell\": \"C\", \"value\": \"ĐV nhập\"}, {\"cell\": \"D\", \"value\": \"Hệ số\"}]\nTonKho.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Hàng hóa\"}, {\"cell\": \"B\", \"value\": \"Đơn vị tính\"}, {\"cell\": \"C\", \"value\": \"Tồn cuối\"}]\nSoNhapHang.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Số phiếu\"}, {\"cell\": \"B\", \"value\": \"Ngày nhập\"}, {\"cell\": \"C\", \"value\": \"Ghi chu\"}, {\"cell\": \"D\", \"value\": \"Thành tiền\"}, {\"cell\": \"E\", \"value\": \"Nhà cung cấp\"}, {\"cell\": \"F\", \"value\": \"Tên mặt hàng\"}, {\"cell\": \"G\", \"value\": \"Giá nhập\"}, {\"cell\": \"H\", \"value\": \"ĐVT\"}, {\"cell\": \"I\", \"value\": \"SL nhập\"}]\nBangGia.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Ngày áp dụng\"}, {\"cell\": \"B\", \"value\": \"ten_hang\"}, {\"cell\": \"C\", \"value\": \"Giá mới\"}, {\"cell\": \"D\", \"value\": \"Giá cũ\"}]"
+    },
+    {
+      "evidence_id": "profile.return_pair",
+      "text": "Hai dòng có cùng mã đơn ORD059865 được khảo sát:\nSoBanHang_1.xlsx / Thang 01 2026 row 7519: [{\"cell\": \"A\", \"value\": \"Cappuccino (L)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"53.500đ\"}, {\"cell\": \"E\", \"value\": \"Đổi trả\"}, {\"cell\": \"F\", \"value\": \"53.500đ\"}, {\"cell\": \"G\", \"value\": \"2026-01-27T07:12:18\"}, {\"cell\": \"H\", \"value\": \"ORD059865\"}, {\"cell\": \"I\", \"value\": \"46049\"}]\nSoBanHang_2026.xlsx / Thang 02 2026 row 3: [{\"cell\": \"A\", \"value\": \"Cappuccino (L)\"}, {\"cell\": \"B\", \"value\": \"-1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"-53.500đ\"}, {\"cell\": \"E\", \"value\": \"Đổi trả\"}, {\"cell\": \"F\", \"value\": \"53.500đ\"}, {\"cell\": \"G\", \"value\": \"2026-02-01T08:47:28\"}, {\"cell\": \"H\", \"value\": \"ORD059865\"}, {\"cell\": \"I\", \"value\": \"01/02/2026\"}]"
+    },
+    {
+      "evidence_id": "profile.duplicate_pair",
+      "text": "Hai dòng của ORD081719 được xác nhận trùng toàn bộ giá trị ô; cột tên khách đã được lược khỏi nội dung chia sẻ:\nSoBanHang_2026.xlsx / Thang 06 2026 row 5: [{\"cell\": \"A\", \"value\": \"Trà đào cam sả (M)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"39.000đ\"}, {\"cell\": \"E\", \"value\": \"đã lấy\"}, {\"cell\": \"F\", \"value\": \"41k\"}, {\"cell\": \"G\", \"value\": \"2026-06-01T06:21:57\"}, {\"cell\": \"H\", \"value\": \"ORD081719\"}, {\"cell\": \"I\", \"value\": \"01/06/2026\"}]\nSoBanHang_2026.xlsx / Thang 06 2026 row 6: [{\"cell\": \"A\", \"value\": \"Trà đào cam sả (M)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"39.000đ\"}, {\"cell\": \"E\", \"value\": \"đã lấy\"}, {\"cell\": \"F\", \"value\": \"41k\"}, {\"cell\": \"G\", \"value\": \"2026-06-01T06:21:57\"}, {\"cell\": \"H\", \"value\": \"ORD081719\"}, {\"cell\": \"I\", \"value\": \"01/06/2026\"}]"
+    }
+  ],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

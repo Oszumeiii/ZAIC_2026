@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_105",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "SoBanHang_1.xlsx",
+        "SoBanHang_2026.xlsx"
+      ],
+      "columns": {
+        "Hàng": "tên hàng",
+        "so_luong": "số lượng",
+        "Unit": "đơn vị tính",
+        "Trị giá": "thành tiền sau giảm",
+        "Status": "trạng thái đơn",
+        "Giá lẻ": "đơn giá",
+        "Giờ": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+        "Mã hóa đơn": "mã đơn",
+        "Ngày giao dịch": "ngày bán",
+        "Khách": "tên khách (Khách lẻ nếu không lưu)"
+      },
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DanhMuc.xlsx"
+      ],
+      "columns": {
+        "Tên món": "tên hàng",
+        "Đơn vị gốc": "đơn vị cơ bản",
+        "ĐV nhập": "đơn vị lớn",
+        "Hệ số": "hệ số quy đổi"
+      },
+      "source_refs": [
+        "readme.conversions"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "TonKho.xlsx"
+      ],
+      "columns": {
+        "Hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị cơ bản",
+        "Tồn cuối": "tồn kho (đơn vị cơ bản)"
+      },
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "SoNhapHang.xlsx"
+      ],
+      "columns": {
+        "Số phiếu": "mã phiếu nhập",
+        "Ngày nhập": "ngày nhập",
+        "Ghi chu": "ghi chú",
+        "Thành tiền": "tiền nhập của cả dòng",
+        "Nhà cung cấp": "nhà cung cấp",
+        "Tên mặt hàng": "tên hàng",
+        "Giá nhập": "giá nhập một đơn vị",
+        "ĐVT": "đơn vị nhập",
+        "SL nhập": "số lượng nhập"
+      },
+      "source_refs": [
+        "readme.purchases"
+      ]
+    },
+    {
+      "table_role": "price_history",
+      "source_files": [
+        "BangGia.xlsx"
+      ],
+      "columns": {
+        "Ngày áp dụng": "ngày bắt đầu áp dụng giá",
+        "ten_hang": "tên hàng",
+        "Giá mới": "giá bán áp dụng từ ngày đó (đơn vị cơ bản)",
+        "Giá cũ": "giá trước lần đổi"
+      },
+      "source_refs": [
+        "readme.prices"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "2026-06-24",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

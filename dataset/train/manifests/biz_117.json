@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_117",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "SoBanHang.xlsx",
+        "SoGiaoHang.xlsx"
+      ],
+      "columns": {
+        "Giờ": "giờ đặt đơn",
+        "Mã phiếu": "mã đơn",
+        "TenKH": "tên khách",
+        "Ngày lập": "ngày bán",
+        "Tiền": "thành tiền sau giảm",
+        "Ghi chú TT": "trạng thái đơn",
+        "Giá": "đơn giá",
+        "DonVi": "đơn vị tính",
+        "Số lượng hàng": "số lượng",
+        "Tên SP": "tên hàng",
+        "ĐV gốc": "đơn vị cơ bản",
+        "Biển số xe": "biển số xe",
+        "Mã bill": "mã đơn",
+        "Lượt giao": "đợt giao",
+        "SL thực giao": "số lượng đã đổi ra đơn vị cơ bản",
+        "Tên hàng": "tên hàng",
+        "Ngày chở": "ngày giao",
+        "Người chở": "tài xế"
+      },
+      "source_refs": [
+        "readme.sales",
+        "readme.sogiaohang"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DanhMuc.xlsx"
+      ],
+      "columns": {
+        "Hàng": "tên hàng",
+        "ĐV lớn": "đơn vị lớn",
+        "ĐV nhỏ": "đơn vị cơ bản",
+        "Hệ số QĐ": "hệ số quy đổi"
+      },
+      "source_refs": [
+        "readme.conversions"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "TonKho.xlsx"
+      ],
+      "columns": {
+        "Tồn thực": "tồn kho",
+        "Đơn vị": "đơn vị cơ bản",
+        "Product": "tên hàng"
+      },
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "SoNhapHang.xlsx"
+      ],
+      "columns": {
+        "Số phiếu": "mã phiếu nhập",
+        "Product": "tên hàng",
+        "Ngày nhập": "ngày nhập",
+        "ĐVT": "đơn vị nhập",
+        "Thành tiền": "tiền nhập của cả dòng",
+        "Nội dung": "ghi chú",
+        "Nhà cung cấp": "nhà cung cấp",
+        "SL nhập": "số lượng nhập",
+        "Giá nhập": "giá nhập một đơn vị"
+      },
+      "source_refs": [
+        "readme.purchases"
+      ]
+    },
+    {
+      "table_role": "price_history",
+      "source_files": [
+        "BangGia.xlsx"
+      ],
+      "columns": {
+        "Ngày áp dụng": "ngày bắt đầu áp dụng giá",
+        "Giá cũ": "giá trước lần đổi",
+        "Giá mới": "giá bán áp dụng",
+        "TenHang": "tên hàng"
+      },
+      "source_refs": [
+        "readme.prices"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "fact.data_end_date",
+      "value": "Dữ liệu có đến hết 20/05/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

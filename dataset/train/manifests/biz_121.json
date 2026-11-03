@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_121",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "DonHang_ChiTiet.xlsx"
+      ],
+      "columns": {
+        "Mã đơn hàng": "mã đơn",
+        "Ngày đặt hàng": "ngày bán",
+        "Trạng thái đơn hàng": "trạng thái đơn",
+        "Tên khách hàng": "tên khách",
+        "Tên sản phẩm": "tên hàng",
+        "Số lượng sản phẩm": "số lượng",
+        "Giá sản phẩm": "đơn giá",
+        "Tổng tiền": "thành tiền sau giảm",
+        "Đơn vị tính": "đơn vị tính"
+      },
+      "source_refs": [
+        "readme.donhang_chitiet"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DuLieuXuat.xlsx"
+      ],
+      "columns": {
+        "Tên sản phẩm": "tên hàng",
+        "Đơn vị quy đổi": "đơn vị lớn",
+        "Tỉ lệ quy đổi": "hệ số quy đổi",
+        "Đơn vị cơ bản": "đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachquydoi"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DuLieuXuat.xlsx"
+      ],
+      "columns": {
+        "Mã đơn nhập": "mã phiếu nhập",
+        "Mã SKU": "mã hàng",
+        "Mã lô": "số lô",
+        "Hạn sử dụng": "hạn sử dụng",
+        "Số lượng nhập": "số lượng nhập"
+      },
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    }
+  ],
+  "facts": [],
+  "unresolved": []
+}

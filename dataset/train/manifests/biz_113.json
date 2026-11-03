@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_113",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "SoBanHang.xlsx"
+      ],
+      "columns": {
+        "DonVi": "đơn vị tính",
+        "Ngày mua": "ngày bán",
+        "Số lượng lẻ": "số lượng đã đổi ra đơn vị cơ bản",
+        "thanh_tien": "thành tiền sau giảm",
+        "Đơn giá bán": "đơn giá",
+        "SL bán": "số lượng",
+        "Ghi chú TT": "trạng thái đơn",
+        "Mặt hàng": "tên hàng"
+      },
+      "source_refs": [
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "max_date",
+      "value": "09/08/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

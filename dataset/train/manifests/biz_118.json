@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_118",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "So_chi_tiet_ban_hang.xlsx",
+        "Bảng kê phiếu giao hàng.xlsx"
+      ],
+      "columns": {
+        "Ngày": "ngày bán",
+        "Mã đơn hàng": "mã đơn",
+        "Tên hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị tính",
+        "Số lượng": "số lượng",
+        "Đơn giá": "đơn giá",
+        "Thành tiền": "thành tiền sau giảm",
+        "Trạng thái": "trạng thái đơn",
+        "Số lượng quy đổi": "số lượng đã đổi ra đơn vị cơ bản",
+        "Khách hàng": "tên khách",
+        "Ngày giao hàng": "ngày giao",
+        "Lần giao": "đợt giao",
+        "Số lượng giao": "số lượng đã đổi ra đơn vị cơ bản",
+        "Biển số xe": "biển số xe",
+        "Người giao hàng": "tài xế"
+      },
+      "source_refs": [
+        "readme.sales",
+        "readme.bang_ke_phieu_giao_hang"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "Danh sách hàng hóa.xlsx"
+      ],
+      "columns": {
+        "Mã hàng hóa": "mã hàng",
+        "Tên hàng hóa": "tên",
+        "Nhóm hàng hóa": "nhóm hàng",
+        "Đơn vị tính": "đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.danh_sach_hang_hoa",
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "10/09/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "payment_due_date_rule",
+      "value": "Hạn thanh toán là ngày khách phải trả hết đơn; Số ngày được nợ là số ngày được nợ, tính từ ngày đặt",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

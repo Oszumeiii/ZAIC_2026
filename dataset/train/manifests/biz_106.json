@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_106",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "DanhSachHoaDon.xlsx",
+        "DanhSachHoaDonChiTiet_1.xlsx",
+        "DanhSachHoaDonChiTiet_2.xlsx"
+      ],
+      "columns": {
+        "Tổng sau giảm giá": "số khách phải trả cho cả đơn"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DanhSachNhapHang.xlsx",
+        "DanhSachChiTietNhapHang.xlsx"
+      ],
+      "columns": {
+        "Đơn giá": "giá nhập một đơn vị, theo đơn vị nhập của dòng",
+        "Cần trả NCC": "tổng tiền của cả phiếu nhập"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "BaoCaoTonKho.xlsx"
+      ],
+      "columns": {
+        "Tồn cuối kỳ": "tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DanhSachDonViTinh.xlsx"
+      ],
+      "columns": {
+        "Hệ số quy đổi": "hệ số quy đổi đơn vị tính"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "14/09/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

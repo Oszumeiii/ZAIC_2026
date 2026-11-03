@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_125",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "columns": {
+        "dvt": "đơn vị tính",
+        "Hàng bán": "tên hàng",
+        "Khách hàng (tên)": "tên khách",
+        "Số lượng lẻ": "số lượng đã đổi ra đơn vị cơ bản",
+        "Amount": "thành tiền sau giảm",
+        "Trạng thái xử lý": "trạng thái đơn",
+        "SL bán": "số lượng",
+        "Ngày bán": "ngày bán",
+        "Số phiếu": "mã đơn",
+        "Giá 1 đv": "đơn giá"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [],
+  "unresolved": []
+}

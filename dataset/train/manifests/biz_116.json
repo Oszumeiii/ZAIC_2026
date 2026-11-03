@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_116",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "Bao_cao_ban_hang.xlsx"
+      ],
+      "columns": {
+        "Ngày": "ngày bán",
+        "Mã đơn hàng": "mã đơn",
+        "Tên hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị tính",
+        "Số lượng": "số lượng",
+        "Đơn giá": "đơn giá",
+        "Thành tiền": "thành tiền sau giảm",
+        "Trạng thái": "trạng thái đơn",
+        "Số lượng quy đổi": "số lượng đã đổi ra đơn vị cơ bản",
+        "Khách hàng": "tên khách"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.sales.sheet_so_chi_tiet_ban_hang"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "Bao_cao_ban_hang.xlsx"
+      ],
+      "columns": {
+        "Mã hàng hóa": "mã hàng",
+        "Tên hàng hóa": "tên",
+        "Nhóm hàng hóa": "nhóm hàng",
+        "Đơn vị tính": "đơn vị cơ bản",
+        "Giá vốn": "giá vốn"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.sales.sheet_danh_sach_hang_hoa",
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 03/09/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

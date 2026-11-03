@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_109",
+  "tables": [
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "DuLieuBanHang.xlsx"
+      ],
+      "columns": {
+        "he_so_quy_doi": "hệ số quy đổi đơn vị"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DuLieuBanHang.xlsx"
+      ],
+      "columns": {
+        "don_gia": "giá nhập một đơn vị, theo đơn vị nhập của dòng",
+        "can_tra_ncc": "tổng tiền của cả phiếu nhập"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "DuLieuBanHang.xlsx"
+      ],
+      "columns": {
+        "ton_cuoi_ky": "tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [],
+  "unresolved": [
+    {
+      "topic": "Cấu trúc cột chi tiết",
+      "reason": "README chỉ định nghĩa tên các danh sách và một số khái niệm quy ước nhưng chưa liệt kê tên cột chi tiết của từng file hoặc sheet.",
+      "needed_evidence": "Danh sách tên cột cụ thể cho từng sheet trong DuLieuBanHang.xlsx và DanhSachHoaDonChiTiet.xlsx."
+    }
+  ]
+}

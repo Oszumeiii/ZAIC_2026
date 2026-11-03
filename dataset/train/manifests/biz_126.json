@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_126",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "SoBanHang.xlsx"
+      ],
+      "columns": {
+        "Đơn vị tính": "đơn vị tính",
+        "Số lượng bán": "số lượng",
+        "Thành tiền (đ)": "thành tiền sau giảm",
+        "Ten hang": "tên hàng",
+        "SL lẻ": "số lượng đã đổi ra đơn vị cơ bản",
+        "Trạng thái đơn": "trạng thái đơn",
+        "Ngày tháng": "ngày bán",
+        "Price": "đơn giá"
+      },
+      "source_refs": [
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 06/06/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "service_fee",
+      "value": "Đơn ngồi phòng lạnh (không huỷ, không ghi nợ) có thêm dòng hàng Phí phục vụ: phí phục vụ phòng lạnh của đơn, tính theo tiền món, đã ghi sẵn thành tiền",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_tiger_lon",
+      "value": "Bia Tiger lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_sg_special",
+      "value": "Bia Sài Gòn Special lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_coca",
+      "value": "Coca-Cola lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_tiger_bac",
+      "value": "Bia Tiger Bạc lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_nuoc_suoi",
+      "value": "Nước suối: 1 thùng = 24 chai",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_heineken",
+      "value": "Bia Heineken lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_sg_lager",
+      "value": "Bia Sài Gòn Lager chai: 1 két = 20 chai",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_7up",
+      "value": "7Up lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

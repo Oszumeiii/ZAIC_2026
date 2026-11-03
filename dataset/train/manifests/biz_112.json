@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_112",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "So_chi_tiet_ban_hang_1.xlsx",
+        "So_chi_tiet_ban_hang_2026.xlsx"
+      ],
+      "columns": {
+        "Ngày": "ngày bán",
+        "Mã đơn hàng": "mã đơn",
+        "Tên hàng hóa": "tên hàng",
+        "Đơn vị tính": "đơn vị tính",
+        "Số lượng": "số lượng",
+        "Đơn giá": "đơn giá",
+        "Thành tiền": "thành tiền sau giảm",
+        "Trạng thái": "trạng thái đơn",
+        "Số lượng quy đổi": "số lượng đã đổi ra đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "Danh sách hàng hóa.xlsx"
+      ],
+      "columns": {
+        "Mã hàng hóa": "mã hàng",
+        "Tên hàng hóa": "tên",
+        "Nhóm hàng hóa": "nhóm hàng",
+        "Đơn vị tính": "đơn vị cơ bản",
+        "Giá bán": "giá bán hiện tại",
+        "Giá vốn": "giá vốn"
+      },
+      "source_refs": [
+        "readme.danh_sach_hang_hoa"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_range",
+      "value": "Dữ liệu có đến hết 31/07/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_croissant",
+      "value": "Bánh croissant: 1 hộp = 6 cái",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "conversion_tiramisu",
+      "value": "Bánh tiramisu: 1 hộp = 6 cái",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

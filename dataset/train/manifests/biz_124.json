@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_124",
+  "tables": [
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "BanHang_DonViQuyDoi.xlsx"
+      ],
+      "columns": {
+        "he_so_quy_doi": "hệ số quy đổi đơn vị"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [],
+  "unresolved": [
+    {
+      "topic": "mapping_chi_tiet_hoa_don",
+      "reason": "README chưa cung cấp ánh xạ chi tiết tên cột cho bảng chi tiết hóa đơn.",
+      "needed_evidence": "Danh sách tên cột và mô tả trong BanHang_ChiTietHoaDon.xlsx"
+    }
+  ]
+}

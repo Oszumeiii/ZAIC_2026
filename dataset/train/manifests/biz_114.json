@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_114",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "columns": {
+        "Giá bán lẻ": "đơn giá",
+        "Đơn vị tính": "đơn vị tính",
+        "Mã GD": "mã đơn",
+        "Quy ra ĐV lẻ": "số lượng đã đổi ra đơn vị cơ bản",
+        "Sluong": "số lượng",
+        "Sản phẩm": "tên hàng",
+        "Tổng": "thành tiền sau giảm",
+        "Tên khách": "tên khách",
+        "Ngày": "ngày bán",
+        "trang_thai": "trạng thái đơn"
+      },
+      "source_refs": [
+        "readme.sales"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "columns": {
+        "Sản phẩm": "tên hàng",
+        "Đơn vị tính": "đơn vị tính",
+        "Quy ra ĐV lẻ": "số lượng đã đổi ra đơn vị cơ bản"
+      },
+      "source_refs": [
+        "readme.conventions",
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 21/06/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

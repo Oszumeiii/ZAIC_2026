@@ -1,0 +1,51 @@
+{
+  "business_id": "biz_127",
+  "file_inventory": [
+    "chi_tiet_don.csv",
+    "don_hang.csv",
+    "khach_hang.csv",
+    "san_pham.csv",
+    "thanh_toan.csv"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_127\n\nDữ liệu bán hàng của tiệm, gồm vài file nối với nhau qua mã.\n\n## File\n- `don_hang.csv` (csv)\n- `chi_tiet_don.csv` (csv)\n- `san_pham.csv` (csv)\n- `khach_hang.csv` (csv)\n- `thanh_toan.csv` (csv)"
+    },
+    {
+      "evidence_id": "readme.don_hang",
+      "text": "## Cột trong `don_hang.csv`\n- **Còn nợ**: còn nợ\n- **Diễn giải**: cột trống, không có dữ liệu\n- **Tổng đơn**: tổng tiền đơn\n- **Loại bán**: kênh bán\n- **Ngày**: ngày bán\n- **Mã chứng từ**: mã đơn\n- **Customer ID**: mã khách (trống nếu khách lẻ)\n- **Khách trả**: đã thanh toán\n- **Trả bằng**: hình thức thanh toán của đơn: cash tiền mặt, transfer chuyển khoản, ewallet ví điện tử, cod giao hàng thu tiền, debt ghi nợ\n- **Tình trạng**: trạng thái đơn"
+    },
+    {
+      "evidence_id": "readme.chi_tiet_don",
+      "text": "## Cột trong `chi_tiet_don.csv`\n- **Mã đơn hàng**: mã đơn\n- **SoLuong**: số lượng\n- **No.**: số thứ tự dòng trong đơn\n- **DVT**: đơn vị tính\n- **Amount**: thành tiền sau giảm\n- **Số lượng lẻ**: số lượng đã đổi ra đơn vị cơ bản\n- **Mã mặt hàng**: mã hàng\n- **Đơn giá (đ)**: đơn giá"
+    },
+    {
+      "evidence_id": "readme.san_pham",
+      "text": "## Cột trong `san_pham.csv`\n- **Giá niêm yết**: giá bán hiện tại\n- **Danh mục**: nhóm hàng\n- **Mã sản phẩm bán**: mã hàng\n- **Tên SP**: tên\n- **Đơn vị cơ bản**: đơn vị cơ bản"
+    },
+    {
+      "evidence_id": "readme.khach_hang",
+      "text": "## Cột trong `khach_hang.csv`\n- **Di động**: số điện thoại\n- **Mã KH**: mã khách\n- **Khách hàng (tên)**: tên"
+    },
+    {
+      "evidence_id": "readme.thanh_toan",
+      "text": "## Cột trong `thanh_toan.csv`\n- **Số CT**: mã đơn\n- **Ngày thu**: thời điểm thu\n- **Mã GD**: mã phiếu thu\n- **Giá trị**: số tiền\n- **HTTT**: hình thức thanh toán"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 28/07/2026.\n- **Công nợ**: mỗi lần khách trả tiền cho một đơn là một dòng, **Giá trị** là số tiền trả lần đó; **Tổng đơn** là số khách phải trả cho cả đơn.\n- **Phí phục vụ**: đơn ngồi phòng lạnh (không huỷ, không ghi nợ) có thêm dòng hàng \"Phí phục vụ\": phí phục vụ phòng lạnh của đơn, tính theo tiền món, đã ghi sẵn thành tiền.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Bia Tiger lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Special lon: 1 thùng = 24 lon\n  - Coca-Cola lon: 1 thùng = 24 lon\n  - Bia Tiger Bạc lon: 1 thùng = 24 lon\n  - Nước suối: 1 thùng = 24 chai\n  - Bia Heineken lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Lager chai: 1 két = 20 chai\n  - 7Up lon: 1 thùng = 24 lon"
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

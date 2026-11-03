@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_110",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "danh_sach_hoa_don.csv"
+      ],
+      "columns": {
+        "Mã bill": "mã đơn",
+        "Ngày giao dịch": "ngày bán",
+        "Bên mua": "tên khách",
+        "Tien hang": "tiền hàng của đơn",
+        "TongTien": "số khách phải trả cho cả đơn",
+        "Status": "trạng thái đơn",
+        "Da tra": "đã thanh toán",
+        "Chưa trả": "số khách còn nợ của đơn"
+      },
+      "source_refs": [
+        "readme.overview",
+        "readme.danh_sach_hoa_don"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "03/07/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}

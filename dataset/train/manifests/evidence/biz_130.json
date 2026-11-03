@@ -1,0 +1,41 @@
+{
+  "business_id": "biz_130",
+  "file_inventory": [
+    "Danh sách hàng hóa.xlsx",
+    "So_chi_tiet_ban_hang_1.xlsx",
+    "So_chi_tiet_ban_hang_2.xlsx"
+  ],
+  "readme_sections": [
+    {
+      "evidence_id": "readme.overview",
+      "text": "# Dữ liệu biz_130\n\nFile Excel xuất từ phần mềm bán hàng. Sổ chi tiết bán hàng: mỗi dòng một dòng hàng, thông tin đơn lặp lại ở mọi dòng.\n\n## File\n- `So_chi_tiet_ban_hang_1.xlsx` (xlsx)\n- `So_chi_tiet_ban_hang_2.xlsx` (xlsx)\n- `Danh sách hàng hóa.xlsx` (xlsx)"
+    },
+    {
+      "evidence_id": "readme.sales_1",
+      "text": "## Cột trong `So_chi_tiet_ban_hang_1.xlsx`\n- **Ngày**: ngày bán\n- **Mã đơn hàng**: mã đơn\n- **Tên hàng hóa**: tên hàng\n- **Đơn vị tính**: đơn vị tính\n- **Số lượng**: số lượng\n- **Đơn giá**: đơn giá\n- **Thành tiền**: thành tiền sau giảm\n- **Trạng thái**: trạng thái đơn\n- **Số lượng quy đổi**: số lượng đã đổi ra đơn vị cơ bản"
+    },
+    {
+      "evidence_id": "readme.sales_2",
+      "text": "## Cột trong `So_chi_tiet_ban_hang_2.xlsx`\n- **Ngày**: ngày bán\n- **Mã đơn hàng**: mã đơn\n- **Tên hàng hóa**: tên hàng\n- **Đơn vị tính**: đơn vị tính\n- **Số lượng**: số lượng\n- **Đơn giá**: đơn giá\n- **Thành tiền**: thành tiền sau giảm\n- **Trạng thái**: trạng thái đơn\n- **Số lượng quy đổi**: số lượng đã đổi ra đơn vị cơ bản"
+    },
+    {
+      "evidence_id": "readme.danh_sach_hang_hoa",
+      "text": "## Cột trong `Danh sách hàng hóa.xlsx`\n- **Mã hàng hóa**: mã hàng\n- **Tên hàng hóa**: tên\n- **Nhóm hàng hóa**: nhóm hàng\n- **Đơn vị tính**: đơn vị cơ bản\n- **Giá vốn**: giá vốn"
+    },
+    {
+      "evidence_id": "readme.conventions",
+      "text": "## Quy ước\n- Dữ liệu có đến hết 29/08/2026.\n- **Phí phục vụ**: đơn ngồi phòng lạnh (không huỷ, không ghi nợ) có thêm dòng hàng \"Phí phục vụ\": phí phục vụ phòng lạnh của đơn, tính theo tiền món, đã ghi sẵn thành tiền.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Bia Tiger lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Special lon: 1 thùng = 24 lon\n  - Coca-Cola lon: 1 thùng = 24 lon\n  - Bia Tiger Bạc lon: 1 thùng = 24 lon\n  - Nước suối: 1 thùng = 24 chai\n  - Bia Heineken lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Lager chai: 1 két = 20 chai\n  - 7Up lon: 1 thùng = 24 lon"
+    }
+  ],
+  "survey_results": [],
+  "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.8",
+      "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.10",
+      "text": "## 10. Từ ngữ\n| Từ | Nghĩa |\n|---|---|\n| Đơn vị cơ bản, đơn vị lớn | mỗi mặt hàng có một **đơn vị cơ bản** (đơn vị nhỏ nhất shop đếm) và có thể có **đơn vị lớn**. Hệ số quy đổi khác nhau theo shop và theo mặt hàng, luôn đọc ở bảng quy đổi hoặc README của shop; đơn vị không có dòng quy đổi nào là đơn vị cơ bản, hệ số 1 |"
+    }
+  ]
+}

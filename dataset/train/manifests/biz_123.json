@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "business_id": "biz_123",
+  "tables": [
+    {
+      "table_role": "sales_records",
+      "source_files": [
+        "pos.sqlite"
+      ],
+      "columns": {
+        "chi_tiet_don.TriGia": "thành tiền của dòng (đã trừ giảm giá dòng)",
+        "chi_tiet_don.SLQuyDoi": "số lượng đã đổi ra đơn vị cơ bản",
+        "don_hang.MaCaLam": "mã ca bán hàng",
+        "don_hang.MaKhuyenMai": "mã khuyến mãi áp cho đơn",
+        "don_hang.TongThanhToan": "số khách phải trả cho cả đơn",
+        "chi_tiet_don.GiaVonLucBan": "giá vốn một đơn vị bán",
+        "thanh_toan.SoTienThu": "số tiền trả lần đó"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "unit_conversions",
+      "source_files": [
+        "pos.sqlite"
+      ],
+      "columns": {
+        "don_vi_sp": "hệ số quy đổi đơn vị"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "pos.sqlite"
+      ],
+      "columns": {
+        "the_kho.TonCuoi": "tồn sau lần nhập/bán/trả đó, theo đơn vị cơ bản",
+        "the_kho.KieuChungTu": "loại chứng từ gốc của dòng thẻ kho",
+        "the_kho.MaChungTu": "số chứng từ gốc của dòng thẻ kho"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "purchase_lines",
+      "source_files": [
+        "pos.sqlite"
+      ],
+      "columns": {
+        "chi_tiet_nhap.DonGiaNhap": "giá nhập một đơn vị, theo đơn vị nhập của dòng",
+        "phieu_nhap.TongGiaTriNhap": "tổng tiền của cả phiếu nhập"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "table_role": "price_history",
+      "source_files": [
+        "pos.sqlite"
+      ],
+      "columns": {
+        "lich_su_gia.GiaBanLe": "giá bán lẻ theo đơn vị cơ bản",
+        "lich_su_gia.NgayApDung": "ngày bắt đầu áp dụng giá bán"
+      },
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "28/06/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": []
+}
