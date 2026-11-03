@@ -1,54 +1,80 @@
-"""Quy đổi cụm thời gian tương đối từ `as_of_date` (theo rulebook mẫu: tuần Thứ Hai-Chủ Nhật)."""
+"""Compatibility helpers around the shared Vietnamese time parser."""
 from __future__ import annotations
 
 import re
 
 import pandas as pd
 
+from app.tools.viet_time import (
+    TimeSpec,
+    availability,
+    effective,
+    in_shift,
+    normalize as normalize_time_query,
+    parse_cell_date,
+    parse_time_of_day,
+    resolve,
+)
 
-def resolve_period(question_norm: str, as_of) -> tuple[pd.Timestamp, pd.Timestamp] | None:
-    """question_norm: câu hỏi đã `norm()`. Trả (đầu, cuối) hoặc None nếu không nhận ra / cần abstain."""
-    t = pd.Timestamp(as_of).normalize()
-    qn = question_norm
-    if "cung ky" in qn or "so voi" in qn:           # so sánh kỳ: chưa xử lý
+
+def resolve_time(question: str, as_of, calendar=None) -> TimeSpec:
+    """Resolve the question's full time semantics against its per-question as-of date."""
+    if calendar is not None and "date" in calendar.columns:
+        calendar = calendar.copy()
+        calendar["date"] = pd.to_datetime(calendar["date"].map(parse_cell_date), errors="coerce")
+        if "lunar_leap" in calendar.columns:
+            calendar["lunar_leap"] = calendar["lunar_leap"].map(
+                lambda value: value.strip().casefold() in {"1", "true", "yes"}
+                if isinstance(value, str) else bool(value)
+            )
+    spec = resolve(question, pd.Timestamp(as_of).date(), cal=calendar)
+    qn = normalize_time_query(question)
+    if re.search(r"\b(so voi|so sanh|cung ky)\b", qn) and spec.baseline() is None:
+        spec.flags.append("comparison_period_unresolved")
+    return spec
+
+
+def _simple_main_period(spec: TimeSpec):
+    main = spec.main()
+    if (len(main) != 1 or spec.baseline() is not None or spec.series or spec.stock
+            or spec.shift or spec.needs_data or spec.flags):
         return None
-    monday = t - pd.Timedelta(days=t.weekday())
-    if re.search(r"tuan (roi|truoc|qua)", qn):
-        return monday - pd.Timedelta(days=7), monday - pd.Timedelta(days=1)
-    if "tuan nay" in qn:
-        return monday, t
-    if re.search(r"thang (roi|truoc|qua)", qn):
-        first = t.replace(day=1)
-        return (first - pd.offsets.MonthBegin(1)), first - pd.Timedelta(days=1)
-    if "thang nay" in qn:
-        return t.replace(day=1), t
-    if "hom qua" in qn:
-        return t - pd.Timedelta(days=1), t - pd.Timedelta(days=1)
-    if "hom nay" in qn:
-        return t, t
-    if re.search(r"nam (ngoai|truoc|roi)", qn):
-        return pd.Timestamp(t.year - 1, 1, 1), pd.Timestamp(t.year - 1, 12, 31)
-    if "nam nay" in qn:
-        return pd.Timestamp(t.year, 1, 1), t
-    if "quy nay" in qn:
-        return pd.Timestamp(t.year, 3 * ((t.month - 1) // 3) + 1, 1), t
-    return None
+    return main[0]
 
 
-# cụm đã bỏ dấu -> nhãn hiển thị; thứ tự quan trọng (cụm dài trước)
-_PHRASES = [("tuan truoc", "tuần trước"), ("tuan roi", "tuần rồi"), ("tuan qua", "tuần qua"), ("tuan nay", "tuần này"),
-            ("thang truoc", "tháng trước"), ("thang roi", "tháng rồi"), ("thang qua", "tháng qua"),
-            ("thang nay", "tháng này"), ("hom qua", "hôm qua"), ("hom nay", "hôm nay"), ("nam ngoai", "năm ngoái"),
-            ("nam truoc", "năm trước"), ("nam roi", "năm rồi"), ("nam nay", "năm nay"), ("quy nay", "quý này")]
-
-
-def describe_period(question_norm: str, as_of) -> str | None:
-    """Một dòng gợi ý khoảng thời gian cho prompt, vd '"tuần trước" = 2026-08-17 đến 2026-08-23'. None nếu không nhận ra."""
-    period = resolve_period(question_norm, as_of)
+def resolve_period(question: str, as_of, calendar=None) -> tuple[pd.Timestamp, pd.Timestamp] | None:
+    """Return one unambiguous inclusive interval for consumers that need a simple period."""
+    period = _simple_main_period(resolve_time(question, as_of, calendar))
     if period is None:
         return None
-    phrase = next((label for key, label in _PHRASES if key in question_norm), None)
-    if phrase is None:
+    return pd.Timestamp(period.start), pd.Timestamp(period.end)
+
+
+def describe_period(question: str, as_of, calendar=None) -> str | None:
+    """Format the resolved periods, comparisons, and uncertainty as a prompt hint."""
+    spec = resolve_time(question, as_of, calendar)
+    if not spec.periods and not spec.flags and not spec.needs_data and not spec.shift:
         return None
-    start, end = period
-    return f'"{phrase}" = {start:%Y-%m-%d} đến {end:%Y-%m-%d} (tuần tính Thứ Hai đến Chủ Nhật)'
+
+    if len(spec.periods) == 1 and not spec.flags and not spec.needs_data and not spec.shift:
+        period = spec.periods[0]
+        label = period.label.split(" (", 1)[0]
+        suffix = " (tuần tính Thứ Hai đến Chủ Nhật)" if "tuần" in label else ""
+        return (f'"{label}" = {period.start:%Y-%m-%d} đến '
+                f'{period.end:%Y-%m-%d}{suffix}')
+
+    lines = []
+    for period in spec.periods:
+        role = "Kỳ so sánh" if period.role == "baseline" else "Kỳ chính"
+        lines.append(f"- {role} ({period.label}): {period.start:%Y-%m-%d} đến {period.end:%Y-%m-%d}")
+    if spec.series:
+        lines.append("- Kết quả cần giữ thứ tự chuỗi thời gian.")
+    if spec.stock:
+        lines.append(f"- Đây là câu hỏi trạng thái tồn tại đến hết ngày {spec.stock_date}.")
+    if spec.shift:
+        lines.append(f"- Lọc theo ca {spec.shift}.")
+    if spec.needs_data:
+        lines.append(f"- Cần thêm dữ liệu để xác định: {', '.join(spec.needs_data)}.")
+    if spec.flags:
+        lines.append(f"- Cần thận trọng với diễn giải: {'; '.join(spec.flags)}.")
+    return "\n".join(lines)

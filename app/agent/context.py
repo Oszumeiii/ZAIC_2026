@@ -7,7 +7,6 @@ from app.agent.exemplars import ExemplarBank
 from app.config import Config
 from app.ingestion.dataset import Business, Split
 from app.ingestion.profiling import merge_same_schema, profile_min, profile_text
-from app.text import norm
 from app.tools.grounding import ValueIndex, format_hits
 from app.tools.timeutil import describe_period
 
@@ -47,9 +46,9 @@ class ContextBuilder:
         parts = []
         if self.cfg.use_hints:
             lines = []
-            period = describe_period(norm(question), as_of)
+            period = describe_period(question, as_of, biz.cache["merged"].get("calendar"))
             if period:
-                lines.append(f"- Khoảng thời gian: {period}")
+                lines.append(period if "\n" in period else f"- Khoảng thời gian: {period}")
             if "value_index" not in biz.cache:
                 biz.cache["value_index"] = ValueIndex(tables)
             lines += format_hits(biz.cache["value_index"].ground(question))

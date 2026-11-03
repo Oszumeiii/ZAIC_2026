@@ -51,7 +51,8 @@ app/                    Mã chạy khi nộp bài (image Docker chỉ chứa th�
                         splitting.py (chia business fit/holdout)
   llm/                  base.py, gemini.py, hf_local.py, vllm_local.py; create_backend chọn backend theo cấu hình
   agent/                prompts.py, context.py, solver.py, cache.py, pipeline.py, exemplars.py (kho few-shot)
-  tools/                sandbox.py, results.py, timeutil.py, grounding.py (khớp giá trị), rules.py
+  tools/                sandbox.py, results.py, timeutil.py (adapter), viet_time.py (phân tích thời gian/ngày),
+                        grounding.py (khớp giá trị), rules.py
 evaluation/             Chỉ dùng khi phát triển: scoring.py (tính PA), run_eval.py (chạy và chấm trên train)
 training/               Chỉ dùng khi phát triển: export_sft.py (dữ liệu SFT), build_exemplars.py (kho few-shot)
 notebooks/              kaggle_run.ipynb (cấu hình mỏng, gọi vào app)
@@ -155,6 +156,13 @@ mô hình lỗi liên tiếp, gợi ý tất định, kho few-shot, ngưỡng đ
 bài nộp, chấm PA, xuất dữ liệu SFT.
 
 ## 7. Trạng thái xác minh và giới hạn
+
+`as_of_date` được xử lý theo từng câu hỏi qua `app/tools/viet_time.py`: bộ phân tích tạo các kỳ
+bao gồm cả ngày đầu/cuối, kỳ so sánh, cờ mơ hồ và thông tin ca làm. Context đưa các kỳ và cảnh báo
+vào prompt; luật tất định chỉ dùng một kỳ chính không mơ hồ, còn các trường hợp phức tạp được chuyển
+sang LLM. Khi thực thi code, `parse_cell_date`, `parse_time_of_day` và `in_shift` có sẵn để xử lý dữ
+liệu ngày/giờ bẩn. Parser không thay thế rulebook: khi thiếu dữ liệu (ví dụ năm của dd/mm hoặc lịch
+âm-dương), cần dùng metadata tương ứng hoặc không suy đoán.
 
 | Thành phần | Trạng thái |
 |---|---|
