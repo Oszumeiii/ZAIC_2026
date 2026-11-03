@@ -153,8 +153,3 @@ Giới hạn của thiết kế:
   mã sinh ra trong tiến trình hoặc container tách biệt.
 - Chưa có bước kiểm chứng ngữ nghĩa độc lập giữa câu hỏi và kết quả (xem phần phương pháp ở mục 1).
 
-## 8. Quy ước phát triển
-
-- Tên định danh (biến, hàm, tệp, thư mục) bằng tiếng Anh; chú thích và thông điệp hiển thị bằng tiếng Việt.
-- Kiểm tra quy ước đặt tên tại gốc monorepo: `python3 tools/check_naming.py tmp/datamate_agent`.
-- Mã chỉ phục vụ phát triển đặt ngoài `app/` để không đi vào image nộp bài.
