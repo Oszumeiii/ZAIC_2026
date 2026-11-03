@@ -1,4 +1,3062 @@
 {
+  "source_inventory": {
+    "files": {
+      "DanhSachQuyDoi.xlsx": "9446644c5e207599c027e7714a06e118307568bb5d06a2f66246f6d500a6b22e",
+      "DonHang_ChiTiet.xlsx": "eba63ea1f9a684e0064a18d1728d2848761db398520464177daf5fe4c11aa7e1"
+    },
+    "objects": [
+      {
+        "source_file": "DanhSachQuyDoi.xlsx",
+        "source_object": "Sheet1",
+        "header_row_number": 1,
+        "header_status": "heuristic_header",
+        "row_count": 77,
+        "columns": [
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Coca Cola 330ml",
+              "Tương ớt Chinsu 250g",
+              "Mì 3 Miền tôm hùm",
+              "Sữa tươi Vinamilk 180ml",
+              "Tã Bobby M 32 miếng"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 59,
+            "distinct_lower_bound": 59
+          },
+          {
+            "source_name": "Đơn vị quy đổi",
+            "position": 2,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "thùng",
+              "thùng",
+              "lốc",
+              "lốc",
+              "lốc"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Tỉ lệ quy đổi",
+            "position": 3,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "20",
+              "5",
+              "12",
+              "20",
+              "72"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          },
+          {
+            "source_name": "Đơn vị cơ bản",
+            "position": 4,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "vỉ",
+              "gói",
+              "hộp",
+              "lon",
+              "chai"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 11,
+            "distinct_lower_bound": 11
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "04.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2753,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1655,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD000162",
+              "ORD000112",
+              "ORD000003",
+              "ORD000014",
+              "ORD000563"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1655,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "04/04/2025",
+              "02/04/2025",
+              "02/04/2025",
+              "02/04/2025",
+              "12/04/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1655,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1655,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 208,
+            "distinct_lower_bound": 208
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Gạo ST25",
+              "Mì Omachi sườn hầm",
+              "Nước mắm Nam Ngư 750ml",
+              "Mì 3 Miền tôm hùm",
+              "Dầu ăn Tường An 1L"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1 gói",
+              "1",
+              "1 lon",
+              "2"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 64,
+            "distinct_lower_bound": 64
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "12,000",
+              "6,000",
+              "22,000",
+              "12000",
+              "9000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 121,
+            "distinct_lower_bound": 121
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "18,000",
+              "385000",
+              "9000",
+              "36,000",
+              "4500"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 287,
+            "distinct_lower_bound": 287
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "kg",
+              "vỉ",
+              "kg",
+              "lon",
+              "chai"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "05.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2846,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1720,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD001184",
+              "ORD001200",
+              "ORD001771",
+              "ORD001106",
+              "ORD001103"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1720,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "06/05/2025",
+              "01/05/2025",
+              "03/05/2025",
+              "15/05/2025",
+              "29/05/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1720,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1720,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 211,
+            "distinct_lower_bound": 211
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bánh Oreo 133g",
+              "Thuốc lá Vinataba",
+              "Kem đánh răng P/S 180g",
+              "Bia Tiger 330ml",
+              "Trứng gà so"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "5",
+              "2 gói",
+              "1",
+              "2 thùng",
+              "2"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 66,
+            "distinct_lower_bound": 66
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "10,000",
+              "10,000",
+              "30000",
+              "9000",
+              "32000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 125,
+            "distinct_lower_bound": 125
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1320000",
+              "15,000",
+              "10,000",
+              "9,000",
+              "30000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 276,
+            "distinct_lower_bound": 276
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "lon",
+              "hộp",
+              "chai",
+              "chai",
+              "chai"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "06.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2635,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1564,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD002691",
+              "ORD002299",
+              "ORD002493",
+              "ORD002273",
+              "ORD002229"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1564,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "02/06/2025",
+              "10/06/2025",
+              "01/06/2025",
+              "15/06/2025",
+              "06/06/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1564,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1564,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 207,
+            "distinct_lower_bound": 207
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Giấy vệ sinh Pulppy 10 cuộn",
+              "Kẹo cao su Doublemint",
+              "Bột giặt OMO 3kg",
+              "Thuốc lá Vinataba",
+              "Red Bull 250ml"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "10 chai",
+              "4 chai",
+              "1",
+              "1",
+              "2"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 69,
+            "distinct_lower_bound": 69
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "360000",
+              "8500",
+              "38000",
+              "30000",
+              "8,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 137,
+            "distinct_lower_bound": 137
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "32,000",
+              "32,000",
+              "18000",
+              "32,500",
+              "165,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 282,
+            "distinct_lower_bound": 282
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "kg",
+              "gói",
+              "gói",
+              "lon"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "07.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2786,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1680,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD003578",
+              "ORD003850",
+              "ORD003427",
+              "ORD003299",
+              "ORD003371"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1680,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "04/07/2025",
+              "02/07/2025",
+              "14/07/2025",
+              "23/07/2025",
+              "01/07/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1680,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1680,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 214,
+            "distinct_lower_bound": 214
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Gạo ST25",
+              "Mì Omachi sườn hầm",
+              "Yakult 65ml",
+              "Dầu ăn Tường An 1L",
+              "Nước mắm Nam Ngư 750ml"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1 hộp",
+              "3 chai",
+              "1",
+              "5 lon",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 68,
+            "distinct_lower_bound": 68
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "55,000",
+              "60000",
+              "120000",
+              "10000",
+              "8000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 140,
+            "distinct_lower_bound": 140
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "6,000",
+              "195000",
+              "6,000",
+              "15000",
+              "40000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 314,
+            "distinct_lower_bound": 314
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "chai",
+              "thùng",
+              "kg",
+              "cục",
+              "hộp"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "08.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2918,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1783,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD004495",
+              "ORD005004",
+              "ORD004412",
+              "ORD005123",
+              "ORD004974"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1783,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "16/08/2025",
+              "16/08/2025",
+              "07/08/2025",
+              "04/08/2025",
+              "01/08/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1783,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1783,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 211,
+            "distinct_lower_bound": 211
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Mì 3 Miền tôm hùm",
+              "Bia Tiger 330ml",
+              "Gạo thơm Jasmine",
+              "Đường Biên Hòa 1kg",
+              "Sữa chua Vinamilk có đường"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "5",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 71,
+            "distinct_lower_bound": 71
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "8400",
+              "15,000",
+              "115000",
+              "165000",
+              "15000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 140,
+            "distinct_lower_bound": 140
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "22,000",
+              "20000",
+              "260000",
+              "30,000",
+              "15000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 319,
+            "distinct_lower_bound": 319
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "gói",
+              "lốc",
+              "kg",
+              "chai"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "09.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2744,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1616,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD005564",
+              "ORD006290",
+              "ORD005598",
+              "ORD005540",
+              "ORD005559"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1616,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "02/09/2025",
+              "07/09/2025",
+              "20/09/2025",
+              "01/09/2025",
+              "01/09/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1616,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1616,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 210,
+            "distinct_lower_bound": 210
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Mì 3 Miền tôm hùm",
+              "Sữa tươi Vinamilk 180ml",
+              "Muối I-ốt 500g",
+              "Bia Heineken 330ml",
+              "Mì Hảo Hảo tôm chua cay"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1 chai",
+              "1 lon",
+              "1 quả",
+              "3 chai",
+              "1 gói"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 71,
+            "distinct_lower_bound": 71
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "32,000",
+              "52000",
+              "4000",
+              "22000",
+              "8400"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 137,
+            "distinct_lower_bound": 137
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "115000",
+              "38,000",
+              "100,000",
+              "89,500",
+              "10,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 320,
+            "distinct_lower_bound": 320
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "chai",
+              "gói",
+              "chai",
+              "gói",
+              "kg"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "10.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2940,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1796,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD006665",
+              "ORD006666",
+              "ORD007175",
+              "ORD007189",
+              "ORD006669"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1796,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "02/10/2025",
+              "07/10/2025",
+              "08/10/2025",
+              "05/10/2025",
+              "03/10/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1796,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1796,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 204,
+            "distinct_lower_bound": 204
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Dầu ăn Simply 2L",
+              "Trà xanh 0 độ 455ml",
+              "Xúc xích Vissan 5 cây",
+              "Thuốc lá Vinataba",
+              "Sữa tươi Vinamilk 180ml"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "2",
+              "2",
+              "1",
+              "2 kg",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 72,
+            "distinct_lower_bound": 72
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "10000",
+              "20000",
+              "31200",
+              "10,500",
+              "4,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 142,
+            "distinct_lower_bound": 142
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "20,000",
+              "20000",
+              "12000",
+              "32,000",
+              "40000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 344,
+            "distinct_lower_bound": 344
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "lon",
+              "lon",
+              "lon",
+              "lon"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "11.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2881,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1698,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD007865",
+              "ORD008070",
+              "ORD007860",
+              "ORD008001",
+              "ORD007849"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1698,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "12/11/2025",
+              "06/11/2025",
+              "06/11/2025",
+              "02/11/2025",
+              "21/11/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1698,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1698,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 210,
+            "distinct_lower_bound": 210
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cá hộp 3 Cô Gái 155g",
+              "Kem đánh răng P/S 180g",
+              "Mì Hảo Hảo tôm chua cay",
+              "Trà xanh 0 độ 455ml",
+              "Nhang Quảng Trí bó"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1 gói",
+              "1",
+              "2",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 70,
+            "distinct_lower_bound": 70
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "25000",
+              "12000",
+              "20,000",
+              "6000",
+              "26,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 138,
+            "distinct_lower_bound": 138
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "12500",
+              "40,000",
+              "13000",
+              "4,500",
+              "52,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 325,
+            "distinct_lower_bound": 325
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "hộp",
+              "chai",
+              "gói",
+              "chai",
+              "lốc"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "12.2025",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2851,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1743,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD009130",
+              "ORD009587",
+              "ORD009300",
+              "ORD009995",
+              "ORD009592"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1743,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "01/12/2025",
+              "01/12/2025",
+              "03/12/2025",
+              "15/12/2025",
+              "27/12/2025"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1743,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "hàng trả về",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1743,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 214,
+            "distinct_lower_bound": 214
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bia Heineken 330ml",
+              "Gạo ST25",
+              "Nhang Quảng Trí bó",
+              "Sữa tươi Vinamilk 180ml",
+              "Nhang Quảng Trí bó"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "3",
+              "1 chai",
+              "1",
+              "1",
+              "1 gói"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 70,
+            "distinct_lower_bound": 70
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "26000",
+              "360,000",
+              "20,000",
+              "6,500",
+              "23,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 138,
+            "distinct_lower_bound": 138
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "380,000",
+              "18000",
+              "13,000",
+              "30,000",
+              "4,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 321,
+            "distinct_lower_bound": 321
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "gói",
+              "chai",
+              "quả",
+              "lốc"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "01.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2936,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1729,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD010288",
+              "ORD010172",
+              "ORD010165",
+              "ORD010454",
+              "ORD010201"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1729,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "01/01/2026",
+              "15/01/2026",
+              "16/01/2026",
+              "15/01/2026",
+              "07/01/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1729,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã lấy",
+              "hàng trả về",
+              "hàng trả về"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1729,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 211,
+            "distinct_lower_bound": 211
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Dầu ăn Simply 2L",
+              "Tương ớt Chinsu 250g",
+              "Giấy vệ sinh Pulppy 10 cuộn",
+              "Thuốc lá Jet",
+              "Bia Tiger 330ml"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "2 lốc",
+              "2",
+              "10 chai",
+              "2 gói",
+              "2 gói"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 73,
+            "distinct_lower_bound": 73
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "40000",
+              "30,000",
+              "22000",
+              "26,000",
+              "4,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 155,
+            "distinct_lower_bound": 155
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "8000",
+              "346,000",
+              "4000",
+              "13,500",
+              "40,500"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 353,
+            "distinct_lower_bound": 353
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "hộp",
+              "chai",
+              "gói",
+              "gói",
+              "gói"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "02.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 4734,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 2862,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD012547",
+              "ORD012671",
+              "ORD011963",
+              "ORD012677",
+              "ORD011397"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2862,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "02/02/2026",
+              "11/02/2026",
+              "10/02/2026",
+              "09/02/2026",
+              "01/02/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 28,
+            "distinct_lower_bound": 28
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2862,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "đã lấy",
+              "Thành công"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2862,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 220,
+            "distinct_lower_bound": 220
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Coca Cola 330ml",
+              "Trứng gà so",
+              "Trà xanh 0 độ 455ml",
+              "Tương ớt Chinsu 250g",
+              "Mì 3 Miền tôm hùm"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "4",
+              "3",
+              "1",
+              "2",
+              "1 chai"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 81,
+            "distinct_lower_bound": 81
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "21,000",
+              "18,000",
+              "6,500",
+              "26000",
+              "44000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 169,
+            "distinct_lower_bound": 169
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "10000",
+              "20,000",
+              "44000",
+              "17,000",
+              "12000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 393,
+            "distinct_lower_bound": 393
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "kg",
+              "gói",
+              "kg",
+              "chai",
+              "lon"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "03.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2903,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1728,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD013316",
+              "ORD013180",
+              "ORD013181",
+              "ORD013221",
+              "ORD013989"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1728,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "13/03/2026",
+              "15/03/2026",
+              "01/03/2026",
+              "16/03/2026",
+              "01/03/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1728,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Đã hủy đơn"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1728,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 212,
+            "distinct_lower_bound": 212
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Red Bull 250ml",
+              "Bia Sài Gòn Special 330ml",
+              "Gạo thơm Jasmine",
+              "Dầu ăn Simply 2L",
+              "Bột ngọt Ajinomoto 400g"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1 chai",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 67,
+            "distinct_lower_bound": 67
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "12000",
+              "4500",
+              "10000",
+              "31500",
+              "10,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 142,
+            "distinct_lower_bound": 142
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "20,000",
+              "22000",
+              "6000",
+              "4,500",
+              "36000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 340,
+            "distinct_lower_bound": 340
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "gói",
+              "lon",
+              "gói",
+              "gói"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "04.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 3003,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1838,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD014354",
+              "ORD015512",
+              "ORD014668",
+              "ORD015238",
+              "ORD014391"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1838,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "01/04/2026",
+              "22/04/2026",
+              "15/04/2026",
+              "02/04/2026",
+              "30/04/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1838,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1838,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 208,
+            "distinct_lower_bound": 208
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Phở Vifon bò",
+              "Bia Sài Gòn Special 330ml",
+              "Sữa chua Vinamilk có đường",
+              "Nước lau sàn Sunlight 1L",
+              "Nước rửa chén Sunlight 750g"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1 lốc",
+              "3",
+              "4",
+              "3",
+              "1"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 67,
+            "distinct_lower_bound": 67
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "30,000",
+              "30,000",
+              "25000",
+              "5,200",
+              "26,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 143,
+            "distinct_lower_bound": 143
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "6000",
+              "18000",
+              "18,000",
+              "10500",
+              "4,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 338,
+            "distinct_lower_bound": 338
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "thùng",
+              "lon",
+              "kg",
+              "lon",
+              "chai"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "05.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2854,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1711,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD015690",
+              "ORD015755",
+              "ORD016459",
+              "ORD015522",
+              "ORD015591"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1711,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "04/05/2026",
+              "01/05/2026",
+              "04/05/2026",
+              "02/05/2026",
+              "23/05/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 31,
+            "distinct_lower_bound": 31
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1711,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1711,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 209,
+            "distinct_lower_bound": 209
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Trứng gà so",
+              "Sting dâu 330ml",
+              "Trứng gà so",
+              "Nước mắm Nam Ngư 750ml",
+              "Nước mắm Nam Ngư 750ml"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1 chai",
+              "1 chai",
+              "2 chai"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 69,
+            "distinct_lower_bound": 69
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "26000",
+              "20,000",
+              "4,500",
+              "264000",
+              "15000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 155,
+            "distinct_lower_bound": 155
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "12000",
+              "55,000",
+              "112000",
+              "8,400",
+              "20000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 340,
+            "distinct_lower_bound": 340
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "gói",
+              "chai",
+              "gói",
+              "gói",
+              "kg"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "06.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 2758,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 1660,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD016938",
+              "ORD017523",
+              "ORD016779",
+              "ORD017681",
+              "ORD017594"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 1660,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "05/06/2026",
+              "15/06/2026",
+              "01/06/2026",
+              "01/06/2026",
+              "04/06/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 30,
+            "distinct_lower_bound": 30
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1660,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1660,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 209,
+            "distinct_lower_bound": 209
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Gạo thơm Jasmine",
+              "Dầu ăn Tường An 1L",
+              "Snack Lay's vị tự nhiên 56g",
+              "Phở Vifon bò",
+              "Hạt nêm Knorr 400g"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1 hộp",
+              "2",
+              "1",
+              "2"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 64,
+            "distinct_lower_bound": 64
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "25000",
+              "10500",
+              "4,000",
+              "4,000",
+              "32000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 157,
+            "distinct_lower_bound": 157
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "24000",
+              "230,000",
+              "20,800",
+              "25000",
+              "27,500"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 349,
+            "distinct_lower_bound": 349
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "hộp",
+              "gói",
+              "lốc",
+              "lon",
+              "vỉ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DonHang_ChiTiet.xlsx",
+        "source_object": "07.2026",
+        "header_row_number": 3,
+        "header_status": "heuristic_header",
+        "row_count": 992,
+        "columns": [
+          {
+            "source_name": "Mã đơn hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 618,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ORD017800",
+              "ORD017761",
+              "ORD017882",
+              "ORD017876",
+              "ORD017786"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 374,
+            "distinct_lower_bound": 374
+          },
+          {
+            "source_name": "Ngày đặt hàng",
+            "position": 2,
+            "source_type": null,
+            "null_count": 618,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "01/07/2026",
+              "01/07/2026",
+              "02/07/2026",
+              "02/07/2026",
+              "07/07/2026"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 9,
+            "distinct_lower_bound": 9
+          },
+          {
+            "source_name": "Trạng thái đơn hàng",
+            "position": 3,
+            "source_type": null,
+            "null_count": 618,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công",
+              "Thành công"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Tên khách hàng",
+            "position": 4,
+            "source_type": null,
+            "null_count": 618,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 146,
+            "distinct_lower_bound": 146
+          },
+          {
+            "source_name": "Tên sản phẩm",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Sữa đặc Ông Thọ 380g",
+              "Bột ngọt Ajinomoto 400g",
+              "Nước rửa chén Sunlight 750g",
+              "Đậu phộng rang muối 200g",
+              "Bánh Chocopie 12 cái"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Số lượng sản phẩm",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "5",
+              "1 gói",
+              "1 gói",
+              "1 chai",
+              "4 vỉ"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 55,
+            "distinct_lower_bound": 55
+          },
+          {
+            "source_name": "Giá sản phẩm",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "33,500",
+              "10500",
+              "6,000",
+              "11000",
+              "44,000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 111,
+            "distinct_lower_bound": 111
+          },
+          {
+            "source_name": "Tổng tiền",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "205000",
+              "30,000",
+              "10500",
+              "32,500",
+              "142000"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 232,
+            "distinct_lower_bound": 232
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "lon",
+              "lon",
+              "lon",
+              "gói",
+              "gói"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 16,
+            "distinct_lower_bound": 16
+          }
+        ],
+        "relationships": []
+      }
+    ]
+  },
   "business_id": "biz_103",
   "file_inventory": [
     "DanhSachQuyDoi.xlsx",
@@ -22,11 +3080,116 @@
       "text": "## Quy ước\n- Dữ liệu có đến hết 09/07/2026.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DanhSachQuyDoi.xlsx`."
     }
   ],
-  "survey_results": [],
+  "survey_results": [
+    {
+      "evidence_id": "profile:DanhSachQuyDoi.xlsx::Sheet1",
+      "text": "{\"source_file\": \"DanhSachQuyDoi.xlsx\", \"source_object\": \"Sheet1\", \"header_row_number\": 1, \"header_status\": \"heuristic_header\", \"row_count\": 77, \"columns\": [{\"source_name\": \"Tên sản phẩm\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Coca Cola 330ml\", \"Tương ớt Chinsu 250g\", \"Mì 3 Miền tôm hùm\", \"Sữa tươi Vinamilk 180ml\", \"Tã Bobby M 32 miếng\"], \"observed_types\": [\"str\"], \"distinct_count\": 59, \"distinct_lower_bound\": 59}, {\"source_name\": \"Đơn vị quy đổi\", \"position\": 2, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"thùng\", \"thùng\", \"lốc\", \"lốc\", \"lốc\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Tỉ lệ quy đổi\", \"position\": 3, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"20\", \"5\", \"12\", \"20\", \"72\"], \"observed_types\": [\"int\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}, {\"source_name\": \"Đơn vị cơ bản\", \"position\": 4, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"vỉ\", \"gói\", \"hộp\", \"lon\", \"chai\"], \"observed_types\": [\"str\"], \"distinct_count\": 11, \"distinct_lower_bound\": 11}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::04.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"04.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2753, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1655, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD000162\", \"ORD000112\", \"ORD000003\", \"ORD000014\", \"ORD000563\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1655, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"04/04/2025\", \"02/04/2025\", \"02/04/2025\", \"02/04/2025\", \"12/04/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1655, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1655, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 208, \"distinct_lower_bound\": 208}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Gạo ST25\", \"Mì Omachi sườn hầm\", \"Nước mắm Nam Ngư 750ml\", \"Mì 3 Miền tôm hùm\", \"Dầu ăn Tường An 1L\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1\", \"1 gói\", \"1\", \"1 lon\", \"2\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 64, \"distinct_lower_bound\": 64}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"12,000\", \"6,000\", \"22,000\", \"12000\", \"9000\"], \"observed_types\": [\"str\"], \"distinct_count\": 121, \"distinct_lower_bound\": 121}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"18,000\", \"385000\", \"9000\", \"36,000\", \"4500\"], \"observed_types\": [\"str\"], \"distinct_count\": 287, \"distinct_lower_bound\": 287}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"kg\", \"vỉ\", \"kg\", \"lon\", \"chai\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::05.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"05.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2846, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1720, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD001184\", \"ORD001200\", \"ORD001771\", \"ORD001106\", \"ORD001103\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1720, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"06/05/2025\", \"01/05/2025\", \"03/05/2025\", \"15/05/2025\", \"29/05/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1720, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1720, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 211, \"distinct_lower_bound\": 211}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bánh Oreo 133g\", \"Thuốc lá Vinataba\", \"Kem đánh răng P/S 180g\", \"Bia Tiger 330ml\", \"Trứng gà so\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"5\", \"2 gói\", \"1\", \"2 thùng\", \"2\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 66, \"distinct_lower_bound\": 66}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"10,000\", \"10,000\", \"30000\", \"9000\", \"32000\"], \"observed_types\": [\"str\"], \"distinct_count\": 125, \"distinct_lower_bound\": 125}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1320000\", \"15,000\", \"10,000\", \"9,000\", \"30000\"], \"observed_types\": [\"str\"], \"distinct_count\": 276, \"distinct_lower_bound\": 276}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"lon\", \"hộp\", \"chai\", \"chai\", \"chai\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::06.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"06.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2635, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1564, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD002691\", \"ORD002299\", \"ORD002493\", \"ORD002273\", \"ORD002229\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1564, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"02/06/2025\", \"10/06/2025\", \"01/06/2025\", \"15/06/2025\", \"06/06/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1564, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1564, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 207, \"distinct_lower_bound\": 207}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Giấy vệ sinh Pulppy 10 cuộn\", \"Kẹo cao su Doublemint\", \"Bột giặt OMO 3kg\", \"Thuốc lá Vinataba\", \"Red Bull 250ml\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"10 chai\", \"4 chai\", \"1\", \"1\", \"2\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 69, \"distinct_lower_bound\": 69}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"360000\", \"8500\", \"38000\", \"30000\", \"8,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 137, \"distinct_lower_bound\": 137}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"32,000\", \"32,000\", \"18000\", \"32,500\", \"165,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 282, \"distinct_lower_bound\": 282}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"kg\", \"gói\", \"gói\", \"lon\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::07.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"07.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2786, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1680, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD003578\", \"ORD003850\", \"ORD003427\", \"ORD003299\", \"ORD003371\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1680, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"04/07/2025\", \"02/07/2025\", \"14/07/2025\", \"23/07/2025\", \"01/07/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1680, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1680, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 214, \"distinct_lower_bound\": 214}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Gạo ST25\", \"Mì Omachi sườn hầm\", \"Yakult 65ml\", \"Dầu ăn Tường An 1L\", \"Nước mắm Nam Ngư 750ml\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1 hộp\", \"3 chai\", \"1\", \"5 lon\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 68, \"distinct_lower_bound\": 68}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"55,000\", \"60000\", \"120000\", \"10000\", \"8000\"], \"observed_types\": [\"str\"], \"distinct_count\": 140, \"distinct_lower_bound\": 140}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"6,000\", \"195000\", \"6,000\", \"15000\", \"40000\"], \"observed_types\": [\"str\"], \"distinct_count\": 314, \"distinct_lower_bound\": 314}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"chai\", \"thùng\", \"kg\", \"cục\", \"hộp\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::08.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"08.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2918, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1783, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD004495\", \"ORD005004\", \"ORD004412\", \"ORD005123\", \"ORD004974\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1783, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"16/08/2025\", \"16/08/2025\", \"07/08/2025\", \"04/08/2025\", \"01/08/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1783, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1783, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 211, \"distinct_lower_bound\": 211}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Mì 3 Miền tôm hùm\", \"Bia Tiger 330ml\", \"Gạo thơm Jasmine\", \"Đường Biên Hòa 1kg\", \"Sữa chua Vinamilk có đường\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1\", \"5\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 71, \"distinct_lower_bound\": 71}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"8400\", \"15,000\", \"115000\", \"165000\", \"15000\"], \"observed_types\": [\"str\"], \"distinct_count\": 140, \"distinct_lower_bound\": 140}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"22,000\", \"20000\", \"260000\", \"30,000\", \"15000\"], \"observed_types\": [\"str\"], \"distinct_count\": 319, \"distinct_lower_bound\": 319}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"gói\", \"lốc\", \"kg\", \"chai\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::09.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"09.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2744, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1616, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD005564\", \"ORD006290\", \"ORD005598\", \"ORD005540\", \"ORD005559\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1616, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"02/09/2025\", \"07/09/2025\", \"20/09/2025\", \"01/09/2025\", \"01/09/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1616, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1616, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 210, \"distinct_lower_bound\": 210}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Mì 3 Miền tôm hùm\", \"Sữa tươi Vinamilk 180ml\", \"Muối I-ốt 500g\", \"Bia Heineken 330ml\", \"Mì Hảo Hảo tôm chua cay\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1 chai\", \"1 lon\", \"1 quả\", \"3 chai\", \"1 gói\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 71, \"distinct_lower_bound\": 71}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"32,000\", \"52000\", \"4000\", \"22000\", \"8400\"], \"observed_types\": [\"str\"], \"distinct_count\": 137, \"distinct_lower_bound\": 137}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"115000\", \"38,000\", \"100,000\", \"89,500\", \"10,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 320, \"distinct_lower_bound\": 320}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"chai\", \"gói\", \"chai\", \"gói\", \"kg\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::10.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"10.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2940, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1796, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD006665\", \"ORD006666\", \"ORD007175\", \"ORD007189\", \"ORD006669\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1796, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"02/10/2025\", \"07/10/2025\", \"08/10/2025\", \"05/10/2025\", \"03/10/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1796, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1796, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 204, \"distinct_lower_bound\": 204}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Dầu ăn Simply 2L\", \"Trà xanh 0 độ 455ml\", \"Xúc xích Vissan 5 cây\", \"Thuốc lá Vinataba\", \"Sữa tươi Vinamilk 180ml\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"2\", \"2\", \"1\", \"2 kg\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 72, \"distinct_lower_bound\": 72}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"10000\", \"20000\", \"31200\", \"10,500\", \"4,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 142, \"distinct_lower_bound\": 142}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"20,000\", \"20000\", \"12000\", \"32,000\", \"40000\"], \"observed_types\": [\"str\"], \"distinct_count\": 344, \"distinct_lower_bound\": 344}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"lon\", \"lon\", \"lon\", \"lon\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::11.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"11.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2881, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1698, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD007865\", \"ORD008070\", \"ORD007860\", \"ORD008001\", \"ORD007849\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1698, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"12/11/2025\", \"06/11/2025\", \"06/11/2025\", \"02/11/2025\", \"21/11/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1698, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1698, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 210, \"distinct_lower_bound\": 210}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cá hộp 3 Cô Gái 155g\", \"Kem đánh răng P/S 180g\", \"Mì Hảo Hảo tôm chua cay\", \"Trà xanh 0 độ 455ml\", \"Nhang Quảng Trí bó\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1 gói\", \"1\", \"2\", \"1\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 70, \"distinct_lower_bound\": 70}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"25000\", \"12000\", \"20,000\", \"6000\", \"26,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 138, \"distinct_lower_bound\": 138}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"12500\", \"40,000\", \"13000\", \"4,500\", \"52,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 325, \"distinct_lower_bound\": 325}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"hộp\", \"chai\", \"gói\", \"chai\", \"lốc\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::12.2025",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"12.2025\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2851, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1743, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD009130\", \"ORD009587\", \"ORD009300\", \"ORD009995\", \"ORD009592\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1743, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"01/12/2025\", \"01/12/2025\", \"03/12/2025\", \"15/12/2025\", \"27/12/2025\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1743, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"hàng trả về\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1743, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 214, \"distinct_lower_bound\": 214}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bia Heineken 330ml\", \"Gạo ST25\", \"Nhang Quảng Trí bó\", \"Sữa tươi Vinamilk 180ml\", \"Nhang Quảng Trí bó\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"3\", \"1 chai\", \"1\", \"1\", \"1 gói\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 70, \"distinct_lower_bound\": 70}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"26000\", \"360,000\", \"20,000\", \"6,500\", \"23,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 138, \"distinct_lower_bound\": 138}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"380,000\", \"18000\", \"13,000\", \"30,000\", \"4,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 321, \"distinct_lower_bound\": 321}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"gói\", \"chai\", \"quả\", \"lốc\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::01.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"01.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2936, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1729, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD010288\", \"ORD010172\", \"ORD010165\", \"ORD010454\", \"ORD010201\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1729, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"01/01/2026\", \"15/01/2026\", \"16/01/2026\", \"15/01/2026\", \"07/01/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1729, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã lấy\", \"hàng trả về\", \"hàng trả về\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1729, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 211, \"distinct_lower_bound\": 211}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Dầu ăn Simply 2L\", \"Tương ớt Chinsu 250g\", \"Giấy vệ sinh Pulppy 10 cuộn\", \"Thuốc lá Jet\", \"Bia Tiger 330ml\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"2 lốc\", \"2\", \"10 chai\", \"2 gói\", \"2 gói\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 73, \"distinct_lower_bound\": 73}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"40000\", \"30,000\", \"22000\", \"26,000\", \"4,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 155, \"distinct_lower_bound\": 155}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"8000\", \"346,000\", \"4000\", \"13,500\", \"40,500\"], \"observed_types\": [\"str\"], \"distinct_count\": 353, \"distinct_lower_bound\": 353}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"hộp\", \"chai\", \"gói\", \"gói\", \"gói\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::02.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"02.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 4734, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 2862, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD012547\", \"ORD012671\", \"ORD011963\", \"ORD012677\", \"ORD011397\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 2862, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"02/02/2026\", \"11/02/2026\", \"10/02/2026\", \"09/02/2026\", \"01/02/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 28, \"distinct_lower_bound\": 28}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 2862, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"đã lấy\", \"Thành công\"], \"observed_types\": [\"str\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 2862, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 220, \"distinct_lower_bound\": 220}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Coca Cola 330ml\", \"Trứng gà so\", \"Trà xanh 0 độ 455ml\", \"Tương ớt Chinsu 250g\", \"Mì 3 Miền tôm hùm\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"4\", \"3\", \"1\", \"2\", \"1 chai\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 81, \"distinct_lower_bound\": 81}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"21,000\", \"18,000\", \"6,500\", \"26000\", \"44000\"], \"observed_types\": [\"str\"], \"distinct_count\": 169, \"distinct_lower_bound\": 169}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"10000\", \"20,000\", \"44000\", \"17,000\", \"12000\"], \"observed_types\": [\"str\"], \"distinct_count\": 393, \"distinct_lower_bound\": 393}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"kg\", \"gói\", \"kg\", \"chai\", \"lon\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::03.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"03.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2903, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1728, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD013316\", \"ORD013180\", \"ORD013181\", \"ORD013221\", \"ORD013989\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1728, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"13/03/2026\", \"15/03/2026\", \"01/03/2026\", \"16/03/2026\", \"01/03/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1728, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\", \"Đã hủy đơn\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1728, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 212, \"distinct_lower_bound\": 212}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Red Bull 250ml\", \"Bia Sài Gòn Special 330ml\", \"Gạo thơm Jasmine\", \"Dầu ăn Simply 2L\", \"Bột ngọt Ajinomoto 400g\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1 chai\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 67, \"distinct_lower_bound\": 67}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"12000\", \"4500\", \"10000\", \"31500\", \"10,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 142, \"distinct_lower_bound\": 142}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"20,000\", \"22000\", \"6000\", \"4,500\", \"36000\"], \"observed_types\": [\"str\"], \"distinct_count\": 340, \"distinct_lower_bound\": 340}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"gói\", \"lon\", \"gói\", \"gói\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::04.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"04.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 3003, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1838, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD014354\", \"ORD015512\", \"ORD014668\", \"ORD015238\", \"ORD014391\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1838, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"01/04/2026\", \"22/04/2026\", \"15/04/2026\", \"02/04/2026\", \"30/04/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1838, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1838, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 208, \"distinct_lower_bound\": 208}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Phở Vifon bò\", \"Bia Sài Gòn Special 330ml\", \"Sữa chua Vinamilk có đường\", \"Nước lau sàn Sunlight 1L\", \"Nước rửa chén Sunlight 750g\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1 lốc\", \"3\", \"4\", \"3\", \"1\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 67, \"distinct_lower_bound\": 67}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"30,000\", \"30,000\", \"25000\", \"5,200\", \"26,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 143, \"distinct_lower_bound\": 143}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"6000\", \"18000\", \"18,000\", \"10500\", \"4,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 338, \"distinct_lower_bound\": 338}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"thùng\", \"lon\", \"kg\", \"lon\", \"chai\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::05.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"05.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2854, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1711, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD015690\", \"ORD015755\", \"ORD016459\", \"ORD015522\", \"ORD015591\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1711, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"04/05/2026\", \"01/05/2026\", \"04/05/2026\", \"02/05/2026\", \"23/05/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 31, \"distinct_lower_bound\": 31}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1711, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1711, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 209, \"distinct_lower_bound\": 209}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Trứng gà so\", \"Sting dâu 330ml\", \"Trứng gà so\", \"Nước mắm Nam Ngư 750ml\", \"Nước mắm Nam Ngư 750ml\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1 chai\", \"1 chai\", \"2 chai\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 69, \"distinct_lower_bound\": 69}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"26000\", \"20,000\", \"4,500\", \"264000\", \"15000\"], \"observed_types\": [\"str\"], \"distinct_count\": 155, \"distinct_lower_bound\": 155}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"12000\", \"55,000\", \"112000\", \"8,400\", \"20000\"], \"observed_types\": [\"str\"], \"distinct_count\": 340, \"distinct_lower_bound\": 340}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"gói\", \"chai\", \"gói\", \"gói\", \"kg\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::06.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"06.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 2758, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 1660, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD016938\", \"ORD017523\", \"ORD016779\", \"ORD017681\", \"ORD017594\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 1660, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"05/06/2026\", \"15/06/2026\", \"01/06/2026\", \"01/06/2026\", \"04/06/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 30, \"distinct_lower_bound\": 30}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 1660, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 1660, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 209, \"distinct_lower_bound\": 209}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Gạo thơm Jasmine\", \"Dầu ăn Tường An 1L\", \"Snack Lay's vị tự nhiên 56g\", \"Phở Vifon bò\", \"Hạt nêm Knorr 400g\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1\", \"1 hộp\", \"2\", \"1\", \"2\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 64, \"distinct_lower_bound\": 64}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"25000\", \"10500\", \"4,000\", \"4,000\", \"32000\"], \"observed_types\": [\"str\"], \"distinct_count\": 157, \"distinct_lower_bound\": 157}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"24000\", \"230,000\", \"20,800\", \"25000\", \"27,500\"], \"observed_types\": [\"str\"], \"distinct_count\": 349, \"distinct_lower_bound\": 349}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"hộp\", \"gói\", \"lốc\", \"lon\", \"vỉ\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:DonHang_ChiTiet.xlsx::07.2026",
+      "text": "{\"source_file\": \"DonHang_ChiTiet.xlsx\", \"source_object\": \"07.2026\", \"header_row_number\": 3, \"header_status\": \"heuristic_header\", \"row_count\": 992, \"columns\": [{\"source_name\": \"Mã đơn hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 618, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ORD017800\", \"ORD017761\", \"ORD017882\", \"ORD017876\", \"ORD017786\"], \"observed_types\": [\"str\"], \"distinct_count\": 374, \"distinct_lower_bound\": 374}, {\"source_name\": \"Ngày đặt hàng\", \"position\": 2, \"source_type\": null, \"null_count\": 618, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"01/07/2026\", \"01/07/2026\", \"02/07/2026\", \"02/07/2026\", \"07/07/2026\"], \"observed_types\": [\"str\"], \"distinct_count\": 9, \"distinct_lower_bound\": 9}, {\"source_name\": \"Trạng thái đơn hàng\", \"position\": 3, \"source_type\": null, \"null_count\": 618, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\", \"Thành công\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Tên khách hàng\", \"position\": 4, \"source_type\": null, \"null_count\": 618, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 146, \"distinct_lower_bound\": 146}, {\"source_name\": \"Tên sản phẩm\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Sữa đặc Ông Thọ 380g\", \"Bột ngọt Ajinomoto 400g\", \"Nước rửa chén Sunlight 750g\", \"Đậu phộng rang muối 200g\", \"Bánh Chocopie 12 cái\"], \"observed_types\": [\"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Số lượng sản phẩm\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"5\", \"1 gói\", \"1 gói\", \"1 chai\", \"4 vỉ\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 55, \"distinct_lower_bound\": 55}, {\"source_name\": \"Giá sản phẩm\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"33,500\", \"10500\", \"6,000\", \"11000\", \"44,000\"], \"observed_types\": [\"str\"], \"distinct_count\": 111, \"distinct_lower_bound\": 111}, {\"source_name\": \"Tổng tiền\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"205000\", \"30,000\", \"10500\", \"32,500\", \"142000\"], \"observed_types\": [\"str\"], \"distinct_count\": 232, \"distinct_lower_bound\": 232}, {\"source_name\": \"Đơn vị tính\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"lon\", \"lon\", \"lon\", \"gói\", \"gói\"], \"observed_types\": [\"str\"], \"distinct_count\": 16, \"distinct_lower_bound\": 16}], \"relationships\": []}"
+    }
+  ],
   "rulebook_sections": [
+    {
+      "evidence_id": "rulebook.preamble",
+      "text": "# DataMate — Rulebook (bộ train)\n\nMọi đáp án chuẩn tính theo các luật dưới đây. Câu hỏi nói khác thì làm theo câu hỏi; không nói thì áp luật mặc định ở đây.\n\n**Hôm nay** của mỗi câu là trường `as_of_date` trong `questions.jsonl`. Mọi cách nói tương đối tính theo ngày này. File có thể có bản ghi ngày sau hôm nay: với câu hỏi theo hôm nay, những bản ghi đó coi như chưa xảy ra. Riêng trạng thái huỷ, trả hàng của đơn lấy theo trạng thái ghi trên đơn, kể cả khi phiếu trả ghi ngày sau hôm nay."
+    },
+    {
+      "evidence_id": "rulebook.1",
+      "text": "## 1. Đơn hàng và doanh thu\n| Luật | Mặc định |\n|---|---|\n| Đơn tính vào doanh thu | đơn **không huỷ** và **không trả hàng**. Đơn có trả hàng, **kể cả chỉ trả một phần**, là đơn trả hàng: bỏ **cả đơn**. Đơn đang giao vẫn tính |\n| Bán được bao nhiêu tiền, thu về bao nhiêu tiền | là **doanh thu** theo mục này, không phải tiền khách đã trả |\n| Đơn thuộc kỳ nào | theo **ngày đặt**, không theo ngày giao hay ngày thu tiền |\n| Đơn bị huỷ | đơn có trạng thái huỷ. Đơn trả hàng **không** phải đơn huỷ |\n| Số đơn | chỉ tính đơn không huỷ, không trả; cả khi đếm số đơn có một mặt hàng, số đơn của một khách. **Khách đã mua** trong kỳ là khách có ít nhất một đơn như vậy trong kỳ |\n| Doanh thu một đơn | tổng **thành tiền các dòng hàng** (đã trừ giảm giá trên từng dòng). **Không** trừ giảm giá trên cả đơn (khuyến mãi theo tổng tiền đơn, voucher shop), **không** cộng thuế VAT, **không** gồm phí giao hàng. **Tiền hàng**, **tiền bán** của đơn bán cùng nghĩa với doanh thu |\n| Doanh thu theo hình thức thanh toán | theo hình thức **ghi trên đơn**, không theo lần trả nợ về sau: đơn ghi nợ không tính vào tiền mặt hay chuyển khoản. Đơn **COD** là hình thức riêng, không tính vào tiền mặt |\n| Doanh thu theo nhóm khách | nhóm theo cột nhóm khách. Đơn không ghi khách (khách vãng lai) **không thuộc nhóm nào**, kể cả nhóm `lẻ`. Tỉ trọng của nhóm chia cho doanh thu **cả shop** cùng kỳ, tính cả đơn vãng lai |\n| Tỉ lệ đơn huỷ trong kỳ | phần trăm đơn huỷ trong **mọi đơn đặt trong kỳ** (theo ngày đặt, **mọi trạng thái**: cả đơn huỷ, đơn trả, đơn đang giao). Làm tròn 2 chữ số thập phân. |\n| Phần trăm thay đổi, tăng trưởng | so với **kỳ trước**; giảm thì ra **số âm** |\n| Chênh lệch, hơn / kém, tăng / giảm bao nhiêu (số, không phải %) | **kỳ hỏi − kỳ so**: ít hơn ra số âm, giữ đơn vị của số đo |"
+    },
+    {
+      "evidence_id": "rulebook.2",
+      "text": "## 2. Thời gian\n| Cách nói | Nghĩa |\n|---|---|\n| Ngày X, hôm nay, hôm qua | hỏi số phát sinh (doanh thu, số đơn, giá bán…): chỉ **trong** ngày đó |\n| Đến hết ngày X, tính đến hôm nay | hỏi số còn lại (còn nợ, còn tồn, còn hàng…): **tình trạng lúc hết ngày đó**, tính mọi phát sinh **từ đầu dữ liệu** đến hết ngày đó; không phải kỳ **tháng này** |\n| Từ X đến Y, nhóm X–Y | gồm cả X và Y |\n| N ngày gần nhất | N ngày liền nhau **kể cả hôm nay**, ngày cuối là hôm nay |\n| Quá N, hơn N, trên N, dưới N | **không** gồm N. **Từ N trở lên** thì gồm N |\n| Tuần | bắt đầu **thứ Hai**. **Tuần này**: từ thứ Hai của tuần chứa hôm nay đến hết hôm nay. **Tuần trước, tuần rồi**: **cả** tuần liền trước, thứ Hai đến Chủ nhật |\n| Tháng M/Y | cả tháng, từ ngày 1 đến hết ngày cuối tháng |\n| Tháng này | từ ngày 1 đến **hết hôm nay**. So với tháng trước thì lấy **cùng số ngày** của tháng trước: từ ngày 1 đến hết ngày trùng số với hôm nay; tháng trước không có ngày đó thì đến hết tháng trước |\n| Từ đầu năm, từ đầu năm tới nay | từ 01/01 của năm nay đến **hết hôm nay** |\n| Tháng M, quý Q không ghi năm | của **năm nay** nếu không sau hôm nay; sau hôm nay thì của **năm trước**. Quý theo dương lịch, mỗi quý 3 tháng tính từ tháng 1 |\n| Tết năm Y, dịp Tết, mùa Tết | từ ngày dương của **23 tháng Chạp** (năm âm Y − 1) đến **hết** ngày dương của **mùng 10 tháng Giêng** (năm âm Y). **So với trước Tết** = cùng số ngày ngay trước 23 tháng Chạp. Tra lịch âm trong `calendar.csv` cùng thư mục. |\n| Ca sáng, ca chiều | theo giờ tạo đơn: ca sáng 06:00–13:59, ca chiều 14:00–21:59. So ca chiều với ca sáng: mốc là **ca sáng** |"
+    },
+    {
+      "evidence_id": "rulebook.3",
+      "text": "## 3. Xếp hạng\n| Luật | Mặc định |\n|---|---|\n| Mặt hàng | **Món**, hàng, sản phẩm cùng nghĩa với mặt hàng. Dòng **Phí phục vụ** không phải mặt hàng: không xếp hạng, không đếm. Vẫn tính vào doanh thu, kể cả mẫu số tỉ trọng nhóm hàng |\n| Nhóm hàng | theo cột nhóm hàng, đúng tên nhóm câu hỏi nêu; không gộp nhóm khác tên dù tên gần nhau |\n| Bán chạy | theo **số lượng quy về đơn vị cơ bản**, không theo số dòng hay số tiền; bỏ đơn huỷ, trả. Mặt hàng khác đơn vị cơ bản vẫn xếp chung theo số đó. **Bán nhiều nhất**, **bán được nhiều nhất**, **hot nhất** cùng nghĩa với **bán chạy nhất** |\n| Bán được bao nhiêu <đơn vị> | cộng số lượng quy về đơn vị cơ bản của các mặt hàng **có đơn vị cơ bản là <đơn vị>**, kể cả dòng bán theo đơn vị lớn; mặt hàng có đơn vị cơ bản khác không tính |\n| Hàng lời nhất | theo **tổng lãi gộp** của mặt hàng (§5) |\n| Xác định khách | Shop có mã khách: mỗi **mã khách** là một khách, hai mã trùng tên là hai khách; đơn không ghi mã (**khách lẻ**) không phải khách, không đếm và không xếp hạng. Shop không có mã khách: xác định khách theo **tên ghi trên đơn**: hai tên **chỉ khác cách viết** là cùng một khách, hai tên **khác chữ hoặc khác số** là hai khách; đơn **khách lẻ** không tính. Khách mua **nhiều tiền** nhất xếp theo doanh thu (§1). |\n| Nhân viên bán giỏi nhất | theo **doanh thu** (§1) của nhân viên trong kỳ, không theo số đơn |\n| Giá trị trung bình một đơn | làm tròn về đồng, nửa đồng làm tròn lên |"
+    },
+    {
+      "evidence_id": "rulebook.4",
+      "text": "## 4. Công nợ\n| Luật | Mặc định |\n|---|---|\n| Đơn được tính vào nợ | đơn không huỷ; **đơn trả hàng vẫn tính** nếu còn nợ |\n| Nợ một đơn tại ngày X | phần chưa trả của **tổng đơn** (số khách phải trả cả đơn: đã trừ giảm giá trên cả đơn, **gồm phí giao**), tính các khoản trả đến hết ngày X. Còn nợ = cộng các đơn **còn nợ > 0** |\n| Nợ theo khách | xác định khách như §3. Đơn **khách lẻ** vẫn tính vào **tổng nợ**, nhưng không có dòng trong bảng nợ theo khách |\n| Đơn COD, đơn bán qua sàn TMĐT | **không phải khách nợ**, kể cả khi chưa thu được tiền; bỏ khỏi công nợ và tuổi nợ |\n| Tuổi nợ | số ngày tính từ **ngày đặt**, không từ hạn thanh toán. Đơn đặt hôm nay có tuổi nợ **0** ngày, đơn đặt hôm qua **1** ngày |\n| Nợ thêm, trả nợ, thu nợ trong kỳ | chỉ đơn **ghi nợ**, không huỷ. **Nợ thêm**: phần tổng đơn chưa trả ngay trong ngày mua, của đơn đặt trong kỳ. **Trả nợ / thu nợ**: các khoản trả **sau ngày mua** có ngày trả trong kỳ, của mọi đơn ghi nợ (kể cả đơn kỳ trước, đơn trả hàng). Tiền trả cùng ngày mua là trả lúc mua. Hoàn tiền trả hàng không trừ |"
+    },
+    {
+      "evidence_id": "rulebook.5",
+      "text": "## 5. Kho, nhập hàng, giá vốn\n| Luật | Mặc định |\n|---|---|\n| Tiền nhập hàng trong kỳ | tổng tiền các phiếu nhập có **ngày phiếu** trong kỳ, bỏ phiếu huỷ. Phiếu, dòng ghi **nhập đầu kỳ** là phiếu nhập như mọi phiếu khác: có ngày phiếu trong kỳ thì tính. Nhà cung cấp nhập nhiều nhất = nhà cung cấp có tiền nhập cao nhất |\n| Nhập trừ bán, chênh nhập và bán | phần **bán** là số lượng của đơn tính vào doanh thu (§1), quy về cùng đơn vị với phần nhập |\n| Giá nhập bình quân một mặt hàng trong tháng | bình quân **theo số lượng nhập**, **không** phải trung bình cộng các mức giá nhập; theo đơn vị nhập, các phiếu có ngày phiếu trong tháng, bỏ phiếu huỷ |\n| Tồn theo đơn vị lớn | list 2 số `[số đơn vị lớn nguyên, số đơn vị cơ bản lẻ]`; không có phần lẻ thì số thứ hai là 0. Hàng nhiều cấp: phần lẻ vẫn tính bằng đơn vị cơ bản, không đổi sang đơn vị ở giữa |\n| Giá trị hàng tồn kho | tồn **hết hôm nay** của từng mặt hàng nhân **giá vốn một đơn vị cơ bản ghi trong danh mục hàng**; chỉ tính hàng còn tồn |\n| Mặt hàng hết hàng cuối ngày | mặt hàng **mua về để bán** (không tính món pha chế, chế biến tại chỗ) mà lúc **hết ngày** đó tồn kho bằng 0; hết giữa ngày nhưng nhập thêm trước cuối ngày thì không tính |\n| Mặt hàng không bán được trong kỳ (ế) | mặt hàng cửa hàng **đã từng bán trước kỳ** (có trong đơn §1, không tính đơn huỷ, đơn trả) nhưng trong kỳ không có đơn nào (§1) mua mặt hàng đó |\n| Giá bán X ngày D | đơn giá ghi trên dòng bán X của các đơn đặt ngày D, cho **một đơn vị cơ bản**, **trước** chiết khấu dòng; tính cả dòng của đơn huỷ, đơn trả |\n| Hiệu ứng tăng giá | lần tăng giá = ngày D giá mới cao hơn giá liền trước (theo bảng giá); tăng lên cùng một giá nhiều lần thì lấy lần đầu. So số lượng (đơn vị cơ bản) **N ngày kể từ D** (tính cả D) với **N ngày ngay trước D**; cả hai khoảng bỏ đơn huỷ và đơn trả |\n| Giá vốn | bình quân gia quyền theo lô nhập, tại thời điểm bán; không theo FIFO, không theo giá nhập lần cuối |\n| Lãi gộp | doanh thu (§1) trừ giá vốn của hàng đã bán. Giá vốn của mỗi dòng bán bằng số lượng nhân với **giá vốn ghi trên dòng bán** (cho **một đơn vị bán**, cùng đơn vị với đơn giá). Không tự tính lại giá vốn từ phiếu nhập hay từ lô |\n| Lãi ròng một tháng | lãi gộp của tháng trừ **mọi khoản** ghi trong sổ chi phí của tháng đó, kể cả sửa chữa, thay thiết bị |"
+    },
+    {
+      "evidence_id": "rulebook.6",
+      "text": "## 6. Theo ngành\nLuật riêng của từng ngành, dùng cùng với luật chung ở các mục trên. Khi luật ngành khác luật chung, theo **luật ngành**.\n\n### Cà phê\n| Luật | Mặc định |\n|---|---|\n| Size M, size L | món có tên kết thúc bằng `(M)` hoặc `(L)`, **không phân biệt hoa thường** |\n\n### Nhà thuốc\n| Luật | Mặc định |\n|---|---|\n| Thuốc kê đơn | **Thuốc kê đơn** = sản phẩm ghi kê đơn trong danh mục thuốc; mọi sản phẩm còn lại là **hàng không kê đơn**. Tỉ lệ kê đơn tính theo doanh thu |\n| Hàng hết hạn trong N ngày tới | tính tại hôm nay D: lô còn tồn có hạn dùng từ D đến hết ngày D + N. **Tiền vốn** là giá trị phần **còn tồn** của lô, theo giá nhập của chính lô đó quy về đơn vị cơ bản, không theo giá vốn bình quân |\n| Doanh thu theo hoạt chất | doanh thu (§1) các thuốc có hoạt chất ghi **đúng như vậy** trong danh mục thuốc. Thuốc phối hợp nhiều hoạt chất là **một loại riêng**, không tính vào từng hoạt chất trong đó |\n| Lô gần hết hạn nhất của một thuốc | trong các lô còn tồn chưa quá hạn tại hôm nay, lô có hạn sớm nhất |\n\n### Vật liệu xây dựng\n| Luật | Mặc định |\n|---|---|\n| Giao nhiều đợt | **Số đợt giao trong tháng X** = số đợt có ngày giao trong tháng X; **mỗi đợt của mỗi đơn tính một đợt**, kể cả đợt của đơn sau đó trả hàng |"
+    },
+    {
+      "evidence_id": "rulebook.7",
+      "text": "## 7. Không trả lời được\nCâu **không trả lời được** khi dữ liệu phát hành không đủ để trả lời. Đáp án chỉ lấy từ dữ liệu phát hành, không lấy từ hiểu biết bên ngoài. Nộp `{\"type\": \"unanswerable\", \"reason\": \"…\"}`.\n- Thông tin file không ghi thì không suy ra từ cột khác, trừ khi rulebook ghi cách lấy.\n- Không có dữ liệu khác với bằng 0: kỳ nằm **hoàn toàn** ngoài khoảng ngày có dữ liệu của shop, hoặc shop không ghi loại thông tin câu hỏi cần, thì không trả lời được, không phải 0.\n- Kỳ chỉ có một phần nằm trong khoảng ngày có dữ liệu thì tính trên phần có dữ liệu.\n\nTrường `reason` không bắt buộc và không chấm tự động. Nếu có, `reason` phải là chuỗi; dòng có `reason` không phải chuỗi không đọc được và tính như bỏ trống."
+    },
     {
       "evidence_id": "rulebook.8",
       "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.9",
+      "text": "## 9. Đáp án và chấm điểm\nMỗi dòng `submission.jsonl`: `{\"id\": \"...\", \"type\": \"...\", \"answer\": ...}`. Đúng **+1**, sai **−1**, bỏ trống (`{\"type\": \"abstain\"}` hoặc không có dòng) **0**.\n\n**Mỗi type có một format duy nhất; sai format là sai.** Đáp án chỉ ghi **giá trị**: số không kèm chữ đơn vị hay ký hiệu %; tên lấy nguyên từ dữ liệu, không kèm tên cột hay nhãn nhóm. Câu hỏi nhiều số thì ghi list theo đúng thứ tự câu hỏi nêu.\n\n| type | Format | Đúng | Sai |\n|---|---|---|---|\n| number | JSON number, không đơn vị, không dấu phân cách nghìn. Tiền là số nguyên VND | `4820000`, `18.6` | `\"4,82 triệu\"`, `\"4.820.000\"`, `\"4820K\"`, `\"4820000\"` |\n| percent | JSON number là **số phần trăm**: 12,4 % ghi `12.4`, không kèm ký hiệu % | `12.4` | `\"12,4%\"`, `0.124` |\n| date | `\"YYYY-MM-DD\"`; câu hỏi theo tháng: `\"YYYY-MM\"` | `\"2026-08-15\"`, `\"2025-09\"` | `\"15/08/2026\"`, `\"tháng 9/2025\"` |\n| boolean | `true` / `false` | `true` | `\"có\"`, `1` |\n| string | tên như trong dữ liệu, đủ dấu tiếng Việt | `\"Sting dâu 330ml\"` | `\"Sting dầu 330ml\"` (sai dấu, file không có cách viết này), `[\"Sting dâu 330ml\"]` |\n| list | mảng JSON, có thứ tự; một phần tử vẫn là mảng | `[\"Cà phê sữa\"]`, `[3, 10]` | `\"Cà phê sữa, Bạc xỉu\"`, `\"3 thùng 10 chai\"` |\n| table | `{\"columns\": [...], \"rows\": [[...], ...]}`, ô số là JSON number | `{\"columns\": [\"khach_hang\", \"so_tien_no\"], \"rows\": [[\"Chị Lan\", 3200000]]}` | ô `\"3.200.000đ\"` |\n| unanswerable | `{\"type\": \"unanswerable\", \"reason\": \"...\"}` | | |\n\nĐúng format rồi mới so giá trị:\n- **Số, phần trăm:** khớp tuyệt đối. Tiền đúng từng đồng, số đếm đúng từng đơn vị, phần trăm đúng 2 chữ số thập phân. Chỉ bỏ qua sai số dấu phẩy động.\n- **Làm tròn:** tiền ra số lẻ làm tròn về đồng; trung bình của một khoản tiền cũng là tiền, làm tròn về đồng. Phần trăm và số trung bình khác làm tròn 2 chữ số thập phân, trừ khi một luật khác trong rulebook ghi khác.\n- **Chuỗi:** không phân biệt hoa thường, khoảng trắng, dấu câu. Nhận **mọi cách viết** tên có trong file của shop, hoặc **mã**. Tên khách chép kèm số điện thoại như trong file cũng được nhận. Ngoài các cách viết đó, dấu tiếng Việt phải đúng.\n- **Danh sách:** đúng cả tập và thứ tự. Top k xếp theo tiêu chí câu hỏi, giảm dần. Câu \"liệt kê\": có số đo thì số đo giảm dần, cùng số đo thì theo **mã** tăng dần; liệt kê hàng theo hạn dùng thì hạn sớm nhất của mặt hàng trước, cùng hạn thì theo mã; còn lại (chỉ lọc theo điều kiện, không có số đo) theo mã tăng dần.\n- **Bằng nhau:** hai đối tượng bằng nhau ở tiêu chí câu hỏi thì xếp theo mã tăng dần (không có mã thì theo tên). Câu hỏi một đối tượng lấy đối tượng đứng đầu theo thứ tự đó.\n- **Bảng:** mỗi dòng một đối tượng; cột **đầu** là tên đối tượng, các cột **sau** là số đo theo **đúng thứ tự câu hỏi nêu**. Cột so theo tên; tên không khớp thì so theo vị trí, nên ghi đúng thứ tự cột. Thứ tự các dòng không ảnh hưởng kết quả chấm."
     },
     {
       "evidence_id": "rulebook.10",

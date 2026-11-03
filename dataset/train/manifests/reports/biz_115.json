@@ -1,0 +1,157 @@
+{
+  "errors": [],
+  "unresolved": [
+    {
+      "topic": "header:Bảng kê phiếu giao hàng.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:Chi tiết công nợ theo hạn.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:Danh sách hàng hóa.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Vị trí",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Loại hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Mô tả sản phẩm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Định mức tồn tối thiểu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Danh sách hàng hóa.xlsx:Sheet1:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:02.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:03.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:04.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:05.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:06.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:07.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:08.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:09.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:10.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:11.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:12.2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:01.2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:02.2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:03.2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:04.2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:So_chi_tiet_ban_hang.xlsx:05.2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "coverage": {
+    "source_objects": 19,
+    "manifest_objects": 19,
+    "source_columns": 186,
+    "documented_columns": 176,
+    "unresolved_columns": 10
+  }
+}

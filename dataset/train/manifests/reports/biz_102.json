@@ -1,0 +1,107 @@
+{
+  "errors": [],
+  "unresolved": [
+    {
+      "topic": "header:DanhSachQuyDoi.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T01_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T02_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T03_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T04_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T05_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T06_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T07_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T08_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T09_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T10_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T11_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T12_2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T01_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T02_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T03_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T04_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T05_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:T06_2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "coverage": {
+    "source_objects": 19,
+    "manifest_objects": 19,
+    "source_columns": 166,
+    "documented_columns": 166,
+    "unresolved_columns": 0
+  }
+}

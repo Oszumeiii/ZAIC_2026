@@ -1,0 +1,101 @@
+{
+  "tables": [
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "don_vi_sp",
+      "table_role": "unit_conversions",
+      "columns": [
+        {
+          "source_name": "HeSoQuyDoi",
+          "semantic_name": "unit_conversion_factor",
+          "description": "Số đơn vị cơ bản trong một đơn vị của dòng",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions",
+            "profile:pos.sqlite::don_vi_sp"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ]
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "don_hang",
+      "table_role": "sales_orders",
+      "grain": "Một đơn hàng"
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "chi_tiet_don",
+      "table_role": "sales_lines",
+      "grain": "Một dòng hàng của đơn"
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "thanh_toan",
+      "table_role": "payments",
+      "grain": "Một lần thanh toán cho một đơn"
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "the_kho",
+      "table_role": "stock_movements",
+      "grain": "Một lần biến động tồn kho"
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "phieu_nhap",
+      "table_role": "purchase_orders",
+      "grain": "Một phiếu nhập"
+    },
+    {
+      "source_file": "pos.sqlite",
+      "source_object": "thong_tin_thuoc",
+      "table_role": "drug_info",
+      "columns": [
+        {
+          "source_name": "BanTheoDon",
+          "semantic_name": "prescription_required",
+          "description": "TRUE/1 là thuốc kê đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "readme:order_lines_to_orders",
+      "from": {
+        "source_file": "pos.sqlite",
+        "source_object": "chi_tiet_don",
+        "columns": [
+          "IDCuaHang",
+          "MaHoaDon"
+        ]
+      },
+      "to": {
+        "source_file": "pos.sqlite",
+        "source_object": "don_hang",
+        "columns": [
+          "IDCuaHang",
+          "MaHoaDon"
+        ]
+      },
+      "cardinality": "many_to_one",
+      "source": "readme",
+      "source_refs": [
+        "readme.bang",
+        "profile:pos.sqlite::chi_tiet_don",
+        "profile:pos.sqlite::don_hang"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "errors": [],
+  "unresolved": [
+    {
+      "topic": "header:chi_tiet_don.csv:chi_tiet_don",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:don_hang.csv:don_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:khach_hang.csv:khach_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:CCCD",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Tên công ty",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Di động",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Email",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Sinh nhật",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Người tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Tổng điểm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Loại hình khách",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Mã KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Khách hàng (tên)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Điểm hiện tại",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:MST",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Trạng thái",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:khach_hang.csv:khach_hang:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:san_pham.csv:san_pham",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Mô tả chi tiết",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Mã barcode",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Loại hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:san_pham.csv:san_pham:Mã HH Liên quan",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:thanh_toan.csv:thanh_toan",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:thanh_toan.csv:thanh_toan:Số CT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:thanh_toan.csv:thanh_toan:Ngày thu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:thanh_toan.csv:thanh_toan:Mã GD",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:thanh_toan.csv:thanh_toan:HTTT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    }
+  ],
+  "coverage": {
+    "source_objects": 5,
+    "manifest_objects": 5,
+    "source_columns": 54,
+    "documented_columns": 24,
+    "unresolved_columns": 30
+  }
+}

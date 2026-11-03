@@ -1,0 +1,377 @@
+{
+  "errors": [],
+  "unresolved": [
+    {
+      "topic": "header:BaoCaoTonKho.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachChiTietNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T01-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T02-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T03-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T04-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T05-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T06-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T07-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T08-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T09-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T10-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T11-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T12-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T01-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T02-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T03-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T04-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T05-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T06-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T07-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTiet.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTietLo.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:STT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Lô",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Số lượng (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Số lượng trả (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachKhachHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Công ty",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tổng điểm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Mã khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ghi chú KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ngày sinh",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tên khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Người tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Đối tượng KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điểm tích lũy",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điện thoại",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:MST",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Địa chỉ",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachLoHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Mã nhập hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Lô",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Hạn sử dụng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Số lượng (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachSanPham.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Loại hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tên hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tồn nhỏ nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Nhóm hàng(3 Cấp)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Vị trí kệ",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mô tả chi tiết",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Giá bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã HH Liên quan",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã vạch EAN",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachThuoc.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Hoạt chất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Thuốc kê đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    }
+  ],
+  "coverage": {
+    "source_objects": 28,
+    "manifest_objects": 28,
+    "source_columns": 281,
+    "documented_columns": 236,
+    "unresolved_columns": 45
+  }
+}

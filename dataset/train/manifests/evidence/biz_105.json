@@ -1,4 +1,3929 @@
 {
+  "source_inventory": {
+    "files": {
+      "BangGia.xlsx": "24c3658d579cc0c5046b8e04e10c32266316a7ddce40b72a665a30d8ebe8eae7",
+      "DanhMuc.xlsx": "3cc9a8e184706fe4af564600aa7c5695d90e7a2b0185d7adf1446867eb5f8586",
+      "SoBanHang_1.xlsx": "387e4151cd4dfc3dad8c7fb2c3cba91dba9403ea9c1bb15ee70e4605ecc8d335",
+      "SoBanHang_2026.xlsx": "fb1fd5da18bd4128429a6f8c8c07de13ada8f75cb79b795344daf72e86f08273",
+      "SoNhapHang.xlsx": "f462d1bb26ef9c33b647c8b2382670dd11265bc96270baf5b75907a5959680b6",
+      "TonKho.xlsx": "093fa583177476dccf4cc23ff1376cc3aa493fd365049632e2b5404269055ef9"
+    },
+    "objects": [
+      {
+        "source_file": "BangGia.xlsx",
+        "source_object": "Sheet1",
+        "header_row_number": 1,
+        "header_status": "heuristic_header",
+        "row_count": 78,
+        "columns": [
+          {
+            "source_name": "Ngày áp dụng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "2025-02-01 00:00:00",
+              "2025-02-01 00:00:00",
+              "2025-02-01 00:00:00",
+              "2025-02-01 00:00:00",
+              "2026-01-01 00:00:00"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": 29,
+            "distinct_lower_bound": 29
+          },
+          {
+            "source_name": "ten_hang",
+            "position": 2,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bánh croissant",
+              "Topping Pudding trứng",
+              "Nước ép dưa hấu (L)",
+              "Nước ép dưa hấu (M)",
+              "Nước ép cam (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 50,
+            "distinct_lower_bound": 50
+          },
+          {
+            "source_name": "Giá mới",
+            "position": 3,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "37.000đ",
+              "7.000đ",
+              "47.000đ",
+              "53.500đ",
+              "43.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 33,
+            "distinct_lower_bound": 33
+          },
+          {
+            "source_name": "Giá cũ",
+            "position": 4,
+            "source_type": null,
+            "null_count": 50,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "29.000đ",
+              "35.000đ",
+              "41.000đ",
+              "35.000đ",
+              "48.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 17,
+            "distinct_lower_bound": 17
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "DanhMuc.xlsx",
+        "source_object": "Sheet1",
+        "header_row_number": 1,
+        "header_status": "heuristic_header",
+        "row_count": 2,
+        "columns": [
+          {
+            "source_name": "Tên món",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bánh croissant",
+              "Bánh tiramisu"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 2,
+            "distinct_lower_bound": 2
+          },
+          {
+            "source_name": "Đơn vị gốc",
+            "position": 2,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "cái",
+              "cái"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 1,
+            "distinct_lower_bound": 1
+          },
+          {
+            "source_name": "ĐV nhập",
+            "position": 3,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "hộp",
+              "hộp"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 1,
+            "distinct_lower_bound": 1
+          },
+          {
+            "source_name": "Hệ số",
+            "position": 4,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "6",
+              "6"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 1,
+            "distinct_lower_bound": 1
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 02 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 6490,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cold brew (M)",
+              "Bánh tiramisu",
+              "Trà sữa ô long (M)",
+              "Cà phê sữa (M)",
+              "Bạc xỉu (L)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 10,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45.000đ",
+              "78.000đ",
+              "10.000đ",
+              "31.000đ",
+              "32k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 141,
+            "distinct_lower_bound": 141
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "51.000đ",
+              "45.000đ",
+              "45.000đ",
+              "7.000đ",
+              "12.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 38,
+            "distinct_lower_bound": 38
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-02-14 11:43:03",
+              "2025-02-03 08:01:25",
+              "2025-02-15 19:16:17",
+              "2025-02-08 15:57:57",
+              "2025-02-12 09:03:27"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD000232",
+              "ORD002623",
+              "ORD002026",
+              "ORD000819",
+              "ORD002073"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "11/02/2025",
+              "45700",
+              "25/02/2025",
+              "45702",
+              "45715"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 56,
+            "distinct_lower_bound": 56
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 03 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8139,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cà phê đen (M)",
+              "Topping Trân châu đen",
+              "Trà đào cam sả (L)",
+              "Cà phê sữa (M)",
+              "Sữa tươi trân châu đường đen (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 21,
+            "distinct_capped": false,
+            "sample": [
+              "2",
+              "1",
+              "1",
+              "1",
+              "2"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 6,
+            "distinct_lower_bound": 6
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "phần",
+              "ly",
+              "ly",
+              "cái"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "31.000đ",
+              "70.000đ",
+              "45.000đ",
+              "10.000đ",
+              "45.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 157,
+            "distinct_lower_bound": 157
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "39.000đ",
+              "35.000đ",
+              "45.000đ",
+              "12.500đ",
+              "45k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 42,
+            "distinct_lower_bound": 42
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-03-11 13:09:12",
+              "2025-03-02 09:55:42",
+              "2025-03-13 08:24:53",
+              "2025-03-05 18:12:22",
+              "2025-03-31 08:46:43"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD004219",
+              "ORD008614",
+              "ORD005990",
+              "ORD004826",
+              "ORD006046"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "08/03/2025",
+              "09/03/2025",
+              "22/03/2025",
+              "11/03/2025",
+              "23/03/2025"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 04 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 7763,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cappuccino (M)",
+              "Latte (L)",
+              "Soda chanh dây (M)",
+              "Sinh tố xoài (M)",
+              "Nước ép cam (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 14,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "2",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 6,
+            "distinct_lower_bound": 6
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45.000đ",
+              "32.000đ",
+              "45.000đ",
+              "51k",
+              "31k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 158,
+            "distinct_lower_bound": 158
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "41.000đ",
+              "12.500đ",
+              "30.500đ",
+              "39.000đ",
+              "42.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 44,
+            "distinct_lower_bound": 44
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-04-11 20:13:56",
+              "2025-04-02 10:32:59",
+              "2025-04-13 09:18:38",
+              "2025-04-05 17:58:16",
+              "2025-04-09 14:10:08"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD009214",
+              "ORD013611",
+              "ORD011018",
+              "ORD009820",
+              "ORD011070"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45755",
+              "45757",
+              "45770",
+              "45758",
+              "45771"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 05 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8072,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cà phê muối (M)",
+              "Cappuccino (L)",
+              "Topping Thạch cà phê",
+              "Cà phê đen (M)",
+              "Cà phê đen (L)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 22,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "2"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "phần",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "51.000đ",
+              "35.000đ",
+              "39.000đ",
+              "51k",
+              "45.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 166,
+            "distinct_lower_bound": 166
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "38.000đ",
+              "45.000đ",
+              "39k",
+              "7k",
+              "41.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 44,
+            "distinct_lower_bound": 44
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-05-11 08:48:36",
+              "2025-05-02 09:57:57",
+              "2025-05-12 21:08:35",
+              "2025-05-05 14:05:21",
+              "2025-05-31 15:44:28"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD013963",
+              "ORD018399",
+              "ORD015731",
+              "ORD014565",
+              "ORD015781"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45784",
+              "09/05/2025",
+              "45799",
+              "45787",
+              "24/05/2025"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 06 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8040,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Sinh tố xoài (M)",
+              "Cà phê sữa (M)",
+              "Cà phê đen (M)",
+              "Nước ép cam (M)",
+              "Ghi chú: số liệu ghi tay"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 21,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "cái"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "39.000đ",
+              "25.000đ",
+              "32.500đ",
+              "42.000đ",
+              "37.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 157,
+            "distinct_lower_bound": 157
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45.000đ",
+              "39.000đ",
+              "48k",
+              "32k",
+              "39.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 43,
+            "distinct_lower_bound": 43
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-06-10 18:49:21",
+              "2025-06-02 07:08:36",
+              "2025-06-12 08:53:24",
+              "2025-06-05 10:28:11",
+              "2025-06-30 17:05:26"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD018954",
+              "ORD023351",
+              "ORD020753",
+              "ORD019567",
+              "ORD020807"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/06/2025",
+              "45817",
+              "45829",
+              "10/06/2025",
+              "23/06/2025"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 07 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8307,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cà phê đen (M)",
+              "Trà chanh (M)",
+              "Đá xay cookie (M)",
+              "Trà sữa ô long (M)",
+              "Topping Thạch cà phê"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 23,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "126.000đ",
+              "10.000đ",
+              "39.000đ",
+              "10.000đ",
+              "45.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 168,
+            "distinct_lower_bound": 168
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "39.000đ",
+              "25.000đ",
+              "51k",
+              "35.000đ",
+              "45.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 48,
+            "distinct_lower_bound": 48
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-07-11 11:56:30",
+              "2025-07-02 10:18:21",
+              "2025-07-12 17:56:05",
+              "2025-07-05 15:40:10",
+              "2025-07-31 17:13:43"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD023892",
+              "ORD028306",
+              "ORD025695",
+              "ORD024498",
+              "ORD025750"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "08/07/2025",
+              "45847",
+              "22/07/2025",
+              "45849",
+              "45862"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 08 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8702,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cappuccino (L)",
+              "Trà đào cam sả (L)",
+              "Sữa tươi trân châu đường đen (M)",
+              "Cà phê sữa (M)",
+              "Nước ép cam (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 12,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "42.000đ",
+              "70.000đ",
+              "55.000đ",
+              "107.000đ",
+              "39.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 159,
+            "distinct_lower_bound": 159
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "47.000đ",
+              "51.000đ",
+              "53.500đ",
+              "48.000đ",
+              "51.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 44,
+            "distinct_lower_bound": 44
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-08-10 10:42:30",
+              "2025-08-02 08:03:49",
+              "2025-08-11 16:07:59",
+              "2025-08-04 20:35:22",
+              "2025-08-30 13:53:43"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD028989",
+              "ORD033392",
+              "ORD030751",
+              "ORD029575",
+              "ORD030806"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45876",
+              "08/08/2025",
+              "30/08/2025",
+              "10/08/2025",
+              "22/08/2025"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 09 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8208,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cold brew (M)",
+              "Soda chanh dây (M)",
+              "Nước ép cam (L)",
+              "Sữa tươi trân châu đường đen (M)",
+              "Bánh tiramisu"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 22,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "51.000đ",
+              "32.000đ",
+              "30.500đ",
+              "30.500đ",
+              "25k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 172,
+            "distinct_lower_bound": 172
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "39.000đ",
+              "45.000đ",
+              "47.000đ",
+              "47.000đ",
+              "51.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 45,
+            "distinct_lower_bound": 45
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-09-10 19:42:27",
+              "2025-09-02 09:12:47",
+              "2025-09-12 14:59:38",
+              "2025-09-05 15:17:36",
+              "2025-09-30 08:39:27"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD034316",
+              "ORD038727",
+              "ORD036096",
+              "ORD034911",
+              "ORD036144"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45907",
+              "09/09/2025",
+              "21/09/2025",
+              "10/09/2025",
+              "45923"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 10 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8853,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Sữa tươi trân châu đường đen (M)",
+              "Trà vải (M)",
+              "Trà sữa trân châu (L)",
+              "Trà đào cam sả (L)",
+              "Trà sữa trân châu (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 17,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "2",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "37k",
+              "39.000đ",
+              "37k",
+              "42k",
+              "45k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 174,
+            "distinct_lower_bound": 174
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "32.500đ",
+              "7.400đ",
+              "32.000đ",
+              "45.000đ",
+              "7.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 47,
+            "distinct_lower_bound": 47
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-10-10 15:38:01",
+              "2025-10-02 07:50:35",
+              "2025-10-12 08:12:57",
+              "2025-10-05 08:29:03",
+              "2025-10-30 07:01:27"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD039336",
+              "ORD043805",
+              "ORD041155",
+              "ORD039940",
+              "ORD041208"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/10/2025",
+              "08/10/2025",
+              "30/10/2025",
+              "45940",
+              "45952"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 11 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8443,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cà phê sữa (M)",
+              "Bánh croissant",
+              "Sinh tố bơ (L)",
+              "Bánh croissant",
+              "Cold brew (L)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 20,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "phần",
+              "phần",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "84.000đ",
+              "61.000đ",
+              "37k",
+              "45.000đ",
+              "74.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 166,
+            "distinct_lower_bound": 166
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "32.500đ",
+              "51.000đ",
+              "45.000đ",
+              "30.500đ",
+              "38.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 47,
+            "distinct_lower_bound": 47
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-11-10 12:11:06",
+              "2025-11-02 07:51:04",
+              "2025-11-12 08:57:49",
+              "2025-11-05 10:19:24",
+              "2025-11-30 13:22:27"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD044810",
+              "ORD049265",
+              "ORD046602",
+              "ORD045409",
+              "ORD046656"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "45968",
+              "45969",
+              "45991",
+              "10/11/2025",
+              "22/11/2025"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 12 2025",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8828,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Sinh tố xoài (M)",
+              "Bánh tiramisu",
+              "Cà phê đen (M)",
+              "Topping Trân châu đen",
+              "Trà chanh (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 26,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "phần",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "74.000đ",
+              "30k",
+              "48.000đ",
+              "42.000đ",
+              "37.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 173,
+            "distinct_lower_bound": 173
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "53.500đ",
+              "7k",
+              "25k",
+              "42.000đ",
+              "25.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 47,
+            "distinct_lower_bound": 47
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2025-12-10 19:30:39",
+              "2025-12-02 12:04:30",
+              "2025-12-12 09:11:07",
+              "2025-12-05 15:46:17",
+              "2025-12-29 20:57:42"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD050034",
+              "ORD054427",
+              "ORD051821",
+              "ORD050635",
+              "ORD051876"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/12/2025",
+              "46000",
+              "30/12/2025",
+              "10/12/2025",
+              "46013"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_1.xlsx",
+        "source_object": "Thang 01 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 9059,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Matcha latte (M)",
+              "Topping Trân châu đen",
+              "Hồng trà sữa (M)",
+              "Trà đào cam sả (L)",
+              "Bánh tiramisu"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 19,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "2",
+              "1",
+              "2",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "cái",
+              "ly",
+              "phần"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "30.500đ",
+              "25.000đ",
+              "39.000đ",
+              "25.000đ",
+              "32.500đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 161,
+            "distinct_lower_bound": 161
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 7,
+            "distinct_lower_bound": 7
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "25.000đ",
+              "32k",
+              "7.000đ",
+              "25.000đ",
+              "25k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 43,
+            "distinct_lower_bound": 43
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-01-10 08:00:04",
+              "2026-01-02 08:01:28",
+              "2026-01-11 11:20:28",
+              "2026-01-04 17:38:21",
+              "2026-01-29 14:38:04"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD055415",
+              "ORD059887",
+              "ORD057264",
+              "ORD056047",
+              "ORD057316"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/01/2026",
+              "46030",
+              "46052",
+              "09/01/2026",
+              "46044"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_2026.xlsx",
+        "source_object": "Thang 02 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 6299,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Soda chanh dây (M)",
+              "Đá xay cookie (M)",
+              "Trà chanh (M)",
+              "Đá xay cookie (M)",
+              "Trà vải (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 23,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "2",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "cái",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "7.400đ",
+              "90.000đ",
+              "49.500đ",
+              "31.000đ",
+              "25.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 161,
+            "distinct_lower_bound": 161
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "25.000đ",
+              "49.500đ",
+              "56.500đ",
+              "39.000đ",
+              "45.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 46,
+            "distinct_lower_bound": 46
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-02-09 18:00:55",
+              "2026-02-02 07:09:23",
+              "2026-02-12 07:32:21",
+              "2026-02-04 20:20:43",
+              "2026-02-07 20:10:31"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD061042",
+              "ORD063011",
+              "ORD062815",
+              "ORD061628",
+              "ORD062869"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "46060",
+              "08/02/2026",
+              "46080",
+              "09/02/2026",
+              "46081"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 56,
+            "distinct_lower_bound": 56
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_2026.xlsx",
+        "source_object": "Thang 03 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 9240,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Espresso (double)",
+              "Cà phê sữa (M)",
+              "Trà sữa ô long (L)",
+              "Topping Trân châu đen",
+              "Trà đào cam sả (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 34,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "cái",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "10.500đ",
+              "123.000đ",
+              "7.000đ",
+              "135.000đ",
+              "41.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 183,
+            "distinct_lower_bound": 183
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "35k",
+              "56.500đ",
+              "41.000đ",
+              "45.000đ",
+              "49.500đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 48,
+            "distinct_lower_bound": 48
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-03-10 07:14:20",
+              "2026-03-01 21:54:05",
+              "2026-03-11 15:46:19",
+              "2026-03-04 21:34:30",
+              "2026-03-28 17:29:12"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD064883",
+              "ORD069269",
+              "ORD066650",
+              "ORD065469",
+              "ORD066706"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/03/2026",
+              "46089",
+              "29/03/2026",
+              "46090",
+              "21/03/2026"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_2026.xlsx",
+        "source_object": "Thang 04 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 8947,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bánh croissant",
+              "Sinh tố xoài (M)",
+              "Trà vải (M)",
+              "Bạc xỉu (M)",
+              "Trà chanh (L)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 52,
+            "distinct_lower_bound": 52
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 30,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 1,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "90k",
+              "41.000đ",
+              "30.500đ",
+              "25k",
+              "32.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 178,
+            "distinct_lower_bound": 178
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã xong",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "35.000đ",
+              "37.000đ",
+              "51.000đ",
+              "45k",
+              "53.500đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 47,
+            "distinct_lower_bound": 47
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-04-10 07:17:57",
+              "2026-04-02 07:48:12",
+              "2026-04-11 14:20:07",
+              "2026-04-04 20:15:44",
+              "2026-04-28 15:49:55"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD070521",
+              "ORD074944",
+              "ORD072331",
+              "ORD071119",
+              "ORD072377"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/04/2026",
+              "46120",
+              "46141",
+              "09/04/2026",
+              "21/04/2026"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 60,
+            "distinct_lower_bound": 60
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_2026.xlsx",
+        "source_object": "Thang 05 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 9531,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Bánh croissant",
+              "Sinh tố xoài (M)",
+              "Nước ép cam (L)",
+              "Espresso (single)",
+              "Sinh tố xoài (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 19,
+            "distinct_capped": false,
+            "sample": [
+              "1",
+              "2",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 6,
+            "distinct_lower_bound": 6
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "42k",
+              "35.000đ",
+              "45.000đ",
+              "41.000đ",
+              "84.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 178,
+            "distinct_lower_bound": 178
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã lấy",
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã lấy"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 8,
+            "distinct_lower_bound": 8
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "32k",
+              "51.000đ",
+              "45k",
+              "45.000đ",
+              "41.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 48,
+            "distinct_lower_bound": 48
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-05-09 19:05:28",
+              "2026-05-02 07:59:52",
+              "2026-05-11 08:40:04",
+              "2026-05-04 21:04:37",
+              "2026-05-28 07:52:54"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD076031",
+              "ORD080482",
+              "ORD077854",
+              "ORD076638",
+              "ORD077910"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "07/05/2026",
+              "46150",
+              "28/05/2026",
+              "46151",
+              "20/05/2026"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 62,
+            "distinct_lower_bound": 62
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoBanHang_2026.xlsx",
+        "source_object": "Thang 06 2026",
+        "header_row_number": 2,
+        "header_status": "heuristic_header",
+        "row_count": 7324,
+        "columns": [
+          {
+            "source_name": "Hàng",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Trà vải (M)",
+              "Cà phê sữa (L)",
+              "Nước ép cam (M)",
+              "Trà chanh (L)",
+              "Bánh tiramisu"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 53,
+            "distinct_lower_bound": 53
+          },
+          {
+            "source_name": "so_luong",
+            "position": 2,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 22,
+            "distinct_capped": false,
+            "sample": [
+              "2",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Unit",
+            "position": 3,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "phần",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 4,
+            "distinct_lower_bound": 4
+          },
+          {
+            "source_name": "Trị giá",
+            "position": 4,
+            "source_type": null,
+            "null_count": 2,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "41.000đ",
+              "61k",
+              "45k",
+              "141k",
+              "61k"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 169,
+            "distinct_lower_bound": 169
+          },
+          {
+            "source_name": "Status",
+            "position": 5,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "đã xong",
+              "đã xong",
+              "đã lấy",
+              "đã xong",
+              "đã xong"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 10,
+            "distinct_lower_bound": 10
+          },
+          {
+            "source_name": "Giá lẻ",
+            "position": 6,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "41.000đ",
+              "42.000đ",
+              "55k",
+              "25.000đ",
+              "61.000đ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 47,
+            "distinct_lower_bound": 47
+          },
+          {
+            "source_name": "Giờ",
+            "position": 7,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "2026-06-09 21:05:10",
+              "2026-06-02 08:41:56",
+              "2026-06-11 13:04:44",
+              "2026-06-04 20:27:04",
+              "2026-06-07 16:09:32"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Mã hóa đơn",
+            "position": 8,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": true,
+            "sample": [
+              "ORD081935",
+              "ORD084288",
+              "ORD083689",
+              "ORD082512",
+              "ORD083740"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": null,
+            "distinct_lower_bound": 1000
+          },
+          {
+            "source_name": "Ngày giao dịch",
+            "position": 9,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "46179",
+              "08/06/2026",
+              "19/06/2026",
+              "46182",
+              "21/06/2026"
+            ],
+            "observed_types": [
+              "int",
+              "str"
+            ],
+            "distinct_count": 48,
+            "distinct_lower_bound": 48
+          },
+          {
+            "source_name": "Khách",
+            "position": 10,
+            "source_type": null,
+            "null_count": 3,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 258,
+            "distinct_lower_bound": 258
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "SoNhapHang.xlsx",
+        "source_object": "Sheet1",
+        "header_row_number": 1,
+        "header_status": "heuristic_header",
+        "row_count": 1373,
+        "columns": [
+          {
+            "source_name": "Số phiếu",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "PN00408",
+              "PN00052",
+              "PN00032",
+              "PN00112",
+              "PN00380"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 441,
+            "distinct_lower_bound": 441
+          },
+          {
+            "source_name": "Ngày nhập",
+            "position": 2,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "2026-01-28 00:00:00",
+              "2025-04-05 00:00:00",
+              "2026-03-15 00:00:00",
+              "2025-06-14 00:00:00",
+              "2025-09-12 00:00:00"
+            ],
+            "observed_types": [
+              "datetime"
+            ],
+            "distinct_count": 441,
+            "distinct_lower_bound": 441
+          },
+          {
+            "source_name": "Ghi chu",
+            "position": 3,
+            "source_type": null,
+            "null_count": 1323,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "nhập đầu kỳ",
+              "nhập đầu kỳ",
+              "nhập đầu kỳ",
+              "nhập đầu kỳ",
+              "nhập đầu kỳ"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 1,
+            "distinct_lower_bound": 1
+          },
+          {
+            "source_name": "Thành tiền",
+            "position": 4,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "1620000",
+              "679400",
+              "1616000",
+              "969000",
+              "742000"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 534,
+            "distinct_lower_bound": 534
+          },
+          {
+            "source_name": "Nhà cung cấp",
+            "position": 5,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cty Dương An",
+              "Cty Vũ Sơn",
+              "Cty Thân Ngọc",
+              "Cty Thân Ngọc",
+              "Cty Hoàng Bình"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 5,
+            "distinct_lower_bound": 5
+          },
+          {
+            "source_name": "Tên mặt hàng",
+            "position": 6,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cold brew (M)",
+              "Nước ép dưa hấu (L)",
+              "Cold brew (L)",
+              "Trà sữa ô long (L)",
+              "Trà sữa trân châu (L)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 50,
+            "distinct_lower_bound": 50
+          },
+          {
+            "source_name": "Giá nhập",
+            "position": 7,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "17000",
+              "8700",
+              "17000",
+              "9100",
+              "13000"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 70,
+            "distinct_lower_bound": 70
+          },
+          {
+            "source_name": "ĐVT",
+            "position": 8,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "phần",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "SL nhập",
+            "position": 9,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "86",
+              "138",
+              "238",
+              "56",
+              "103"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 131,
+            "distinct_lower_bound": 131
+          }
+        ],
+        "relationships": []
+      },
+      {
+        "source_file": "TonKho.xlsx",
+        "source_object": "Sheet1",
+        "header_row_number": 1,
+        "header_status": "heuristic_header",
+        "row_count": 50,
+        "columns": [
+          {
+            "source_name": "Hàng hóa",
+            "position": 1,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "Cà phê đen (M)",
+              "Trà vải (M)",
+              "Trà vải (L)",
+              "Bánh tiramisu",
+              "Bạc xỉu (M)"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 50,
+            "distinct_lower_bound": 50
+          },
+          {
+            "source_name": "Đơn vị tính",
+            "position": 2,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "ly",
+              "ly",
+              "ly",
+              "ly",
+              "ly"
+            ],
+            "observed_types": [
+              "str"
+            ],
+            "distinct_count": 3,
+            "distinct_lower_bound": 3
+          },
+          {
+            "source_name": "Tồn cuối",
+            "position": 3,
+            "source_type": null,
+            "null_count": 0,
+            "negative_count": 0,
+            "distinct_capped": false,
+            "sample": [
+              "24",
+              "58",
+              "105",
+              "27",
+              "8"
+            ],
+            "observed_types": [
+              "int"
+            ],
+            "distinct_count": 43,
+            "distinct_lower_bound": 43
+          }
+        ],
+        "relationships": []
+      }
+    ]
+  },
   "business_id": "biz_105",
   "file_inventory": [
     "BangGia.xlsx",
@@ -44,30 +3969,130 @@
   ],
   "survey_results": [
     {
-      "evidence_id": "profile.sales_layout",
-      "text": "SoBanHang_1.xlsx / Thang 02 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 6492=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 03 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8141=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 04 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 7765=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 05 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8074=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 06 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8042=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 07 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8309=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 08 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8704=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 09 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8210=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 10 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8855=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 11 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8445=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_1.xlsx / Thang 12 2025: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8830=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_1.xlsx / Thang 01 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9061=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 02 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 6301=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 03 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9242=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_2026.xlsx / Thang 04 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 8949=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]\nSoBanHang_2026.xlsx / Thang 05 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 9533=[{\"cell\": \"A\", \"value\": \"Ghi chú: tiền tính bằng đồng\"}]\nSoBanHang_2026.xlsx / Thang 06 2026: first non-empty row 1=[{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"D\", \"value\": \"Tiền\"}, {\"cell\": \"G\", \"value\": \"Đơn\"}]; last non-empty row 7326=[{\"cell\": \"A\", \"value\": \"Ghi chú: số liệu ghi tay\"}]"
+      "evidence_id": "profile:BangGia.xlsx::Sheet1",
+      "text": "{\"source_file\": \"BangGia.xlsx\", \"source_object\": \"Sheet1\", \"header_row_number\": 1, \"header_status\": \"heuristic_header\", \"row_count\": 78, \"columns\": [{\"source_name\": \"Ngày áp dụng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"2025-02-01 00:00:00\", \"2025-02-01 00:00:00\", \"2025-02-01 00:00:00\", \"2025-02-01 00:00:00\", \"2026-01-01 00:00:00\"], \"observed_types\": [\"datetime\"], \"distinct_count\": 29, \"distinct_lower_bound\": 29}, {\"source_name\": \"ten_hang\", \"position\": 2, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bánh croissant\", \"Topping Pudding trứng\", \"Nước ép dưa hấu (L)\", \"Nước ép dưa hấu (M)\", \"Nước ép cam (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 50, \"distinct_lower_bound\": 50}, {\"source_name\": \"Giá mới\", \"position\": 3, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"37.000đ\", \"7.000đ\", \"47.000đ\", \"53.500đ\", \"43.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 33, \"distinct_lower_bound\": 33}, {\"source_name\": \"Giá cũ\", \"position\": 4, \"source_type\": null, \"null_count\": 50, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"29.000đ\", \"35.000đ\", \"41.000đ\", \"35.000đ\", \"48.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 17, \"distinct_lower_bound\": 17}], \"relationships\": []}"
     },
     {
-      "evidence_id": "profile.sales_values",
-      "text": "SoBanHang_1.xlsx / Thang 02 2025 row 2: [{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"B\", \"value\": \"so_luong\"}, {\"cell\": \"C\", \"value\": \"Unit\"}, {\"cell\": \"D\", \"value\": \"Trị giá\"}, {\"cell\": \"E\", \"value\": \"Status\"}, {\"cell\": \"F\", \"value\": \"Giá lẻ\"}, {\"cell\": \"G\", \"value\": \"Giờ\"}, {\"cell\": \"H\", \"value\": \"Mã hóa đơn\"}, {\"cell\": \"I\", \"value\": \"Ngày giao dịch\"}]\nSoBanHang_2026.xlsx / Thang 02 2026 row 2: [{\"cell\": \"A\", \"value\": \"Hàng\"}, {\"cell\": \"B\", \"value\": \"so_luong\"}, {\"cell\": \"C\", \"value\": \"Unit\"}, {\"cell\": \"D\", \"value\": \"Trị giá\"}, {\"cell\": \"E\", \"value\": \"Status\"}, {\"cell\": \"F\", \"value\": \"Giá lẻ\"}, {\"cell\": \"G\", \"value\": \"Giờ\"}, {\"cell\": \"H\", \"value\": \"Mã hóa đơn\"}, {\"cell\": \"I\", \"value\": \"Ngày giao dịch\"}]"
+      "evidence_id": "profile:DanhMuc.xlsx::Sheet1",
+      "text": "{\"source_file\": \"DanhMuc.xlsx\", \"source_object\": \"Sheet1\", \"header_row_number\": 1, \"header_status\": \"heuristic_header\", \"row_count\": 2, \"columns\": [{\"source_name\": \"Tên món\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bánh croissant\", \"Bánh tiramisu\"], \"observed_types\": [\"str\"], \"distinct_count\": 2, \"distinct_lower_bound\": 2}, {\"source_name\": \"Đơn vị gốc\", \"position\": 2, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"cái\", \"cái\"], \"observed_types\": [\"str\"], \"distinct_count\": 1, \"distinct_lower_bound\": 1}, {\"source_name\": \"ĐV nhập\", \"position\": 3, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"hộp\", \"hộp\"], \"observed_types\": [\"str\"], \"distinct_count\": 1, \"distinct_lower_bound\": 1}, {\"source_name\": \"Hệ số\", \"position\": 4, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"6\", \"6\"], \"observed_types\": [\"int\"], \"distinct_count\": 1, \"distinct_lower_bound\": 1}], \"relationships\": []}"
     },
     {
-      "evidence_id": "profile.auxiliary_layouts",
-      "text": "DanhMuc.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Tên món\"}, {\"cell\": \"B\", \"value\": \"Đơn vị gốc\"}, {\"cell\": \"C\", \"value\": \"ĐV nhập\"}, {\"cell\": \"D\", \"value\": \"Hệ số\"}]\nTonKho.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Hàng hóa\"}, {\"cell\": \"B\", \"value\": \"Đơn vị tính\"}, {\"cell\": \"C\", \"value\": \"Tồn cuối\"}]\nSoNhapHang.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Số phiếu\"}, {\"cell\": \"B\", \"value\": \"Ngày nhập\"}, {\"cell\": \"C\", \"value\": \"Ghi chu\"}, {\"cell\": \"D\", \"value\": \"Thành tiền\"}, {\"cell\": \"E\", \"value\": \"Nhà cung cấp\"}, {\"cell\": \"F\", \"value\": \"Tên mặt hàng\"}, {\"cell\": \"G\", \"value\": \"Giá nhập\"}, {\"cell\": \"H\", \"value\": \"ĐVT\"}, {\"cell\": \"I\", \"value\": \"SL nhập\"}]\nBangGia.xlsx / Sheet1, first non-empty row 1: [{\"cell\": \"A\", \"value\": \"Ngày áp dụng\"}, {\"cell\": \"B\", \"value\": \"ten_hang\"}, {\"cell\": \"C\", \"value\": \"Giá mới\"}, {\"cell\": \"D\", \"value\": \"Giá cũ\"}]"
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 02 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 02 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 6490, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cold brew (M)\", \"Bánh tiramisu\", \"Trà sữa ô long (M)\", \"Cà phê sữa (M)\", \"Bạc xỉu (L)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 10, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45.000đ\", \"78.000đ\", \"10.000đ\", \"31.000đ\", \"32k\"], \"observed_types\": [\"str\"], \"distinct_count\": 141, \"distinct_lower_bound\": 141}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã xong\", \"đã lấy\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"51.000đ\", \"45.000đ\", \"45.000đ\", \"7.000đ\", \"12.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 38, \"distinct_lower_bound\": 38}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-02-14 11:43:03\", \"2025-02-03 08:01:25\", \"2025-02-15 19:16:17\", \"2025-02-08 15:57:57\", \"2025-02-12 09:03:27\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD000232\", \"ORD002623\", \"ORD002026\", \"ORD000819\", \"ORD002073\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"11/02/2025\", \"45700\", \"25/02/2025\", \"45702\", \"45715\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 56, \"distinct_lower_bound\": 56}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
     },
     {
-      "evidence_id": "profile.return_pair",
-      "text": "Hai dòng có cùng mã đơn ORD059865 được khảo sát:\nSoBanHang_1.xlsx / Thang 01 2026 row 7519: [{\"cell\": \"A\", \"value\": \"Cappuccino (L)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"53.500đ\"}, {\"cell\": \"E\", \"value\": \"Đổi trả\"}, {\"cell\": \"F\", \"value\": \"53.500đ\"}, {\"cell\": \"G\", \"value\": \"2026-01-27T07:12:18\"}, {\"cell\": \"H\", \"value\": \"ORD059865\"}, {\"cell\": \"I\", \"value\": \"46049\"}]\nSoBanHang_2026.xlsx / Thang 02 2026 row 3: [{\"cell\": \"A\", \"value\": \"Cappuccino (L)\"}, {\"cell\": \"B\", \"value\": \"-1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"-53.500đ\"}, {\"cell\": \"E\", \"value\": \"Đổi trả\"}, {\"cell\": \"F\", \"value\": \"53.500đ\"}, {\"cell\": \"G\", \"value\": \"2026-02-01T08:47:28\"}, {\"cell\": \"H\", \"value\": \"ORD059865\"}, {\"cell\": \"I\", \"value\": \"01/02/2026\"}]"
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 03 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 03 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8139, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cà phê đen (M)\", \"Topping Trân châu đen\", \"Trà đào cam sả (L)\", \"Cà phê sữa (M)\", \"Sữa tươi trân châu đường đen (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 21, \"distinct_capped\": false, \"sample\": [\"2\", \"1\", \"1\", \"1\", \"2\"], \"observed_types\": [\"int\"], \"distinct_count\": 6, \"distinct_lower_bound\": 6}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"phần\", \"ly\", \"ly\", \"cái\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"31.000đ\", \"70.000đ\", \"45.000đ\", \"10.000đ\", \"45.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 157, \"distinct_lower_bound\": 157}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã xong\", \"đã xong\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"39.000đ\", \"35.000đ\", \"45.000đ\", \"12.500đ\", \"45k\"], \"observed_types\": [\"str\"], \"distinct_count\": 42, \"distinct_lower_bound\": 42}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-03-11 13:09:12\", \"2025-03-02 09:55:42\", \"2025-03-13 08:24:53\", \"2025-03-05 18:12:22\", \"2025-03-31 08:46:43\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD004219\", \"ORD008614\", \"ORD005990\", \"ORD004826\", \"ORD006046\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"08/03/2025\", \"09/03/2025\", \"22/03/2025\", \"11/03/2025\", \"23/03/2025\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
     },
     {
-      "evidence_id": "profile.duplicate_pair",
-      "text": "Hai dòng của ORD081719 được xác nhận trùng toàn bộ giá trị ô; cột tên khách đã được lược khỏi nội dung chia sẻ:\nSoBanHang_2026.xlsx / Thang 06 2026 row 5: [{\"cell\": \"A\", \"value\": \"Trà đào cam sả (M)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"39.000đ\"}, {\"cell\": \"E\", \"value\": \"đã lấy\"}, {\"cell\": \"F\", \"value\": \"41k\"}, {\"cell\": \"G\", \"value\": \"2026-06-01T06:21:57\"}, {\"cell\": \"H\", \"value\": \"ORD081719\"}, {\"cell\": \"I\", \"value\": \"01/06/2026\"}]\nSoBanHang_2026.xlsx / Thang 06 2026 row 6: [{\"cell\": \"A\", \"value\": \"Trà đào cam sả (M)\"}, {\"cell\": \"B\", \"value\": \"1\"}, {\"cell\": \"C\", \"value\": \"ly\"}, {\"cell\": \"D\", \"value\": \"39.000đ\"}, {\"cell\": \"E\", \"value\": \"đã lấy\"}, {\"cell\": \"F\", \"value\": \"41k\"}, {\"cell\": \"G\", \"value\": \"2026-06-01T06:21:57\"}, {\"cell\": \"H\", \"value\": \"ORD081719\"}, {\"cell\": \"I\", \"value\": \"01/06/2026\"}]"
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 04 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 04 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 7763, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cappuccino (M)\", \"Latte (L)\", \"Soda chanh dây (M)\", \"Sinh tố xoài (M)\", \"Nước ép cam (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 14, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"2\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 6, \"distinct_lower_bound\": 6}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45.000đ\", \"32.000đ\", \"45.000đ\", \"51k\", \"31k\"], \"observed_types\": [\"str\"], \"distinct_count\": 158, \"distinct_lower_bound\": 158}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"41.000đ\", \"12.500đ\", \"30.500đ\", \"39.000đ\", \"42.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 44, \"distinct_lower_bound\": 44}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-04-11 20:13:56\", \"2025-04-02 10:32:59\", \"2025-04-13 09:18:38\", \"2025-04-05 17:58:16\", \"2025-04-09 14:10:08\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD009214\", \"ORD013611\", \"ORD011018\", \"ORD009820\", \"ORD011070\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45755\", \"45757\", \"45770\", \"45758\", \"45771\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 05 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 05 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8072, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cà phê muối (M)\", \"Cappuccino (L)\", \"Topping Thạch cà phê\", \"Cà phê đen (M)\", \"Cà phê đen (L)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 22, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"2\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"phần\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"51.000đ\", \"35.000đ\", \"39.000đ\", \"51k\", \"45.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 166, \"distinct_lower_bound\": 166}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"38.000đ\", \"45.000đ\", \"39k\", \"7k\", \"41.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 44, \"distinct_lower_bound\": 44}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-05-11 08:48:36\", \"2025-05-02 09:57:57\", \"2025-05-12 21:08:35\", \"2025-05-05 14:05:21\", \"2025-05-31 15:44:28\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD013963\", \"ORD018399\", \"ORD015731\", \"ORD014565\", \"ORD015781\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45784\", \"09/05/2025\", \"45799\", \"45787\", \"24/05/2025\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 06 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 06 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8040, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Sinh tố xoài (M)\", \"Cà phê sữa (M)\", \"Cà phê đen (M)\", \"Nước ép cam (M)\", \"Ghi chú: số liệu ghi tay\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 21, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"cái\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"39.000đ\", \"25.000đ\", \"32.500đ\", \"42.000đ\", \"37.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 157, \"distinct_lower_bound\": 157}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã xong\", \"đã lấy\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45.000đ\", \"39.000đ\", \"48k\", \"32k\", \"39.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 43, \"distinct_lower_bound\": 43}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-06-10 18:49:21\", \"2025-06-02 07:08:36\", \"2025-06-12 08:53:24\", \"2025-06-05 10:28:11\", \"2025-06-30 17:05:26\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD018954\", \"ORD023351\", \"ORD020753\", \"ORD019567\", \"ORD020807\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/06/2025\", \"45817\", \"45829\", \"10/06/2025\", \"23/06/2025\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 07 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 07 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8307, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cà phê đen (M)\", \"Trà chanh (M)\", \"Đá xay cookie (M)\", \"Trà sữa ô long (M)\", \"Topping Thạch cà phê\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 23, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"126.000đ\", \"10.000đ\", \"39.000đ\", \"10.000đ\", \"45.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 168, \"distinct_lower_bound\": 168}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"39.000đ\", \"25.000đ\", \"51k\", \"35.000đ\", \"45.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 48, \"distinct_lower_bound\": 48}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-07-11 11:56:30\", \"2025-07-02 10:18:21\", \"2025-07-12 17:56:05\", \"2025-07-05 15:40:10\", \"2025-07-31 17:13:43\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD023892\", \"ORD028306\", \"ORD025695\", \"ORD024498\", \"ORD025750\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"08/07/2025\", \"45847\", \"22/07/2025\", \"45849\", \"45862\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 08 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 08 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8702, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cappuccino (L)\", \"Trà đào cam sả (L)\", \"Sữa tươi trân châu đường đen (M)\", \"Cà phê sữa (M)\", \"Nước ép cam (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 12, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"42.000đ\", \"70.000đ\", \"55.000đ\", \"107.000đ\", \"39.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 159, \"distinct_lower_bound\": 159}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"47.000đ\", \"51.000đ\", \"53.500đ\", \"48.000đ\", \"51.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 44, \"distinct_lower_bound\": 44}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-08-10 10:42:30\", \"2025-08-02 08:03:49\", \"2025-08-11 16:07:59\", \"2025-08-04 20:35:22\", \"2025-08-30 13:53:43\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD028989\", \"ORD033392\", \"ORD030751\", \"ORD029575\", \"ORD030806\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45876\", \"08/08/2025\", \"30/08/2025\", \"10/08/2025\", \"22/08/2025\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 09 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 09 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8208, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cold brew (M)\", \"Soda chanh dây (M)\", \"Nước ép cam (L)\", \"Sữa tươi trân châu đường đen (M)\", \"Bánh tiramisu\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 22, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"51.000đ\", \"32.000đ\", \"30.500đ\", \"30.500đ\", \"25k\"], \"observed_types\": [\"str\"], \"distinct_count\": 172, \"distinct_lower_bound\": 172}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã xong\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"39.000đ\", \"45.000đ\", \"47.000đ\", \"47.000đ\", \"51.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 45, \"distinct_lower_bound\": 45}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-09-10 19:42:27\", \"2025-09-02 09:12:47\", \"2025-09-12 14:59:38\", \"2025-09-05 15:17:36\", \"2025-09-30 08:39:27\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD034316\", \"ORD038727\", \"ORD036096\", \"ORD034911\", \"ORD036144\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45907\", \"09/09/2025\", \"21/09/2025\", \"10/09/2025\", \"45923\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 10 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 10 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8853, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Sữa tươi trân châu đường đen (M)\", \"Trà vải (M)\", \"Trà sữa trân châu (L)\", \"Trà đào cam sả (L)\", \"Trà sữa trân châu (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 17, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"2\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"37k\", \"39.000đ\", \"37k\", \"42k\", \"45k\"], \"observed_types\": [\"str\"], \"distinct_count\": 174, \"distinct_lower_bound\": 174}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã xong\", \"đã xong\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"32.500đ\", \"7.400đ\", \"32.000đ\", \"45.000đ\", \"7.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 47, \"distinct_lower_bound\": 47}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-10-10 15:38:01\", \"2025-10-02 07:50:35\", \"2025-10-12 08:12:57\", \"2025-10-05 08:29:03\", \"2025-10-30 07:01:27\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD039336\", \"ORD043805\", \"ORD041155\", \"ORD039940\", \"ORD041208\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/10/2025\", \"08/10/2025\", \"30/10/2025\", \"45940\", \"45952\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 11 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 11 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8443, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cà phê sữa (M)\", \"Bánh croissant\", \"Sinh tố bơ (L)\", \"Bánh croissant\", \"Cold brew (L)\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 20, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"phần\", \"phần\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"84.000đ\", \"61.000đ\", \"37k\", \"45.000đ\", \"74.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 166, \"distinct_lower_bound\": 166}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"32.500đ\", \"51.000đ\", \"45.000đ\", \"30.500đ\", \"38.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 47, \"distinct_lower_bound\": 47}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-11-10 12:11:06\", \"2025-11-02 07:51:04\", \"2025-11-12 08:57:49\", \"2025-11-05 10:19:24\", \"2025-11-30 13:22:27\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD044810\", \"ORD049265\", \"ORD046602\", \"ORD045409\", \"ORD046656\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"45968\", \"45969\", \"45991\", \"10/11/2025\", \"22/11/2025\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 12 2025",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 12 2025\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8828, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Sinh tố xoài (M)\", \"Bánh tiramisu\", \"Cà phê đen (M)\", \"Topping Trân châu đen\", \"Trà chanh (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 26, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"phần\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"74.000đ\", \"30k\", \"48.000đ\", \"42.000đ\", \"37.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 173, \"distinct_lower_bound\": 173}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã lấy\", \"đã lấy\", \"đã xong\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"53.500đ\", \"7k\", \"25k\", \"42.000đ\", \"25.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 47, \"distinct_lower_bound\": 47}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2025-12-10 19:30:39\", \"2025-12-02 12:04:30\", \"2025-12-12 09:11:07\", \"2025-12-05 15:46:17\", \"2025-12-29 20:57:42\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD050034\", \"ORD054427\", \"ORD051821\", \"ORD050635\", \"ORD051876\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/12/2025\", \"46000\", \"30/12/2025\", \"10/12/2025\", \"46013\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_1.xlsx::Thang 01 2026",
+      "text": "{\"source_file\": \"SoBanHang_1.xlsx\", \"source_object\": \"Thang 01 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 9059, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Matcha latte (M)\", \"Topping Trân châu đen\", \"Hồng trà sữa (M)\", \"Trà đào cam sả (L)\", \"Bánh tiramisu\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 19, \"distinct_capped\": false, \"sample\": [\"1\", \"2\", \"1\", \"2\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"cái\", \"ly\", \"phần\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"30.500đ\", \"25.000đ\", \"39.000đ\", \"25.000đ\", \"32.500đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 161, \"distinct_lower_bound\": 161}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 7, \"distinct_lower_bound\": 7}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"25.000đ\", \"32k\", \"7.000đ\", \"25.000đ\", \"25k\"], \"observed_types\": [\"str\"], \"distinct_count\": 43, \"distinct_lower_bound\": 43}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-01-10 08:00:04\", \"2026-01-02 08:01:28\", \"2026-01-11 11:20:28\", \"2026-01-04 17:38:21\", \"2026-01-29 14:38:04\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD055415\", \"ORD059887\", \"ORD057264\", \"ORD056047\", \"ORD057316\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/01/2026\", \"46030\", \"46052\", \"09/01/2026\", \"46044\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_2026.xlsx::Thang 02 2026",
+      "text": "{\"source_file\": \"SoBanHang_2026.xlsx\", \"source_object\": \"Thang 02 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 6299, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Soda chanh dây (M)\", \"Đá xay cookie (M)\", \"Trà chanh (M)\", \"Đá xay cookie (M)\", \"Trà vải (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 23, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"2\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"cái\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"7.400đ\", \"90.000đ\", \"49.500đ\", \"31.000đ\", \"25.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 161, \"distinct_lower_bound\": 161}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã xong\", \"đã xong\", \"đã xong\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"25.000đ\", \"49.500đ\", \"56.500đ\", \"39.000đ\", \"45.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 46, \"distinct_lower_bound\": 46}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-02-09 18:00:55\", \"2026-02-02 07:09:23\", \"2026-02-12 07:32:21\", \"2026-02-04 20:20:43\", \"2026-02-07 20:10:31\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD061042\", \"ORD063011\", \"ORD062815\", \"ORD061628\", \"ORD062869\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"46060\", \"08/02/2026\", \"46080\", \"09/02/2026\", \"46081\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 56, \"distinct_lower_bound\": 56}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_2026.xlsx::Thang 03 2026",
+      "text": "{\"source_file\": \"SoBanHang_2026.xlsx\", \"source_object\": \"Thang 03 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 9240, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Espresso (double)\", \"Cà phê sữa (M)\", \"Trà sữa ô long (L)\", \"Topping Trân châu đen\", \"Trà đào cam sả (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 34, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"cái\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"10.500đ\", \"123.000đ\", \"7.000đ\", \"135.000đ\", \"41.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 183, \"distinct_lower_bound\": 183}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"35k\", \"56.500đ\", \"41.000đ\", \"45.000đ\", \"49.500đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 48, \"distinct_lower_bound\": 48}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-03-10 07:14:20\", \"2026-03-01 21:54:05\", \"2026-03-11 15:46:19\", \"2026-03-04 21:34:30\", \"2026-03-28 17:29:12\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD064883\", \"ORD069269\", \"ORD066650\", \"ORD065469\", \"ORD066706\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/03/2026\", \"46089\", \"29/03/2026\", \"46090\", \"21/03/2026\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_2026.xlsx::Thang 04 2026",
+      "text": "{\"source_file\": \"SoBanHang_2026.xlsx\", \"source_object\": \"Thang 04 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 8947, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bánh croissant\", \"Sinh tố xoài (M)\", \"Trà vải (M)\", \"Bạc xỉu (M)\", \"Trà chanh (L)\"], \"observed_types\": [\"str\"], \"distinct_count\": 52, \"distinct_lower_bound\": 52}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 2, \"negative_count\": 30, \"distinct_capped\": false, \"sample\": [\"1\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 1, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"90k\", \"41.000đ\", \"30.500đ\", \"25k\", \"32.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 178, \"distinct_lower_bound\": 178}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã xong\", \"đã xong\", \"đã xong\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"35.000đ\", \"37.000đ\", \"51.000đ\", \"45k\", \"53.500đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 47, \"distinct_lower_bound\": 47}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-04-10 07:17:57\", \"2026-04-02 07:48:12\", \"2026-04-11 14:20:07\", \"2026-04-04 20:15:44\", \"2026-04-28 15:49:55\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD070521\", \"ORD074944\", \"ORD072331\", \"ORD071119\", \"ORD072377\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/04/2026\", \"46120\", \"46141\", \"09/04/2026\", \"21/04/2026\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 60, \"distinct_lower_bound\": 60}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_2026.xlsx::Thang 05 2026",
+      "text": "{\"source_file\": \"SoBanHang_2026.xlsx\", \"source_object\": \"Thang 05 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 9531, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Bánh croissant\", \"Sinh tố xoài (M)\", \"Nước ép cam (L)\", \"Espresso (single)\", \"Sinh tố xoài (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 19, \"distinct_capped\": false, \"sample\": [\"1\", \"2\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 6, \"distinct_lower_bound\": 6}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"42k\", \"35.000đ\", \"45.000đ\", \"41.000đ\", \"84.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 178, \"distinct_lower_bound\": 178}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã lấy\", \"đã xong\", \"đã lấy\", \"đã xong\", \"đã lấy\"], \"observed_types\": [\"str\"], \"distinct_count\": 8, \"distinct_lower_bound\": 8}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"32k\", \"51.000đ\", \"45k\", \"45.000đ\", \"41.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 48, \"distinct_lower_bound\": 48}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-05-09 19:05:28\", \"2026-05-02 07:59:52\", \"2026-05-11 08:40:04\", \"2026-05-04 21:04:37\", \"2026-05-28 07:52:54\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD076031\", \"ORD080482\", \"ORD077854\", \"ORD076638\", \"ORD077910\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"07/05/2026\", \"46150\", \"28/05/2026\", \"46151\", \"20/05/2026\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 62, \"distinct_lower_bound\": 62}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoBanHang_2026.xlsx::Thang 06 2026",
+      "text": "{\"source_file\": \"SoBanHang_2026.xlsx\", \"source_object\": \"Thang 06 2026\", \"header_row_number\": 2, \"header_status\": \"heuristic_header\", \"row_count\": 7324, \"columns\": [{\"source_name\": \"Hàng\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Trà vải (M)\", \"Cà phê sữa (L)\", \"Nước ép cam (M)\", \"Trà chanh (L)\", \"Bánh tiramisu\"], \"observed_types\": [\"str\"], \"distinct_count\": 53, \"distinct_lower_bound\": 53}, {\"source_name\": \"so_luong\", \"position\": 2, \"source_type\": null, \"null_count\": 3, \"negative_count\": 22, \"distinct_capped\": false, \"sample\": [\"2\", \"1\", \"1\", \"1\", \"1\"], \"observed_types\": [\"int\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Unit\", \"position\": 3, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"phần\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 4, \"distinct_lower_bound\": 4}, {\"source_name\": \"Trị giá\", \"position\": 4, \"source_type\": null, \"null_count\": 2, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"41.000đ\", \"61k\", \"45k\", \"141k\", \"61k\"], \"observed_types\": [\"str\"], \"distinct_count\": 169, \"distinct_lower_bound\": 169}, {\"source_name\": \"Status\", \"position\": 5, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"đã xong\", \"đã xong\", \"đã lấy\", \"đã xong\", \"đã xong\"], \"observed_types\": [\"str\"], \"distinct_count\": 10, \"distinct_lower_bound\": 10}, {\"source_name\": \"Giá lẻ\", \"position\": 6, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"41.000đ\", \"42.000đ\", \"55k\", \"25.000đ\", \"61.000đ\"], \"observed_types\": [\"str\"], \"distinct_count\": 47, \"distinct_lower_bound\": 47}, {\"source_name\": \"Giờ\", \"position\": 7, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"2026-06-09 21:05:10\", \"2026-06-02 08:41:56\", \"2026-06-11 13:04:44\", \"2026-06-04 20:27:04\", \"2026-06-07 16:09:32\"], \"observed_types\": [\"datetime\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Mã hóa đơn\", \"position\": 8, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": true, \"sample\": [\"ORD081935\", \"ORD084288\", \"ORD083689\", \"ORD082512\", \"ORD083740\"], \"observed_types\": [\"str\"], \"distinct_count\": null, \"distinct_lower_bound\": 1000}, {\"source_name\": \"Ngày giao dịch\", \"position\": 9, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"46179\", \"08/06/2026\", \"19/06/2026\", \"46182\", \"21/06/2026\"], \"observed_types\": [\"int\", \"str\"], \"distinct_count\": 48, \"distinct_lower_bound\": 48}, {\"source_name\": \"Khách\", \"position\": 10, \"source_type\": null, \"null_count\": 3, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [], \"observed_types\": [\"str\"], \"distinct_count\": 258, \"distinct_lower_bound\": 258}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:SoNhapHang.xlsx::Sheet1",
+      "text": "{\"source_file\": \"SoNhapHang.xlsx\", \"source_object\": \"Sheet1\", \"header_row_number\": 1, \"header_status\": \"heuristic_header\", \"row_count\": 1373, \"columns\": [{\"source_name\": \"Số phiếu\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"PN00408\", \"PN00052\", \"PN00032\", \"PN00112\", \"PN00380\"], \"observed_types\": [\"str\"], \"distinct_count\": 441, \"distinct_lower_bound\": 441}, {\"source_name\": \"Ngày nhập\", \"position\": 2, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"2026-01-28 00:00:00\", \"2025-04-05 00:00:00\", \"2026-03-15 00:00:00\", \"2025-06-14 00:00:00\", \"2025-09-12 00:00:00\"], \"observed_types\": [\"datetime\"], \"distinct_count\": 441, \"distinct_lower_bound\": 441}, {\"source_name\": \"Ghi chu\", \"position\": 3, \"source_type\": null, \"null_count\": 1323, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"nhập đầu kỳ\", \"nhập đầu kỳ\", \"nhập đầu kỳ\", \"nhập đầu kỳ\", \"nhập đầu kỳ\"], \"observed_types\": [\"str\"], \"distinct_count\": 1, \"distinct_lower_bound\": 1}, {\"source_name\": \"Thành tiền\", \"position\": 4, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"1620000\", \"679400\", \"1616000\", \"969000\", \"742000\"], \"observed_types\": [\"int\"], \"distinct_count\": 534, \"distinct_lower_bound\": 534}, {\"source_name\": \"Nhà cung cấp\", \"position\": 5, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cty Dương An\", \"Cty Vũ Sơn\", \"Cty Thân Ngọc\", \"Cty Thân Ngọc\", \"Cty Hoàng Bình\"], \"observed_types\": [\"str\"], \"distinct_count\": 5, \"distinct_lower_bound\": 5}, {\"source_name\": \"Tên mặt hàng\", \"position\": 6, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cold brew (M)\", \"Nước ép dưa hấu (L)\", \"Cold brew (L)\", \"Trà sữa ô long (L)\", \"Trà sữa trân châu (L)\"], \"observed_types\": [\"str\"], \"distinct_count\": 50, \"distinct_lower_bound\": 50}, {\"source_name\": \"Giá nhập\", \"position\": 7, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"17000\", \"8700\", \"17000\", \"9100\", \"13000\"], \"observed_types\": [\"int\"], \"distinct_count\": 70, \"distinct_lower_bound\": 70}, {\"source_name\": \"ĐVT\", \"position\": 8, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"phần\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"SL nhập\", \"position\": 9, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"86\", \"138\", \"238\", \"56\", \"103\"], \"observed_types\": [\"int\"], \"distinct_count\": 131, \"distinct_lower_bound\": 131}], \"relationships\": []}"
+    },
+    {
+      "evidence_id": "profile:TonKho.xlsx::Sheet1",
+      "text": "{\"source_file\": \"TonKho.xlsx\", \"source_object\": \"Sheet1\", \"header_row_number\": 1, \"header_status\": \"heuristic_header\", \"row_count\": 50, \"columns\": [{\"source_name\": \"Hàng hóa\", \"position\": 1, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"Cà phê đen (M)\", \"Trà vải (M)\", \"Trà vải (L)\", \"Bánh tiramisu\", \"Bạc xỉu (M)\"], \"observed_types\": [\"str\"], \"distinct_count\": 50, \"distinct_lower_bound\": 50}, {\"source_name\": \"Đơn vị tính\", \"position\": 2, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"ly\", \"ly\", \"ly\", \"ly\", \"ly\"], \"observed_types\": [\"str\"], \"distinct_count\": 3, \"distinct_lower_bound\": 3}, {\"source_name\": \"Tồn cuối\", \"position\": 3, \"source_type\": null, \"null_count\": 0, \"negative_count\": 0, \"distinct_capped\": false, \"sample\": [\"24\", \"58\", \"105\", \"27\", \"8\"], \"observed_types\": [\"int\"], \"distinct_count\": 43, \"distinct_lower_bound\": 43}], \"relationships\": []}"
     }
   ],
   "rulebook_sections": [
     {
+      "evidence_id": "rulebook.preamble",
+      "text": "# DataMate — Rulebook (bộ train)\n\nMọi đáp án chuẩn tính theo các luật dưới đây. Câu hỏi nói khác thì làm theo câu hỏi; không nói thì áp luật mặc định ở đây.\n\n**Hôm nay** của mỗi câu là trường `as_of_date` trong `questions.jsonl`. Mọi cách nói tương đối tính theo ngày này. File có thể có bản ghi ngày sau hôm nay: với câu hỏi theo hôm nay, những bản ghi đó coi như chưa xảy ra. Riêng trạng thái huỷ, trả hàng của đơn lấy theo trạng thái ghi trên đơn, kể cả khi phiếu trả ghi ngày sau hôm nay."
+    },
+    {
+      "evidence_id": "rulebook.1",
+      "text": "## 1. Đơn hàng và doanh thu\n| Luật | Mặc định |\n|---|---|\n| Đơn tính vào doanh thu | đơn **không huỷ** và **không trả hàng**. Đơn có trả hàng, **kể cả chỉ trả một phần**, là đơn trả hàng: bỏ **cả đơn**. Đơn đang giao vẫn tính |\n| Bán được bao nhiêu tiền, thu về bao nhiêu tiền | là **doanh thu** theo mục này, không phải tiền khách đã trả |\n| Đơn thuộc kỳ nào | theo **ngày đặt**, không theo ngày giao hay ngày thu tiền |\n| Đơn bị huỷ | đơn có trạng thái huỷ. Đơn trả hàng **không** phải đơn huỷ |\n| Số đơn | chỉ tính đơn không huỷ, không trả; cả khi đếm số đơn có một mặt hàng, số đơn của một khách. **Khách đã mua** trong kỳ là khách có ít nhất một đơn như vậy trong kỳ |\n| Doanh thu một đơn | tổng **thành tiền các dòng hàng** (đã trừ giảm giá trên từng dòng). **Không** trừ giảm giá trên cả đơn (khuyến mãi theo tổng tiền đơn, voucher shop), **không** cộng thuế VAT, **không** gồm phí giao hàng. **Tiền hàng**, **tiền bán** của đơn bán cùng nghĩa với doanh thu |\n| Doanh thu theo hình thức thanh toán | theo hình thức **ghi trên đơn**, không theo lần trả nợ về sau: đơn ghi nợ không tính vào tiền mặt hay chuyển khoản. Đơn **COD** là hình thức riêng, không tính vào tiền mặt |\n| Doanh thu theo nhóm khách | nhóm theo cột nhóm khách. Đơn không ghi khách (khách vãng lai) **không thuộc nhóm nào**, kể cả nhóm `lẻ`. Tỉ trọng của nhóm chia cho doanh thu **cả shop** cùng kỳ, tính cả đơn vãng lai |\n| Tỉ lệ đơn huỷ trong kỳ | phần trăm đơn huỷ trong **mọi đơn đặt trong kỳ** (theo ngày đặt, **mọi trạng thái**: cả đơn huỷ, đơn trả, đơn đang giao). Làm tròn 2 chữ số thập phân. |\n| Phần trăm thay đổi, tăng trưởng | so với **kỳ trước**; giảm thì ra **số âm** |\n| Chênh lệch, hơn / kém, tăng / giảm bao nhiêu (số, không phải %) | **kỳ hỏi − kỳ so**: ít hơn ra số âm, giữ đơn vị của số đo |"
+    },
+    {
+      "evidence_id": "rulebook.2",
+      "text": "## 2. Thời gian\n| Cách nói | Nghĩa |\n|---|---|\n| Ngày X, hôm nay, hôm qua | hỏi số phát sinh (doanh thu, số đơn, giá bán…): chỉ **trong** ngày đó |\n| Đến hết ngày X, tính đến hôm nay | hỏi số còn lại (còn nợ, còn tồn, còn hàng…): **tình trạng lúc hết ngày đó**, tính mọi phát sinh **từ đầu dữ liệu** đến hết ngày đó; không phải kỳ **tháng này** |\n| Từ X đến Y, nhóm X–Y | gồm cả X và Y |\n| N ngày gần nhất | N ngày liền nhau **kể cả hôm nay**, ngày cuối là hôm nay |\n| Quá N, hơn N, trên N, dưới N | **không** gồm N. **Từ N trở lên** thì gồm N |\n| Tuần | bắt đầu **thứ Hai**. **Tuần này**: từ thứ Hai của tuần chứa hôm nay đến hết hôm nay. **Tuần trước, tuần rồi**: **cả** tuần liền trước, thứ Hai đến Chủ nhật |\n| Tháng M/Y | cả tháng, từ ngày 1 đến hết ngày cuối tháng |\n| Tháng này | từ ngày 1 đến **hết hôm nay**. So với tháng trước thì lấy **cùng số ngày** của tháng trước: từ ngày 1 đến hết ngày trùng số với hôm nay; tháng trước không có ngày đó thì đến hết tháng trước |\n| Từ đầu năm, từ đầu năm tới nay | từ 01/01 của năm nay đến **hết hôm nay** |\n| Tháng M, quý Q không ghi năm | của **năm nay** nếu không sau hôm nay; sau hôm nay thì của **năm trước**. Quý theo dương lịch, mỗi quý 3 tháng tính từ tháng 1 |\n| Tết năm Y, dịp Tết, mùa Tết | từ ngày dương của **23 tháng Chạp** (năm âm Y − 1) đến **hết** ngày dương của **mùng 10 tháng Giêng** (năm âm Y). **So với trước Tết** = cùng số ngày ngay trước 23 tháng Chạp. Tra lịch âm trong `calendar.csv` cùng thư mục. |\n| Ca sáng, ca chiều | theo giờ tạo đơn: ca sáng 06:00–13:59, ca chiều 14:00–21:59. So ca chiều với ca sáng: mốc là **ca sáng** |"
+    },
+    {
+      "evidence_id": "rulebook.3",
+      "text": "## 3. Xếp hạng\n| Luật | Mặc định |\n|---|---|\n| Mặt hàng | **Món**, hàng, sản phẩm cùng nghĩa với mặt hàng. Dòng **Phí phục vụ** không phải mặt hàng: không xếp hạng, không đếm. Vẫn tính vào doanh thu, kể cả mẫu số tỉ trọng nhóm hàng |\n| Nhóm hàng | theo cột nhóm hàng, đúng tên nhóm câu hỏi nêu; không gộp nhóm khác tên dù tên gần nhau |\n| Bán chạy | theo **số lượng quy về đơn vị cơ bản**, không theo số dòng hay số tiền; bỏ đơn huỷ, trả. Mặt hàng khác đơn vị cơ bản vẫn xếp chung theo số đó. **Bán nhiều nhất**, **bán được nhiều nhất**, **hot nhất** cùng nghĩa với **bán chạy nhất** |\n| Bán được bao nhiêu <đơn vị> | cộng số lượng quy về đơn vị cơ bản của các mặt hàng **có đơn vị cơ bản là <đơn vị>**, kể cả dòng bán theo đơn vị lớn; mặt hàng có đơn vị cơ bản khác không tính |\n| Hàng lời nhất | theo **tổng lãi gộp** của mặt hàng (§5) |\n| Xác định khách | Shop có mã khách: mỗi **mã khách** là một khách, hai mã trùng tên là hai khách; đơn không ghi mã (**khách lẻ**) không phải khách, không đếm và không xếp hạng. Shop không có mã khách: xác định khách theo **tên ghi trên đơn**: hai tên **chỉ khác cách viết** là cùng một khách, hai tên **khác chữ hoặc khác số** là hai khách; đơn **khách lẻ** không tính. Khách mua **nhiều tiền** nhất xếp theo doanh thu (§1). |\n| Nhân viên bán giỏi nhất | theo **doanh thu** (§1) của nhân viên trong kỳ, không theo số đơn |\n| Giá trị trung bình một đơn | làm tròn về đồng, nửa đồng làm tròn lên |"
+    },
+    {
+      "evidence_id": "rulebook.4",
+      "text": "## 4. Công nợ\n| Luật | Mặc định |\n|---|---|\n| Đơn được tính vào nợ | đơn không huỷ; **đơn trả hàng vẫn tính** nếu còn nợ |\n| Nợ một đơn tại ngày X | phần chưa trả của **tổng đơn** (số khách phải trả cả đơn: đã trừ giảm giá trên cả đơn, **gồm phí giao**), tính các khoản trả đến hết ngày X. Còn nợ = cộng các đơn **còn nợ > 0** |\n| Nợ theo khách | xác định khách như §3. Đơn **khách lẻ** vẫn tính vào **tổng nợ**, nhưng không có dòng trong bảng nợ theo khách |\n| Đơn COD, đơn bán qua sàn TMĐT | **không phải khách nợ**, kể cả khi chưa thu được tiền; bỏ khỏi công nợ và tuổi nợ |\n| Tuổi nợ | số ngày tính từ **ngày đặt**, không từ hạn thanh toán. Đơn đặt hôm nay có tuổi nợ **0** ngày, đơn đặt hôm qua **1** ngày |\n| Nợ thêm, trả nợ, thu nợ trong kỳ | chỉ đơn **ghi nợ**, không huỷ. **Nợ thêm**: phần tổng đơn chưa trả ngay trong ngày mua, của đơn đặt trong kỳ. **Trả nợ / thu nợ**: các khoản trả **sau ngày mua** có ngày trả trong kỳ, của mọi đơn ghi nợ (kể cả đơn kỳ trước, đơn trả hàng). Tiền trả cùng ngày mua là trả lúc mua. Hoàn tiền trả hàng không trừ |"
+    },
+    {
+      "evidence_id": "rulebook.5",
+      "text": "## 5. Kho, nhập hàng, giá vốn\n| Luật | Mặc định |\n|---|---|\n| Tiền nhập hàng trong kỳ | tổng tiền các phiếu nhập có **ngày phiếu** trong kỳ, bỏ phiếu huỷ. Phiếu, dòng ghi **nhập đầu kỳ** là phiếu nhập như mọi phiếu khác: có ngày phiếu trong kỳ thì tính. Nhà cung cấp nhập nhiều nhất = nhà cung cấp có tiền nhập cao nhất |\n| Nhập trừ bán, chênh nhập và bán | phần **bán** là số lượng của đơn tính vào doanh thu (§1), quy về cùng đơn vị với phần nhập |\n| Giá nhập bình quân một mặt hàng trong tháng | bình quân **theo số lượng nhập**, **không** phải trung bình cộng các mức giá nhập; theo đơn vị nhập, các phiếu có ngày phiếu trong tháng, bỏ phiếu huỷ |\n| Tồn theo đơn vị lớn | list 2 số `[số đơn vị lớn nguyên, số đơn vị cơ bản lẻ]`; không có phần lẻ thì số thứ hai là 0. Hàng nhiều cấp: phần lẻ vẫn tính bằng đơn vị cơ bản, không đổi sang đơn vị ở giữa |\n| Giá trị hàng tồn kho | tồn **hết hôm nay** của từng mặt hàng nhân **giá vốn một đơn vị cơ bản ghi trong danh mục hàng**; chỉ tính hàng còn tồn |\n| Mặt hàng hết hàng cuối ngày | mặt hàng **mua về để bán** (không tính món pha chế, chế biến tại chỗ) mà lúc **hết ngày** đó tồn kho bằng 0; hết giữa ngày nhưng nhập thêm trước cuối ngày thì không tính |\n| Mặt hàng không bán được trong kỳ (ế) | mặt hàng cửa hàng **đã từng bán trước kỳ** (có trong đơn §1, không tính đơn huỷ, đơn trả) nhưng trong kỳ không có đơn nào (§1) mua mặt hàng đó |\n| Giá bán X ngày D | đơn giá ghi trên dòng bán X của các đơn đặt ngày D, cho **một đơn vị cơ bản**, **trước** chiết khấu dòng; tính cả dòng của đơn huỷ, đơn trả |\n| Hiệu ứng tăng giá | lần tăng giá = ngày D giá mới cao hơn giá liền trước (theo bảng giá); tăng lên cùng một giá nhiều lần thì lấy lần đầu. So số lượng (đơn vị cơ bản) **N ngày kể từ D** (tính cả D) với **N ngày ngay trước D**; cả hai khoảng bỏ đơn huỷ và đơn trả |\n| Giá vốn | bình quân gia quyền theo lô nhập, tại thời điểm bán; không theo FIFO, không theo giá nhập lần cuối |\n| Lãi gộp | doanh thu (§1) trừ giá vốn của hàng đã bán. Giá vốn của mỗi dòng bán bằng số lượng nhân với **giá vốn ghi trên dòng bán** (cho **một đơn vị bán**, cùng đơn vị với đơn giá). Không tự tính lại giá vốn từ phiếu nhập hay từ lô |\n| Lãi ròng một tháng | lãi gộp của tháng trừ **mọi khoản** ghi trong sổ chi phí của tháng đó, kể cả sửa chữa, thay thiết bị |"
+    },
+    {
+      "evidence_id": "rulebook.6",
+      "text": "## 6. Theo ngành\nLuật riêng của từng ngành, dùng cùng với luật chung ở các mục trên. Khi luật ngành khác luật chung, theo **luật ngành**.\n\n### Cà phê\n| Luật | Mặc định |\n|---|---|\n| Size M, size L | món có tên kết thúc bằng `(M)` hoặc `(L)`, **không phân biệt hoa thường** |\n\n### Nhà thuốc\n| Luật | Mặc định |\n|---|---|\n| Thuốc kê đơn | **Thuốc kê đơn** = sản phẩm ghi kê đơn trong danh mục thuốc; mọi sản phẩm còn lại là **hàng không kê đơn**. Tỉ lệ kê đơn tính theo doanh thu |\n| Hàng hết hạn trong N ngày tới | tính tại hôm nay D: lô còn tồn có hạn dùng từ D đến hết ngày D + N. **Tiền vốn** là giá trị phần **còn tồn** của lô, theo giá nhập của chính lô đó quy về đơn vị cơ bản, không theo giá vốn bình quân |\n| Doanh thu theo hoạt chất | doanh thu (§1) các thuốc có hoạt chất ghi **đúng như vậy** trong danh mục thuốc. Thuốc phối hợp nhiều hoạt chất là **một loại riêng**, không tính vào từng hoạt chất trong đó |\n| Lô gần hết hạn nhất của một thuốc | trong các lô còn tồn chưa quá hạn tại hôm nay, lô có hạn sớm nhất |\n\n### Vật liệu xây dựng\n| Luật | Mặc định |\n|---|---|\n| Giao nhiều đợt | **Số đợt giao trong tháng X** = số đợt có ngày giao trong tháng X; **mỗi đợt của mỗi đơn tính một đợt**, kể cả đợt của đơn sau đó trả hàng |"
+    },
+    {
+      "evidence_id": "rulebook.7",
+      "text": "## 7. Không trả lời được\nCâu **không trả lời được** khi dữ liệu phát hành không đủ để trả lời. Đáp án chỉ lấy từ dữ liệu phát hành, không lấy từ hiểu biết bên ngoài. Nộp `{\"type\": \"unanswerable\", \"reason\": \"…\"}`.\n- Thông tin file không ghi thì không suy ra từ cột khác, trừ khi rulebook ghi cách lấy.\n- Không có dữ liệu khác với bằng 0: kỳ nằm **hoàn toàn** ngoài khoảng ngày có dữ liệu của shop, hoặc shop không ghi loại thông tin câu hỏi cần, thì không trả lời được, không phải 0.\n- Kỳ chỉ có một phần nằm trong khoảng ngày có dữ liệu thì tính trên phần có dữ liệu.\n\nTrường `reason` không bắt buộc và không chấm tự động. Nếu có, `reason` phải là chuỗi; dòng có `reason` không phải chuỗi không đọc được và tính như bỏ trống."
+    },
+    {
       "evidence_id": "rulebook.8",
       "text": "## 8. Cách ghi trong file\n| Cách ghi | Hiểu là |\n|---|---|\n| Tên gọi, nhãn | các tên cùng chỉ một thứ, trong file hay trong câu hỏi, là cùng một thứ. File có mã thì theo mã |\n| Ô để trống ở các dòng sau của cùng một nhóm dòng | giống ô đó ở dòng đầu nhóm: khách, ghi chú, trạng thái của đơn áp cho mọi dòng của đơn. Không phải thiếu dữ liệu, không có nghĩa là khách lẻ hay đơn hoàn thành |\n| Trạng thái đơn | mỗi đơn có đúng một trong bốn trạng thái: **hoàn thành**, **huỷ**, **trả hàng**, **đang giao** |\n| Hai dòng của **cùng một đơn** giống nhau ở mọi ô | lỗi xuất file, tính một lần. Hai dòng giống nhau của hai đơn khác nhau là hai lần bán, tính cả hai |\n| Bảng không ghi theo đơn | mỗi dòng là một lần ghi; hai dòng giống nhau trong cùng file vẫn tính cả hai |\n| Ngày không ghi năm | năm của sheet chứa dòng đó |"
+    },
+    {
+      "evidence_id": "rulebook.9",
+      "text": "## 9. Đáp án và chấm điểm\nMỗi dòng `submission.jsonl`: `{\"id\": \"...\", \"type\": \"...\", \"answer\": ...}`. Đúng **+1**, sai **−1**, bỏ trống (`{\"type\": \"abstain\"}` hoặc không có dòng) **0**.\n\n**Mỗi type có một format duy nhất; sai format là sai.** Đáp án chỉ ghi **giá trị**: số không kèm chữ đơn vị hay ký hiệu %; tên lấy nguyên từ dữ liệu, không kèm tên cột hay nhãn nhóm. Câu hỏi nhiều số thì ghi list theo đúng thứ tự câu hỏi nêu.\n\n| type | Format | Đúng | Sai |\n|---|---|---|---|\n| number | JSON number, không đơn vị, không dấu phân cách nghìn. Tiền là số nguyên VND | `4820000`, `18.6` | `\"4,82 triệu\"`, `\"4.820.000\"`, `\"4820K\"`, `\"4820000\"` |\n| percent | JSON number là **số phần trăm**: 12,4 % ghi `12.4`, không kèm ký hiệu % | `12.4` | `\"12,4%\"`, `0.124` |\n| date | `\"YYYY-MM-DD\"`; câu hỏi theo tháng: `\"YYYY-MM\"` | `\"2026-08-15\"`, `\"2025-09\"` | `\"15/08/2026\"`, `\"tháng 9/2025\"` |\n| boolean | `true` / `false` | `true` | `\"có\"`, `1` |\n| string | tên như trong dữ liệu, đủ dấu tiếng Việt | `\"Sting dâu 330ml\"` | `\"Sting dầu 330ml\"` (sai dấu, file không có cách viết này), `[\"Sting dâu 330ml\"]` |\n| list | mảng JSON, có thứ tự; một phần tử vẫn là mảng | `[\"Cà phê sữa\"]`, `[3, 10]` | `\"Cà phê sữa, Bạc xỉu\"`, `\"3 thùng 10 chai\"` |\n| table | `{\"columns\": [...], \"rows\": [[...], ...]}`, ô số là JSON number | `{\"columns\": [\"khach_hang\", \"so_tien_no\"], \"rows\": [[\"Chị Lan\", 3200000]]}` | ô `\"3.200.000đ\"` |\n| unanswerable | `{\"type\": \"unanswerable\", \"reason\": \"...\"}` | | |\n\nĐúng format rồi mới so giá trị:\n- **Số, phần trăm:** khớp tuyệt đối. Tiền đúng từng đồng, số đếm đúng từng đơn vị, phần trăm đúng 2 chữ số thập phân. Chỉ bỏ qua sai số dấu phẩy động.\n- **Làm tròn:** tiền ra số lẻ làm tròn về đồng; trung bình của một khoản tiền cũng là tiền, làm tròn về đồng. Phần trăm và số trung bình khác làm tròn 2 chữ số thập phân, trừ khi một luật khác trong rulebook ghi khác.\n- **Chuỗi:** không phân biệt hoa thường, khoảng trắng, dấu câu. Nhận **mọi cách viết** tên có trong file của shop, hoặc **mã**. Tên khách chép kèm số điện thoại như trong file cũng được nhận. Ngoài các cách viết đó, dấu tiếng Việt phải đúng.\n- **Danh sách:** đúng cả tập và thứ tự. Top k xếp theo tiêu chí câu hỏi, giảm dần. Câu \"liệt kê\": có số đo thì số đo giảm dần, cùng số đo thì theo **mã** tăng dần; liệt kê hàng theo hạn dùng thì hạn sớm nhất của mặt hàng trước, cùng hạn thì theo mã; còn lại (chỉ lọc theo điều kiện, không có số đo) theo mã tăng dần.\n- **Bằng nhau:** hai đối tượng bằng nhau ở tiêu chí câu hỏi thì xếp theo mã tăng dần (không có mã thì theo tên). Câu hỏi một đối tượng lấy đối tượng đứng đầu theo thứ tự đó.\n- **Bảng:** mỗi dòng một đối tượng; cột **đầu** là tên đối tượng, các cột **sau** là số đo theo **đúng thứ tự câu hỏi nêu**. Cột so theo tên; tên không khớp thì so theo vị trí, nên ghi đúng thứ tự cột. Thứ tự các dòng không ảnh hưởng kết quả chấm."
     },
     {
       "evidence_id": "rulebook.10",

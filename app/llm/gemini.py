@@ -1,7 +1,7 @@
-import os
-import time
 from dataclasses import dataclass, field
 from pathlib import Path
+import os
+import time
 
 from dotenv import load_dotenv
 from google import genai
@@ -64,18 +64,18 @@ class GeminiLLM:
             raise RuntimeError("Gemini returned no text content.")
         return response.text
 
+    @classmethod
+    def from_env(
+        cls, *, min_request_interval_seconds: float = 0.0
+    ) -> "GeminiLLM":
+        load_dotenv(dotenv_path=ENV_FILE)
+        api_key = os.getenv("GEMINI_APIKEY")
+        if not api_key:
+            raise RuntimeError(
+                f"GEMINI_APIKEY is missing or empty. Set it in {ENV_FILE}."
+            )
 
-def create_gemini_llm(
-    *, min_request_interval_seconds: float = 0.0
-) -> GeminiLLM:
-    load_dotenv(dotenv_path=ENV_FILE)
-    api_key = os.getenv("GEMINI_APIKEY")
-    if not api_key:
-        raise RuntimeError(
-            f"GEMINI_APIKEY is missing or empty. Set it in {ENV_FILE}."
+        return cls(
+            client=genai.Client(api_key=api_key),
+            min_request_interval_seconds=min_request_interval_seconds,
         )
-
-    return GeminiLLM(
-        client=genai.Client(api_key=api_key),
-        min_request_interval_seconds=min_request_interval_seconds,
-    )

@@ -1,0 +1,147 @@
+{
+  "errors": [],
+  "unresolved": [
+    {
+      "topic": "header:Bao_cao_ban_hang.xlsx:So_chi_tiet_ban_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:So_chi_tiet_ban_hang:Tên hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:So_chi_tiet_ban_hang:Đơn vị tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Tên hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Mô tả sản phẩm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Đơn vị tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Tồn nhỏ nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Mã HH Liên quan",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Vị trí",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Danh sách hàng hóa:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Ngày giao hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Lần giao",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Tên hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Đơn vị tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Số lượng giao",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Biển số xe",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:Bao_cao_ban_hang.xlsx:Bảng kê phiếu giao hàng:Người giao hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:Bao_cao_ban_hang.xlsx:Chi tiết công nợ theo hạn",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "coverage": {
+    "source_objects": 4,
+    "manifest_objects": 4,
+    "source_columns": 38,
+    "documented_columns": 15,
+    "unresolved_columns": 23
+  }
+}
