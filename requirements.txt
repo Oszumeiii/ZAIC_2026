@@ -1,3 +1,4 @@
+# Thư viện chạy lúc nộp bài (Docker, offline). CHƯA ghim phiên bản: ghim theo image đã build và chạy được.
 pandas
 numpy
 openpyxl

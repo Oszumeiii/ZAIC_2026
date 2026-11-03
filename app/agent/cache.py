@@ -1,3 +1,4 @@
+"""Cache kết quả LLM theo câu, ghi nối tiếp ra jsonl để chạy lại thì tiếp tục được."""
 from __future__ import annotations
 
 import json

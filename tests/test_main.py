@@ -8,3 +8,10 @@ def test_cli_parses_config():
     p = add_common_args(argparse.ArgumentParser())
     cfg = config_from_args(p.parse_args(["--backend", "gemini", "--max-biz", "2", "--per-biz", "15"]))
     assert (cfg.backend, cfg.max_biz, cfg.per_biz) == ("gemini", 2, 15)
+
+
+def test_cli_exemplars_and_no_hints():
+    p = add_common_args(argparse.ArgumentParser())
+    cfg = config_from_args(p.parse_args(["--backend", "gemini", "--exemplars", "bank.jsonl", "--no-hints"]))
+    assert cfg.exemplar_path == "bank.jsonl" and cfg.use_hints is False
+    

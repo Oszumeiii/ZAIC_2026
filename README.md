@@ -23,6 +23,8 @@ nhận là abstain.
 ```
 câu hỏi + as_of_date
   └─ dựng ngữ cảnh: rulebook + README của doanh nghiệp + mô tả cột (tự rút gọn theo ngân sách token)
+      ├─ gợi ý tất định do mã tính: khoảng thời gian đã quy đổi, giá trị khớp trong dữ liệu (chịu thiếu dấu, lỗi gõ nhẹ)
+      └─ (tùy chọn) vài ví dụ tương tự đã được kiểm đúng từ tập train, ở business khác
       └─ mô hình sinh mã pandas, N lần độc lập (N = n_samples)
           └─ thực thi mã (có giới hạn thời gian), kiểm tra và ép kiểu kết quả theo `type`
               └─ nếu lỗi hoặc sai kiểu: phản hồi lỗi cho mô hình để tự sửa (tối đa max_retry lần)
@@ -45,12 +47,13 @@ app/                    Mã chạy khi nộp bài (image Docker chỉ chứa th�
   main.py               Điểm vào: python -m app.main
   submission.py         Ghi và kiểm định submission.jsonl
   text.py               Chuẩn hóa văn bản tiếng Việt dùng chung
-  ingestion/            dataset.py (đọc split, sửa tiêu đề lệch dòng), profiling.py (mô tả cột, gộp sheet)
+  ingestion/            dataset.py (đọc split, sửa tiêu đề lệch dòng), profiling.py (mô tả cột, gộp sheet),
+                        splitting.py (chia business fit/holdout)
   llm/                  base.py, gemini.py, hf_local.py, vllm_local.py; create_backend chọn backend theo cấu hình
-  agent/                prompts.py, context.py, solver.py, cache.py, pipeline.py
-  tools/                sandbox.py, results.py, timeutil.py, rules.py
+  agent/                prompts.py, context.py, solver.py, cache.py, pipeline.py, exemplars.py (kho few-shot)
+  tools/                sandbox.py, results.py, timeutil.py, grounding.py (khớp giá trị), rules.py
 evaluation/             Chỉ dùng khi phát triển: scoring.py (tính PA), run_eval.py (chạy và chấm trên train)
-training/               Chỉ dùng khi phát triển: export_sft.py (xuất dữ liệu SFT từ các lời giải đúng)
+training/               Chỉ dùng khi phát triển: export_sft.py (dữ liệu SFT), build_exemplars.py (kho few-shot)
 notebooks/              kaggle_run.ipynb (cấu hình mỏng, gọi vào app)
 tests/                  Kiểm thử, tổ chức phản chiếu cấu trúc của app
 Dockerfile
@@ -90,6 +93,16 @@ Biến môi trường:
 python -m evaluation.run_eval --backend gemini --max-biz 2 --per-biz 15
 ```
 
+Quy trình đo khái quát và dựng kho few-shot. Test dùng business chưa từng thấy, nên chỉ tin PA trên nhóm giữ lại
+(holdout), còn mọi thứ rút ra từ train chỉ được dùng nhóm fit:
+
+```bash
+# 1. dựng kho ví dụ từ lời giải đã đúng ở nhóm fit
+python -m evaluation.run_eval --backend gemini --subset fit --build-exemplars bank.jsonl
+# 2. đo PA khái quát trên nhóm holdout, có dùng kho ví dụ
+python -m evaluation.run_eval --backend gemini --subset holdout --holdout-n 6 --exemplars bank.jsonl
+```
+
 Sinh bài nộp:
 
 ```bash
@@ -125,6 +138,10 @@ Toàn bộ tham số nằm trong `app/config.py` (`Config`). Các tham số chí
 | `prefill_chunk` | 512 | Kích thước đoạn khi nạp prompt (engine transformers), giảm nguy cơ hết VRAM |
 | `local_engine` | `auto` | `auto`, `vllm` hoặc `hf` |
 | `use_rules` | `False` | Bật luật tất định cho một số dạng câu hỏi đơn giản |
+| `use_hints` | `True` | Đưa gợi ý tất định (khoảng thời gian, giá trị khớp) vào prompt |
+| `exemplar_path` | `None` | Kho few-shot `.jsonl`; `None` là không dùng |
+| `exemplar_k` | 2 | Số ví dụ tương tự đưa vào prompt |
+| `min_agree_by_type` | `{}` | Ngưỡng đồng thuận riêng theo loại đáp án, vd `{"table": 3, "unanswerable": 3}` |
 
 ## 6. Kiểm thử
 
@@ -132,9 +149,10 @@ Toàn bộ tham số nằm trong `app/config.py` (`Config`). Các tham số chí
 pytest
 ```
 
-Bộ kiểm thử gồm 26 ca, sử dụng backend giả lập nên không cần GPU hay kết nối API. Các ca bao quát: chuẩn hóa và ép
+Bộ kiểm thử gồm 45 ca, sử dụng backend giả lập nên không cần GPU hay kết nối API. Các ca bao quát: chuẩn hóa và ép
 kiểu kết quả, quy đổi thời gian, đọc dữ liệu và profiling, sandbox, biểu quyết và tự sửa lỗi, cache, cơ chế dừng sớm khi
-mô hình lỗi liên tiếp, ghi và kiểm định bài nộp, chấm PA, xuất dữ liệu SFT.
+mô hình lỗi liên tiếp, gợi ý tất định, kho few-shot, ngưỡng đồng thuận theo loại, chia business, ghi và kiểm định
+bài nộp, chấm PA, xuất dữ liệu SFT.
 
 ## 7. Trạng thái xác minh và giới hạn
 
@@ -145,11 +163,10 @@ mô hình lỗi liên tiếp, ghi và kiểm định bài nộp, chấm PA, xu�
 | Backend `gemini`, `hf_local`, `vllm_local` | **Chưa chạy trên môi trường thật** (Kaggle/GPU/API) |
 | `Dockerfile` | **Chưa build.** Đường dẫn dữ liệu vào/ra và lệnh chạy là giả định, cần đối chiếu thể lệ |
 | `requirements.txt` | Chưa ghim phiên bản |
-| Hiệu năng (PA) trên dữ liệu thật | **Chưa có số liệu đo** |
+| Hiệu năng (PA) trên dữ liệu thật | **Chưa có số liệu đo.** Gợi ý tất định, few-shot và ngưỡng theo loại chưa được đo tác động |
 
 Giới hạn của thiết kế:
 
 - `tools/sandbox.py` chỉ giới hạn thời gian thực thi, **không phải cơ chế cô lập bảo mật**. Môi trường nộp bài nên chạy
   mã sinh ra trong tiến trình hoặc container tách biệt.
 - Chưa có bước kiểm chứng ngữ nghĩa độc lập giữa câu hỏi và kết quả (xem phần phương pháp ở mục 1).
-

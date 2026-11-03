@@ -33,3 +33,22 @@ def resolve_period(question_norm: str, as_of) -> tuple[pd.Timestamp, pd.Timestam
     if "quy nay" in qn:
         return pd.Timestamp(t.year, 3 * ((t.month - 1) // 3) + 1, 1), t
     return None
+
+
+# cụm đã bỏ dấu -> nhãn hiển thị; thứ tự quan trọng (cụm dài trước)
+_PHRASES = [("tuan truoc", "tuần trước"), ("tuan roi", "tuần rồi"), ("tuan qua", "tuần qua"), ("tuan nay", "tuần này"),
+            ("thang truoc", "tháng trước"), ("thang roi", "tháng rồi"), ("thang qua", "tháng qua"),
+            ("thang nay", "tháng này"), ("hom qua", "hôm qua"), ("hom nay", "hôm nay"), ("nam ngoai", "năm ngoái"),
+            ("nam truoc", "năm trước"), ("nam roi", "năm rồi"), ("nam nay", "năm nay"), ("quy nay", "quý này")]
+
+
+def describe_period(question_norm: str, as_of) -> str | None:
+    """Một dòng gợi ý khoảng thời gian cho prompt, vd '"tuần trước" = 2026-08-17 đến 2026-08-23'. None nếu không nhận ra."""
+    period = resolve_period(question_norm, as_of)
+    if period is None:
+        return None
+    phrase = next((label for key, label in _PHRASES if key in question_norm), None)
+    if phrase is None:
+        return None
+    start, end = period
+    return f'"{phrase}" = {start:%Y-%m-%d} đến {end:%Y-%m-%d} (tuần tính Thứ Hai đến Chủ Nhật)'

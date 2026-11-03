@@ -21,7 +21,7 @@ def resolve_model_path(name: str) -> str:
     if os.path.isdir(name):
         return name
     from huggingface_hub import snapshot_download
-    dst = "/tmp/models/" + name.replace("/", "__")
+    dst = "./models/" + name.replace("/", "__") 
     print(f"Tải {name} về {dst} (cần bật Internet trong Settings của notebook) ...")
     return snapshot_download(name, local_dir=dst)
 

@@ -56,3 +56,18 @@ def test_run_inference_writes_complete_valid_submission(cfg):
     lines = [json.loads(x) for x in open(f"{cfg.out_dir}/submission.jsonl", encoding="utf-8")]
     assert [x["id"] for x in lines] == ["q0", "q1", "q2", "q3"]
     assert [x["type"] for x in lines] == ["number", "number", "abstain", "abstain"]
+
+
+def test_stricter_agreement_for_a_type_forces_abstain(cfg):
+    cfg.min_agree_by_type = {"number": 3}
+    backend = FakeBackend([GOOD_CODE, GOOD_CODE, OTHER_CODE])       # chỉ 2/3 đồng thuận
+    from app.ingestion.dataset import load_split
+    subs, logs = Solver(cfg, backend).solve_split(load_split(cfg.train_dir), "train", limit_q=1)
+    assert subs[0]["type"] == "abstain" and logs[0]["agree"] == 2
+
+
+def test_stricter_agreement_is_met_when_all_samples_agree(cfg):
+    cfg.min_agree_by_type = {"number": 3}
+    from app.ingestion.dataset import load_split
+    subs, _ = Solver(cfg, FakeBackend([GOOD_CODE])).solve_split(load_split(cfg.train_dir), "train", limit_q=1)
+    assert subs[0]["answer"] == 130000

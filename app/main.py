@@ -24,6 +24,8 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--local-model", default=os.environ.get("LOCAL_MODEL"))
     p.add_argument("--local-engine", choices=["auto", "vllm", "hf"])
     p.add_argument("--no-llm", action="store_true", help="không gọi model (chỉ luật, nếu bật)")
+    p.add_argument("--exemplars", help="kho few-shot (.jsonl) dựng từ train bằng evaluation.run_eval --build-exemplars")
+    p.add_argument("--no-hints", action="store_true", help="tắt gợi ý tất định (khoảng thời gian, giá trị khớp)")
     return p
 
 
@@ -32,7 +34,8 @@ def config_from_args(a: argparse.Namespace) -> Config:
                "per_biz": a.per_biz, "limit_test": a.limit_test, "time_budget_s": a.time_budget,
                "n_samples": a.n_samples, "agree_min": a.agree_min, "gemini_model": a.gemini_model,
                "local_model": a.local_model, "local_engine": a.local_engine}
-    return Config(backend=a.backend, **{k: v for k, v in mapping.items() if v is not None})
+    mapping["exemplar_path"] = a.exemplars
+    return Config(backend=a.backend, use_hints=not a.no_hints, **{k: v for k, v in mapping.items() if v is not None})
 
 
 def main(argv=None) -> int:

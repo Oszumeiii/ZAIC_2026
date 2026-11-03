@@ -25,6 +25,7 @@ Gán:
   result: giá trị (number: số; percent: số như -12.45; date: 'YYYY-MM-DD';
           list: list; table: {"columns":[...],"rows":[[...]]}; unanswerable: lý do ngắn)
 Nếu dữ liệu không đủ để trả lời thì result_type='unanswerable'. Không đoán. Chỉ trả về 1 khối ```python.
+Các mục "GỢI Ý TỪ MÃ" và "VÍ DỤ TƯƠNG TỰ" (nếu có) chỉ để tham khảo: đối chiếu với dữ liệu thật và RULEBOOK trước khi dùng.
 Ví dụ về ĐỊNH DẠNG đầu ra (tên bảng/cột chỉ để minh họa):
 ```python
 df = tables["don_hang"].copy()

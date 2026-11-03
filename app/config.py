@@ -9,24 +9,35 @@ LOCAL_ENGINES = ("auto", "vllm", "hf")
 
 @dataclass
 class Config:
+    # --- dữ liệu ---
     train_dir: str = "/kaggle/input/datasets/trungnguyen0510/train-track2-zaloai/train"
     test_dir: str = "/kaggle/input/datasets/trungnguyen0510/testpublic-track2-zaloai/public_test"
     out_dir: str = "/kaggle/working"
 
+    # --- phạm vi chạy ---
     max_biz: int | None = 3           # số business train để chạy thử; None = tất cả
     per_biz: int | None = None        # tối đa ngần này câu mỗi business; None = hết
     limit_test: int | None = None     # số câu public test tối đa; None = tất cả
     time_budget_s: float | None = None  # hết giờ thì dừng gọi model, câu còn lại ghi abstain
 
+    # --- luật tất định (mặc định tắt) ---
     use_rules: bool = False
     rule_on: dict = field(default_factory=lambda: {"top": True, "low": True, "revenue": True})
 
+    # --- sinh nhiều lần + đồng thuận ---
     n_samples: int = 3                # số lần sinh độc lập tối đa cho một câu
     agree_min: int = 2                # cần ít nhất ngần này lần ra CÙNG kết quả mới trả lời
     max_retry: int = 2                # số lần tự sửa lỗi cho mỗi lời giải
     code_timeout_s: int = 60          # giới hạn thời gian chạy một đoạn code
-    prompt_version: str = "v5"        # đổi khi sửa prompt để vô hiệu cache cũ
+    prompt_version: str = "v6"        # đổi khi sửa prompt để vô hiệu cache cũ
+    min_agree_by_type: dict = field(default_factory=dict)   # vd {"table": 3, "unanswerable": 3}: loại đáp án cần đồng thuận cao hơn
 
+    # --- gợi ý tất định đưa vào prompt ---
+    use_hints: bool = True            # khoảng thời gian đã quy đổi + giá trị khớp trong dữ liệu (do mã tính, không do LLM)
+    exemplar_path: str | None = None  # kho (câu hỏi, lời giải đúng) từ tập train; None = không dùng few-shot truy xuất
+    exemplar_k: int = 2               # số ví dụ tương tự đưa vào prompt
+
+    # --- backend LLM ---
     backend: str = "local"            # "local" | "gemini"
     gemini_model: str = "gemini-3.5-flash"
     thinking: str = "low"             # thinking_level của Gemini
@@ -53,6 +64,8 @@ class Config:
             raise ValueError(f"local_engine phải thuộc {LOCAL_ENGINES}, nhận {self.local_engine!r}")
         if not 1 <= self.agree_min <= self.n_samples:
             raise ValueError("cần 1 <= agree_min <= n_samples")
+        if any(v > self.n_samples for v in self.min_agree_by_type.values()):
+            raise ValueError("min_agree_by_type không được lớn hơn n_samples")
         if self.n_samples > 1 and self.temperature <= 0:
             raise ValueError("n_samples > 1 cần temperature > 0, nếu không các lần sinh giống hệt nhau")
 

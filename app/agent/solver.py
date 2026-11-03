@@ -10,6 +10,7 @@ import pandas as pd
 
 from app.agent.cache import ResultCache
 from app.agent.context import ContextBuilder
+from app.agent.exemplars import ExemplarBank
 from app.agent.prompts import SYSTEM, prompt_hash
 from app.config import Config
 from app.ingestion.dataset import Split
@@ -37,9 +38,9 @@ class Solver:
         self.cfg, self.backend = cfg, backend
         self.stats = Stats()
         self._fail_streak = 0
-        self.builder = ContextBuilder(cfg, backend.count_tokens if backend else None)
+        bank = ExemplarBank.load(cfg.exemplar_path) if cfg.exemplar_path else None
+        self.builder = ContextBuilder(cfg, backend.count_tokens if backend else None, bank)
 
-    # ------------------------------------------------------------------ một lời giải
     def _generate(self, prompt: str, n: int) -> list[str] | None:
         """Gọi backend; lỗi sinh được đếm và trả None (KHÔNG cache). Hết quota thì ném lên để dừng hẳn."""
         try:
@@ -85,7 +86,11 @@ class Solver:
 
     def llm_solve(self, ctx: str, tables: dict, as_of) -> dict:
         """Sinh n_samples lời giải độc lập, chỉ trả đáp án khi >= agree_min lần cho cùng kết quả."""
-        n, need = self.cfg.n_samples, self.cfg.agree_min
+        n, base = self.cfg.n_samples, self.cfg.agree_min
+        by_type = self.cfg.min_agree_by_type
+
+        def need(typ: str) -> int:
+            return max(base, by_type.get(typ, 0))
         pre: list[str | None] = [None] * n
         if self.backend.supports_batch:
             texts = self._generate(ctx, n)
@@ -93,24 +98,28 @@ class Solver:
                 pre = (list(texts) + [None] * n)[:n]
         samples: list = []
         votes: Counter = Counter()
+        types: dict = {}
+
+        def can_still_decide() -> bool:                 # còn khả năng đạt đồng thuận với số mẫu còn lại không
+            left = n - len(samples)
+            return left >= base or any(votes[k] + left >= need(types[k]) for k in votes)
         for i in range(n):
             s = self.one_sample(ctx, tables, as_of, first=pre[i])
             if s is None:
                 samples.append(None)
-                if max(votes.values(), default=0) + (n - len(samples)) < need:     # không thể đạt đồng thuận nữa
+                if not can_still_decide():
                     break
                 continue
             s["canon"] = canon(s["type"], s["val"])
+            types[s["canon"]] = s["type"]
             samples.append(s)
             votes[s["canon"]] += 1
-            if votes[s["canon"]] >= need:
-                break
-            if max(votes.values()) + (n - len(samples)) < need:
+            if votes[s["canon"]] >= need(s["type"]) or not can_still_decide():
                 break
         decision, agree = None, 0
         if votes:
             key, agree = votes.most_common(1)[0]
-            if agree >= need:
+            if agree >= need(types[key]):
                 s = next(x for x in samples if x and x["canon"] == key)
                 decision = (s["type"], s["val"])
         return dict(decision=decision, agree=agree,
@@ -129,7 +138,7 @@ class Solver:
         if typ != "abstain":
             codes = [f"# rule:{intent} fact_table={note}"]
         elif use_llm:
-            ctx, tables = self.builder.build(r.question, r.as_of_date, biz, split)
+            ctx, tables = self.builder.build(r.question, r.as_of_date, biz, split, r.business_id)
             h = prompt_hash(self.cfg, self.backend.tag(), ctx)
             c = cache.get(r.id)
             if not c or c.get("hash") != h:                    # prompt/model đổi -> không dùng cache cũ
@@ -160,9 +169,12 @@ class Solver:
         return sub, log
 
     def solve_split(self, split: Split, tag: str, *, limit_biz: int | None = None, per_biz: int | None = None,
-                    limit_q: int | None = None, use_llm: bool = True, time_budget: float | None = None):
+                    limit_q: int | None = None, use_llm: bool = True, time_budget: float | None = None,
+                    business_ids: list | None = None):
         """Giải một tập câu hỏi. Trả (danh sách bài nộp, danh sách log)."""
         q = split.questions
+        if business_ids is not None:
+            q = q[q.business_id.isin(business_ids)]
         if limit_biz:
             q = q[q.business_id.isin(q.business_id.unique()[:limit_biz])]
         if per_biz:
@@ -177,7 +189,7 @@ class Solver:
         t_start, n_err, self._fail_streak = time.time(), 0, 0
         for r in q.itertuples():
             if time_budget and time.time() - t_start > time_budget:
-                print(f"⏱ Hết ngân sách {time_budget}s sau {len(subs)}/{len(q)} câu: các câu còn lại sẽ ghi abstain.")
+                print(f"Hết ngân sách {time_budget}s sau {len(subs)}/{len(q)} câu: các câu còn lại sẽ ghi abstain.")
                 break
             try:
                 sub, log = self._solve_row(r, split, cache, use_llm)

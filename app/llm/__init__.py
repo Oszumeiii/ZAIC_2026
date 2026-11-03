@@ -18,7 +18,7 @@ def _create_local(cfg: Config) -> LLMBackend:
         msg = "Không thấy GPU: vào Settings -> Accelerator chọn GPU T4 x2 (hoặc P100), rồi chạy lại từ đầu."
         if not cfg.allow_cpu:
             raise RuntimeError(msg + " (Đặt allow_cpu=True nếu CỐ Ý chạy CPU để thử luồng với model nhỏ.)")
-        print("⚠", msg, "Chạy CPU sẽ rất chậm.")
+        print(msg, "Chạy CPU sẽ rất chậm.")
     path = resolve_model_path(cfg.local_model)
     engine = cfg.local_engine if cfg.local_engine != "auto" else ("vllm" if has_module("vllm") else "hf")
     if engine == "vllm":
@@ -28,7 +28,7 @@ def _create_local(cfg: Config) -> LLMBackend:
         except Exception as e:
             if cfg.local_engine == "vllm":
                 raise
-            print(f"⚠ vLLM không nạp được ({type(e).__name__}: {str(e)[:300]}) -> tự chuyển sang engine hf")
+            print(f"vLLM không nạp được ({type(e).__name__}: {str(e)[:300]}) -> tự chuyển sang engine hf")
             gc.collect()
             torch.cuda.empty_cache()
     from .hf_local import HFBackend
