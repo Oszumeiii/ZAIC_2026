@@ -1,59 +1,160 @@
 # datamate-agent
 
-Agent trả lời câu hỏi tiếng Việt về dữ liệu bảng (CSV/XLSX/SQLite) cho **Zalo AI Challenge 2026, DataMate (Track 2)**.
-Chấm theo Penalized Accuracy: đúng +1, abstain 0, sai −1. Vì vậy hệ thống **chỉ trả lời khi chắc**, không thì abstain.
+Agent hỏi đáp dữ liệu bảng bằng tiếng Việt, phát triển cho **Zalo AI Challenge 2026, nhiệm vụ DataMate (Track 2)**.
 
-## Cách hoạt động
+Với mỗi câu hỏi về dữ liệu của một doanh nghiệp nhỏ (CSV, XLSX, SQLite), hệ thống sinh mã pandas, thực thi và trả về
+đáp án đúng định dạng yêu cầu. Cuộc thi chấm theo **Penalized Accuracy (PA)**: trả lời đúng +1 điểm, từ chối trả lời
+(abstain) 0 điểm, trả lời sai −1 điểm. Vì vậy hệ thống chỉ trả lời khi đủ độ tin cậy; các trường hợp còn lại được ghi
+nhận là abstain.
+
+## Mục lục
+
+1. [Luồng xử lý](#1-luồng-xử-lý)
+2. [Cấu trúc thư mục](#2-cấu-trúc-thư-mục)
+3. [Cài đặt](#3-cài-đặt)
+4. [Sử dụng](#4-sử-dụng)
+5. [Cấu hình](#5-cấu-hình)
+6. [Kiểm thử](#6-kiểm-thử)
+7. [Trạng thái xác minh và giới hạn](#7-trạng-thái-xác-minh-và-giới-hạn)
+8. [Quy ước phát triển](#8-quy-ước-phát-triển)
+
+## 1. Luồng xử lý
 
 ```
 câu hỏi + as_of_date
-  └─ dựng ngữ cảnh: RULEBOOK + README + profile cột (tự rút gọn cho vừa token)
-      └─ LLM sinh code pandas ×N lần độc lập (N = n_samples)
-          └─ chạy code (giới hạn thời gian) → ép/kiểm kiểu kết quả theo `type`
-              └─ lỗi hoặc sai kiểu: đưa lỗi lại cho model tự sửa (tối đa max_retry lần)
-                  └─ bỏ phiếu: ≥ agree_min lần cho CÙNG kết quả mới trả lời, không thì abstain
+  └─ dựng ngữ cảnh: rulebook + README của doanh nghiệp + mô tả cột (tự rút gọn theo ngân sách token)
+      └─ mô hình sinh mã pandas, N lần độc lập (N = n_samples)
+          └─ thực thi mã (có giới hạn thời gian), kiểm tra và ép kiểu kết quả theo `type`
+              └─ nếu lỗi hoặc sai kiểu: phản hồi lỗi cho mô hình để tự sửa (tối đa max_retry lần)
+                  └─ biểu quyết: chỉ trả lời khi ít nhất agree_min lần cho cùng kết quả, ngược lại abstain
 ```
 
-LLM **không** sinh SQL và **không** được huấn luyện ở đây: nó viết code pandas theo prompt (zero-shot).
-"train" nghĩa là chạy pipeline trên tập `train` (có đáp án) để đo PA.
+Lưu ý về phương pháp:
 
-## Cấu trúc
+- Mô hình viết **mã pandas**, không sinh truy vấn SQL.
+- Mô hình **không được huấn luyện** trong repository này. Hệ thống dùng kỹ thuật prompting (zero-shot). Thuật ngữ
+  "train" trong tài liệu chỉ việc chạy pipeline trên tập `train` có đáp án để đo PA.
+- Cơ chế biểu quyết giúp loại các câu trả lời không ổn định, nhưng **không phát hiện được lỗi hiểu sai lặp lại ở cả N
+  lần sinh**. Đây là giới hạn đã biết của thiết kế hiện tại.
+
+## 2. Cấu trúc thư mục
 
 ```
-app/                  chỉ mã chạy lúc nộp bài (Docker chỉ copy thư mục này)
-  config.py           Config: mọi tham số chạy
-  main.py             điểm vào: python -m app.main (đọc TEST_DIR, ghi OUT_DIR/submission.jsonl)
-  submission.py       ghi và kiểm định submission.jsonl (đủ id, JSON chuẩn, < 5MB)
-  text.py             chuẩn hóa tiếng Việt dùng chung
-  ingestion/          dataset.py (đọc split, sửa tiêu đề lệch dòng), profiling.py (mô tả cột, gộp sheet)
-  llm/                base.py + gemini.py, hf_local.py, vllm_local.py (create_backend chọn theo cấu hình)
-  agent/              prompts.py, context.py (rút gọn theo ngân sách token), solver.py (sinh ×N, tự sửa,
-                      bỏ phiếu), cache.py, pipeline.py (run_inference)
-  tools/              sandbox.py, results.py (clean/coerce/canon), timeutil.py, rules.py
-evaluation/           chỉ dùng khi phát triển: scoring.py (PA), run_eval.py (chạy + chấm trên train)
-training/             chỉ dùng khi phát triển: export_sft.py (SFT từ lời giải đã đúng)
-notebooks/            kaggle_run.ipynb (mỏng, chỉ cấu hình rồi gọi app)
-tests/                phản chiếu cấu trúc trên; 26 test chạy bằng backend giả, không cần GPU hay API
-Dockerfile, requirements.txt (runtime), requirements-dev.txt
+app/                    Mã chạy khi nộp bài (image Docker chỉ chứa thư mục này)
+  config.py             Config: toàn bộ tham số vận hành
+  main.py               Điểm vào: python -m app.main
+  submission.py         Ghi và kiểm định submission.jsonl
+  text.py               Chuẩn hóa văn bản tiếng Việt dùng chung
+  ingestion/            dataset.py (đọc split, sửa tiêu đề lệch dòng), profiling.py (mô tả cột, gộp sheet)
+  llm/                  base.py, gemini.py, hf_local.py, vllm_local.py; create_backend chọn backend theo cấu hình
+  agent/                prompts.py, context.py, solver.py, cache.py, pipeline.py
+  tools/                sandbox.py, results.py, timeutil.py, rules.py
+evaluation/             Chỉ dùng khi phát triển: scoring.py (tính PA), run_eval.py (chạy và chấm trên train)
+training/               Chỉ dùng khi phát triển: export_sft.py (xuất dữ liệu SFT từ các lời giải đúng)
+notebooks/              kaggle_run.ipynb (cấu hình mỏng, gọi vào app)
+tests/                  Kiểm thử, tổ chức phản chiếu cấu trúc của app
+Dockerfile
+requirements.txt        Thư viện chạy khi nộp bài
+requirements-dev.txt    Thư viện phát triển và kiểm thử
 ```
 
-Hướng phụ thuộc một chiều: `evaluation`/`training` gọi `app`, không ngược lại. `agent` gọi `llm`, `tools`,
-`ingestion`. `tools` và `ingestion` không biết LLM là gì. `torch`/`vllm` chỉ import muộn trong `llm/`.
+Nguyên tắc phụ thuộc (một chiều):
 
-## Chạy
+- `evaluation` và `training` phụ thuộc `app`; `app` không phụ thuộc hai thư mục này.
+- `agent` sử dụng `llm`, `tools` và `ingestion`.
+- `tools` và `ingestion` độc lập với LLM.
+- `torch` và `vllm` chỉ được import khi cần, bên trong `llm/`, để môi trường chạy kiểm thử không yêu cầu GPU.
+
+## 3. Cài đặt
+
+Yêu cầu: Python 3.10 trở lên.
 
 ```bash
 pip install -r requirements-dev.txt
-pytest                                                     # không cần GPU/API
-python -m evaluation.run_eval --backend gemini --max-biz 2 --per-biz 15      # chạy + chấm PA trên train
-python -m app.main --backend gemini --test-dir <dir> --out-dir <dir> --limit-test 20
 ```
 
-Gemini cần biến môi trường `GEMINI_API_KEY` (hoặc Kaggle Secret). Backend local: engine `auto` (có vLLM thì dùng,
-lỗi hoặc không có thì chuyển sang transformers + bitsandbytes 4-bit).
+Biến môi trường:
 
-## Lưu ý
+| Biến | Công dụng |
+|---|---|
+| `GEMINI_API_KEY` | Khóa API khi dùng backend Gemini (hoặc Kaggle Secret cùng tên) |
+| `TEST_DIR` | Thư mục dữ liệu đầu vào cho `python -m app.main` |
+| `OUT_DIR` | Thư mục ghi `submission.jsonl` và log |
+| `LOCAL_MODEL` | Tên repo Hugging Face hoặc đường dẫn thư mục mô hình local |
 
-- Vòng nộp cuối: offline, model ≤ 15B, không gọi API ngoài. Backend Gemini chỉ để phát triển/so sánh.
-- Chưa kiểm trên GPU/Kaggle thật: `llm/gemini.py`, `llm/hf_local.py`, `llm/vllm_local.py`. Chưa build `Dockerfile`.
-- Luật đặt tên: tên tiếng Anh, chú thích tiếng Việt (`python3 tools/check_naming.py tmp/datamate_agent`).
+## 4. Sử dụng
+
+Đánh giá trên một phần tập train (có đáp án) và in bảng PA:
+
+```bash
+python -m evaluation.run_eval --backend gemini --max-biz 2 --per-biz 15
+```
+
+Sinh bài nộp:
+
+```bash
+python -m app.main --backend local --test-dir <thu_muc_du_lieu> --out-dir <thu_muc_ket_qua>
+```
+
+Kết quả gồm `submission.jsonl` (đủ một dòng cho mỗi câu hỏi, câu chưa xử lý được ghi abstain) và thư mục `logs/` chứa
+mã đã sinh cho từng câu. Tệp nộp được kiểm định tự động sau khi ghi.
+
+Trên Kaggle, dùng `notebooks/kaggle_run.ipynb`: tải thư mục dự án lên dưới dạng Kaggle Dataset, chọn `BACKEND`, sau đó
+chạy lần lượt các ô.
+
+**Backend:**
+
+- `gemini`: phục vụ phát triển và so sánh. Không phù hợp cho bài nộp cuối vì thể lệ yêu cầu chạy offline.
+- `local`: mô hình chạy trên GPU. Engine mặc định `auto`: dùng vLLM nếu khả dụng, nếu không hoặc vLLM không khởi tạo
+  được thì chuyển sang transformers kết hợp bitsandbytes 4-bit.
+
+## 5. Cấu hình
+
+Toàn bộ tham số nằm trong `app/config.py` (`Config`). Các tham số chính:
+
+| Tham số | Mặc định | Ý nghĩa |
+|---|---|---|
+| `backend` | `local` | `local` hoặc `gemini` |
+| `n_samples` | 3 | Số lần sinh mã độc lập cho mỗi câu hỏi |
+| `agree_min` | 2 | Số lần tối thiểu cho cùng kết quả để được trả lời |
+| `max_retry` | 2 | Số lần tự sửa lỗi cho mỗi lời giải |
+| `code_timeout_s` | 60 | Giới hạn thời gian thực thi mã (giây) |
+| `temperature` | 0.7 | Phải lớn hơn 0 khi `n_samples` > 1 |
+| `max_model_len` | 16384 | Tổng token tối đa (prompt và phản hồi), backend local |
+| `max_new_tokens` | 1024 | Token tối đa cho phần mã được sinh |
+| `prefill_chunk` | 512 | Kích thước đoạn khi nạp prompt (engine transformers), giảm nguy cơ hết VRAM |
+| `local_engine` | `auto` | `auto`, `vllm` hoặc `hf` |
+| `use_rules` | `False` | Bật luật tất định cho một số dạng câu hỏi đơn giản |
+
+## 6. Kiểm thử
+
+```bash
+pytest
+```
+
+Bộ kiểm thử gồm 26 ca, sử dụng backend giả lập nên không cần GPU hay kết nối API. Các ca bao quát: chuẩn hóa và ép
+kiểu kết quả, quy đổi thời gian, đọc dữ liệu và profiling, sandbox, biểu quyết và tự sửa lỗi, cache, cơ chế dừng sớm khi
+mô hình lỗi liên tiếp, ghi và kiểm định bài nộp, chấm PA, xuất dữ liệu SFT.
+
+## 7. Trạng thái xác minh và giới hạn
+
+| Thành phần | Trạng thái |
+|---|---|
+| Logic lõi (ingestion, agent, tools, submission, evaluation) | Đã kiểm thử tự động bằng backend giả lập |
+| Điểm vào `app.main`, `evaluation.run_eval` | Đã chạy thử với `--no-llm` trên dữ liệu giả |
+| Backend `gemini`, `hf_local`, `vllm_local` | **Chưa chạy trên môi trường thật** (Kaggle/GPU/API) |
+| `Dockerfile` | **Chưa build.** Đường dẫn dữ liệu vào/ra và lệnh chạy là giả định, cần đối chiếu thể lệ |
+| `requirements.txt` | Chưa ghim phiên bản |
+| Hiệu năng (PA) trên dữ liệu thật | **Chưa có số liệu đo** |
+
+Giới hạn của thiết kế:
+
+- `tools/sandbox.py` chỉ giới hạn thời gian thực thi, **không phải cơ chế cô lập bảo mật**. Môi trường nộp bài nên chạy
+  mã sinh ra trong tiến trình hoặc container tách biệt.
+- Chưa có bước kiểm chứng ngữ nghĩa độc lập giữa câu hỏi và kết quả (xem phần phương pháp ở mục 1).
+
+## 8. Quy ước phát triển
+
+- Tên định danh (biến, hàm, tệp, thư mục) bằng tiếng Anh; chú thích và thông điệp hiển thị bằng tiếng Việt.
+- Kiểm tra quy ước đặt tên tại gốc monorepo: `python3 tools/check_naming.py tmp/datamate_agent`.
+- Mã chỉ phục vụ phát triển đặt ngoài `app/` để không đi vào image nộp bài.
