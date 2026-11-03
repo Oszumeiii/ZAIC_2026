@@ -1,0 +1,16 @@
+"""Test xuất dữ liệu SFT."""
+import json
+
+from conftest import GOOD_CODE, FakeBackend
+from app.agent.context import ContextBuilder
+from evaluation.run_eval import run_train
+from training.export_sft import export_sft
+
+
+def test_export_sft_keeps_only_correct_answers(cfg, tmp_path):
+    backend = FakeBackend([GOOD_CODE])
+    _solver, split, ev, _subs, logs = run_train(cfg, backend)
+    path = str(tmp_path / "sft.jsonl")
+    n = export_sft(ev, logs, split, ContextBuilder(cfg), path)
+    rows = [json.loads(x) for x in open(path, encoding="utf-8")]
+    assert n == len(rows) == 4 and rows[0]["messages"][2]["content"].startswith("```python")

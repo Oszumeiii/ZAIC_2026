@@ -1,1 +1,7 @@
-# Add Python dependencies here.
+pandas
+numpy
+openpyxl
+transformers
+huggingface_hub
+accelerate
+vllm
