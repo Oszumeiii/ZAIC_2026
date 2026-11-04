@@ -1,7 +1,7 @@
 """Thu dữ liệu SFT: mọi mẫu đúng, loại mẫu xấu, và ghi nhận lý do lỗi."""
 import json
 
-from datamate_testkit import GOOD_CODE, OTHER_CODE, FakeBackend
+from evaluation.fakes import GOOD_CODE, OTHER_CODE, FakeBackend
 from app.llm.base import LLMBackend
 from app.agent.context import ContextBuilder
 from app.agent.solver import Solver
