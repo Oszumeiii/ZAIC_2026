@@ -25,10 +25,11 @@ def detect_gpu() -> dict:
 
 def recommend(vram_gb: float) -> dict:
     """Cấu hình model theo VRAM của MỘT GPU. Ngưỡng dựa trên ước tính kích thước trọng số, chưa đo trên máy thật."""
+    # engine "auto": dùng vLLM nếu đã cài, không thì transformers + bitsandbytes 4-bit (chậm hơn nhưng không lỗi)
     if vram_gb >= 38:       # A100 40/80GB: 14B bf16 (~29GB) + KV cache
-        return {"local_model": MODEL_14B, "local_engine": "vllm", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
+        return {"local_model": MODEL_14B, "local_engine": "auto", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
     if vram_gb >= 22:       # L4 / A10 24GB: 14B nén 4-bit (~9,5GB)
-        return {"local_model": MODEL_14B_AWQ, "local_engine": "vllm", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
+        return {"local_model": MODEL_14B_AWQ, "local_engine": "auto", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
     return {"local_model": MODEL_7B, "local_engine": "hf", "max_model_len": 16384, "gpu_memory_utilization": 0.88}
 
 

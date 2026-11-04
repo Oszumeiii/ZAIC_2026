@@ -34,7 +34,7 @@ def test_compare_accepts_clear_winner(tmp_path):
 
 
 def test_hardware_recommendation_by_vram():
-    assert recommend(40)["local_model"] == MODEL_14B and recommend(80)["local_engine"] == "vllm"
+    assert recommend(40)["local_model"] == MODEL_14B and recommend(80)["local_engine"] == "auto"
     assert recommend(24)["local_model"] == MODEL_14B_AWQ
     assert recommend(15)["local_model"] == MODEL_7B and recommend(15)["local_engine"] == "hf"
     cfg = apply_recommendation(Config(backend="local"), {"name": "A100", "vram_gb": 40.0, "bf16": True, "count": 1})

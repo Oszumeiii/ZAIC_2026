@@ -25,6 +25,7 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--local-engine", choices=["auto", "vllm", "hf"])
     p.add_argument("--local-lora", help="thư mục LoRA adapter (sau fine-tune); nên gộp vào model rồi dùng --local-model")
     p.add_argument("--temperature", type=float)
+    p.add_argument("--max-model-len", type=int, help="tổng token tối đa (prompt + trả lời); giảm khi hết VRAM, vd 12288")
     p.add_argument("--max-retry", type=int)
     p.add_argument("--no-llm", action="store_true", help="không gọi model (chỉ luật, nếu bật)")
     p.add_argument("--exemplars", help="kho few-shot (.jsonl) dựng từ train bằng evaluation.run_eval --build-exemplars")
@@ -43,7 +44,7 @@ def config_from_args(a: argparse.Namespace) -> Config:
                "per_biz": a.per_biz, "limit_test": a.limit_test, "time_budget_s": a.time_budget,
                "n_samples": a.n_samples, "agree_min": a.agree_min, "gemini_model": a.gemini_model,
                "local_model": a.local_model, "local_engine": a.local_engine, "local_lora": a.local_lora,
-               "temperature": a.temperature, "max_retry": a.max_retry}
+               "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len}
     mapping["exemplar_path"] = a.exemplars
     cfg = Config(backend=a.backend, use_hints=not a.no_hints, use_helpers=not a.no_helpers, collect_all=a.collect_all, rulebook_select=a.rulebook_select,
                  run_name=a.run_name, chat_kwargs={"enable_thinking": False} if a.no_thinking else {},
