@@ -13,6 +13,7 @@ def test_resolve_period_week_and_month():
     assert resolve_period(norm("tháng trước"), "2026-08-27") == (pd.Timestamp("2026-07-01"), pd.Timestamp("2026-07-31"))
     assert resolve_period(norm("tháng này"), "2026-08-27") == (pd.Timestamp("2026-08-01"), pd.Timestamp("2026-08-27"))
     assert resolve_period(norm("so với cùng kỳ"), "2026-08-27") is None
+    assert resolve_period("quý 5 và tháng này", "2026-08-27") is None
 
 
 def test_describe_period_gives_hint_or_none():
@@ -33,6 +34,29 @@ def test_comparison_periods_are_available_to_context():
     hint = describe_period("Doanh thu tháng này so với cùng kỳ năm ngoái", "2026-08-27")
     assert "Kỳ chính" in hint and "Kỳ so sánh" in hint
     assert resolve_period("Doanh thu tháng này so với cùng kỳ năm ngoái", "2026-08-27") is None
+
+
+def test_shift_comparison_and_price_anchor_are_described():
+    shift_hint = describe_period(
+        "Ca chiều tuần trước so với ca sáng thì doanh thu chênh bao nhiêu %",
+        "2026-03-04",
+    )
+    assert "Lọc kỳ chính theo ca chieu" in shift_hint
+    assert "Lọc kỳ so sánh theo ca sang" in shift_hint
+
+    price_hint = describe_period(
+        "Doanh thu 7 ngày kể từ ngày 02/06/2026 so với 7 ngày trước đó",
+        "2026-08-05",
+    )
+    assert "Mốc tham chiếu" in price_hint
+    assert "2026-06-02" in price_hint
+
+
+def test_unresolved_time_cue_is_exposed_to_context():
+    spec = resolve_time("Doanh thu quý 5", "2026-08-27")
+    assert spec.time_cue
+    assert spec.status == "unresolved"
+    assert "chưa phân giải được kỳ" in describe_period("Doanh thu quý 5", "2026-08-27")
 
 
 def test_tet_resolution_parses_calendar_date_strings():

@@ -125,7 +125,8 @@ def rule_solve(question: str, as_of, biz: "Business", rule_on: dict, calendar=No
     time_spec = resolve_time(question, as_of, calendar)
     main_periods = time_spec.main()
     if (len(main_periods) != 1 or time_spec.baseline() is not None or time_spec.series
-            or time_spec.stock or time_spec.shift or time_spec.needs_data or time_spec.flags):
+            or time_spec.stock or time_spec.shift or time_spec.baseline_shift
+            or time_spec.needs_data or time_spec.flags or time_spec.time_cue):
         return "abstain", None, "no_period", name
     period = (pd.Timestamp(main_periods[0].start), pd.Timestamp(main_periods[0].end))
     fact_df = biz.tables[name].copy()

@@ -29,7 +29,8 @@ def resolve_time(question: str, as_of, calendar=None) -> TimeSpec:
             )
     spec = resolve(question, pd.Timestamp(as_of).date(), cal=calendar)
     qn = normalize_time_query(question)
-    if re.search(r"\b(so voi|so sanh|cung ky)\b", qn) and spec.baseline() is None:
+    if (re.search(r"\b(so voi|so sanh|cung ky)\b", qn)
+            and (spec.baseline() is None or "cung_ky_unit_unknown" in spec.flags)):
         spec.flags.append("comparison_period_unresolved")
     return spec
 
@@ -37,7 +38,8 @@ def resolve_time(question: str, as_of, calendar=None) -> TimeSpec:
 def _simple_main_period(spec: TimeSpec):
     main = spec.main()
     if (len(main) != 1 or spec.baseline() is not None or spec.series or spec.stock
-            or spec.shift or spec.needs_data or spec.flags):
+            or spec.shift or spec.baseline_shift or spec.needs_data or spec.flags
+            or spec.time_cue):
         return None
     return main[0]
 
@@ -53,10 +55,13 @@ def resolve_period(question: str, as_of, calendar=None) -> tuple[pd.Timestamp, p
 def describe_period(question: str, as_of, calendar=None) -> str | None:
     """Format the resolved periods, comparisons, and uncertainty as a prompt hint."""
     spec = resolve_time(question, as_of, calendar)
-    if not spec.periods and not spec.flags and not spec.needs_data and not spec.shift:
+    if not (spec.periods or spec.flags or spec.needs_data or spec.shift
+            or spec.baseline_shift or spec.time_cue):
         return None
 
-    if len(spec.periods) == 1 and not spec.flags and not spec.needs_data and not spec.shift:
+    if (len(spec.periods) == 1 and spec.periods[0].role == "main"
+            and not spec.flags and not spec.needs_data and not spec.shift
+            and not spec.baseline_shift):
         period = spec.periods[0]
         label = period.label.split(" (", 1)[0]
         suffix = " (tuần tính Thứ Hai đến Chủ Nhật)" if "tuần" in label else ""
@@ -65,16 +70,22 @@ def describe_period(question: str, as_of, calendar=None) -> str | None:
 
     lines = []
     for period in spec.periods:
-        role = "Kỳ so sánh" if period.role == "baseline" else "Kỳ chính"
+        role = {"main": "Kỳ chính", "baseline": "Kỳ so sánh", "anchor": "Mốc tham chiếu"}.get(
+            period.role, period.role
+        )
         lines.append(f"- {role} ({period.label}): {period.start:%Y-%m-%d} đến {period.end:%Y-%m-%d}")
     if spec.series:
         lines.append("- Kết quả cần giữ thứ tự chuỗi thời gian.")
     if spec.stock:
         lines.append(f"- Đây là câu hỏi trạng thái tồn tại đến hết ngày {spec.stock_date}.")
     if spec.shift:
-        lines.append(f"- Lọc theo ca {spec.shift}.")
+        lines.append(f"- Lọc kỳ chính theo ca {spec.shift}.")
+    if spec.baseline_shift:
+        lines.append(f"- Lọc kỳ so sánh theo ca {spec.baseline_shift}.")
     if spec.needs_data:
         lines.append(f"- Cần thêm dữ liệu để xác định: {', '.join(spec.needs_data)}.")
+    if spec.time_cue:
+        lines.append("- Có cụm thời gian nhưng chưa phân giải được kỳ; cần đối chiếu RULEBOOK/dữ liệu, không tự suy đoán.")
     if spec.flags:
         lines.append(f"- Cần thận trọng với diễn giải: {'; '.join(spec.flags)}.")
     return "\n".join(lines)
