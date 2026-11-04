@@ -5,6 +5,7 @@ import hashlib
 import textwrap
 
 from app.config import Config
+from app.tools.helpers import HELPERS_DOC
 
 SYSTEM = textwrap.dedent('''
 Bạn là agent phân tích dữ liệu bảng cho doanh nghiệp nhỏ Việt Nam. Viết code Python (pandas)
@@ -36,6 +37,11 @@ result = float(pd.to_numeric(df["thanh_tien"], errors="coerce").sum())
 ''')
 
 
+def build_system(cfg: Config) -> str:
+    """System prompt theo cấu hình (thêm mô tả hàm trợ giúp nếu bật)."""
+    return SYSTEM + (HELPERS_DOC if cfg.use_helpers else "")
+
+
 def prompt_hash(cfg: Config, backend_tag: str, ctx: str) -> str:
     """Khóa cache: đổi prompt/model/LoRA thì không dùng lại kết quả cũ."""
-    return hashlib.md5(f"{cfg.prompt_version}|{backend_tag}|{SYSTEM}|{ctx}".encode()).hexdigest()[:12]
+    return hashlib.md5(f"{cfg.prompt_version}|{cfg.n_samples}|{cfg.collect_all}|{backend_tag}|{build_system(cfg)}|{ctx}".encode()).hexdigest()[:12]

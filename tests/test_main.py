@@ -14,4 +14,3 @@ def test_cli_exemplars_and_no_hints():
     p = add_common_args(argparse.ArgumentParser())
     cfg = config_from_args(p.parse_args(["--backend", "gemini", "--exemplars", "bank.jsonl", "--no-hints"]))
     assert cfg.exemplar_path == "bank.jsonl" and cfg.use_hints is False
-    

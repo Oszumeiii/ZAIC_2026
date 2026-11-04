@@ -14,6 +14,7 @@ from app.llm import create_backend
 from app.llm.base import LLMBackend
 from app.main import add_common_args, config_from_args
 from evaluation import scoring
+from evaluation.report import save_summary, summarize
 
 
 def run_train(cfg: Config, backend: LLMBackend | None, use_llm: bool = True, subset: str = "all", holdout_n: int = 6):
@@ -31,6 +32,9 @@ def run_train(cfg: Config, backend: LLMBackend | None, use_llm: bool = True, sub
                                     per_biz=cfg.per_biz, use_llm=use_llm, business_ids=ids)
     ev = scoring.evaluate(subs, logs, split.answers)
     print(scoring.summary_text(ev))
+    summary = summarize(ev, logs, {"run_name": cfg.run_name or "default", "model": cfg.local_model if cfg.is_local else cfg.gemini_model,
+                                  "subset": subset, "n_samples": cfg.n_samples, "agree_min": cfg.agree_min})
+    print("đã lưu tóm tắt:", save_summary(summary, cfg.out_dir, f"{cfg.run_name or 'default'}_{subset}"))
     for by in ("source", "intent", "gold_type"):
         print(f"\nTheo {by}:")
         print(scoring.breakdown(ev, by).to_string())
@@ -44,6 +48,8 @@ def run_train(cfg: Config, backend: LLMBackend | None, use_llm: bool = True, sub
 def main(argv=None) -> int:
     parser = add_common_args(argparse.ArgumentParser(prog="evaluation.run_eval", description=__doc__))
     parser.add_argument("--export-sft", action="store_true", help="ghi sft_train.jsonl từ lời giải đã đúng")
+    parser.add_argument("--sft-all", action="store_true",
+                        help="với --export-sft: lấy MỌI mẫu đúng (nên chạy kèm --collect-all) thay vì chỉ quyết định đồng thuận")
     parser.add_argument("--subset", choices=["all", "fit", "holdout"], default="all",
                         help="holdout = chỉ business giữ lại (đo PA khái quát); fit = phần còn lại (dựng kho ví dụ/SFT)")
     parser.add_argument("--holdout-n", type=int, default=6, help="số business giữ lại")
@@ -59,7 +65,7 @@ def main(argv=None) -> int:
     if a.export_sft:
         from training.export_sft import export_sft
         n = export_sft(ev, logs, split, ContextBuilder(cfg, backend.count_tokens if backend else None),
-                       f"{cfg.out_dir}/sft_train.jsonl")
+                       f"{cfg.out_dir}/sft_train.jsonl", all_samples=a.sft_all)
         print(f"Đã ghi {n} mẫu SFT -> {cfg.out_dir}/sft_train.jsonl")
     return 0
 

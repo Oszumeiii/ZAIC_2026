@@ -10,6 +10,8 @@ import signal
 import numpy as np
 import pandas as pd
 
+from app.tools.helpers import HELPERS
+
 
 class CodeTimeout(Exception):
     pass
@@ -21,7 +23,7 @@ def _on_alarm(*_args):
 
 def run_code(code: str, tables: dict, as_of, secs: int = 60):
     """Chạy `code` với tables/pd/np/AS_OF; trả (result_type, result) do code gán."""
-    ns = {"tables": {k: v.copy() for k, v in tables.items()}, "pd": pd, "np": np, "AS_OF": pd.Timestamp(as_of)}
+    ns = {"tables": {k: v.copy() for k, v in tables.items()}, "pd": pd, "np": np, "AS_OF": pd.Timestamp(as_of), **HELPERS}
     signal.signal(signal.SIGALRM, _on_alarm)
     signal.alarm(secs)
     try:

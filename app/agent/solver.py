@@ -11,7 +11,7 @@ import pandas as pd
 from app.agent.cache import ResultCache
 from app.agent.context import ContextBuilder
 from app.agent.exemplars import ExemplarBank
-from app.agent.prompts import SYSTEM, prompt_hash
+from app.agent.prompts import build_system, prompt_hash
 from app.config import Config
 from app.ingestion.dataset import Split
 from app.llm.base import LLMBackend, QuotaExhausted
@@ -38,13 +38,15 @@ class Solver:
         self.cfg, self.backend = cfg, backend
         self.stats = Stats()
         self._fail_streak = 0
+        self.system = build_system(cfg)
+        self.last_errors: list[str] = []
         bank = ExemplarBank.load(cfg.exemplar_path) if cfg.exemplar_path else None
         self.builder = ContextBuilder(cfg, backend.count_tokens if backend else None, bank)
 
     def _generate(self, prompt: str, n: int) -> list[str] | None:
         """Gọi backend; lỗi sinh được đếm và trả None (KHÔNG cache). Hết quota thì ném lên để dừng hẳn."""
         try:
-            return self.backend.generate(SYSTEM, prompt, n)
+            return self.backend.generate(self.system, prompt, n)
         except QuotaExhausted:
             raise
         except Exception as e:
@@ -79,15 +81,18 @@ class Solver:
                     err, prev = ("Kết quả rỗng/NaN: kiểm tra lại bộ lọc, tên cột, khoảng thời gian; "
                                  "nếu dữ liệu thật sự không có thì result_type='unanswerable'"), code
                     continue
-                return dict(type=typ, val=val, code=code)
+                return dict(type=typ, val=val, code=code, attempt=attempt)
             except Exception as e:
                 err, prev = f"{type(e).__name__}: {e}", code
+        self.last_errors.append(str(err)[:300])           # để biết VÌ SAO câu bị llm_failed
         return None
 
     def llm_solve(self, ctx: str, tables: dict, as_of) -> dict:
         """Sinh n_samples lời giải độc lập, chỉ trả đáp án khi >= agree_min lần cho cùng kết quả."""
         n, base = self.cfg.n_samples, self.cfg.agree_min
         by_type = self.cfg.min_agree_by_type
+        self.last_errors = []
+        collect = self.cfg.collect_all
 
         def need(typ: str) -> int:
             return max(base, by_type.get(typ, 0))
@@ -107,14 +112,14 @@ class Solver:
             s = self.one_sample(ctx, tables, as_of, first=pre[i])
             if s is None:
                 samples.append(None)
-                if not can_still_decide():
+                if not collect and not can_still_decide():
                     break
                 continue
             s["canon"] = canon(s["type"], s["val"])
             types[s["canon"]] = s["type"]
             samples.append(s)
             votes[s["canon"]] += 1
-            if votes[s["canon"]] >= need(s["type"]) or not can_still_decide():
+            if not collect and (votes[s["canon"]] >= need(s["type"]) or not can_still_decide()):
                 break
         decision, agree = None, 0
         if votes:
@@ -122,14 +127,15 @@ class Solver:
             if agree >= need(types[key]):
                 s = next(x for x in samples if x and x["canon"] == key)
                 decision = (s["type"], s["val"])
-        return dict(decision=decision, agree=agree,
-                    samples=[None if s is None else {"type": s["type"], "canon": s["canon"], "code": s["code"]}
+        return dict(decision=decision, agree=agree, errors=list(self.last_errors),
+                    samples=[None if s is None else {"type": s["type"], "canon": s["canon"], "code": s["code"],
+                                                     "val": s["val"], "attempt": s["attempt"]}
                              for s in samples])
 
     def _solve_row(self, r, split: Split, cache: ResultCache, use_llm: bool):
         t0 = time.time()
         intent = note = ""
-        src, codes, sample_results, agree = "rule", [], [], 0
+        src, codes, sample_results, agree, samples, errors = "rule", [], [], 0, [], []
         biz = split.business(r.business_id)
         if self.cfg.use_rules:
             typ, ans, intent, note = rule_solve(r.question, r.as_of_date, biz, self.cfg.rule_on)
@@ -154,7 +160,7 @@ class Solver:
                         raise GenerationBroken(
                             f"Model sinh lỗi liên tiếp {self._fail_streak} câu (xem thông báo [llm] lỗi sinh ở trên). "
                             "Dừng để khỏi biến cả tập thành abstain.")
-            agree = c["agree"]
+            agree, samples, errors = c["agree"], c["samples"], c.get("errors", [])
             codes = [s["code"] for s in c["samples"] if s]
             sample_results = [None if s is None else s["canon"] for s in c["samples"]]
             if c["decision"]:
@@ -165,7 +171,7 @@ class Solver:
         sub = make_sub(r.id, typ, ans)
         log = {"id": r.id, "type": typ, "answer": ans, "source": src, "intent": intent, "note": note,
                "elapsed_s": round(time.time() - t0, 3), "agree": agree, "codes": codes,
-               "sample_results": sample_results}
+               "sample_results": sample_results, "samples": samples, "errors": errors}
         return sub, log
 
     def solve_split(self, split: Split, tag: str, *, limit_biz: int | None = None, per_biz: int | None = None,
@@ -183,6 +189,8 @@ class Solver:
             q = q.head(limit_q)
         print(f"[{tag}] sẽ chạy {len(q)} câu / {q.business_id.nunique()} business "
               f"(tổng split: {len(split.questions)} câu / {split.questions.business_id.nunique()} business)")
+        if self.cfg.run_name:
+            tag = f"{tag}_{self.cfg.run_name}"              # mỗi model/cấu hình một cache riêng
         cache = ResultCache(f"{self.cfg.out_dir}/logs/llm_cache_{tag}.jsonl").load()
         print(f"[{tag}] cache hợp lệ đã nạp: {len(cache)} câu")
         subs, logs = [], []
@@ -203,7 +211,7 @@ class Solver:
                     traceback.print_exc(limit=3)
                 sub = make_sub(r.id, "abstain", None)
                 log = {"id": r.id, "type": "abstain", "answer": None, "source": "abstain", "intent": "error",
-                       "note": repr(e)[:200], "elapsed_s": 0.0, "agree": 0, "codes": [], "sample_results": []}
+                       "note": repr(e)[:200], "elapsed_s": 0.0, "agree": 0, "codes": [], "sample_results": [], "samples": [], "errors": []}
             subs.append(sub)
             logs.append(log)
             if len(subs) % 20 == 0:
