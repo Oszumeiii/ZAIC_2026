@@ -132,7 +132,7 @@ class Solver:
         src, codes, sample_results, agree = "rule", [], [], 0
         biz = split.business(r.business_id)
         if self.cfg.use_rules:
-            typ, ans, intent, note = rule_solve(r.question, r.as_of_date, biz, self.cfg.rule_on)
+            typ, ans, intent, note = rule_solve(r.question, r.as_of_date, biz, self.cfg.rule_on, split.calendar)
         else:
             typ, ans, intent, note = "abstain", None, "rules_off", ""
         if typ != "abstain":
