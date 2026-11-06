@@ -7,8 +7,8 @@ from jsonschema import Draft202012Validator
 from openpyxl import Workbook
 import duckdb
 
-from app.ingestion.normalization import IdentifierNormalizer, ValueNormalizer
-from app.ingestion.pipeline import IngestionPipeline
+from app.ingestion.processing.normalization import IdentifierNormalizer, ValueNormalizer
+from app.ingestion.processing.pipeline import IngestionPipeline
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_SCHEMA_PATH = ROOT / "schemas" / "catalog.schema.json"

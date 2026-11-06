@@ -3,7 +3,7 @@ from typing import Iterator
 
 import duckdb
 
-from app.ingestion.adapters.common import SourceTable
+from app.ingestion.sources.adapters.common import SourceTable
 
 FETCH_SIZE = 1000
 

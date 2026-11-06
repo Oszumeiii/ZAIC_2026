@@ -6,8 +6,8 @@ from jsonschema import Draft202012Validator
 from openpyxl import Workbook
 import pytest
 
-from app.ingestion.pipeline import IngestionPipeline
-from app.ingestion.source_inventory import SourceInventory
+from app.ingestion.processing.pipeline import IngestionPipeline
+from app.ingestion.sources.inventory import SourceInventory
 from app.manifests.migration import ManifestMigrator
 from app.manifests.service import BusinessManifestService, SCHEMA_FILE
 from app.manifests.validation import ManifestValidator

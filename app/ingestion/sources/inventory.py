@@ -6,11 +6,11 @@ import hashlib
 import json
 import random
 
-from app.ingestion.adapters.common import SourceTable
-from app.ingestion.adapters.csv_adapter import CsvAdapter
-from app.ingestion.adapters.excel_adapter import ExcelAdapter
-from app.ingestion.adapters.parquet_adapter import ParquetAdapter
-from app.ingestion.adapters.sqlite_adapter import SqliteAdapter
+from app.ingestion.sources.adapters.common import SourceTable
+from app.ingestion.sources.adapters.csv_adapter import CsvAdapter
+from app.ingestion.sources.adapters.excel_adapter import ExcelAdapter
+from app.ingestion.sources.adapters.parquet_adapter import ParquetAdapter
+from app.ingestion.sources.adapters.sqlite_adapter import SqliteAdapter
 
 SUPPORTED_EXTENSIONS = {
     ".csv",

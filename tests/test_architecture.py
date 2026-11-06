@@ -35,7 +35,8 @@ class TestArchitecture:
 
     @pytest.mark.parametrize(
         "module",
-        ["build_manifests", "audit_manifests", "upgrade_manifests", "pipeline"],
+        ["build_manifests", "audit_manifests", "upgrade_manifests", "pipeline",
+         "cli.build_manifests", "cli.audit_manifests", "cli.upgrade_manifests", "cli.ingest"],
     )
     def test_existing_cli_entry_points(self, module):
         result = subprocess.run(
@@ -48,7 +49,8 @@ class TestArchitecture:
         assert result.returncode == 0, result.stderr
         assert "--help" in result.stdout
 
-    def test_offline_cli_migration_audit_and_ingestion(self, tmp_path):
+    @pytest.mark.parametrize("cli_prefix", ["", "cli."])
+    def test_offline_cli_migration_audit_and_ingestion(self, tmp_path, cli_prefix):
         dataset = tmp_path / "data"
         business = dataset / "biz_cli"
         business.mkdir(parents=True)
@@ -83,6 +85,8 @@ class TestArchitecture:
              "--manifest", str(generated / "biz_cli.json"), "--output-dir", str(output)],
         ]
         for module, *arguments in commands:
+            if cli_prefix:
+                module = cli_prefix + ("ingest" if module == "pipeline" else module)
             result = subprocess.run(
                 [sys.executable, "-m", f"app.ingestion.{module}", *arguments],
                 cwd=ROOT, text=True, capture_output=True, timeout=30,

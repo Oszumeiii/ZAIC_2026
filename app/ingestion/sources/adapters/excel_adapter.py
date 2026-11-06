@@ -5,8 +5,8 @@ from typing import Iterable, Iterator
 from openpyxl import load_workbook
 import xlrd
 
-from app.ingestion.adapters.common import SourceTable, TabularLayout
-from app.ingestion.normalization import IdentifierNormalizer
+from app.ingestion.sources.adapters.common import SourceTable, TabularLayout
+from app.ingestion.processing.normalization import IdentifierNormalizer
 
 HEADER_SCAN_ROWS = 50
 

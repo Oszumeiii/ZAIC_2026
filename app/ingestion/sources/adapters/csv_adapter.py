@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import Iterable
 import csv
 
-from app.ingestion.adapters.common import SourceTable, TabularLayout
-from app.ingestion.normalization import IdentifierNormalizer
+from app.ingestion.sources.adapters.common import SourceTable, TabularLayout
+from app.ingestion.processing.normalization import IdentifierNormalizer
 
 HEADER_SCAN_ROWS = 50
 

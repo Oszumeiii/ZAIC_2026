@@ -7,8 +7,11 @@ functions, including nested helpers. Tests follow the same ownership convention.
 
 | Package | Responsibility | Main classes |
 | --- | --- | --- |
-| `app/ingestion/adapters` | Read each source format and preserve row/header provenance | `SourceTable`, `TabularLayout`, `CsvAdapter`, `ExcelAdapter`, `SqliteAdapter`, `ParquetAdapter` |
-| `app/ingestion` | Discover/profile sources, normalize values and load DuckDB | `SourceInventory`, `IdentifierNormalizer`, `ValueNormalizer`, `IngestionPipeline` |
+| `app/ingestion/datasets` | Load splits and DataFrames, describe tables for agent prompts and select holdout businesses | `Business`, `Split` |
+| `app/ingestion/sources/adapters` | Read each source format and preserve row/header provenance | `SourceTable`, `TabularLayout`, `CsvAdapter`, `ExcelAdapter`, `SqliteAdapter`, `ParquetAdapter` |
+| `app/ingestion/sources` | Discover/profile source files and emit evidence | `SourceInventory` |
+| `app/ingestion/processing` | Normalize identifiers/values and load DuckDB/catalog | `IdentifierNormalizer`, `ValueNormalizer`, `IngestionPipeline` |
+| `app/ingestion/cli` | Command-line entry points for ingestion and manifest operations | Thin wrappers around processing/manifests APIs |
 | `app/manifests` | Evidence, generation, migration, source validation and commands | `BusinessManifestService`, `ManifestMigrator`, `ManifestValidator`, `BuildManifestsCommand`, `AuditManifestsCommand` |
 | `app/catalog` | Bind physical columns, verify relationships and guard joins | `CatalogBuilder`, `RelationshipService` |
 | `app/rules` | Preserve Rulebook sections and report capability gaps | `Rulebook` |
@@ -21,8 +24,8 @@ Python API examples:
 import json
 from pathlib import Path
 
-from app.ingestion.pipeline import IngestionPipeline
-from app.ingestion.source_inventory import SourceInventory
+from app.ingestion.processing.pipeline import IngestionPipeline
+from app.ingestion.sources.inventory import SourceInventory
 from app.manifests.validation import ManifestValidator
 from app.catalog.relationships import RelationshipService
 
@@ -37,18 +40,21 @@ catalog = IngestionPipeline.ingest(
 relationships = RelationshipService.verified(catalog)
 ```
 
-The command paths remain compatible:
+Canonical command paths:
 
 ```bash
-python -m app.ingestion.build_manifests --help
-python -m app.ingestion.upgrade_manifests --help
-python -m app.ingestion.audit_manifests --help
-python -m app.ingestion.pipeline --help
+python -m app.ingestion.cli.build_manifests --help
+python -m app.ingestion.cli.upgrade_manifests --help
+python -m app.ingestion.cli.audit_manifests --help
+python -m app.ingestion.cli.ingest --help
 ```
 
-The first three modules are thin entry points. Their implementations live in
-`app/manifests`; they do not duplicate application logic. Python imports of the
-old free functions must be changed to the class APIs above.
+The manifest commands delegate to `app/manifests`; the ingestion command delegates
+to `app/ingestion/processing/pipeline.py`. The original commands
+`app.ingestion.build_manifests`, `app.ingestion.upgrade_manifests`,
+`app.ingestion.audit_manifests` and `app.ingestion.pipeline` remain as compatibility
+entry points. See the [ingestion guide](../app/ingestion/README.md) for the full
+layout and updated Python imports.
 
 Consolidations:
 

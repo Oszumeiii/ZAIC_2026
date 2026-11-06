@@ -1,6 +1,6 @@
 from typing import Any, Iterable
 
-from app.ingestion.normalization import IdentifierNormalizer
+from app.ingestion.processing.normalization import IdentifierNormalizer
 from app.manifests.validation import ManifestValidator
 
 class CatalogBuilder:

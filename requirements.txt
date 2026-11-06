@@ -1,4 +1,11 @@
-# Add Python dependencies here.
+# Thư viện chạy lúc nộp bài (Docker, offline). CHƯA ghim phiên bản: ghim theo image đã build và chạy được.
+pandas
+numpy
+openpyxl
+transformers
+huggingface_hub
+accelerate
+vllm
 google-genai>=1.0.0
 duckdb>=1.2.0
 xlrd>=2.0.1

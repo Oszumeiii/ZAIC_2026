@@ -11,7 +11,7 @@ import re
 
 from jsonschema import Draft202012Validator
 
-from app.ingestion.normalization import IdentifierNormalizer
+from app.ingestion.processing.normalization import IdentifierNormalizer
 from app.manifests.service import BusinessManifestService, SCHEMA_FILE
 from app.manifests.validation import ManifestValidator
 from app.storage.json_store import JsonStore

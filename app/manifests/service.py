@@ -7,7 +7,7 @@ import unicodedata
 
 from jsonschema import Draft202012Validator, ValidationError
 
-from app.ingestion.source_inventory import SourceInventory
+from app.ingestion.sources.inventory import SourceInventory
 from app.llm.gemini import GeminiLLM
 from app.llm.prompts import BUSINESS_MANIFEST_SYSTEM_PROMPT
 from app.manifests.validation import ManifestValidator

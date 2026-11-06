@@ -1,6 +1,6 @@
-"""CLI entry point; implementation lives in app.manifests.commands."""
+"""Compatibility entry point; prefer app.ingestion.cli.build_manifests."""
 
-from app.manifests.commands import BuildManifestsCommand
+from app.ingestion.cli.build_manifests import BuildManifestsCommand
 
 if __name__ == "__main__":
     raise SystemExit(BuildManifestsCommand.main())

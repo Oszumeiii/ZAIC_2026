@@ -3,7 +3,7 @@ from typing import Any, Iterator
 from urllib.parse import quote
 import sqlite3
 
-from app.ingestion.adapters.common import SourceTable, TabularLayout
+from app.ingestion.sources.adapters.common import SourceTable, TabularLayout
 
 FETCH_SIZE = 1000
 

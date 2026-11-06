@@ -2,7 +2,7 @@
 
 from typing import Any, Iterable
 
-from app.ingestion.adapters.common import TabularLayout
+from app.ingestion.sources.adapters.common import TabularLayout
 
 class RelationshipService:
     """Build, verify and expose relationships safe for catalog joins."""
@@ -92,7 +92,7 @@ class RelationshipService:
     @staticmethod
     def from_manifest(connection, declarations, tables):
         """Check complete ingested data; never promote inferred joins to trusted joins."""
-        from app.ingestion.adapters.common import TabularLayout
+        from app.ingestion.sources.adapters.common import TabularLayout
         from app.manifests.validation import ManifestValidator
 
         by_source = {(t['source_files'][0], t['source_objects'][0]): t for t in tables}
