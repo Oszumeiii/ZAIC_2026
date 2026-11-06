@@ -1,0 +1,3634 @@
+{
+  "catalog_version": "1.0",
+  "business_id": "biz_106",
+  "database_file": "business.duckdb",
+  "tables": [
+    {
+      "grain": null,
+      "table_id": "BaoCaoTonKho.xlsx::Sheet1",
+      "physical_name": "bao_cao_ton_kho_sheet1",
+      "table_role": "stock_snapshots",
+      "source_files": [
+        "BaoCaoTonKho.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 50,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "BaoCaoTonKho.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên hàng",
+          "physical_name": "ten_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên hàng"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "BaoCaoTonKho.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "ĐVT",
+          "physical_name": "dvt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "ĐVT"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "BaoCaoTonKho.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "ĐVT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Tồn cuối kỳ",
+          "physical_name": "ton_cuoi_ky",
+          "semantic_name": "ton_cuoi_ngay_cuoi_co_du_lieu_theo_don_vi_co_ban",
+          "description": "tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tồn cuối kỳ",
+            "tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "BaoCaoTonKho.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tồn cuối kỳ",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachChiTietNhapHang.xlsx::Sheet1",
+      "physical_name": "danh_sach_chi_tiet_nhap_hang_sheet1",
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DanhSachChiTietNhapHang.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 1562,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã nhập hàng",
+          "physical_name": "ma_nhap_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã nhập hàng"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã nhập hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "STT",
+          "physical_name": "stt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "STT"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "STT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "ĐVT",
+          "physical_name": "dvt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "ĐVT"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "ĐVT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số lượng",
+          "physical_name": "so_luong",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số lượng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "purchase_unit",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Đơn giá",
+          "physical_name": "don_gia",
+          "semantic_name": "gia_nhap_mot_don_vi_theo_don_vi_nhap_cua_dong",
+          "description": "giá nhập một đơn vị, theo đơn vị nhập của dòng",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn giá",
+            "giá nhập một đơn vị, theo đơn vị nhập của dòng"
+          ],
+          "profile": {
+            "row_count": 1562,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachChiTietNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đơn giá",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachDonViTinh.xlsx::Sheet1",
+      "physical_name": "danh_sach_don_vi_tinh_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "DanhSachDonViTinh.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 2,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 2,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachDonViTinh.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "ĐVT",
+          "physical_name": "dvt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "ĐVT"
+          ],
+          "profile": {
+            "row_count": 2,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachDonViTinh.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "ĐVT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Quy đổi",
+          "physical_name": "quy_doi",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Quy đổi"
+          ],
+          "profile": {
+            "row_count": 2,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachDonViTinh.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Quy đổi",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giá bán",
+          "physical_name": "gia_ban",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá bán"
+          ],
+          "profile": {
+            "row_count": 2,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachDonViTinh.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá bán",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachHoaDon.xlsx::Sheet1",
+      "physical_name": "danh_sach_hoa_don_sheet1",
+      "table_role": "sales_records",
+      "source_files": [
+        "DanhSachHoaDon.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 3
+      },
+      "row_count": 78847,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hóa đơn",
+          "physical_name": "ma_hoa_don",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hóa đơn"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hóa đơn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thời gian",
+          "physical_name": "thoi_gian",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thời gian"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thời gian",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã KH",
+          "physical_name": "ma_kh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã KH"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 31660
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã KH",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Khách hàng",
+          "physical_name": "khach_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Khách hàng"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Khách hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tổng tiền hàng",
+          "physical_name": "tong_tien_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tổng tiền hàng"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tổng tiền hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giảm giá",
+          "physical_name": "giam_gia",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giảm giá"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giảm giá",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Tổng sau giảm giá",
+          "physical_name": "tong_sau_giam_gia",
+          "semantic_name": "order_payable",
+          "description": "số khách phải trả cho cả đơn",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tổng sau giảm giá",
+            "số khách phải trả cho cả đơn"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tổng sau giảm giá",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Khách đã trả",
+          "physical_name": "khach_da_tra",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Khách đã trả"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Khách đã trả",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Phương thức thanh toán",
+          "physical_name": "phuong_thuc_thanh_toan",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Phương thức thanh toán"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Phương thức thanh toán",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Trạng thái",
+          "physical_name": "trang_thai",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Trạng thái"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Trạng thái",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thời gian tạo",
+          "physical_name": "thoi_gian_tao",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "TIMESTAMP",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thời gian tạo"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thời gian tạo",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Ghi chú",
+          "physical_name": "ghi_chu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ghi chú"
+          ],
+          "profile": {
+            "row_count": 78847,
+            "null_count": 78847
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDon.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Ghi chú",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachHoaDonChiTiet_1.xlsx::Sheet1",
+      "physical_name": "danh_sach_hoa_don_chi_tiet_1_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "DanhSachHoaDonChiTiet_1.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 3
+      },
+      "row_count": 100000,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hóa đơn",
+          "physical_name": "ma_hoa_don",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hóa đơn"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hóa đơn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "STT",
+          "physical_name": "stt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "STT"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "STT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên hàng",
+          "physical_name": "ten_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên hàng"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Đơn vị tính",
+          "physical_name": "don_vi_tinh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn vị tính"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đơn vị tính",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số lượng",
+          "physical_name": "so_luong",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số lượng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Đơn giá",
+          "physical_name": "don_gia",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn giá"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đơn giá",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giảm giá",
+          "physical_name": "giam_gia",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giảm giá"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giảm giá",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thành tiền",
+          "physical_name": "thanh_tien",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thành tiền"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thành tiền",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số lượng quy đổi",
+          "physical_name": "so_luong_quy_doi",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng quy đổi"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số lượng quy đổi",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giá vốn",
+          "physical_name": "gia_von",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá vốn"
+          ],
+          "profile": {
+            "row_count": 100000,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_1.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá vốn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachHoaDonChiTiet_2.xlsx::Sheet1",
+      "physical_name": "danh_sach_hoa_don_chi_tiet_2_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "DanhSachHoaDonChiTiet_2.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 3
+      },
+      "row_count": 29416,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hóa đơn",
+          "physical_name": "ma_hoa_don",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hóa đơn"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hóa đơn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "STT",
+          "physical_name": "stt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "STT"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "STT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên hàng",
+          "physical_name": "ten_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên hàng"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Đơn vị tính",
+          "physical_name": "don_vi_tinh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn vị tính"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đơn vị tính",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số lượng",
+          "physical_name": "so_luong",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số lượng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Đơn giá",
+          "physical_name": "don_gia",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn giá"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đơn giá",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giảm giá",
+          "physical_name": "giam_gia",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giảm giá"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giảm giá",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thành tiền",
+          "physical_name": "thanh_tien",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thành tiền"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thành tiền",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số lượng quy đổi",
+          "physical_name": "so_luong_quy_doi",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng quy đổi"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số lượng quy đổi",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giá vốn",
+          "physical_name": "gia_von",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá vốn"
+          ],
+          "profile": {
+            "row_count": 29416,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachHoaDonChiTiet_2.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá vốn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachKhachHang.xlsx::Sheet1",
+      "physical_name": "danh_sach_khach_hang_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "DanhSachKhachHang.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 240,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Email",
+          "physical_name": "email",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Email"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 240
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Email",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã khách hàng",
+          "physical_name": "ma_khach_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã khách hàng"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã khách hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Trạng thái",
+          "physical_name": "trang_thai",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Trạng thái"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Trạng thái",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên công ty",
+          "physical_name": "ten_cong_ty",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên công ty"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 240
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên công ty",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Ngày sinh",
+          "physical_name": "ngay_sinh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ngày sinh"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 195
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Ngày sinh",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tổng điểm",
+          "physical_name": "tong_diem",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tổng điểm"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tổng điểm",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Điểm tích lũy",
+          "physical_name": "diem_tich_luy",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Điểm tích lũy"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Điểm tích lũy",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Ghi chú",
+          "physical_name": "ghi_chu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ghi chú"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 240
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Ghi chú",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Số CMND/CCCD",
+          "physical_name": "so_cmnd_cccd",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số CMND/CCCD"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 240
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Số CMND/CCCD",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên khách hàng",
+          "physical_name": "ten_khach_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên khách hàng"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên khách hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã số thuế",
+          "physical_name": "ma_so_thue",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã số thuế"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 225
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã số thuế",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Người tạo",
+          "physical_name": "nguoi_tao",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Người tạo"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Người tạo",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Điện thoại",
+          "physical_name": "dien_thoai",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Điện thoại"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Điện thoại",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Loại hình khách",
+          "physical_name": "loai_hinh_khach",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Loại hình khách"
+          ],
+          "profile": {
+            "row_count": 240,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachKhachHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Loại hình khách",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachNhapHang.xlsx::Sheet1",
+      "physical_name": "danh_sach_nhap_hang_sheet1",
+      "table_role": "purchase_lines",
+      "source_files": [
+        "DanhSachNhapHang.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 513,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã nhập hàng",
+          "physical_name": "ma_nhap_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã nhập hàng"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã nhập hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thời gian",
+          "physical_name": "thoi_gian",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thời gian"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thời gian",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã NCC",
+          "physical_name": "ma_ncc",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã NCC"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã NCC",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Cần trả NCC",
+          "physical_name": "can_tra_ncc",
+          "semantic_name": "tong_tien_cua_ca_phieu_nhap",
+          "description": "tổng tiền của cả phiếu nhập",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Cần trả NCC",
+            "tổng tiền của cả phiếu nhập"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Cần trả NCC",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Trạng thái",
+          "physical_name": "trang_thai",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Trạng thái"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Trạng thái",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Ghi chú",
+          "physical_name": "ghi_chu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ghi chú"
+          ],
+          "profile": {
+            "row_count": 513,
+            "null_count": 512
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachNhapHang.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Ghi chú",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "grain": null,
+      "table_id": "DanhSachSanPham.xlsx::Sheet1",
+      "physical_name": "danh_sach_san_pham_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "DanhSachSanPham.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 50,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Hình ảnh (url1,url2...)",
+          "physical_name": "hinh_anh_url1_url2",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Hình ảnh (url1,url2...)"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Hình ảnh (url1,url2...)",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Vị trí kệ",
+          "physical_name": "vi_tri_ke",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Vị trí kệ"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Vị trí kệ",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Ghi chú",
+          "physical_name": "ghi_chu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ghi chú"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Ghi chú",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Được bán trực tiếp",
+          "physical_name": "duoc_ban_truc_tiep",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Được bán trực tiếp"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Được bán trực tiếp",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Nhóm hàng(3 Cấp)",
+          "physical_name": "nhom_hang_3_cap",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Nhóm hàng(3 Cấp)"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Nhóm hàng(3 Cấp)",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã barcode",
+          "physical_name": "ma_barcode",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã barcode"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 8
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã barcode",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hàng",
+          "physical_name": "ma_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hàng"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thương hiệu",
+          "physical_name": "thuong_hieu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thương hiệu"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thương hiệu",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tồn lớn nhất",
+          "physical_name": "ton_lon_nhat",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tồn lớn nhất"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tồn lớn nhất",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Tên hàng",
+          "physical_name": "ten_hang",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên hàng"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Tên hàng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã HH Liên quan",
+          "physical_name": "ma_hh_lien_quan",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã HH Liên quan"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã HH Liên quan",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thuộc tính",
+          "physical_name": "thuoc_tinh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thuộc tính"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thuộc tính",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giá bán",
+          "physical_name": "gia_ban",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá bán"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá bán",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mô tả sản phẩm",
+          "physical_name": "mo_ta_san_pham",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mô tả sản phẩm"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mô tả sản phẩm",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Loại hàng hóa",
+          "physical_name": "loai_hang_hoa",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Loại hàng hóa"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Loại hàng hóa",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Giá vốn",
+          "physical_name": "gia_von",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá vốn"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá vốn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "ĐVT",
+          "physical_name": "dvt",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "ĐVT"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "ĐVT",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Bảo hành",
+          "physical_name": "bao_hanh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Bảo hành"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Bảo hành",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Đang kinh doanh",
+          "physical_name": "dang_kinh_doanh",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BOOLEAN",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đang kinh doanh"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Đang kinh doanh",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Trọng lượng",
+          "physical_name": "trong_luong",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Trọng lượng"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Trọng lượng",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mẫu ghi chú",
+          "physical_name": "mau_ghi_chu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mẫu ghi chú"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 50
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mẫu ghi chú",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Định mức tồn tối thiểu",
+          "physical_name": "dinh_muc_ton_toi_thieu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Định mức tồn tối thiểu"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Định mức tồn tối thiểu",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thời gian tạo",
+          "physical_name": "thoi_gian_tao",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "TIMESTAMP",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thời gian tạo"
+          ],
+          "profile": {
+            "row_count": 50,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "DanhSachSanPham.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thời gian tạo",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "grain": null,
+      "table_id": "SoQuy.xlsx::Sheet1",
+      "physical_name": "so_quy_sheet1",
+      "table_role": "unknown",
+      "source_files": [
+        "SoQuy.xlsx"
+      ],
+      "source_objects": [
+        "Sheet1"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 78673,
+      "columns": [
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã phiếu",
+          "physical_name": "ma_phieu",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã phiếu"
+          ],
+          "profile": {
+            "row_count": 78673,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "SoQuy.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã phiếu",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Thời gian",
+          "physical_name": "thoi_gian",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "TIMESTAMP",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Thời gian"
+          ],
+          "profile": {
+            "row_count": 78673,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "SoQuy.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Thời gian",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Mã hóa đơn",
+          "physical_name": "ma_hoa_don",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã hóa đơn"
+          ],
+          "profile": {
+            "row_count": 78673,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "SoQuy.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Mã hóa đơn",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "unresolved",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown",
+          "source_name": "Phương thức thanh toán",
+          "physical_name": "phuong_thuc_thanh_toan",
+          "semantic_name": null,
+          "description": null,
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Phương thức thanh toán"
+          ],
+          "profile": {
+            "row_count": 78673,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "SoQuy.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Phương thức thanh toán",
+              "mapping_status": "unmapped",
+              "source_refs": []
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Giá trị",
+          "physical_name": "gia_tri",
+          "semantic_name": "payment_amount",
+          "description": "số tiền trả lần đó",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá trị",
+            "số tiền trả lần đó"
+          ],
+          "profile": {
+            "row_count": 78673,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "SoQuy.xlsx",
+              "source_object": "Sheet1",
+              "source_name": "Giá trị",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": []
+    }
+  ],
+  "relationships": [],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "14/09/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_106\n\nFile máy POS xuất ra.\n\n## File\n- `DanhSachHoaDon.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet_1.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet_2.xlsx` (xlsx)\n- `DanhSachSanPham.xlsx` (xlsx)\n- `DanhSachKhachHang.xlsx` (xlsx)\n- `BaoCaoTonKho.xlsx` (xlsx)\n- `DanhSachNhapHang.xlsx` (xlsx)\n- `DanhSachChiTietNhapHang.xlsx` (xlsx)\n- `SoQuy.xlsx` (xlsx)\n- `DanhSachDonViTinh.xlsx` (xlsx)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 14/09/2026.\n- **Công nợ**: mỗi lần khách trả tiền cho một đơn là một dòng, **Giá trị** là số tiền trả lần đó; **Tổng sau giảm giá** là số khách phải trả cho cả đơn.\n- **Giá vốn**: **Giá vốn** là giá vốn một đơn vị bán.\n- **Tồn kho**: **Tồn cuối kỳ** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Nhập hàng**: **Đơn giá** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Cần trả NCC** là tổng tiền của cả phiếu nhập.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DanhSachDonViTinh.xlsx`.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "column_mapping:BaoCaoTonKho.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:BaoCaoTonKho.xlsx:Sheet1:Tên hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:BaoCaoTonKho.xlsx:Sheet1:ĐVT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachChiTietNhapHang.xlsx:Sheet1:Mã nhập hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachChiTietNhapHang.xlsx:Sheet1:STT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachChiTietNhapHang.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachChiTietNhapHang.xlsx:Sheet1:ĐVT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachChiTietNhapHang.xlsx:Sheet1:Số lượng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachDonViTinh.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachDonViTinh.xlsx:Sheet1:ĐVT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachDonViTinh.xlsx:Sheet1:Quy đổi",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachDonViTinh.xlsx:Sheet1:Giá bán",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Thời gian",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Mã KH",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Khách hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Tổng tiền hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Giảm giá",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Khách đã trả",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Phương thức thanh toán",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Trạng thái",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Thời gian tạo",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDon.xlsx:Sheet1:Ghi chú",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:STT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Tên hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Đơn vị tính",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Số lượng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Đơn giá",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Giảm giá",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Thành tiền",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Số lượng quy đổi",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_1.xlsx:Sheet1:Giá vốn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:STT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Tên hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Đơn vị tính",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Số lượng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Đơn giá",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Giảm giá",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Thành tiền",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Số lượng quy đổi",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet_2.xlsx:Sheet1:Giá vốn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Email",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Mã khách hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Trạng thái",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tên công ty",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ngày sinh",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tổng điểm",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điểm tích lũy",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ghi chú",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Số CMND/CCCD",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tên khách hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Mã số thuế",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Người tạo",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điện thoại",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Loại hình khách",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachNhapHang.xlsx:Sheet1:Mã nhập hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachNhapHang.xlsx:Sheet1:Thời gian",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachNhapHang.xlsx:Sheet1:Mã NCC",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachNhapHang.xlsx:Sheet1:Trạng thái",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachNhapHang.xlsx:Sheet1:Ghi chú",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Hình ảnh (url1,url2...)",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Vị trí kệ",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Ghi chú",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Được bán trực tiếp",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Nhóm hàng(3 Cấp)",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã barcode",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thương hiệu",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tồn lớn nhất",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tên hàng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã HH Liên quan",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thuộc tính",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Giá bán",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mô tả sản phẩm",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Loại hàng hóa",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Giá vốn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:ĐVT",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Bảo hành",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Đang kinh doanh",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Trọng lượng",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mẫu ghi chú",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Định mức tồn tối thiểu",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thời gian tạo",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:SoQuy.xlsx:Sheet1:Mã phiếu",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:SoQuy.xlsx:Sheet1:Thời gian",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:SoQuy.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "column_mapping:SoQuy.xlsx:Sheet1:Phương thức thanh toán",
+      "reason": "This observed source column has no exact mapping in the business manifest.",
+      "needed_evidence": "Document the business meaning of this column in the business README or manifest."
+    },
+    {
+      "topic": "relationships",
+      "reason": "No database-declared relationships were found. Matching column names alone are not treated as join evidence.",
+      "needed_evidence": "Document and validate join keys before using cross-table joins."
+    },
+    {
+      "topic": "header:BaoCaoTonKho.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachChiTietNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachDonViTinh.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTiet_1.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTiet_2.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachKhachHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachSanPham.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoQuy.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "quality": {
+    "coverage": {
+      "source_columns": 96,
+      "documented_columns": 5,
+      "unresolved_columns": 91
+    },
+    "capabilities": {
+      "revenue": {
+        "status": "blocked",
+        "missing_semantics": [
+          "line_amount",
+          "order_date",
+          "order_id",
+          "order_status"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "receivables": {
+        "status": "blocked",
+        "missing_semantics": [
+          "order_date",
+          "order_id",
+          "order_status",
+          "payment_date",
+          "payment_method"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "inventory_as_of": {
+        "status": "blocked",
+        "missing_semantics": [
+          "movement_time",
+          "product_id",
+          "stock_balance"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "gross_profit": {
+        "status": "blocked",
+        "missing_semantics": [
+          "line_amount",
+          "order_date",
+          "order_id",
+          "order_status",
+          "quantity",
+          "unit_cost"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      }
+    }
+  }
+}

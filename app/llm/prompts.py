@@ -1,4 +1,6 @@
 
+#System prompt for BusinessManifest generation
+# BusinessManifest là một JSON object mô tả dữ liệu nghiệp vụ của một doanh nghiệp, được tạo ra từ README, source_inventory và các bằng chứng liên quan. Nó tuân theo một JSON Schema cụ thể và cung cấp thông tin về các bảng dữ liệu, cột, quan hệ và các quy tắc nghiệp vụ.
 
 BUSINESS_MANIFEST_SYSTEM_PROMPT = """\
 Bạn là bộ phân tích mô tả dữ liệu cho pipeline DataMate.

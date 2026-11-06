@@ -11,6 +11,8 @@ GEMINI_MODEL = "gemini-3.5-flash-lite"
 ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
 
 
+
+# Init Gemini client with API key from environment variable
 @dataclass(frozen=True, slots=True)
 class GeminiLLM:
     client: genai.Client

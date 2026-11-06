@@ -1,4 +1,4 @@
-"""Audit saved manifests against current files without an LLM or ingestion."""
+"""Các lệnh tạo và kiểm tra manifest nghiệp vụ."""
 
 from pathlib import Path
 from typing import Sequence
@@ -16,19 +16,24 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 GEMINI_REQUEST_INTERVAL_SECONDS = 4.25
 DEFAULT_DATASET_DIR = PROJECT_ROOT / "dataset" / "train" / "data"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "dataset" / "train" / "manifests"
-
+DEFAULT_SCHEMA_FILE = SCHEMA_FILE.with_name("business_manifest.v2.schema.json")
 
 class BuildManifestsCommand:
-    """Generate and persist manifests, evidence bundles and reports."""
+    """Tạo manifest, gói bằng chứng và báo cáo cho dữ liệu doanh nghiệp."""
 
     @staticmethod
     def main(argv: Sequence[str] | None = None) -> int:
+        """Đọc tham số, tạo manifest cho từng doanh nghiệp và lưu kết quả.
+
+        Bỏ qua manifest đã tồn tại trừ khi bật ``--overwrite``; khởi tạo LLM
+        khi cần xử lý doanh nghiệp đầu tiên. Trả về mã 0 khi hoàn tất.
+        """
         parser = argparse.ArgumentParser(
             description="Generate one schema-validated BusinessManifest per train business."
         )
         parser.add_argument("--dataset-dir", type=Path, default=DEFAULT_DATASET_DIR)
         parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
-        parser.add_argument("--schema", type=Path, default=SCHEMA_FILE.with_name("business_manifest.v2.schema.json"))
+        parser.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA_FILE)
         parser.add_argument("--business-id")
         parser.add_argument("--overwrite", action="store_true")
         args = parser.parse_args(argv)
@@ -51,11 +56,15 @@ class BuildManifestsCommand:
             if output_path.exists() and not args.overwrite:
                 print(f"Skipping existing manifest: {output_path}")
                 continue
+            
+            # Xây dựng đầu vào cho manifest trong đó business_dir là thư mục của doanh nghiệp, rulebook_text là nội dung của rulebook và schema là schema JSON. Đầu ra là một dict chứa thông tin về các bảng nguồn, các đoạn README, các quan sát dữ liệu và các đoạn rulebook liên quan.  
             business_input = BusinessManifestService.build_input(business_dir, rulebook_text, schema)
             if llm is None:
                 llm = GeminiLLM.from_env(
                     min_request_interval_seconds=GEMINI_REQUEST_INTERVAL_SECONDS
                 )
+            
+            # Tạo manifest bằng cách gọi phương thức generate của BusinessManifestService, truyền vào llm, business_input và schema. Sau đó lưu gói bằng chứng vào thư mục evidence, kiểm tra manifest với dữ liệu nguồn và các evidence_id, lưu báo cáo kiểm tra vào thư mục reports và lưu manifest cuối cùng vào output_path. In ra thông báo đã tạo manifest.    
             manifest = BusinessManifestService.generate(llm, business_input, schema)
             JsonStore.write(BusinessManifestService.build_evidence(business_input), evidence_dir / f"{business_dir.name}.json")
             report = ManifestValidator.validate(manifest, business_input["source_inventory"], business_input["_evidence_ids"])
@@ -66,10 +75,14 @@ class BuildManifestsCommand:
 
 
 class AuditManifestsCommand:
-    """Audit manifests against current source files without calling an LLM."""
+    """Đối chiếu manifest đã lưu với dữ liệu nguồn hiện tại, không gọi LLM."""
 
     @staticmethod
     def main():
+        """Kiểm tra schema và nguồn của manifest, rồi lưu báo cáo kiểm tra.
+
+        Trả về 1 nếu có manifest phát sinh lỗi kiểm tra; ngược lại trả về 0.
+        """
         parser = argparse.ArgumentParser(description=__doc__)
         parser.add_argument('--dataset-dir', type=Path, default=Path('dataset/train/data'))
         parser.add_argument('--manifest-dir', type=Path, default=Path('dataset/train/manifests'))

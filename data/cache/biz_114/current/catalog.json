@@ -1,0 +1,464 @@
+{
+  "catalog_version": "1.0",
+  "business_id": "biz_114",
+  "database_file": "business.duckdb",
+  "tables": [
+    {
+      "grain": null,
+      "table_id": "ban_hang.csv::ban_hang",
+      "physical_name": "ban_hang",
+      "table_role": "unknown",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "source_objects": [
+        "ban_hang"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 26119,
+      "columns": [
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Giá bán lẻ",
+          "physical_name": "gia_ban_le",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá bán lẻ",
+            "đơn giá"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Giá bán lẻ",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Đơn vị tính",
+          "physical_name": "don_vi_tinh",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Đơn vị tính",
+            "đơn vị tính"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Đơn vị tính",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Mã GD",
+          "physical_name": "ma_gd",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã GD",
+            "mã đơn"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Mã GD",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Quy ra ĐV lẻ",
+          "physical_name": "quy_ra_dv_le",
+          "semantic_name": "base_quantity",
+          "description": "số lượng đã đổi ra đơn vị cơ bản",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Quy ra ĐV lẻ",
+            "số lượng đã đổi ra đơn vị cơ bản"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Quy ra ĐV lẻ",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Sluong",
+          "physical_name": "sluong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Sluong",
+            "số lượng"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Sluong",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Sản phẩm",
+          "physical_name": "san_pham",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Sản phẩm",
+            "tên hàng"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Sản phẩm",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.conventions",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Tổng",
+          "physical_name": "tong",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tổng",
+            "thành tiền sau giảm"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Tổng",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Tên khách",
+          "physical_name": "ten_khach",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tên khách",
+            "tên khách"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Tên khách",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none",
+          "source_name": "Ngày",
+          "physical_name": "ngay",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ngày",
+            "ngày bán"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Ngày",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "trang_thai",
+          "physical_name": "trang_thai",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "trang_thai",
+            "trạng thái đơn"
+          ],
+          "profile": {
+            "row_count": 26119,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "trang_thai",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.sales"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.conventions",
+        "readme.sales"
+      ]
+    }
+  ],
+  "relationships": [],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 21/06/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_114\n\nMột file phẳng, mỗi dòng một bản ghi (một dòng hàng trong đơn).\n\n## File\n- `ban_hang.csv` (csv)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.sales",
+      "value": "## Cột trong `ban_hang.csv`\n- **Giá bán lẻ**: đơn giá\n- **Đơn vị tính**: đơn vị tính\n- **Mã GD**: mã đơn\n- **Quy ra ĐV lẻ**: số lượng đã đổi ra đơn vị cơ bản\n- **Sluong**: số lượng\n- **Sản phẩm**: tên hàng\n- **Tổng**: thành tiền sau giảm\n- **Tên khách**: tên khách (Khách lẻ nếu không lưu)\n- **Ngày**: ngày bán\n- **trang_thai**: trạng thái đơn",
+      "source_refs": [
+        "readme.sales"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 21/06/2026.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Xi măng Hà Tiên PCB40 bao 50kg: 1 tấn = 20 bao\n  - Xi măng INSEE Power-S bao 50kg: 1 tấn = 20 bao\n  - Cát xây tô: 1 xe 4m3 = 4 m3\n  - Cát bê tông: 1 xe 4m3 = 4 m3\n  - Cát san lấp: 1 xe 4m3 = 4 m3\n  - Đá 1x2: 1 xe 4m3 = 4 m3\n  - Đá 4x6: 1 xe 4m3 = 4 m3\n  - Đá mi bụi: 1 xe 4m3 = 4 m3\n  - Gạch ống 8x8x18 Tuynel: 1 thiên = 1000 viên\n  - Gạch thẻ đặc 4x8x18: 1 thiên = 1000 viên\n  - Băng keo điện Nano 20 yard: 1 cây = 10 cuộn\n  - Lưới B40 mạ kẽm khổ 1.5m: 1 cuộn 10m = 10 m\n  - Ngói Đồng Nai 22 viên/m2: 1 thiên = 1000 viên",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "header:ban_hang.csv:ban_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "quality": {
+    "coverage": {
+      "source_columns": 10,
+      "documented_columns": 10,
+      "unresolved_columns": 0
+    },
+    "capabilities": {
+      "revenue": {
+        "status": "partial",
+        "missing_semantics": [],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "receivables": {
+        "status": "blocked",
+        "missing_semantics": [
+          "order_payable",
+          "payment_amount",
+          "payment_date",
+          "payment_method"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "inventory_as_of": {
+        "status": "blocked",
+        "missing_semantics": [
+          "movement_time",
+          "product_id",
+          "stock_balance"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "gross_profit": {
+        "status": "blocked",
+        "missing_semantics": [
+          "unit_cost"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      }
+    }
+  }
+}

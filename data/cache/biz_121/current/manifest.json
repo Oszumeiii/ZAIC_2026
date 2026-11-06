@@ -1,0 +1,813 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_121",
+  "tables": [
+    {
+      "source_file": "DonHang_ChiTiet.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 3,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã đơn hàng",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày đặt hàng",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái đơn hàng",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tên khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tên sản phẩm",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Số lượng sản phẩm",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Giá sản phẩm",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Đơn vị tính",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.donhang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.donhang_chitiet"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DanhSachQuyDoi",
+      "header_row_number": 1,
+      "table_role": "unit_conversions",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Tên sản phẩm",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_danhsachquydoi"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Đơn vị quy đổi",
+          "semantic_name": "don_vi_lon",
+          "description": "đơn vị lớn",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_danhsachquydoi"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tỉ lệ quy đổi",
+          "semantic_name": "unit_conversion_factor",
+          "description": "hệ số quy đổi",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_danhsachquydoi"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Đơn vị cơ bản",
+          "semantic_name": "don_vi_co_ban",
+          "description": "đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_danhsachquydoi"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachquydoi"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DanhSachSanPham",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Vị trí",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã SKU",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Bảo hành",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thương hiệu",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mẫu ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên sản phẩm",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_danhsachquydoi"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trọng lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã barcode",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đơn vị",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã HH Liên quan",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tồn lớn nhất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Hình ảnh (url1,url2...)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thuộc tính",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mô tả chi tiết",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Loại sản phẩm",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Loại hàng hóa",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachquydoi",
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DonNhapHang",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã đơn nhập",
+          "semantic_name": "ma_phieu_nhap",
+          "description": "mã phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày nhập",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã nhà cung cấp",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DonNhapHang_ChiTiet",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã đơn nhập",
+          "semantic_name": "ma_phieu_nhap",
+          "description": "mã phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã SKU",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã lô",
+          "semantic_name": "so_lo",
+          "description": "số lô",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Hạn sử dụng",
+          "semantic_name": "han_su_dung",
+          "description": "hạn sử dụng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Số lượng nhập",
+          "semantic_name": "so_luong_nhap",
+          "description": "số lượng nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DonHang_Lo",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã đơn hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã lô",
+          "semantic_name": "so_lo",
+          "description": "số lô",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Số lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng trả",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    },
+    {
+      "source_file": "DuLieuXuat.xlsx",
+      "source_object": "DanhSachThuoc",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã SKU",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Hoạt chất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thuốc kê đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_121\n\nFile Excel xuất từ phần mềm bán hàng. File đơn hàng mỗi dòng một sản phẩm.\n\nCác danh sách `DanhSachQuyDoi`, `DanhSachSanPham`, `DonNhapHang`, `DonNhapHang_ChiTiet`, `DonHang_Lo`, `DanhSachThuoc` nằm chung file `DuLieuXuat.xlsx`, mỗi danh sách một sheet.\n\n## File\n- `DonHang_ChiTiet.xlsx` (xlsx)\n- `DuLieuXuat.xlsx` (xlsx)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.donhang_chitiet",
+      "value": "## Cột trong `DonHang_ChiTiet.xlsx`\n- **Mã đơn hàng**: mã đơn\n- **Ngày đặt hàng**: ngày bán\n- **Trạng thái đơn hàng**: trạng thái đơn\n- **Tên khách hàng**: tên khách (Khách lẻ nếu không lưu)\n- **Tên sản phẩm**: tên hàng\n- **Số lượng sản phẩm**: số lượng\n- **Giá sản phẩm**: đơn giá\n- **Tổng tiền**: thành tiền sau giảm\n- **Đơn vị tính**: đơn vị tính",
+      "source_refs": [
+        "readme.donhang_chitiet"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_danhsachquydoi",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DanhSachQuyDoi`\n- **Tên sản phẩm**: tên hàng (file chỉ có mặt hàng có đơn vị lớn)\n- **Đơn vị quy đổi**: đơn vị lớn (thùng, hộp, tấn...)\n- **Tỉ lệ quy đổi**: hệ số: số đơn vị cơ bản trong 1 đơn vị lớn\n- **Đơn vị cơ bản**: đơn vị cơ bản",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachquydoi"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_danhsachsanpham",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DanhSachSanPham`\n- **Mã SKU**: mã hàng\n- **Tên sản phẩm**: tên\n- **Đơn vị**: đơn vị cơ bản\n- **Loại sản phẩm**: nhóm hàng",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachsanpham"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_donnhaphang",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DonNhapHang`\n- **Mã đơn nhập**: mã phiếu nhập\n- **Ngày nhập**: ngày nhập\n- **Mã nhà cung cấp**: mã nhà cung cấp",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_donnhaphang_chitiet",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DonNhapHang_ChiTiet`\n- **Mã đơn nhập**: mã phiếu nhập\n- **Mã SKU**: mã hàng\n- **Mã lô**: số lô\n- **Hạn sử dụng**: hạn sử dụng\n- **Số lượng nhập**: số lượng nhập (đơn vị cơ bản)",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donnhaphang_chitiet"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_donhang_lo",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DonHang_Lo`\n- **Mã đơn hàng**: mã đơn\n- **Mã lô**: số lô\n- **Số lượng**: số lượng bán lấy từ lô (đơn vị cơ bản)\n- **Số lượng trả**: số lượng khách trả lại (đơn vị cơ bản); lớn hơn 0: đơn đó có trả hàng",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_donhang_lo"
+      ]
+    },
+    {
+      "fact_id": "source_readme.dulieuxuat.sheet_danhsachthuoc",
+      "value": "## Cột trong `DuLieuXuat.xlsx`, sheet `DanhSachThuoc`\n- **Mã SKU**: mã hàng\n- **Hoạt chất**: hoạt chất (trống với thực phẩm chức năng, vật tư)\n- **Thuốc kê đơn**: thuốc kê đơn",
+      "source_refs": [
+        "readme.dulieuxuat.sheet_danhsachthuoc"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 20/09/2026.\n- **Lô, hạn dùng**: mỗi dòng nhập là một lô, số lô không trùng. Một dòng bán có thể lấy từ nhiều lô. Hàng khách trả về lại lô đã bán.\n- **Thuốc**: **Thuốc kê đơn** đúng (TRUE/1) là thuốc kê đơn. Hoạt chất ghi không kèm hàm lượng (hàm lượng ở tên hàng); nhiều chất nối bằng \" + \".\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DuLieuXuat.xlsx`.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "header:DonHang_ChiTiet.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DanhSachQuyDoi",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DanhSachSanPham",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Vị trí",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Mã barcode",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Đơn vị",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Mã HH Liên quan",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Mô tả chi tiết",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Loại sản phẩm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachSanPham:Loại hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DonNhapHang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DonNhapHang:Ngày nhập",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DonNhapHang:Mã nhà cung cấp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DonNhapHang_ChiTiet",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DonHang_Lo",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DonHang_Lo:Mã đơn hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DonHang_Lo:Số lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DonHang_Lo:Số lượng trả",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuXuat.xlsx:DanhSachThuoc",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachThuoc:Hoạt chất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuXuat.xlsx:DanhSachThuoc:Thuốc kê đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    }
+  ]
+}

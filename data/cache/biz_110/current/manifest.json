@@ -1,0 +1,174 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_110",
+  "tables": [
+    {
+      "source_file": "danh_sach_hoa_don.csv",
+      "source_object": "danh_sach_hoa_don",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Tien hang",
+          "semantic_name": "tien_hang_cua_don",
+          "description": "tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "TongTien",
+          "semantic_name": "order_payable",
+          "description": "số khách phải trả cho cả đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã bill",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Bên mua",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Da tra",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Chưa trả",
+          "semantic_name": "so_khach_con_no_cua_don",
+          "description": "số khách còn nợ của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danh_sach_hoa_don",
+            "readme.overview"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danh_sach_hoa_don",
+        "readme.overview"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "03/07/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_110\n\nDanh sách hoá đơn, một file CSV: mỗi dòng một đơn hàng (hoá đơn), không có chi tiết mặt hàng trong đơn.\n\n## File\n- `danh_sach_hoa_don.csv` (csv)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danh_sach_hoa_don",
+      "value": "## Cột trong `danh_sach_hoa_don.csv`\n- **Tien hang**: tiền hàng của đơn: cộng thành tiền các mặt hàng, trước giảm giá của đơn, chưa gồm phí giao\n- **TongTien**: số khách phải trả cho cả đơn (đã tính giảm giá của đơn và phí giao)\n- **Mã bill**: mã đơn\n- **Bên mua**: tên khách (Khách lẻ nếu không lưu)\n- **Ngày giao dịch**: ngày bán\n- **Status**: trạng thái đơn\n- **Da tra**: đã thanh toán\n- **Chưa trả**: số khách còn nợ của đơn (đơn huỷ: 0)",
+      "source_refs": [
+        "readme.danh_sach_hoa_don"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 03/07/2026.\n- **Còn nợ**: **Chưa trả** là số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "header:danh_sach_hoa_don.csv:danh_sach_hoa_don",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ]
+}

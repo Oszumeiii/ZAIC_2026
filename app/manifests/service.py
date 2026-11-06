@@ -87,12 +87,14 @@ class BusinessManifestService:
 
     @staticmethod
     def _make_readme_sections(readme_text: str) -> list[dict[str, str]]:
-        sections = BusinessManifestService._read_markdown_sections(readme_text)
+        sections = BusinessManifestService._read_markdown_sections(readme_text) # Trích xuất các đoạn từ README, mỗi đoạn là một tuple chứa tiêu đề và nội dung. Các đoạn này sẽ được chuyển đổi thành danh sách các dict với evidence_id và text.
         evidence: list[dict[str, str]] = []
         seen_ids: Counter[str] = Counter()
         overview_fragments: list[str] = []
 
         for heading, text in sections:
+            
+            # Nếu tiêu đề là trống, bắt đầu bằng "# Dữ liệu" hoặc khớp với mẫu "## File", thêm nội dung vào danh sách overview_fragments và tiếp tục. Ngược lại, tạo một dict với evidence_id được tạo từ tiêu đề và text, rồi thêm vào danh sách evidence.
             if heading == "" or heading.startswith("# Dữ liệu") or re.match(
                 r"^##\s+File\s*$", heading, flags=re.IGNORECASE
             ):
@@ -119,12 +121,17 @@ class BusinessManifestService:
     def _make_rulebook_sections(rulebook_text: str) -> list[dict[str, str]]:
         return Rulebook.parse(rulebook_text)
 
+
+
+    # Hàm này tạo đầu vào cho việc tạo manifest dựa trên thư mục của doanh nghiệp, nội dung rulebook và schema JSON. Nó tìm kiếm README trong thư mục doanh nghiệp, kiểm tra số lượng README, xây dựng danh sách file_inventory, đọc các đoạn README, kiểm
     @staticmethod
     def build_input(
         business_dir: Path,
         rulebook_text: str,
         output_schema: dict[str, Any],
     ) -> dict[str, Any]:
+        
+        # sắp xếp các file README trong thư mục doanh nghiệp, chỉ giữ lại các file có tên bắt đầu bằng "readme" (không phân biệt chữ hoa chữ thường). Nếu không tìm thấy đúng một README, ném ra lỗi ValueError.
         readme_paths = sorted(
             path
             for path in business_dir.iterdir()
@@ -135,6 +142,8 @@ class BusinessManifestService:
                 f"Expected exactly one README in {business_dir}, found {len(readme_paths)}."
             )
 
+
+        # xây dựng danh sách file_inventory bằng cách tìm tất cả các file trong thư mục doanh nghiệp, bỏ qua các file ẩn, file ".DS_Store" và các file README. Danh sách này được sắp xếp theo đường dẫn tương đối từ thư mục doanh nghiệp và chuyển sang định dạng POSIX.
         file_inventory = sorted(
             path.relative_to(business_dir).as_posix()
             for path in business_dir.rglob("*")
@@ -142,11 +151,14 @@ class BusinessManifestService:
             and path.name != ".DS_Store"
             and not path.name.casefold().startswith("readme")
         )
+        
+        
+        # đọc các đoạn README bằng cách gọi phương thức _make_readme_sections, truyền vào nội dung của README được đọc từ file. Đồng thời, sử dụng SourceInventory để kiểm tra các bảng nguồn trong thư mục doanh nghiệp và thu thập các quan sát dữ liệu từ inventory.
         readme_sections = BusinessManifestService._make_readme_sections(
             readme_paths[0].read_text(encoding="utf-8")
         )
-        inventory = SourceInventory.inspect(business_dir)
-        survey_results = SourceInventory.evidence(inventory)
+        inventory = SourceInventory.inspect(business_dir) # Sử dụng SourceInventory để kiểm tra các bảng nguồn trong thư mục doanh nghiệp, trả về một danh sách các dict chứa thông tin về các bảng nguồn, cột, quan hệ và các quy tắc nghiệp vụ.
+        survey_results = SourceInventory.evidence(inventory) # Thu thập các quan sát dữ liệu từ inventory, trả về một danh sách các dict chứa evidence_id và text cho từng quan sát.
 
         evidence_ids = {
             section["evidence_id"]
@@ -154,7 +166,8 @@ class BusinessManifestService:
         }
         rulebook_sections = BusinessManifestService._make_rulebook_sections(rulebook_text)
         evidence_ids.update(section["evidence_id"] for section in rulebook_sections)
-
+    
+        print(f"Built input for {business_dir.name}: {len(file_inventory)} files, {len(readme_sections)} README sections, {len(survey_results)} survey results, {len(rulebook_sections)} rulebook sections.")
         return {
             "business_id": business_dir.name,
             "source_inventory": inventory,

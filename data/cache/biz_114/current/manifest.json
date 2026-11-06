@@ -1,0 +1,193 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_114",
+  "tables": [
+    {
+      "source_file": "ban_hang.csv",
+      "source_object": "ban_hang",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Giá bán lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Đơn vị tính",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions",
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã GD",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Quy ra ĐV lẻ",
+          "semantic_name": "base_quantity",
+          "description": "số lượng đã đổi ra đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions",
+            "readme.sales"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Sluong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Sản phẩm",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions",
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Tên khách",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "trang_thai",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.conventions",
+        "readme.sales"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_time_limit",
+      "value": "Dữ liệu có đến hết 21/06/2026.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_114\n\nMột file phẳng, mỗi dòng một bản ghi (một dòng hàng trong đơn).\n\n## File\n- `ban_hang.csv` (csv)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.sales",
+      "value": "## Cột trong `ban_hang.csv`\n- **Giá bán lẻ**: đơn giá\n- **Đơn vị tính**: đơn vị tính\n- **Mã GD**: mã đơn\n- **Quy ra ĐV lẻ**: số lượng đã đổi ra đơn vị cơ bản\n- **Sluong**: số lượng\n- **Sản phẩm**: tên hàng\n- **Tổng**: thành tiền sau giảm\n- **Tên khách**: tên khách (Khách lẻ nếu không lưu)\n- **Ngày**: ngày bán\n- **trang_thai**: trạng thái đơn",
+      "source_refs": [
+        "readme.sales"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 21/06/2026.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Xi măng Hà Tiên PCB40 bao 50kg: 1 tấn = 20 bao\n  - Xi măng INSEE Power-S bao 50kg: 1 tấn = 20 bao\n  - Cát xây tô: 1 xe 4m3 = 4 m3\n  - Cát bê tông: 1 xe 4m3 = 4 m3\n  - Cát san lấp: 1 xe 4m3 = 4 m3\n  - Đá 1x2: 1 xe 4m3 = 4 m3\n  - Đá 4x6: 1 xe 4m3 = 4 m3\n  - Đá mi bụi: 1 xe 4m3 = 4 m3\n  - Gạch ống 8x8x18 Tuynel: 1 thiên = 1000 viên\n  - Gạch thẻ đặc 4x8x18: 1 thiên = 1000 viên\n  - Băng keo điện Nano 20 yard: 1 cây = 10 cuộn\n  - Lưới B40 mạ kẽm khổ 1.5m: 1 cuộn 10m = 10 m\n  - Ngói Đồng Nai 22 viên/m2: 1 thiên = 1000 viên",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "header:ban_hang.csv:ban_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ]
+}

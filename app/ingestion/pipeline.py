@@ -29,7 +29,7 @@ DUCKDB_TYPES = {"BIGINT", "DOUBLE", "BOOLEAN", "DATE", "TIMESTAMP", "VARCHAR"}
 
 class IngestionPipeline:
     """Load source tables into DuckDB and publish a validated business catalog."""
-
+    # Hàm tĩnh để trích xuất các tiêu đề cột dự kiến từ manifest, dựa trên phiên bản schema và tên file nguồn. Nếu manifest là None, trả về tập rỗng. Nếu schema_version là "2.0", lấy tất cả các source_name của các cột trong các bảng có source_file khớp. Nếu schema_version khác, so sánh tên file nguồn với các source_files trong manifest và lấy tên cột cuối cùng sau dấu chấm.
     @staticmethod
     def _expected_headers(
         manifest: dict[str, Any] | None,
@@ -54,6 +54,8 @@ class IngestionPipeline:
             for column in [source_column.rsplit(".", 1)[-1]]
         }
 
+
+    # Hàm này đọc các bảng nguồn từ một file nguồn cụ thể, dựa trên đường dẫn đến file, thư mục của doanh nghiệp và manifest. Nó xác định các tiêu đề cột dự kiến từ manifest và sử dụng SourceInventory để đọc dữ liệu từ file nguồn, trả về một iterator các đối tượng SourceTable.
     @staticmethod
     def _read_source(
         path: Path,
@@ -156,7 +158,14 @@ class IngestionPipeline:
             f"INSERT INTO {TabularLayout.quote_identifier(physical_table_name)} "
             f"VALUES ({placeholders})"
         )
-        writer = _TableWriter(connection, insert_sql, types, source)
+        writer = _TableWriter(
+            connection,
+            insert_sql,
+            types,
+            source,
+            physical_table_name,
+            physical_columns,
+        )
 
         try:
             for start in range(0, len(sample_rows), BATCH_SIZE):
@@ -177,7 +186,7 @@ class IngestionPipeline:
 
         profiles = [
             {
-                "duckdb_type": duckdb_type,
+                "duckdb_type": writer.types[index],
                 "source_type": (
                     source.source_types[index]
                     if index < len(source.source_types)
@@ -198,6 +207,25 @@ class IngestionPipeline:
             column_profiles=profiles,
             manifest=manifest,
         )
+        for index, inferred_type in writer.widened_columns.items():
+            source_name = source.source_headers[index]
+            issues.append(
+                {
+                    "topic": (
+                        f"type:{source.source_file}:{source.source_object}:"
+                        f"{source_name or index + 1}"
+                    ),
+                    "reason": (
+                        f"Column {source_name or index + 1!r} contained values "
+                        f"incompatible with inferred {inferred_type}; it was stored "
+                        "as VARCHAR to preserve those values."
+                    ),
+                    "needed_evidence": (
+                        "Confirm whether the mixed values are intentional or whether "
+                        "the source contains summary rows that should be separated."
+                    ),
+                }
+            )
         return table_catalog, issues
 
     @staticmethod
@@ -225,10 +253,10 @@ class IngestionPipeline:
         output_dir: Path,
         manifest_path: Path | None = None,
     ) -> dict[str, Any]:
-        business_dir = business_dir.resolve()
-        output_dir.mkdir(parents=True, exist_ok=True)
-        business_id = business_dir.name
-        manifest = IngestionPipeline._load_manifest(manifest_path, business_id)
+        business_dir = business_dir.resolve() # Đảm bảo rằng business_dir là một đường dẫn tuyệt đối và chuẩn hóa các ký tự đặc biệt trong đường dẫn.
+        output_dir.mkdir(parents=True, exist_ok=True) # Tạo thư mục output_dir nếu nó chưa tồn tại, bao gồm tất cả các thư mục cha cần thiết.
+        business_id = business_dir.name # Lấy tên thư mục cuối cùng của business_dir làm business_id.
+        manifest = IngestionPipeline._load_manifest(manifest_path, business_id)  # Nếu manifest_path được cung cấp, tải manifest từ file JSON và xác thực nó. Nếu không, manifest sẽ là None.
         source_files = SourceInventory.discover(business_dir)
         if not source_files:
             raise ValueError(f"No supported source files found in {business_dir}.")
@@ -353,16 +381,22 @@ class IngestionPipeline:
         return 0
 
 
+# class giúp chuẩn hóa các lô dữ liệu và theo dõi số lượng hàng và giá trị null cho một bảng vật lý. Nó nhận kết nối DuckDB, câu lệnh SQL chèn, kiểu dữ liệu của các cột và thông tin về nguồn dữ liệu. Phương thức insert_batch chuẩn hóa từng hàng trong lô, đếm số giá trị null cho mỗi cột và chèn lô vào bảng DuckDB.
 class _TableWriter:
     """Normalize batches and track row/null counts for one physical table."""
 
-    def __init__(self, connection, insert_sql, types, source):
+    def __init__(
+        self, connection, insert_sql, types, source, table_name, column_names
+    ):
         self.connection = connection
         self.insert_sql = insert_sql
         self.types = types
         self.source = source
+        self.table_name = table_name
+        self.column_names = column_names
         self.null_counts = [0] * len(types)
         self.row_count = 0
+        self.widened_columns = {}
 
     def insert_batch(self, batch: list[tuple[Any, ...]]) -> None:
         normalized_batch = []
@@ -372,17 +406,43 @@ class _TableWriter:
                     f"Row in {self.source.source_file} / {self.source.source_object} has "
                     f"{len(row)} values for {len(self.types)} columns."
                 )
-            normalized = tuple(
-                ValueNormalizer.normalize(value, duckdb_type)
-                for value, duckdb_type in zip(row, self.types, strict=True)
-            )
-            for index, value in enumerate(normalized):
-                if value is None:
-                    self.null_counts[index] += 1
+            normalized_values = []
+            for index, (value, duckdb_type) in enumerate(
+                zip(row, self.types, strict=True)
+            ):
+                try:
+                    normalized = ValueNormalizer.normalize(value, duckdb_type)
+                except ValueError:
+                    if duckdb_type == "VARCHAR":
+                        raise
+                    self._widen_column(index, duckdb_type)
+                    normalized = ValueNormalizer.normalize(value, "VARCHAR")
+                normalized_values.append(normalized)
+            normalized = tuple(normalized_values)
             normalized_batch.append(normalized)
         if normalized_batch:
+            normalized_batch = [
+                tuple(
+                    ValueNormalizer.normalize(value, duckdb_type)
+                    for value, duckdb_type in zip(row, self.types, strict=True)
+                )
+                for row in normalized_batch
+            ]
             self.connection.executemany(self.insert_sql, normalized_batch)
             self.row_count += len(normalized_batch)
+            for row in normalized_batch:
+                for index, value in enumerate(row):
+                    if value is None:
+                        self.null_counts[index] += 1
+
+    def _widen_column(self, index: int, inferred_type: str) -> None:
+        self.connection.execute(
+            f"ALTER TABLE {TabularLayout.quote_identifier(self.table_name)} "
+            f"ALTER COLUMN {TabularLayout.quote_identifier(self.column_names[index])} "
+            "SET DATA TYPE VARCHAR"
+        )
+        self.types[index] = "VARCHAR"
+        self.widened_columns.setdefault(index, inferred_type)
 
 
 if __name__ == "__main__":

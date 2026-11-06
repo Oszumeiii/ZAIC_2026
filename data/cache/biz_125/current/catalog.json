@@ -1,0 +1,464 @@
+{
+  "catalog_version": "1.0",
+  "business_id": "biz_125",
+  "database_file": "business.duckdb",
+  "tables": [
+    {
+      "grain": null,
+      "table_id": "ban_hang.csv::ban_hang",
+      "physical_name": "ban_hang",
+      "table_role": "sales_records",
+      "source_files": [
+        "ban_hang.csv"
+      ],
+      "source_objects": [
+        "ban_hang"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 79052,
+      "columns": [
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "dvt",
+          "physical_name": "dvt",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "dvt",
+            "đơn vị tính"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "dvt",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Hàng bán",
+          "physical_name": "hang_ban",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Hàng bán",
+            "tên hàng"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Hàng bán",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Khách hàng (tên)",
+          "physical_name": "khach_hang_ten",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Khách hàng (tên)",
+            "tên khách"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Khách hàng (tên)",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Số lượng lẻ",
+          "physical_name": "so_luong_le",
+          "semantic_name": "base_quantity",
+          "description": "số lượng đã đổi ra đơn vị cơ bản",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số lượng lẻ",
+            "số lượng đã đổi ra đơn vị cơ bản"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Số lượng lẻ",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "Amount",
+          "physical_name": "amount",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Amount",
+            "thành tiền sau giảm"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Amount",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Trạng thái xử lý",
+          "physical_name": "trang_thai_xu_ly",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Trạng thái xử lý",
+            "trạng thái đơn"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Trạng thái xử lý",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum",
+          "source_name": "SL bán",
+          "physical_name": "sl_ban",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "SL bán",
+            "số lượng"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "SL bán",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none",
+          "source_name": "Ngày bán",
+          "physical_name": "ngay_ban",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ngày bán",
+            "ngày bán"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Ngày bán",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Số phiếu",
+          "physical_name": "so_phieu",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Số phiếu",
+            "mã đơn"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Số phiếu",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Giá 1 đv",
+          "physical_name": "gia_1_dv",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Giá 1 đv",
+            "đơn giá"
+          ],
+          "profile": {
+            "row_count": 79052,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "ban_hang.csv",
+              "source_object": "ban_hang",
+              "source_name": "Giá 1 đv",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.overview",
+                "readme.sales"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.overview",
+        "readme.sales"
+      ]
+    }
+  ],
+  "relationships": [],
+  "facts": [
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_125\n\nMột file phẳng, mỗi dòng một bản ghi (một dòng hàng trong đơn).\n\n## File\n- `ban_hang.csv` (csv)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.sales",
+      "value": "## Cột trong `ban_hang.csv`\n- **dvt**: đơn vị tính\n- **Hàng bán**: tên hàng\n- **Khách hàng (tên)**: tên khách (Khách lẻ nếu không lưu)\n- **Số lượng lẻ**: số lượng đã đổi ra đơn vị cơ bản\n- **Amount**: thành tiền sau giảm\n- **Trạng thái xử lý**: trạng thái đơn\n- **SL bán**: số lượng\n- **Ngày bán**: ngày bán\n- **Số phiếu**: mã đơn\n- **Giá 1 đv**: đơn giá",
+      "source_refs": [
+        "readme.sales"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 11/05/2026.\n- **Phí phục vụ**: đơn ngồi phòng lạnh (không huỷ, không ghi nợ) có thêm dòng hàng \"Phí phục vụ\": phí phục vụ phòng lạnh của đơn, tính theo tiền món, đã ghi sẵn thành tiền.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Bia Tiger lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Special lon: 1 thùng = 24 lon\n  - Coca-Cola lon: 1 thùng = 24 lon\n  - Bia Tiger Bạc lon: 1 thùng = 24 lon\n  - Nước suối: 1 thùng = 24 chai\n  - Bia Heineken lon: 1 thùng = 24 lon\n  - Bia Sài Gòn Lager chai: 1 két = 20 chai\n  - 7Up lon: 1 thùng = 24 lon",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "header:ban_hang.csv:ban_hang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "quality": {
+    "coverage": {
+      "source_columns": 10,
+      "documented_columns": 10,
+      "unresolved_columns": 0
+    },
+    "capabilities": {
+      "revenue": {
+        "status": "partial",
+        "missing_semantics": [],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "receivables": {
+        "status": "blocked",
+        "missing_semantics": [
+          "order_payable",
+          "payment_amount",
+          "payment_date",
+          "payment_method"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "inventory_as_of": {
+        "status": "blocked",
+        "missing_semantics": [
+          "movement_time",
+          "product_id",
+          "stock_balance"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "gross_profit": {
+        "status": "blocked",
+        "missing_semantics": [
+          "unit_cost"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      }
+    }
+  }
+}

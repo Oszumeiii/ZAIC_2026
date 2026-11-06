@@ -1,0 +1,4335 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_119",
+  "tables": [
+    {
+      "source_file": "BaoCaoTonKho.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "stock_snapshots",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": "don_vi_co_ban",
+          "description": "đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tồn cuối kỳ",
+          "semantic_name": "ton_kho_don_vi_co_ban",
+          "description": "tồn kho đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "source_file": "DanhSachChiTietNhapHang.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã nhập hàng",
+          "semantic_name": "ma_phieu_nhap",
+          "description": "mã phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "STT",
+          "semantic_name": "so_thu_tu_dong_trong_phieu_nhap",
+          "description": "số thứ tự dòng trong phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Số lượng",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Đơn giá",
+          "semantic_name": "gia_nhap_mot_don_vi",
+          "description": "giá nhập một đơn vị",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Lô",
+          "semantic_name": "so_lo",
+          "description": "số lô",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Hạn sử dụng",
+          "semantic_name": "han_su_dung",
+          "description": "hạn sử dụng",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.purchases",
+        "readme.purchases_2"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T01-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T02-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T03-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T04-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T05-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T06-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T07-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T08-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T09-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T10-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T11-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T12-2025",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T01-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T02-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T03-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T04-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T05-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T06-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDon.xlsx",
+      "source_object": "T07-2026",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": "customer_id",
+          "description": "mã khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": "tong_tien_hang_cua_don",
+          "description": "tổng tiền hàng của đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": "thoi_diem_dat_don",
+          "description": "thời điểm đặt đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "tong_tien_don",
+          "description": "tổng tiền đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Còn nợ",
+          "semantic_name": "con_no",
+          "description": "còn nợ",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDonChiTiet.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": "product_id",
+          "description": "mã hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Số lượng",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Đơn giá",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": "giam_gia",
+          "description": "giảm giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thành tiền",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Số lượng quy đổi",
+          "semantic_name": "base_quantity",
+          "description": "số lượng đã đổi ra đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "STT",
+          "semantic_name": "so_thu_tu_dong_trong_don",
+          "description": "số thứ tự dòng trong đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.danhsachhoadon",
+            "readme.danhsachhoadonchitiet"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.danhsachhoadon",
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "source_file": "DanhSachHoaDonChiTietLo.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "STT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Lô",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng (ĐVT cơ bản)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng trả (ĐVT cơ bản)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DanhSachKhachHang.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Công ty",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tổng điểm",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ghi chú KH",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ngày sinh",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Người tạo",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đối tượng KH",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Điểm tích lũy",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Điện thoại",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "MST",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Địa chỉ",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DanhSachLoHang.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã nhập hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Lô",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Hạn sử dụng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng (ĐVT cơ bản)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DanhSachNhapHang.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã nhập hàng",
+          "semantic_name": "ma_phieu_nhap",
+          "description": "mã phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": "ngay_nhap",
+          "description": "ngày nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã NCC",
+          "semantic_name": "ma_nha_cung_cap",
+          "description": "mã nhà cung cấp",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Cần trả NCC",
+          "semantic_name": "tong_tien_phieu_nhap",
+          "description": "tổng tiền phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": "trang_thai_phieu_nhap",
+          "description": "trạng thái phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ghi chú",
+          "semantic_name": "ghi_chu",
+          "description": "ghi chú",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases",
+            "readme.purchases_2"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.purchases",
+        "readme.purchases_2"
+      ]
+    },
+    {
+      "source_file": "DanhSachSanPham.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Trọng lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Loại hàng hóa",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tồn nhỏ nhất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Bảo hành",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Được bán trực tiếp",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mẫu ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Nhóm hàng(3 Cấp)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Vị trí kệ",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mô tả chi tiết",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thuộc tính",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Hình ảnh (url1,url2...)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá bán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã HH Liên quan",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thương hiệu",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã vạch EAN",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tồn lớn nhất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DanhSachThuoc.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Hoạt chất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thuốc kê đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_119\n\nFile Excel xuất từ phần mềm bán hàng, mỗi danh sách một file (danh sách dài tách thành nhiều file, tên thêm đuôi _1, _2… hoặc đuôi năm _2025, _2026…), nối với nhau qua mã. Ngày dạng dd/mm/yyyy.\n\nFile `DanhSachHoaDon.xlsx` chia mỗi tháng một sheet, tên sheet ghi tháng và năm.\n\n## File\n- `DanhSachHoaDon.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet.xlsx` (xlsx)\n- `DanhSachSanPham.xlsx` (xlsx)\n- `DanhSachKhachHang.xlsx` (xlsx)\n- `BaoCaoTonKho.xlsx` (xlsx)\n- `DanhSachNhapHang.xlsx` (xlsx)\n- `DanhSachLoHang.xlsx` (xlsx)\n- `DanhSachHoaDonChiTietLo.xlsx` (xlsx)\n- `DanhSachThuoc.xlsx` (xlsx)\n- `DanhSachChiTietNhapHang.xlsx` (xlsx)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachhoadon",
+      "value": "## Cột trong `DanhSachHoaDon.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **Thời gian**: ngày bán\n- **Mã KH**: mã khách (trống nếu khách lẻ)\n- **Khách hàng**: tên khách (Khách lẻ nếu không lưu)\n- **Tổng tiền hàng**: tổng tiền hàng của đơn (cộng thành tiền các dòng), trước giảm giá của đơn\n- **Giảm giá**: giảm giá\n- **Khách đã trả**: đã thanh toán\n- **Trạng thái**: trạng thái đơn\n- **Thời gian tạo**: thời điểm đặt đơn (ngày giờ)\n- **Tổng sau giảm giá**: tổng tiền đơn\n- **Còn nợ**: còn nợ",
+      "source_refs": [
+        "readme.danhsachhoadon"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachhoadonchitiet",
+      "value": "## Cột trong `DanhSachHoaDonChiTiet.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên hàng\n- **Số lượng**: số lượng\n- **Đơn giá**: đơn giá\n- **Giảm giá**: giảm giá\n- **Thành tiền**: thành tiền sau giảm\n- **Số lượng quy đổi**: số lượng đã đổi ra đơn vị cơ bản\n- **STT**: số thứ tự dòng trong đơn",
+      "source_refs": [
+        "readme.danhsachhoadonchitiet"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachsanpham",
+      "value": "## Cột trong `DanhSachSanPham.xlsx`\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên\n- **Nhóm hàng(3 Cấp)**: nhóm hàng\n- **Giá bán**: giá bán hiện tại\n- **ĐVT**: đơn vị cơ bản",
+      "source_refs": [
+        "readme.danhsachsanpham"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachkhachhang",
+      "value": "## Cột trong `DanhSachKhachHang.xlsx`\n- **Mã khách hàng**: mã khách\n- **Tên khách hàng**: tên\n- **Điện thoại**: số điện thoại\n- **Địa chỉ**: địa chỉ",
+      "source_refs": [
+        "readme.danhsachkhachhang"
+      ]
+    },
+    {
+      "fact_id": "source_readme.stock",
+      "value": "## Cột trong `BaoCaoTonKho.xlsx`\n- **Mã hàng**: mã hàng\n- **Tên hàng**: tên hàng\n- **ĐVT**: đơn vị cơ bản\n- **Tồn cuối kỳ**: tồn kho (đơn vị cơ bản)",
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "fact_id": "source_readme.purchases",
+      "value": "## Cột trong `DanhSachNhapHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **Thời gian**: ngày nhập\n- **Mã NCC**: mã nhà cung cấp\n- **Cần trả NCC**: tổng tiền phiếu nhập\n- **Trạng thái**: trạng thái phiếu nhập\n- **Ghi chú**: ghi chú",
+      "source_refs": [
+        "readme.purchases"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachlohang",
+      "value": "## Cột trong `DanhSachLoHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **Mã hàng**: mã hàng\n- **Lô**: số lô\n- **Hạn sử dụng**: hạn sử dụng\n- **Số lượng (ĐVT cơ bản)**: số lượng nhập (đơn vị cơ bản)",
+      "source_refs": [
+        "readme.danhsachlohang"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachhoadonchitietlo",
+      "value": "## Cột trong `DanhSachHoaDonChiTietLo.xlsx`\n- **Mã hóa đơn**: mã đơn\n- **STT**: số thứ tự dòng trong đơn\n- **Lô**: số lô\n- **Số lượng (ĐVT cơ bản)**: số lượng bán lấy từ lô (đơn vị cơ bản)\n- **Số lượng trả (ĐVT cơ bản)**: số lượng khách trả lại (đơn vị cơ bản); lớn hơn 0: đơn đó có trả hàng",
+      "source_refs": [
+        "readme.danhsachhoadonchitietlo"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danhsachthuoc",
+      "value": "## Cột trong `DanhSachThuoc.xlsx`\n- **Mã hàng**: mã hàng\n- **Hoạt chất**: hoạt chất (trống với thực phẩm chức năng, vật tư)\n- **Thuốc kê đơn**: thuốc kê đơn",
+      "source_refs": [
+        "readme.danhsachthuoc"
+      ]
+    },
+    {
+      "fact_id": "source_readme.purchases_2",
+      "value": "## Cột trong `DanhSachChiTietNhapHang.xlsx`\n- **Mã nhập hàng**: mã phiếu nhập\n- **STT**: số thứ tự dòng trong phiếu nhập\n- **Mã hàng**: mã hàng\n- **ĐVT**: đơn vị tính\n- **Số lượng**: số lượng\n- **Đơn giá**: giá nhập một đơn vị (theo đơn vị nhập của dòng)\n- **Lô**: số lô\n- **Hạn sử dụng**: hạn sử dụng",
+      "source_refs": [
+        "readme.purchases_2"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 13/07/2026.\n- **Còn nợ**: **Còn nợ** là số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu.\n- **Tồn kho**: **Tồn cuối kỳ** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Lô, hạn dùng**: mỗi dòng nhập là một lô, số lô không trùng. Một dòng bán có thể lấy từ nhiều lô. Hàng khách trả về lại lô đã bán.\n- **Nhập hàng**: **Đơn giá** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Cần trả NCC** là tổng tiền của cả phiếu nhập.\n- **Thuốc**: **Thuốc kê đơn** đúng (TRUE/1) là thuốc kê đơn. Hoạt chất ghi không kèm hàm lượng (hàm lượng ở tên hàng); nhiều chất nối bằng \" + \".\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng:\n  - Panadol Extra hộp 15 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol Extra hộp 15 vỉ x 12 viên: 1 hộp = 180 viên\n  - Hapacol 250 hộp 24 gói: 1 hộp = 24 gói\n  - Panadol 500mg hộp 10 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol 500mg hộp 10 vỉ x 12 viên: 1 hộp = 120 viên\n  - Tiffy Dey hộp 25 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Tiffy Dey hộp 25 vỉ x 4 viên: 1 hộp = 100 viên\n  - Berberin 100mg Mekophar chai 100 viên: 1 chai = 100 viên\n  - Oresol 245 DHG hộp 20 gói: 1 hộp = 20 gói\n  - Amoxicillin 500mg Domesco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Amoxicillin 500mg Domesco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Salonpas cao dán hộp 24 gói x 10 miếng: 1 hộp = 24 gói\n  - Decolgen Forte hộp 30 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Decolgen Forte hộp 30 vỉ x 4 viên: 1 hộp = 120 viên\n  - Khẩu trang y tế 4 lớp Khánh An hộp 50 cái: 1 hộp = 50 cái\n  - Smecta hộp 30 gói: 1 hộp = 30 gói\n  - Efferalgan 500mg viên sủi hộp 4 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Efferalgan 500mg viên sủi hộp 4 vỉ x 4 viên: 1 hộp = 16 viên\n  - Phosphalugel hộp 26 gói: 1 hộp = 26 gói\n  - Strepsils Cool hộp 2 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Strepsils Cool hộp 2 vỉ x 12 viên: 1 hộp = 24 viên\n  - Clorpheniramin 4mg DHG hộp 10 vỉ x 20 viên: 1 hộp = 10 vỉ\n  - Yumangel hộp 20 gói: 1 hộp = 20 gói\n  - Cefuroxim 500mg Vidipha hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Cefuroxim 500mg Vidipha hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Băng cá nhân Urgo Transparent hộp 100 miếng: 1 hộp = 100 miếng\n  - Hapacol 150 hộp 24 gói: 1 hộp = 24 gói\n  - Eugica hộp 10 vỉ x 10 viên nang: 1 vỉ = 10 viên\n  - Eugica hộp 10 vỉ x 10 viên nang: 1 hộp = 100 viên\n  - UPSA-C 1g viên sủi tuýp 10 viên: 1 tuýp = 10 viên\n  - Lorastad 10mg Stella hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Lorastad 10mg Stella hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Cetirizin 10mg Domesco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Cetirizin 10mg Domesco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Amlodipin 5mg Domesco hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Amlodipin 5mg Domesco hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Panadol Cảm Cúm hộp 15 vỉ x 12 viên: 1 vỉ = 12 viên\n  - Panadol Cảm Cúm hộp 15 vỉ x 12 viên: 1 hộp = 180 viên\n  - Alaxan hộp 25 vỉ x 4 viên: 1 vỉ = 4 viên\n  - Alaxan hộp 25 vỉ x 4 viên: 1 hộp = 100 viên\n  - Gofen 400 hộp 5 vỉ x 10 viên nang: 1 vỉ = 10 viên\n  - Gofen 400 hộp 5 vỉ x 10 viên nang: 1 hộp = 50 viên\n  - Acemuc Kids 200mg hộp 30 gói: 1 hộp = 30 gói\n  - Gaviscon hộp 24 gói x 10ml: 1 hộp = 24 gói\n  - Enterogermina 2 tỷ/5ml hộp 20 ống: 1 hộp = 20 ống\n  - Omeprazol 20mg DHG hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Omeprazol 20mg DHG hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Vitamin C 500mg Quapharco hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Vitamin C 500mg Quapharco hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Efticol 0,9% lốc 10 lọ x 10ml: 1 lốc = 10 lọ\n  - Magne-B6 Corbière hộp 5 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Magne-B6 Corbière hộp 5 vỉ x 10 viên: 1 hộp = 50 viên\n  - Loperamid 2mg Domesco hộp 5 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Loperamid 2mg Domesco hộp 5 vỉ x 10 viên: 1 hộp = 50 viên\n  - Metformin Stella 500mg hộp 6 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Metformin Stella 500mg hộp 6 vỉ x 10 viên: 1 hộp = 60 viên\n  - Clarityne 10mg hộp 1 vỉ x 10 viên: 1 hộp = 10 viên\n  - Zyrtec 10mg hộp 1 vỉ x 10 viên: 1 hộp = 10 viên\n  - Telfast HD 180mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Telfast HD 180mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Hagifen 400mg DHG hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Hagifen 400mg DHG hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Enervon hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Enervon hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Savi Losartan 50mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Savi Losartan 50mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên\n  - Air-X 80mg viên nhai hộp 10 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Air-X 80mg viên nhai hộp 10 vỉ x 10 viên: 1 hộp = 100 viên\n  - Biosubtyl-II hộp 25 gói: 1 hộp = 25 gói\n  - Berocca Performance viên sủi tuýp 10 viên: 1 tuýp = 10 viên\n  - Prednisolon 5mg Boston chai 500 viên: 1 chai = 500 viên\n  - Bio-acimin Gold men vi sinh hộp 30 gói: 1 hộp = 30 gói\n  - Boganic Traphaco hộp 5 vỉ x 20 viên: 1 vỉ = 20 viên\n  - Boganic Traphaco hộp 5 vỉ x 20 viên: 1 hộp = 100 viên\n  - Calcium Corbière Extra 10ml hộp 30 ống: 1 hộp = 30 ống\n  - Bisolvon 8mg hộp 3 vỉ x 10 viên: 1 vỉ = 10 viên\n  - Bisolvon 8mg hộp 3 vỉ x 10 viên: 1 hộp = 30 viên",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "header:BaoCaoTonKho.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachChiTietNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T01-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T02-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T03-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T04-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T05-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T06-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T07-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T08-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T09-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T10-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T11-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T12-2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T01-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T02-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T03-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T04-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T05-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T06-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDon.xlsx:T07-2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTiet.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTietLo.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:STT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Lô",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Số lượng (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTietLo.xlsx:Sheet1:Số lượng trả (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachKhachHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Công ty",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tổng điểm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Mã khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ghi chú KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Ngày sinh",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Tên khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Người tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Đối tượng KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điểm tích lũy",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Điện thoại",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:MST",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachKhachHang.xlsx:Sheet1:Địa chỉ",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachLoHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Mã nhập hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Lô",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Hạn sử dụng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachLoHang.xlsx:Sheet1:Số lượng (ĐVT cơ bản)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhSachSanPham.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Loại hàng hóa",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tên hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tồn nhỏ nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Nhóm hàng(3 Cấp)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Vị trí kệ",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mô tả chi tiết",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Giá bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã HH Liên quan",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Mã vạch EAN",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachSanPham.xlsx:Sheet1:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DanhSachThuoc.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Hoạt chất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachThuoc.xlsx:Sheet1:Thuốc kê đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    }
+  ]
+}

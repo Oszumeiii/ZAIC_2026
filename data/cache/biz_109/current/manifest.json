@@ -1,0 +1,1381 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_109",
+  "tables": [
+    {
+      "source_file": "DanhSachHoaDonChiTiet.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "STT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đơn vị tính",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đơn giá",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thành tiền",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng quy đổi",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá vốn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachHoaDon",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã KH",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tổng tiền hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giảm giá",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tổng sau giảm giá",
+          "semantic_name": "order_payable",
+          "description": "số khách phải trả cho cả đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách đã trả",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Phương thức thanh toán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Kênh bán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Người bán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Trạng thái HĐĐT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachSanPham",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Tồn lớn nhất",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Nhóm hàng(3 Cấp)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Vị trí",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Trọng lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thuộc tính",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mẫu ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá bán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Hình ảnh (url1,url2...)",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Bảo hành",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Định mức tồn tối thiểu",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá vốn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thương hiệu",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Được bán trực tiếp",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đang kinh doanh",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thời gian tạo",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachKhachHang",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tổng điểm",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Điện thoại",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "MST",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Loại hình khách",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Người tạo",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ghi chú KH",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên công ty",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Nhóm khách hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ngày tạo",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Sinh nhật",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "BaoCaoTonKho",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tên hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Tồn cuối kỳ",
+          "semantic_name": "ton_cuoi_ngay_cuoi_co_du_lieu_theo_don_vi_co_ban",
+          "description": "tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachNhapHang",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã nhập hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã NCC",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Cần trả NCC",
+          "semantic_name": "tong_tien_cua_ca_phieu_nhap",
+          "description": "tổng tiền của cả phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trạng thái",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Ghi chú",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachChiTietNhapHang",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã nhập hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "STT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Số lượng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Đơn giá",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "SoQuy",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã phiếu",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Thời gian",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Phương thức thanh toán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá trị",
+          "semantic_name": "payment_amount",
+          "description": "số tiền trả lần đó",
+          "status": "documented",
+          "source_refs": [
+            "readme.conventions"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        }
+      ],
+      "source_refs": []
+    },
+    {
+      "source_file": "DuLieuBanHang.xlsx",
+      "source_object": "DanhSachDonViTinh",
+      "header_row_number": 1,
+      "table_role": "unknown",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Mã hàng",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Quy đổi",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        },
+        {
+          "source_name": "Giá bán",
+          "semantic_name": null,
+          "description": null,
+          "status": "unresolved",
+          "source_refs": [],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "unknown"
+        }
+      ],
+      "source_refs": []
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_109\n\nFile máy POS xuất ra.\n\nCác danh sách `DanhSachHoaDon`, `DanhSachSanPham`, `DanhSachKhachHang`, `BaoCaoTonKho`, `DanhSachNhapHang`, `DanhSachChiTietNhapHang`, `SoQuy`, `DanhSachDonViTinh` nằm chung file `DuLieuBanHang.xlsx`, mỗi danh sách một sheet.\n\n## File\n- `DuLieuBanHang.xlsx` (xlsx)\n- `DanhSachHoaDonChiTiet.xlsx` (xlsx)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 05/08/2026.\n- **Công nợ**: mỗi lần khách trả tiền cho một đơn là một dòng, **Giá trị** là số tiền trả lần đó; **Tổng sau giảm giá** là số khách phải trả cho cả đơn.\n- **Giá vốn**: **Giá vốn** là giá vốn một đơn vị bán.\n- **Tồn kho**: **Tồn cuối kỳ** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Nhập hàng**: **Đơn giá** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Cần trả NCC** là tổng tiền của cả phiếu nhập.\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DuLieuBanHang.xlsx`.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "Cấu trúc cột chi tiết",
+      "reason": "README chỉ định nghĩa tên các danh sách và một số khái niệm quy ước nhưng chưa liệt kê tên cột chi tiết của từng file hoặc sheet.",
+      "needed_evidence": "Danh sách tên cột cụ thể cho từng sheet trong DuLieuBanHang.xlsx và DanhSachHoaDonChiTiet.xlsx."
+    },
+    {
+      "topic": "header:DanhSachHoaDonChiTiet.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Mã hóa đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:STT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Tên hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Đơn vị tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Số lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Đơn giá",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Giảm giá",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Thành tiền",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Số lượng quy đổi",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DanhSachHoaDonChiTiet.xlsx:Sheet1:Giá vốn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachHoaDon",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Mã hóa đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Thời gian",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Mã KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Tổng tiền hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Giảm giá",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Khách đã trả",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Phương thức thanh toán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Trạng thái",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Thời gian tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Kênh bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Người bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachHoaDon:Trạng thái HĐĐT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachSanPham",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Tồn lớn nhất",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Nhóm hàng(3 Cấp)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Vị trí",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Trọng lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Thuộc tính",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Tên hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Mẫu ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Giá bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Hình ảnh (url1,url2...)",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Bảo hành",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Định mức tồn tối thiểu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Giá vốn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Thương hiệu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Được bán trực tiếp",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Đang kinh doanh",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachSanPham:Thời gian tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachKhachHang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Mã khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Tổng điểm",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Tên khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Điện thoại",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:MST",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Trạng thái",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Loại hình khách",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Người tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Ghi chú KH",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Tên công ty",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Nhóm khách hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Ngày tạo",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachKhachHang:Sinh nhật",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:BaoCaoTonKho",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:BaoCaoTonKho:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:BaoCaoTonKho:Tên hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:BaoCaoTonKho:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachNhapHang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachNhapHang:Mã nhập hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachNhapHang:Thời gian",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachNhapHang:Mã NCC",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachNhapHang:Trạng thái",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachNhapHang:Ghi chú",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:Mã nhập hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:STT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:Số lượng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachChiTietNhapHang:Đơn giá",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:SoQuy",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:SoQuy:Mã phiếu",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:SoQuy:Thời gian",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:SoQuy:Mã hóa đơn",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:SoQuy:Phương thức thanh toán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "header:DuLieuBanHang.xlsx:DanhSachDonViTinh",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachDonViTinh:Mã hàng",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachDonViTinh:ĐVT",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachDonViTinh:Quy đổi",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    },
+    {
+      "topic": "column_mapping:DuLieuBanHang.xlsx:DanhSachDonViTinh:Giá bán",
+      "reason": "Observed column has no documented semantic mapping.",
+      "needed_evidence": "Provide source-specific evidence for this mapping."
+    }
+  ]
+}

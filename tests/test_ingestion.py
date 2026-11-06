@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime
 import json
 import sqlite3
 
@@ -175,5 +176,41 @@ class TestIngestion:
                 f'SELECT "ma_don", "so_luong" FROM "{parquet_table}"'
             ).fetchall()
             assert rows == [("0007", 7)]
+        finally:
+            connection.close()
+
+    def test_ingestion_widens_mixed_datetime_column_to_preserve_summary_rows(
+        self, tmp_path: Path
+    ) -> None:
+        business_dir = tmp_path / "biz_mixed"
+        business_dir.mkdir()
+        workbook = Workbook()
+        worksheet = workbook.active
+        worksheet.append(["Ngày"])
+        for _ in range(1000):
+            worksheet.append([datetime(2025, 1, 1, 8, 30)])
+        worksheet.append(["Tổng tháng"])
+        workbook.save(business_dir / "sales.xlsx")
+
+        output_dir = tmp_path / "cache" / "biz_mixed"
+        catalog = IngestionPipeline.ingest(business_dir, output_dir)
+
+        table = catalog["tables"][0]
+        assert table["columns"][0]["duckdb_type"] == "VARCHAR"
+        assert any(
+            issue["topic"] == "type:sales.xlsx:Sheet:Ngày"
+            for issue in catalog["unresolved"]
+        )
+        connection = duckdb.connect(
+            str(output_dir / "business.duckdb"), read_only=True
+        )
+        try:
+            row_count, summary = connection.execute(
+                f'SELECT COUNT(*), SUM(CASE WHEN "ngay" = ? THEN 1 ELSE 0 END) '
+                f'FROM "{table["physical_name"]}"',
+                ["Tổng tháng"],
+            ).fetchone()
+            assert row_count == 1001
+            assert summary == 1
         finally:
             connection.close()

@@ -1,0 +1,2911 @@
+{
+  "schema_version": "2.0",
+  "business_id": "biz_105",
+  "tables": [
+    {
+      "source_file": "BangGia.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "price_history",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Ngày áp dụng",
+          "semantic_name": "ngay_bat_dau_ap_dung_gia",
+          "description": "ngày bắt đầu áp dụng giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.prices"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "ten_hang",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.prices"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá mới",
+          "semantic_name": "gia_ban_ap_dung_tu_ngay_do_don_vi_co_ban",
+          "description": "giá bán áp dụng từ ngày đó (đơn vị cơ bản)",
+          "status": "documented",
+          "source_refs": [
+            "readme.prices"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá cũ",
+          "semantic_name": "gia_truoc_lan_doi",
+          "description": "giá trước lần đổi",
+          "status": "documented",
+          "source_refs": [
+            "readme.prices"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.prices"
+      ]
+    },
+    {
+      "source_file": "DanhMuc.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "unit_conversions",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Tên món",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.conversions"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Đơn vị gốc",
+          "semantic_name": "don_vi_co_ban",
+          "description": "đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.conversions"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "ĐV nhập",
+          "semantic_name": "don_vi_lon",
+          "description": "đơn vị lớn",
+          "status": "documented",
+          "source_refs": [
+            "readme.conversions"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Hệ số",
+          "semantic_name": "unit_conversion_factor",
+          "description": "hệ số quy đổi",
+          "status": "documented",
+          "source_refs": [
+            "readme.conversions"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.conversions"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 02 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 03 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 04 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 05 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 06 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 07 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 08 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 09 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 10 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 11 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 12 2025",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_1.xlsx",
+      "source_object": "Thang 01 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_2026.xlsx",
+      "source_object": "Thang 02 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_2026.xlsx",
+      "source_object": "Thang 03 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_2026.xlsx",
+      "source_object": "Thang 04 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_2026.xlsx",
+      "source_object": "Thang 05 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoBanHang_2026.xlsx",
+      "source_object": "Thang 06 2026",
+      "header_row_number": 2,
+      "table_role": "sales_records",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "so_luong",
+          "semantic_name": "quantity",
+          "description": "số lượng",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Unit",
+          "semantic_name": "don_vi_tinh",
+          "description": "đơn vị tính",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Trị giá",
+          "semantic_name": "line_amount",
+          "description": "thành tiền sau giảm",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "sum"
+        },
+        {
+          "source_name": "Status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá lẻ",
+          "semantic_name": "unit_price",
+          "description": "đơn giá",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giờ",
+          "semantic_name": "gio_dat_don_dong_tra_hang_luc_tra",
+          "description": "giờ đặt đơn (dòng trả hàng: lúc trả)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Mã hóa đơn",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày giao dịch",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Khách",
+          "semantic_name": "ten_khach_khach_le_neu_khong_luu",
+          "description": "tên khách (Khách lẻ nếu không lưu)",
+          "status": "documented",
+          "source_refs": [
+            "readme.sales_1",
+            "readme.sales_2026"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.sales_1",
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "source_file": "SoNhapHang.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "purchase_lines",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Số phiếu",
+          "semantic_name": "ma_phieu_nhap",
+          "description": "mã phiếu nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ngày nhập",
+          "semantic_name": "ngay_nhap",
+          "description": "ngày nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Ghi chu",
+          "semantic_name": "ghi_chu",
+          "description": "ghi chú",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Thành tiền",
+          "semantic_name": "tien_nhap_cua_ca_dong",
+          "description": "tiền nhập của cả dòng",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Nhà cung cấp",
+          "semantic_name": "nha_cung_cap",
+          "description": "nhà cung cấp",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tên mặt hàng",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Giá nhập",
+          "semantic_name": "gia_nhap_mot_don_vi",
+          "description": "giá nhập một đơn vị",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "ĐVT",
+          "semantic_name": "don_vi_nhap",
+          "description": "đơn vị nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "purchase_unit",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "SL nhập",
+          "semantic_name": "so_luong_nhap",
+          "description": "số lượng nhập",
+          "status": "documented",
+          "source_refs": [
+            "readme.purchases"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.purchases"
+      ]
+    },
+    {
+      "source_file": "TonKho.xlsx",
+      "source_object": "Sheet1",
+      "header_row_number": 1,
+      "table_role": "stock_snapshots",
+      "grain": null,
+      "columns": [
+        {
+          "source_name": "Hàng hóa",
+          "semantic_name": "ten_hang",
+          "description": "tên hàng",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Đơn vị tính",
+          "semantic_name": "don_vi_co_ban",
+          "description": "đơn vị cơ bản",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        },
+        {
+          "source_name": "Tồn cuối",
+          "semantic_name": "ton_kho_don_vi_co_ban",
+          "description": "tồn kho (đơn vị cơ bản)",
+          "status": "documented",
+          "source_refs": [
+            "readme.stock"
+          ],
+          "unit_basis": "base_unit",
+          "time_role": null,
+          "aggregation": "none"
+        }
+      ],
+      "source_refs": [
+        "readme.stock"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "2026-06-24",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_105\n\nSổ bán hàng ghi tay chuyển sang Excel, mỗi tháng một sheet.\n\n## File\n- `SoBanHang_1.xlsx` (xlsx)\n- `SoBanHang_2026.xlsx` (xlsx)\n- `DanhMuc.xlsx` (xlsx)\n- `TonKho.xlsx` (xlsx)\n- `SoNhapHang.xlsx` (xlsx)\n- `BangGia.xlsx` (xlsx)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.sales_1",
+      "value": "## Cột trong `SoBanHang_1.xlsx`\n- **Hàng**: tên hàng\n- **so_luong**: số lượng\n- **Unit**: đơn vị tính\n- **Trị giá**: thành tiền sau giảm\n- **Status**: trạng thái đơn\n- **Giá lẻ**: đơn giá\n- **Giờ**: giờ đặt đơn (dòng trả hàng: lúc trả)\n- **Mã hóa đơn**: mã đơn\n- **Ngày giao dịch**: ngày bán\n- **Khách**: tên khách (Khách lẻ nếu không lưu)",
+      "source_refs": [
+        "readme.sales_1"
+      ]
+    },
+    {
+      "fact_id": "source_readme.sales_2026",
+      "value": "## Cột trong `SoBanHang_2026.xlsx`\n- **Hàng**: tên hàng\n- **so_luong**: số lượng\n- **Unit**: đơn vị tính\n- **Trị giá**: thành tiền sau giảm\n- **Status**: trạng thái đơn\n- **Giá lẻ**: đơn giá\n- **Giờ**: giờ đặt đơn (dòng trả hàng: lúc trả)\n- **Mã hóa đơn**: mã đơn\n- **Ngày giao dịch**: ngày bán\n- **Khách**: tên khách (Khách lẻ nếu không lưu)",
+      "source_refs": [
+        "readme.sales_2026"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conversions",
+      "value": "## Cột trong `DanhMuc.xlsx`\n- **Tên món**: tên hàng (file chỉ có mặt hàng có đơn vị lớn)\n- **Đơn vị gốc**: đơn vị cơ bản\n- **ĐV nhập**: đơn vị lớn (thùng, hộp, tấn...)\n- **Hệ số**: hệ số: số đơn vị cơ bản trong 1 đơn vị lớn",
+      "source_refs": [
+        "readme.conversions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.stock",
+      "value": "## Cột trong `TonKho.xlsx`\n- **Hàng hóa**: tên hàng\n- **Đơn vị tính**: đơn vị cơ bản\n- **Tồn cuối**: tồn kho (đơn vị cơ bản)",
+      "source_refs": [
+        "readme.stock"
+      ]
+    },
+    {
+      "fact_id": "source_readme.purchases",
+      "value": "## Cột trong `SoNhapHang.xlsx`\n- **Số phiếu**: mã phiếu nhập\n- **Ngày nhập**: ngày nhập\n- **Ghi chu**: ghi chú\n- **Thành tiền**: tiền nhập của cả dòng\n- **Nhà cung cấp**: nhà cung cấp\n- **Tên mặt hàng**: tên hàng\n- **Giá nhập**: giá nhập một đơn vị (theo đơn vị nhập của dòng)\n- **ĐVT**: đơn vị nhập\n- **SL nhập**: số lượng nhập",
+      "source_refs": [
+        "readme.purchases"
+      ]
+    },
+    {
+      "fact_id": "source_readme.prices",
+      "value": "## Cột trong `BangGia.xlsx`\n- **Ngày áp dụng**: ngày bắt đầu áp dụng giá\n- **ten_hang**: tên hàng\n- **Giá mới**: giá bán áp dụng từ ngày đó (đơn vị cơ bản)\n- **Giá cũ**: giá trước lần đổi (trống ở dòng đầu mỗi mặt hàng)",
+      "source_refs": [
+        "readme.prices"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 24/06/2026.\n- **Trả hàng**: hàng trả ghi số lượng âm, cùng mã đơn với đơn đã bán: đơn có dòng số lượng âm là đơn có trả hàng.\n- **Tồn kho**: **Tồn cuối** là tồn cuối ngày cuối có dữ liệu, theo đơn vị cơ bản.\n- **Nhập hàng**: **Giá nhập** là giá nhập một đơn vị, theo đơn vị nhập của dòng; **Thành tiền** là tiền nhập của cả dòng.\n- **Giá bán**: **Giá mới** (theo đơn vị cơ bản) áp dụng từ **Ngày áp dụng** đến trước lần đổi giá sau của cùng mặt hàng; dòng đầu mỗi mặt hàng là giá lúc bắt đầu dữ liệu (**Giá cũ** trống).\n- **Quy đổi đơn vị**: số lượng ghi theo đơn vị của dòng, hệ số quy đổi ở `DanhMuc.xlsx`.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "relationships": [],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "unresolved": [
+    {
+      "topic": "header:BangGia.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:DanhMuc.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 02 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 03 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 04 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 05 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 06 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 07 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 08 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 09 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 10 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 11 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 12 2025",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_1.xlsx:Thang 01 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_2026.xlsx:Thang 02 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_2026.xlsx:Thang 03 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_2026.xlsx:Thang 04 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_2026.xlsx:Thang 05 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoBanHang_2026.xlsx:Thang 06 2026",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:SoNhapHang.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    },
+    {
+      "topic": "header:TonKho.xlsx:Sheet1",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ]
+}

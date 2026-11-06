@@ -1,0 +1,408 @@
+{
+  "catalog_version": "1.0",
+  "business_id": "biz_110",
+  "database_file": "business.duckdb",
+  "tables": [
+    {
+      "grain": null,
+      "table_id": "danh_sach_hoa_don.csv::danh_sach_hoa_don",
+      "physical_name": "danh_sach_hoa_don",
+      "table_role": "sales_records",
+      "source_files": [
+        "danh_sach_hoa_don.csv"
+      ],
+      "source_objects": [
+        "danh_sach_hoa_don"
+      ],
+      "header": {
+        "status": "manifest_header_match",
+        "source_row_number": 1
+      },
+      "row_count": 29317,
+      "columns": [
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Tien hang",
+          "physical_name": "tien_hang",
+          "semantic_name": "tien_hang_cua_don",
+          "description": "tiền hàng của đơn",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Tien hang",
+            "tiền hàng của đơn"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Tien hang",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "currency",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "TongTien",
+          "physical_name": "tong_tien",
+          "semantic_name": "order_payable",
+          "description": "số khách phải trả cho cả đơn",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "TongTien",
+            "số khách phải trả cho cả đơn"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "TongTien",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Mã bill",
+          "physical_name": "ma_bill",
+          "semantic_name": "order_id",
+          "description": "mã đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Mã bill",
+            "mã đơn"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 429
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Mã bill",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Bên mua",
+          "physical_name": "ben_mua",
+          "semantic_name": "ten_khach",
+          "description": "tên khách",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Bên mua",
+            "tên khách"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Bên mua",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": "order_date",
+          "aggregation": "none",
+          "source_name": "Ngày giao dịch",
+          "physical_name": "ngay_giao_dich",
+          "semantic_name": "order_date",
+          "description": "ngày bán",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Ngày giao dịch",
+            "ngày bán"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 429
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Ngày giao dịch",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Status",
+          "physical_name": "status",
+          "semantic_name": "order_status",
+          "description": "trạng thái đơn",
+          "duckdb_type": "VARCHAR",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Status",
+            "trạng thái đơn"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 429
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Status",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Da tra",
+          "physical_name": "da_tra",
+          "semantic_name": "da_thanh_toan",
+          "description": "đã thanh toán",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Da tra",
+            "đã thanh toán"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Da tra",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        },
+        {
+          "semantic_status": "documented",
+          "unit_basis": "unknown",
+          "time_role": null,
+          "aggregation": "none",
+          "source_name": "Chưa trả",
+          "physical_name": "chua_tra",
+          "semantic_name": "so_khach_con_no_cua_don",
+          "description": "số khách còn nợ của đơn",
+          "duckdb_type": "BIGINT",
+          "source_type": null,
+          "type_status": "profiled",
+          "aliases": [
+            "Chưa trả",
+            "số khách còn nợ của đơn"
+          ],
+          "profile": {
+            "row_count": 29317,
+            "null_count": 0
+          },
+          "source_mappings": [
+            {
+              "source_file": "danh_sach_hoa_don.csv",
+              "source_object": "danh_sach_hoa_don",
+              "source_name": "Chưa trả",
+              "mapping_status": "documented_header_match",
+              "source_refs": [
+                "readme.danh_sach_hoa_don",
+                "readme.overview"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "readme.danh_sach_hoa_don",
+        "readme.overview"
+      ]
+    }
+  ],
+  "relationships": [],
+  "facts": [
+    {
+      "fact_id": "data_end_date",
+      "value": "03/07/2026",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    },
+    {
+      "fact_id": "source_readme.overview",
+      "value": "# Dữ liệu biz_110\n\nDanh sách hoá đơn, một file CSV: mỗi dòng một đơn hàng (hoá đơn), không có chi tiết mặt hàng trong đơn.\n\n## File\n- `danh_sach_hoa_don.csv` (csv)",
+      "source_refs": [
+        "readme.overview"
+      ]
+    },
+    {
+      "fact_id": "source_readme.danh_sach_hoa_don",
+      "value": "## Cột trong `danh_sach_hoa_don.csv`\n- **Tien hang**: tiền hàng của đơn: cộng thành tiền các mặt hàng, trước giảm giá của đơn, chưa gồm phí giao\n- **TongTien**: số khách phải trả cho cả đơn (đã tính giảm giá của đơn và phí giao)\n- **Mã bill**: mã đơn\n- **Bên mua**: tên khách (Khách lẻ nếu không lưu)\n- **Ngày giao dịch**: ngày bán\n- **Status**: trạng thái đơn\n- **Da tra**: đã thanh toán\n- **Chưa trả**: số khách còn nợ của đơn (đơn huỷ: 0)",
+      "source_refs": [
+        "readme.danh_sach_hoa_don"
+      ]
+    },
+    {
+      "fact_id": "source_readme.conventions",
+      "value": "## Quy ước\n- Dữ liệu có đến hết 03/07/2026.\n- **Còn nợ**: **Chưa trả** là số khách còn nợ của đơn, tính đến hết ngày cuối dữ liệu.",
+      "source_refs": [
+        "readme.conventions"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "header:danh_sach_hoa_don.csv:danh_sach_hoa_don",
+      "reason": "Header was selected heuristically.",
+      "needed_evidence": "Confirm the header using source documentation."
+    }
+  ],
+  "rule_refs": [
+    "rulebook.preamble",
+    "rulebook.1",
+    "rulebook.2",
+    "rulebook.3",
+    "rulebook.4",
+    "rulebook.5",
+    "rulebook.6",
+    "rulebook.7",
+    "rulebook.8",
+    "rulebook.9",
+    "rulebook.10"
+  ],
+  "quality": {
+    "coverage": {
+      "source_columns": 8,
+      "documented_columns": 8,
+      "unresolved_columns": 0
+    },
+    "capabilities": {
+      "revenue": {
+        "status": "blocked",
+        "missing_semantics": [
+          "line_amount"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "receivables": {
+        "status": "blocked",
+        "missing_semantics": [
+          "payment_amount",
+          "payment_date",
+          "payment_method"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "inventory_as_of": {
+        "status": "blocked",
+        "missing_semantics": [
+          "movement_time",
+          "product_id",
+          "stock_balance"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      },
+      "gross_profit": {
+        "status": "blocked",
+        "missing_semantics": [
+          "line_amount",
+          "quantity",
+          "unit_cost"
+        ],
+        "missing_rules": [],
+        "required_review": [
+          "grain_and_join_path",
+          "status_and_return_policy",
+          "time_and_unit_basis"
+        ]
+      }
+    }
+  }
+}
