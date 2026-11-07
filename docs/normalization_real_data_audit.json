@@ -1,0 +1,80 @@
+{
+  "method": "runtime and preservation audit, NOT labeled normalization accuracy or answer PA",
+  "train_contract": {
+    "questions": 3000,
+    "businesses": 30,
+    "missing_fields": 0,
+    "bad_question_types": 0,
+    "duplicate_ids": 0,
+    "missing_business_dirs": 0,
+    "extensions": {
+      ".csv": 20,
+      ".md": 30,
+      ".xlsx": 107,
+      ".sqlite": 1
+    }
+  },
+  "test_contract": {
+    "questions": 1000,
+    "businesses": 14,
+    "missing_fields": 0,
+    "bad_question_types": 0,
+    "duplicate_ids": 0,
+    "missing_business_dirs": 0,
+    "extensions": {
+      ".xlsx": 69,
+      ".md": 14,
+      ".csv": 10,
+      ".sqlite": 1
+    }
+  },
+  "test_usage": "format/IDs/business-directory contract only; no test vocabulary, corrections or answers used",
+  "dictionary_source": "generic lexicon plus curated train-fit variants only",
+  "holdout_business_count": 6,
+  "with_train_schema_and_values": true,
+  "entity_protection": "all exact ValueIndex matches; fuzzy grounding is covered separately by integration tests",
+  "summary": {
+    "fit": {
+      "current": {
+        "questions": 2289,
+        "changed": 1146,
+        "errors": 0,
+        "unresolved_questions": 785,
+        "corrections": 1974,
+        "harmful_accent_collisions": 0,
+        "literal_changes": 0
+      },
+      "baseline": {
+        "questions": 2289,
+        "changed": 1278,
+        "errors": 0,
+        "unresolved_questions": 960,
+        "corrections": 1968,
+        "harmful_accent_collisions": 412,
+        "literal_changes": 0
+      }
+    },
+    "holdout": {
+      "current": {
+        "questions": 711,
+        "changed": 350,
+        "errors": 0,
+        "unresolved_questions": 249,
+        "corrections": 599,
+        "harmful_accent_collisions": 0,
+        "literal_changes": 0
+      },
+      "baseline": {
+        "questions": 711,
+        "changed": 389,
+        "errors": 0,
+        "unresolved_questions": 289,
+        "corrections": 599,
+        "harmful_accent_collisions": 107,
+        "literal_changes": 0
+      }
+    }
+  },
+  "failures": [],
+  "elapsed_s": 653.14
+}

@@ -1,0 +1,491 @@
+{
+  "source": "train/questions.jsonl; fit businesses only; no answers, no public_test vocabulary",
+  "fit_questions": 2289,
+  "holdout_questions": 711,
+  "holdout_count": 6,
+  "entries": [
+    {
+      "variant": "dthu",
+      "canonical": "doanh thu",
+      "fit_occurrences": 367,
+      "dataset": "abbreviations",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "hqua",
+      "canonical": "hôm qua",
+      "fit_occurrences": 40,
+      "dataset": "temporal_phrases",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bao nhieeu",
+      "canonical": "bao nhiêu",
+      "fit_occurrences": 8,
+      "dataset": "slang",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "đươc",
+      "canonical": "được",
+      "fit_occurrences": 23,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "thangs",
+      "canonical": "tháng",
+      "fit_occurrences": 28,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "tieenf",
+      "canonical": "tiền",
+      "fit_occurrences": 16,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "hangf",
+      "canonical": "hàng",
+      "fit_occurrences": 16,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "cuwar",
+      "canonical": "cửa",
+      "fit_occurrences": 13,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "laf",
+      "canonical": "là",
+      "fit_occurrences": 13,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "soos",
+      "canonical": "số",
+      "fit_occurrences": 9,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nhieeuf",
+      "canonical": "nhiều",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "toongr",
+      "canonical": "tổng",
+      "fit_occurrences": 8,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddown",
+      "canonical": "đơn",
+      "fit_occurrences": 7,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "dduwowcj",
+      "canonical": "được",
+      "fit_occurrences": 7,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "vaayj",
+      "canonical": "vậy",
+      "fit_occurrences": 6,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "giumf",
+      "canonical": "giùm",
+      "fit_occurrences": 6,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "naof",
+      "canonical": "nào",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bans",
+      "canonical": "bán",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nhoms",
+      "canonical": "nhóm",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nhaats",
+      "canonical": "nhất",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "heets",
+      "canonical": "hết",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bieets",
+      "canonical": "biết",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "maays",
+      "canonical": "mấy",
+      "fit_occurrences": 4,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "gias",
+      "canonical": "giá",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "hoom",
+      "canonical": "hôm",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "cos",
+      "canonical": "có",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "leen",
+      "canonical": "lên",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "tooi",
+      "canonical": "tôi",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nawm",
+      "canonical": "năm",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddos",
+      "canonical": "đó",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "mawtj",
+      "canonical": "mặt",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bij",
+      "canonical": "bị",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "coongj",
+      "canonical": "cộng",
+      "fit_occurrences": 3,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "khachs",
+      "canonical": "khách",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ees",
+      "canonical": "ế",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "vaof",
+      "canonical": "vào",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "mooix",
+      "canonical": "mỗi",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "veef",
+      "canonical": "về",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "binhf",
+      "canonical": "bình",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ngayf",
+      "canonical": "ngày",
+      "fit_occurrences": 2,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddieenj",
+      "canonical": "điện",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "tawng",
+      "canonical": "tăng",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "vaf",
+      "canonical": "và",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "luwowtj",
+      "canonical": "lượt",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "trowr",
+      "canonical": "trở",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nhaf",
+      "canonical": "nhà",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "thuoocs",
+      "canonical": "thuốc",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "thoaij",
+      "canonical": "thoại",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "hown",
+      "canonical": "hơn",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddeems",
+      "canonical": "đếm",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nayf",
+      "canonical": "này",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nowj",
+      "canonical": "nợ",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "nhaapj",
+      "canonical": "nhập",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "mootj",
+      "canonical": "một",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "thuoocj",
+      "canonical": "thuộc",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "khoong",
+      "canonical": "không",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bawngf",
+      "canonical": "bằng",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "laij",
+      "canonical": "lại",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddoof",
+      "canonical": "đồ",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "chieems",
+      "canonical": "chiếm",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddax",
+      "canonical": "đã",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "gaanf",
+      "canonical": "gần",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "quaan",
+      "canonical": "quán",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "tieeu",
+      "canonical": "tiêu",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "conf",
+      "canonical": "còn",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "bowts",
+      "canonical": "bớt",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "ddooir",
+      "canonical": "đổi",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "chiuj",
+      "canonical": "chịu",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    },
+    {
+      "variant": "truwowcs",
+      "canonical": "trước",
+      "fit_occurrences": 1,
+      "dataset": "common_typos",
+      "source": "train_fit_only"
+    }
+  ]
+}

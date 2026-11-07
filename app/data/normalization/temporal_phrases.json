@@ -1,0 +1,269 @@
+[
+  {
+    "canonical": "hôm qua",
+    "variants": [
+      "hqa",
+      "hom qua",
+      "hqua"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "hôm nay",
+    "variants": [
+      "hnay",
+      "hom nay"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "ngày mai",
+    "variants": [
+      "ngay mai"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "ngày kia",
+    "variants": [
+      "ngay kia"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tuần trước",
+    "variants": [
+      "tuan truoc",
+      "tuần trc",
+      "tuan trc"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tuần rồi",
+    "variants": [
+      "tuan roi"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tuần qua",
+    "variants": [
+      "tuan qua"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tuần này",
+    "variants": [
+      "tuan nay",
+      "tuần ni"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tuần sau",
+    "variants": [
+      "tuan sau"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tháng trước",
+    "variants": [
+      "thg trc",
+      "thg trước",
+      "thang truoc",
+      "tháng trc",
+      "thang trc"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tháng này",
+    "variants": [
+      "thg này",
+      "thg nay",
+      "thang nay",
+      "tháng ni"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tháng rồi",
+    "variants": [
+      "thg rồi",
+      "thg roi",
+      "thang roi"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "tháng sau",
+    "variants": [
+      "thg sau",
+      "thang sau"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "năm trước",
+    "variants": [
+      "nam truoc",
+      "năm trc",
+      "nam trc"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "năm ngoái",
+    "variants": [
+      "nam ngoai"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "năm nay",
+    "variants": [
+      "nam nay"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "năm sau",
+    "variants": [
+      "nam sau"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "quý này",
+    "variants": [
+      "quy nay"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "quý trước",
+    "variants": [
+      "quy truoc",
+      "quý trc"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "quý sau",
+    "variants": [
+      "quy sau"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "đầu tháng",
+    "variants": [
+      "dau thang"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "cuối tháng",
+    "variants": [
+      "cuoi thang"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "đầu năm",
+    "variants": [
+      "dau nam"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "cuối năm",
+    "variants": [
+      "cuoi nam"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "cuối tuần",
+    "variants": [
+      "cuoi tuan"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "cùng kỳ năm ngoái",
+    "variants": [
+      "cung ky nam ngoai"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "cùng kỳ",
+    "variants": [
+      "cung ky"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "âm lịch",
+    "variants": [
+      "am lich"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "dương lịch",
+    "variants": [
+      "duong lich"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "thứ Bảy",
+    "variants": [
+      "thu bay"
+    ],
+    "category": "temporal",
+    "safe": true
+  },
+  {
+    "canonical": "Chủ nhật",
+    "variants": [
+      "chu nhat"
+    ],
+    "category": "temporal",
+    "safe": true
+  }
+]

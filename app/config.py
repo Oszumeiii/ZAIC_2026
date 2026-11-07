@@ -38,6 +38,7 @@ class Config:
 
     # --- gợi ý tất định đưa vào prompt ---
     use_hints: bool = True            # khoảng thời gian đã quy đổi + giá trị khớp trong dữ liệu (do mã tính, không do LLM)
+    enable_question_normalization: bool = True  # chuẩn hóa ngôn ngữ offline, giữ nguyên câu hỏi gốc
     exemplar_path: str | None = None  # kho (câu hỏi, lời giải đúng) từ tập train; None = không dùng few-shot truy xuất
     exemplar_k: int = 2               # số ví dụ tương tự đưa vào prompt
 

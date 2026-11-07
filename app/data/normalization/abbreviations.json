@@ -1,0 +1,289 @@
+[
+  {
+    "canonical": "sản phẩm",
+    "variants": [
+      "sp"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "số lượng",
+    "variants": [
+      "sl"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "được",
+    "variants": [
+      "dc",
+      "đc"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "bao nhiêu",
+    "variants": [
+      "bn",
+      "bnh",
+      "bnhieu"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "trước",
+    "variants": [
+      "trc"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "sau",
+    "variants": [
+      "sauu"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "không",
+    "variants": [
+      "ko",
+      "khum",
+      "khongg"
+    ],
+    "category": "abbreviation",
+    "safe": true,
+    "context": [
+      "có",
+      "còn",
+      "phải",
+      "được",
+      "bán",
+      "hàng",
+      "nợ",
+      "đủ",
+      "hết"
+    ]
+  },
+  {
+    "canonical": "đơn hàng",
+    "variants": [
+      "đh",
+      "dh"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "hóa đơn",
+    "variants": [
+      "hđ",
+      "hdon"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "nhân viên",
+    "variants": [
+      "nv"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "nhà cung cấp",
+    "variants": [
+      "ncc"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "hạn sử dụng",
+    "variants": [
+      "hsd",
+      "hạn sd"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "ngày sản xuất",
+    "variants": [
+      "nsx",
+      "ngày sx"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "đơn vị tính",
+    "variants": [
+      "đvt",
+      "dvt"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "số điện thoại",
+    "variants": [
+      "sdt",
+      "sđt"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "địa chỉ",
+    "variants": [
+      "dchi",
+      "đchi"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "mã số thuế",
+    "variants": [
+      "mst"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "thanh toán",
+    "variants": [
+      "tt toán",
+      "th.toán"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "tiền mặt",
+    "variants": [
+      "tmặt",
+      "tmat"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "công nợ",
+    "variants": [
+      "cnợ",
+      "congno"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "số dư",
+    "variants": [
+      "sdu"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "trung bình",
+    "variants": [
+      "tbình",
+      "trbinh"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "giá trị gia tăng",
+    "variants": [
+      "gtgt"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "bảo hiểm xã hội",
+    "variants": [
+      "bhxh"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "chấm công",
+    "variants": [
+      "ccông"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "số tài khoản",
+    "variants": [
+      "stk",
+      "số tk"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "thương mại điện tử",
+    "variants": [
+      "tmđt",
+      "tmdt"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "khuyến mãi",
+    "variants": [
+      "kmãi",
+      "kmại"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "đơn giá",
+    "variants": [
+      "đgia",
+      "dgia"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "người mua",
+    "variants": [
+      "nmua"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "người bán",
+    "variants": [
+      "nban"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  },
+  {
+    "canonical": "doanh thu",
+    "variants": [
+      "dthu"
+    ],
+    "category": "abbreviation",
+    "safe": true
+  }
+]

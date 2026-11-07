@@ -1,0 +1,868 @@
+[
+  {
+    "canonical": "doanh thu",
+    "variants": [
+      "doanh thuu",
+      "doan thu",
+      "doanh thuư"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "nhiều",
+    "variants": [
+      "nhìu",
+      "nhiu",
+      "nhều",
+      "nhieeuf"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "tháng",
+    "variants": [
+      "thág",
+      "thnág"
+    ],
+    "category": "typo",
+    "safe": true,
+    "context": [
+      "này",
+      "trước",
+      "sau",
+      "qua"
+    ]
+  },
+  {
+    "canonical": "trước",
+    "variants": [
+      "truóc",
+      "trươc",
+      "trướcc",
+      "truwowcs"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "khách hàng",
+    "variants": [
+      "khach hangg",
+      "khách hàn",
+      "khách hàg"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "sản phẩm",
+    "variants": [
+      "sản phầm",
+      "sản phảm",
+      "san phamm"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "số lượng",
+    "variants": [
+      "số lương",
+      "số lượg",
+      "so luongg"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "tồn kho",
+    "variants": [
+      "tôn kho",
+      "tồn khô",
+      "ton khô",
+      "tonkho",
+      "ton khho"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "lợi nhuận",
+    "variants": [
+      "lợi nhuân",
+      "lơi nhuận",
+      "loi nhuanj"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "chi phí",
+    "variants": [
+      "chi phì",
+      "chí phí",
+      "chi phii"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "thanh toán",
+    "variants": [
+      "thanh toanx",
+      "thanh tóan",
+      "thanh toáng"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "công nợ",
+    "variants": [
+      "công nọ",
+      "công nơ",
+      "cong noợ"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "hóa đơn",
+    "variants": [
+      "hoá đon",
+      "hóa đơnn",
+      "hoa donn"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "đơn hàng",
+    "variants": [
+      "đơn hàg",
+      "don hangg"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "giảm giá",
+    "variants": [
+      "giãm giá",
+      "giam giaa"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "chiết khấu",
+    "variants": [
+      "chiết khâu",
+      "chiêt khấu",
+      "chiet khauu"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "nhập kho",
+    "variants": [
+      "nhâp kho",
+      "nhập khô",
+      "nhap khho"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "xuất kho",
+    "variants": [
+      "xuât kho",
+      "xuất khô",
+      "xuat khho"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "hoàn trả",
+    "variants": [
+      "hoàng trả",
+      "hoan traa"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "hủy đơn",
+    "variants": [
+      "huỷ đon",
+      "hũy đơn",
+      "huy donn"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "khuyến mãi",
+    "variants": [
+      "khuyển mãi",
+      "khuyến mải"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "nhân viên",
+    "variants": [
+      "nhân viê",
+      "nhan vienn"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "chấm công",
+    "variants": [
+      "châm công",
+      "cham congg"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "lương",
+    "variants": [
+      "lươg"
+    ],
+    "category": "typo",
+    "safe": true,
+    "context": [
+      "nhân viên",
+      "tổng",
+      "tháng"
+    ]
+  },
+  {
+    "canonical": "hết hạn",
+    "variants": [
+      "hêt hạn"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "số tiền",
+    "variants": [
+      "số tièn",
+      "so tienn"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "cao nhất",
+    "variants": [
+      "cao nhât",
+      "cao nhấtt"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "thấp nhất",
+    "variants": [
+      "thâp nhất",
+      "thap nhatt"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "trung bình",
+    "variants": [
+      "trung bìh",
+      "trung binhh"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "cuối tuần",
+    "variants": [
+      "cuôi tuần",
+      "cuoi tuann"
+    ],
+    "category": "typo",
+    "safe": true
+  },
+  {
+    "canonical": "được",
+    "variants": [
+      "đươc",
+      "dduwowcj"
+    ],
+    "category": "observed_typo",
+    "safe": true
+  },
+  {
+    "canonical": "tháng",
+    "variants": [
+      "thangs"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "tiền",
+    "variants": [
+      "tieenf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "hàng",
+    "variants": [
+      "hangf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "cửa",
+    "variants": [
+      "cuwar"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "là",
+    "variants": [
+      "laf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "số",
+    "variants": [
+      "soos"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "tổng",
+    "variants": [
+      "toongr"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đơn",
+    "variants": [
+      "ddown"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "vậy",
+    "variants": [
+      "vaayj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "giùm",
+    "variants": [
+      "giumf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nào",
+    "variants": [
+      "naof"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "bán",
+    "variants": [
+      "bans"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nhóm",
+    "variants": [
+      "nhoms"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nhất",
+    "variants": [
+      "nhaats"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "hết",
+    "variants": [
+      "heets"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "biết",
+    "variants": [
+      "bieets"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "mấy",
+    "variants": [
+      "maays"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "giá",
+    "variants": [
+      "gias"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "hôm",
+    "variants": [
+      "hoom"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "có",
+    "variants": [
+      "cos"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "lên",
+    "variants": [
+      "leen"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "tôi",
+    "variants": [
+      "tooi"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "năm",
+    "variants": [
+      "nawm"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đó",
+    "variants": [
+      "ddos"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "mặt",
+    "variants": [
+      "mawtj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "bị",
+    "variants": [
+      "bij"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "cộng",
+    "variants": [
+      "coongj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "khách",
+    "variants": [
+      "khachs"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "ế",
+    "variants": [
+      "ees"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "vào",
+    "variants": [
+      "vaof"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "mỗi",
+    "variants": [
+      "mooix"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "về",
+    "variants": [
+      "veef"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "bình",
+    "variants": [
+      "binhf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "ngày",
+    "variants": [
+      "ngayf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "điện",
+    "variants": [
+      "ddieenj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "tăng",
+    "variants": [
+      "tawng"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "và",
+    "variants": [
+      "vaf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "lượt",
+    "variants": [
+      "luwowtj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "trở",
+    "variants": [
+      "trowr"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nhà",
+    "variants": [
+      "nhaf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "thuốc",
+    "variants": [
+      "thuoocs"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "thoại",
+    "variants": [
+      "thoaij"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "hơn",
+    "variants": [
+      "hown"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đếm",
+    "variants": [
+      "ddeems"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "này",
+    "variants": [
+      "nayf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nợ",
+    "variants": [
+      "nowj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "nhập",
+    "variants": [
+      "nhaapj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "một",
+    "variants": [
+      "mootj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "thuộc",
+    "variants": [
+      "thuoocj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "không",
+    "variants": [
+      "khoong"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "bằng",
+    "variants": [
+      "bawngf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "lại",
+    "variants": [
+      "laij"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đồ",
+    "variants": [
+      "ddoof"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "chiếm",
+    "variants": [
+      "chieems"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đã",
+    "variants": [
+      "ddax"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "gần",
+    "variants": [
+      "gaanf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "quán",
+    "variants": [
+      "quaan"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "tiêu",
+    "variants": [
+      "tieeu"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "còn",
+    "variants": [
+      "conf"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "bớt",
+    "variants": [
+      "bowts"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "đổi",
+    "variants": [
+      "ddooir"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  },
+  {
+    "canonical": "chịu",
+    "variants": [
+      "chiuj"
+    ],
+    "category": "observed_telex",
+    "safe": true,
+    "match_canonical": false
+  }
+]

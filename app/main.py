@@ -30,6 +30,7 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--no-llm", action="store_true", help="không gọi model (chỉ luật, nếu bật)")
     p.add_argument("--exemplars", help="kho few-shot (.jsonl) dựng từ train bằng evaluation.run_eval --build-exemplars")
     p.add_argument("--no-hints", action="store_true", help="tắt gợi ý tất định (khoảng thời gian, giá trị khớp)")
+    p.add_argument("--no-question-normalization", action="store_true", help="giữ luồng câu hỏi cũ, không chuẩn hóa ngôn ngữ")
     p.add_argument("--no-helpers", action="store_true", help="không nêu hàm trợ giúp (to_number, period_range...) trong prompt")
     p.add_argument("--auto-model", action="store_true", help="chọn model/engine theo VRAM GPU (ghi đè --local-model/--local-engine)")
     p.add_argument("--rulebook-select", action="store_true", help="chỉ đưa mục rulebook liên quan câu hỏi vào prompt")
@@ -47,6 +48,7 @@ def config_from_args(a: argparse.Namespace) -> Config:
                "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len}
     mapping["exemplar_path"] = a.exemplars
     cfg = Config(backend=a.backend, use_hints=not a.no_hints, use_helpers=not a.no_helpers, collect_all=a.collect_all, rulebook_select=a.rulebook_select,
+                 enable_question_normalization=not getattr(a, "no_question_normalization", False),
                  run_name=a.run_name, chat_kwargs={"enable_thinking": False} if a.no_thinking else {},
                  **{k: v for k, v in mapping.items() if v is not None})
     if a.auto_model and cfg.is_local:

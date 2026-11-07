@@ -1,0 +1,234 @@
+[
+  {
+    "canonical": "nhiều",
+    "variants": [
+      "nhìu quá trời"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "bán",
+      "hàng",
+      "số lượng"
+    ]
+  },
+  {
+    "canonical": "bao nhiêu",
+    "variants": [
+      "bao nhiu",
+      "bi nhiêu",
+      "bnhiu",
+      "bao nhieeu"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "không",
+    "variants": [
+      "hông",
+      "hong",
+      "hem",
+      "hok",
+      "hổng"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "có",
+      "còn",
+      "phải",
+      "được",
+      "bán",
+      "hàng",
+      "nợ",
+      "đủ",
+      "hết"
+    ]
+  },
+  {
+    "canonical": "được rồi",
+    "variants": [
+      "đc rùi"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "bán",
+      "thu",
+      "thanh toán"
+    ]
+  },
+  {
+    "canonical": "rồi",
+    "variants": [
+      "rùi",
+      "ròi"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "chưa",
+    "variants": [
+      "chưaa",
+      "chuaaa"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "với",
+    "variants": [
+      "vs"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "so",
+      "hơn",
+      "kém",
+      "bằng"
+    ]
+  },
+  {
+    "canonical": "vậy",
+    "variants": [
+      "zậy",
+      "zay"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "bao nhiêu",
+      "sao",
+      "thế"
+    ]
+  },
+  {
+    "canonical": "này",
+    "variants": [
+      "nè"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "tháng",
+      "tuần",
+      "ngày",
+      "năm"
+    ]
+  },
+  {
+    "canonical": "thế nào",
+    "variants": [
+      "thế nào z",
+      "như nào"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "bao giờ",
+    "variants": [
+      "khi mô",
+      "bao giừ"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "ở đâu",
+    "variants": [
+      "ở mô"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "cái nào",
+    "variants": [
+      "cái mô"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "bán chạy",
+    "variants": [
+      "bán đắt hàng"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "bán chậm",
+    "variants": [
+      "bán ế",
+      "bán ế ẩm"
+    ],
+    "category": "colloquial",
+    "safe": true
+  },
+  {
+    "canonical": "hết hàng",
+    "variants": [
+      "cháy hàng"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "còn",
+      "đã",
+      "có"
+    ]
+  },
+  {
+    "canonical": "bắp",
+    "variants": [
+      "ngô"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "mặt hàng",
+      "sản phẩm"
+    ]
+  },
+  {
+    "canonical": "dứa",
+    "variants": [
+      "thơm"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "trái",
+      "quả"
+    ]
+  },
+  {
+    "canonical": "đậu phộng",
+    "variants": [
+      "lạc"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "hạt",
+      "sản phẩm"
+    ]
+  },
+  {
+    "canonical": "khoai mì",
+    "variants": [
+      "sắn"
+    ],
+    "category": "colloquial",
+    "safe": true,
+    "context": [
+      "củ",
+      "sản phẩm"
+    ]
+  }
+]

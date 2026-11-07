@@ -1,0 +1,632 @@
+[
+  {
+    "canonical": "sản phẩm",
+    "variants": [
+      "san pham"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "số lượng",
+    "variants": [
+      "so luong"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "khách hàng",
+    "variants": [
+      "khach hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "doanh thu",
+    "variants": [
+      "doanh thu"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "chi phí",
+    "variants": [
+      "chi phi"
+    ],
+    "category": "business",
+    "safe": true,
+    "context": [
+      "tháng",
+      "tổng",
+      "tuần",
+      "kinh doanh"
+    ]
+  },
+  {
+    "canonical": "lợi nhuận",
+    "variants": [
+      "loi nhuan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tồn kho",
+    "variants": [
+      "ton kho"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hàng tồn kho",
+    "variants": [
+      "hang ton kho"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bán chạy nhất",
+    "variants": [
+      "ban chay nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bán nhiều nhất",
+    "variants": [
+      "ban nhieu nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bán ít nhất",
+    "variants": [
+      "ban it nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bán chậm nhất",
+    "variants": [
+      "ban cham nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bán được",
+    "variants": [
+      "ban duoc"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "bao nhiêu",
+    "variants": [
+      "bao nhieu"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "sản phẩm nào",
+    "variants": [
+      "san pham nao"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "khách hàng nào",
+    "variants": [
+      "khach hang nao"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "đơn hàng",
+    "variants": [
+      "don hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hóa đơn",
+    "variants": [
+      "hoa don"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "đơn giá",
+    "variants": [
+      "don gia"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "giá bán",
+    "variants": [
+      "gia ban"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "giá vốn",
+    "variants": [
+      "gia von"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "giá nhập",
+    "variants": [
+      "gia nhap"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "thành tiền",
+    "variants": [
+      "thanh tien"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tổng tiền",
+    "variants": [
+      "tong tien"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tổng doanh thu",
+    "variants": [
+      "tong doanh thu"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tổng số lượng",
+    "variants": [
+      "tong so luong"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tiền mặt",
+    "variants": [
+      "tien mat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "chuyển khoản",
+    "variants": [
+      "chuyen khoan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "thanh toán",
+    "variants": [
+      "thanh toan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "chưa thanh toán",
+    "variants": [
+      "chua thanh toan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "đã thanh toán",
+    "variants": [
+      "da thanh toan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "còn nợ",
+    "variants": [
+      "con no"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "công nợ",
+    "variants": [
+      "cong no"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nợ phải thu",
+    "variants": [
+      "no phai thu"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nợ phải trả",
+    "variants": [
+      "no phai tra"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "số dư",
+    "variants": [
+      "so du"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tài khoản",
+    "variants": [
+      "tai khoan"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "ngân hàng",
+    "variants": [
+      "ngan hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nhà cung cấp",
+    "variants": [
+      "nha cung cap"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nhập kho",
+    "variants": [
+      "nhap kho"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "xuất kho",
+    "variants": [
+      "xuat kho"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "kiểm kê",
+    "variants": [
+      "kiem ke"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tồn đầu kỳ",
+    "variants": [
+      "ton dau ky"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tồn cuối kỳ",
+    "variants": [
+      "ton cuoi ky"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hàng trả lại",
+    "variants": [
+      "hang tra lai"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "trả hàng",
+    "variants": [
+      "tra hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hoàn tiền",
+    "variants": [
+      "hoan tien"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hủy đơn",
+    "variants": [
+      "huy don"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "đơn hủy",
+    "variants": [
+      "don huy"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "giảm giá",
+    "variants": [
+      "giam gia"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "chiết khấu",
+    "variants": [
+      "chiet khau"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "khuyến mãi",
+    "variants": [
+      "khuyen mai"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "phí giao hàng",
+    "variants": [
+      "phi giao hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hạn sử dụng",
+    "variants": [
+      "han su dung"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "hết hạn",
+    "variants": [
+      "het han"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "sắp hết hạn",
+    "variants": [
+      "sap het han"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "ngày sản xuất",
+    "variants": [
+      "ngay san xuat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "ngày hết hạn",
+    "variants": [
+      "ngay het han"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nhân viên",
+    "variants": [
+      "nhan vien"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "chấm công",
+    "variants": [
+      "cham cong"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "ngày công",
+    "variants": [
+      "ngay cong"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "giờ làm",
+    "variants": [
+      "gio lam"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "ca làm",
+    "variants": [
+      "ca lam"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tiền lương",
+    "variants": [
+      "tien luong"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "lương tháng",
+    "variants": [
+      "luong thang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "doanh số",
+    "variants": [
+      "doanh so"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "trung bình",
+    "variants": [
+      "trung binh"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "cao nhất",
+    "variants": [
+      "cao nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "thấp nhất",
+    "variants": [
+      "thap nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "lớn nhất",
+    "variants": [
+      "lon nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "nhỏ nhất",
+    "variants": [
+      "nho nhat"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "tỷ lệ",
+    "variants": [
+      "ty le"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "phần trăm",
+    "variants": [
+      "phan tram"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "số điện thoại",
+    "variants": [
+      "so dien thoai"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "địa chỉ",
+    "variants": [
+      "dia chi"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "mã sản phẩm",
+    "variants": [
+      "ma san pham"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "mã khách hàng",
+    "variants": [
+      "ma khach hang"
+    ],
+    "category": "business",
+    "safe": true
+  },
+  {
+    "canonical": "đơn vị tính",
+    "variants": [
+      "don vi tinh"
+    ],
+    "category": "business",
+    "safe": true
+  }
+]

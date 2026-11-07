@@ -1,0 +1,23 @@
+{
+  "cases": 70,
+  "exact_correct": 70,
+  "exact_accuracy": 1.0,
+  "changed_cases": 36,
+  "incorrect_replacement_cases": 0,
+  "incorrect_replacement_rate": 0.0,
+  "ambiguous_terms": 8,
+  "ambiguous_terms_preserved": 8,
+  "ambiguous_preservation_rate": 1.0,
+  "entities": 17,
+  "entities_preserved": 17,
+  "entity_preservation_rate": 1.0,
+  "dictionary_entries": {
+    "temporal_phrases": 31,
+    "business_terms": 78,
+    "common_typos": 93,
+    "slang": 20,
+    "abbreviations": 32,
+    "ambiguous_terms": 9
+  },
+  "failures": []
+}
