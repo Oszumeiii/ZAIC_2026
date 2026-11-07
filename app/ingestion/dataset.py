@@ -68,6 +68,7 @@ class Business:
     tables: dict
     readme: str
     cache: dict = field(default_factory=dict)   # kết quả dựng sẵn dùng lại giữa các câu (bảng đã gộp, profile...)
+    ingestion: object | None = None  # Raw/Typed/Semantic audit when layered ingestion is requested
 
 
 @dataclass
@@ -78,17 +79,25 @@ class Split:
     rulebook: str
     calendar: pd.DataFrame | None
     _businesses: dict = field(default_factory=dict)
+    layered: bool = False
+    ingestion_overrides: dict = field(default_factory=dict)
 
     def business(self, biz_id) -> Business:
         if biz_id not in self._businesses:
             directory = f"{self.root}/data/{biz_id}"
             readme_path = f"{directory}/README.md"
             readme = open(readme_path, encoding="utf-8").read() if os.path.exists(readme_path) else ""
-            self._businesses[biz_id] = Business(tables=load_tables(directory), readme=readme)
+            if self.layered:
+                from .layered import ingest_business
+                ingested = ingest_business(directory, rulebook=self.rulebook,
+                                           overrides=self.ingestion_overrides.get(biz_id))
+                self._businesses[biz_id] = Business(tables=ingested.frames, readme=readme, ingestion=ingested)
+            else:
+                self._businesses[biz_id] = Business(tables=load_tables(directory), readme=readme)
         return self._businesses[biz_id]
 
 
-def load_split(split_dir: str) -> Split:
+def load_split(split_dir: str, *, layered: bool = False, ingestion_overrides: dict | None = None) -> Split:
     root = find_root_dir(split_dir)
     questions = pd.DataFrame(read_jsonl(f"{root}/questions.jsonl"))
     answers_path = f"{root}/answers.jsonl"
@@ -96,4 +105,5 @@ def load_split(split_dir: str) -> Split:
     rulebook_path, calendar_path = f"{root}/rulebook.md", f"{root}/calendar.csv"
     rulebook = open(rulebook_path, encoding="utf-8").read() if os.path.exists(rulebook_path) else ""
     calendar = pd.read_csv(calendar_path) if os.path.exists(calendar_path) else None
-    return Split(root=root, questions=questions, answers=answers, rulebook=rulebook, calendar=calendar)
+    return Split(root=root, questions=questions, answers=answers, rulebook=rulebook, calendar=calendar,
+                 layered=layered, ingestion_overrides=ingestion_overrides or {})

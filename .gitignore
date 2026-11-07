@@ -3,3 +3,13 @@ __pycache__/
 *.pyc
 logs/
 *.jsonl
+
+# Local environments and secrets
+.venv/
+.env
+.env.*
+
+# Generated ingestion artifacts and datasets
+outputs/
+/train/
+/public_test/

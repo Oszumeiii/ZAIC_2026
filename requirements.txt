@@ -2,6 +2,7 @@
 pandas
 numpy
 openpyxl
+duckdb>=1.4,<2
 transformers
 huggingface_hub
 accelerate

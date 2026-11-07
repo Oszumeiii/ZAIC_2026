@@ -1,0 +1,19 @@
+{
+  "biz_example": {
+    "files": {
+      "sales.csv": {"encoding": "utf-8-sig", "delimiter": ";", "header_row": 2},
+      "sales.xlsx": {"sheets": {"Tháng 1": {"header_row": 3}}}
+    },
+    "tables": {
+      "sales": {
+        "columns": {
+          "Mã khách": {"type": "string", "description": "Mã định danh, giữ số 0 đầu"},
+          "Ngày": {"type": "date", "date_format": "dmy"},
+          "Thành tiền": {"type": "number", "decimal": ",", "unit": "VND"}
+        }
+      }
+    },
+    "links": [],
+    "views": {}
+  }
+}

@@ -1,0 +1,4 @@
+pandas
+numpy
+openpyxl
+duckdb>=1.4,<2
