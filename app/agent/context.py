@@ -8,6 +8,7 @@ from app.agent.rulebook_select import select_rulebook
 from app.config import Config
 from app.ingestion.dataset import Business, Split
 from app.ingestion.profiling import merge_same_schema, profile_min, profile_text
+from app.normalization import QuestionNormalizer
 from app.text import norm
 from app.tools.grounding import ValueIndex, format_hits
 from app.tools.timeutil import describe_period
@@ -28,6 +29,7 @@ class ContextBuilder:
         steps = [(self.profile_limit, 4000, True, 25)] + _FIT_STEPS_TAIL
         self.steps = steps if cfg.is_local else steps[:1]
         self._warned: set = set()
+        self.normalizer = QuestionNormalizer() if cfg.enable_question_normalization else None
 
     def _warn_once(self, key, msg: str):
         if key not in self._warned:
@@ -42,18 +44,24 @@ class ContextBuilder:
                 merged["calendar"] = calendar
             biz.cache.update(merged=merged, merge_notes=notes, profiles={})
 
-    def _extra(self, question: str, as_of, biz: Business, tables: dict, business_id) -> str:
+    def _extra(self, question: str, as_of, biz: Business, tables: dict, business_id,
+               normalized_question: str | None = None) -> str:
         """Phần thay đổi theo từng câu hỏi (đặt SAU phần dùng chung của business để giữ được prefix cache):
         gợi ý tất định do mã tính + ví dụ tương tự từ kho."""
         parts = []
         if self.cfg.use_hints:
             lines = []
-            period = describe_period(norm(question), as_of)
+            period = describe_period(norm(normalized_question or question), as_of)
             if period:
                 lines.append(f"- Khoảng thời gian: {period}")
             if "value_index" not in biz.cache:
                 biz.cache["value_index"] = ValueIndex(tables)
-            lines += format_hits(biz.cache["value_index"].ground(question))
+            hits = biz.cache["value_index"].ground(question)
+            if normalized_question and normalized_question != question:
+                seen = {(h.table, h.column, h.value) for h in hits}
+                hits += [h for h in biz.cache["value_index"].ground(normalized_question)
+                         if (h.table, h.column, h.value) not in seen]
+            lines += format_hits(hits)
             if lines:
                 parts.append("GỢI Ý TỪ MÃ (tự tính; nếu mâu thuẫn RULEBOOK hoặc dữ liệu thật thì bỏ qua):\n" + "\n".join(lines))
         if self.bank is not None:
@@ -65,18 +73,31 @@ class ContextBuilder:
         return "\n\n".join(parts) + "\n\n" if parts else ""
 
     @staticmethod
-    def _build(question, as_of, biz: Business, rulebook, profile, rulebook_chars, readme_chars, extra="") -> str:
+    def _build(question, as_of, biz: Business, rulebook, profile, rulebook_chars, readme_chars, extra="",
+               normalization=None, use_hints=True) -> str:
         notes = biz.cache["merge_notes"]
+        question_text = f"CÂU HỎI: {question}" if normalization is None else (
+            f"CÂU HỎI GỐC:\n{question}\n\n{normalization.prompt_section(use_hints)}")
         return (f"RULEBOOK:\n{rulebook[:rulebook_chars]}\n\nREADME:\n{biz.readme[:readme_chars]}\n\n"
                 f"SCHEMA + PROFILE:\n{profile}\n\n"
                 + ("LƯU Ý: " + " ".join(notes) + "\n\n" if notes else "") +
-                f"AS_OF: {as_of}\n\n{extra}CÂU HỎI: {question}")
+                f"AS_OF: {as_of}\n\n{extra}{question_text}")
 
     def build(self, question: str, as_of, biz: Business, split: Split, business_id=None) -> tuple[str, dict]:
         """Trả (ngữ cảnh, bảng đã gộp để chạy code). `business_id` để loại ví dụ cùng business khỏi few-shot."""
         self._prepare(biz, split.calendar)
         tables = dict(biz.cache["merged"])
-        extra = self._extra(question, as_of, biz, tables, business_id)
+        normalization = None
+        if self.normalizer is not None:
+            if "value_index" not in biz.cache:
+                biz.cache["value_index"] = ValueIndex(tables)
+            index = biz.cache["value_index"]
+            schema = " ".join(str(name) + " " + " ".join(map(str, df.columns)) for name, df in tables.items())
+            normalization = self.normalizer.normalize(
+                question, schema=schema, readme=biz.readme, protected_values=index.by_norm,
+                grounded_phrases=[h.phrase for h in index.ground(question)])
+        extra = self._extra(question, as_of, biz, tables, business_id,
+                            normalization.normalized_question if normalization else None)
         profiles = biz.cache["profiles"]
         rulebook = select_rulebook(split.rulebook, question) if self.cfg.rulebook_select else split.rulebook
         for name, text, limit in (("rulebook", rulebook, self.rulebook_limit), ("readme", biz.readme, self.readme_limit)):
@@ -88,7 +109,8 @@ class ContextBuilder:
         for si, (plim, ptab, head, mcat) in enumerate(self.steps):
             if si not in profiles:
                 profiles[si] = profile_text(tables, plim, ptab, head, mcat)
-            ctx = self._build(question, as_of, biz, rulebook, profiles[si], self.rulebook_limit, self.readme_limit, extra)
+            ctx = self._build(question, as_of, biz, rulebook, profiles[si], self.rulebook_limit, self.readme_limit, extra,
+                              normalization, self.cfg.use_hints)
             if counter is None or counter(ctx) <= budget:
                 return ctx, tables
         # vẫn dài: cắt dần rulebook/README, cuối cùng chỉ giữ tên bảng + cột
@@ -97,7 +119,7 @@ class ContextBuilder:
                      (1500, 0, profiles.setdefault("min", profile_min(tables))))
         n = 0
         for rb, rd, prof in fallbacks:
-            ctx = self._build(question, as_of, biz, rulebook, prof, rb, rd, extra)
+            ctx = self._build(question, as_of, biz, rulebook, prof, rb, rd, extra, normalization, self.cfg.use_hints)
             n = counter(ctx)
             if n <= budget:
                 return ctx, tables

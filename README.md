@@ -2,6 +2,11 @@
 
 Agent hỏi đáp dữ liệu bảng bằng tiếng Việt, phát triển cho **Zalo AI Challenge 2026, nhiệm vụ DataMate (Track 2)**.
 
+Chuẩn hóa câu hỏi offline mặc định bật: xử lý viết tắt/lỗi gõ có căn cứ, giữ câu gốc, bảo vệ mã và tên trong dữ liệu,
+giữ lại từ đa nghĩa chưa rõ. Tắt bằng `--no-question-normalization` hoặc `Config(enable_question_normalization=False)`.
+Xem [thiết kế, từ điển, số đo và giới hạn kiểm thử](docs/question_normalization.md).
+Từ điển đã được đối chiếu với train thực tế; xem [nguồn biến thể và kiểm tra train/public_test](docs/normalization_data_review.md).
+
 Với mỗi câu hỏi về dữ liệu của một doanh nghiệp nhỏ (CSV, XLSX, SQLite), hệ thống sinh mã pandas, thực thi và trả về
 đáp án đúng định dạng yêu cầu. Cuộc thi chấm theo **Penalized Accuracy (PA)**: trả lời đúng +1 điểm, từ chối trả lời
 (abstain) 0 điểm, trả lời sai −1 điểm. Vì vậy hệ thống chỉ trả lời khi đủ độ tin cậy; các trường hợp còn lại được ghi
@@ -42,7 +47,7 @@ Lưu ý về phương pháp:
 ## 2. Cấu trúc thư mục
 
 ```
-app/                    Mã chạy khi nộp bài (image Docker chỉ chứa thư mục này)
+app/                    Mã chạy chính trong cả hai target Docker
   config.py             Config: toàn bộ tham số vận hành
   main.py               Điểm vào: python -m app.main
   submission.py         Ghi và kiểm định submission.jsonl
@@ -58,6 +63,7 @@ notebooks/              kaggle_run.ipynb (cấu hình mỏng, gọi vào app)
 tests/                  Kiểm thử, tổ chức phản chiếu cấu trúc của app
 Dockerfile
 requirements.txt        Thư viện chạy khi nộp bài
+requirements-gemini.txt Thư viện CPU cho target Docker gemini
 requirements-dev.txt    Thư viện phát triển và kiểm thử
 ```
 
@@ -121,6 +127,107 @@ chạy lần lượt các ô.
 - `local`: mô hình chạy trên GPU. Engine mặc định `auto`: dùng vLLM nếu khả dụng, nếu không hoặc vLLM không khởi tạo
   được thì chuyển sang transformers kết hợp bitsandbytes 4-bit.
 
+### Chạy bằng Docker trên Windows / PowerShell
+
+Dockerfile có hai target. Container đóng gói chương trình và thư viện; target `local` vẫn cần trọng số model
+và GPU, còn target `gemini` cần API key và kết nối mạng, không cần host model hay GPU.
+Cả hai target có `evaluation` và `training` để chạy lệnh chấm train; target `local` giữ cấu hình offline.
+
+| Target | Build | Nhu cầu |
+|---|---|---|
+| `gemini` | `docker build --target gemini -t datamate:gemini .` | API Google, CPU, mạng |
+| `local` (mặc định) | `docker build --target local -t datamate:local .` | Model local đã tải, GPU NVIDIA |
+
+Mở Docker Desktop ở chế độ Linux containers, sau đó chạy trong PowerShell:
+
+```powershell
+cd "D:\DaiHoc\Project\AI_khuvuc\ZAIC2026\ZAIC_2026"
+docker version
+docker build --target gemini -t datamate:gemini .
+
+$DataRoot = "D:\DaiHoc\Nam3\ZAIC"
+$OutputRoot = Join-Path $DataRoot "output"
+New-Item -ItemType Directory -Force -Path "$OutputRoot\train", "$OutputRoot\public_test" | Out-Null
+
+# File .env nằm cùng thư mục với Dockerfile; mở và dán key sau dấu = rồi lưu.
+notepad .env
+```
+
+Trong file `.env`, nhập đúng một dòng (thay giá trị bên phải bằng key thật, không cần dấu nháy):
+
+```dotenv
+GEMINI_API_KEY=dan_key_cua_ban_vao_day
+```
+
+Nếu chưa có file `.env`, tạo nó bên cạnh Dockerfile rồi nhập dòng trên. `.env` được bỏ qua bởi Git và Docker
+build context. Docker đọc nó qua `--env-file .env` khi chạy; thay key không cần build lại image.
+Key không đặt trong Dockerfile/build args/mã nguồn. Chạy lệnh từ thư mục chứa `.env`, hoặc dùng đường dẫn tuyệt đối
+cho `--env-file`. Đây là cách nạp biến của Docker; chạy Python trực tiếp không tự đọc file `.env`.
+Target API không dùng `--network none`. Mọi lần chạy Gemini gửi câu hỏi và ngữ cảnh dữ liệu cho Google;
+chỉ dùng khi dữ liệu được phép đưa qua API. Với dữ liệu cuộc thi yêu cầu giữ kín/offline, dùng target local ở dưới.
+Các lệnh dưới đây là hướng dẫn, không phải xác nhận đã gửi dữ liệu train/public_test qua API.
+
+Chạy thử 5 câu của 1 business train và chấm PA:
+
+```powershell
+docker run --rm --env-file .env `
+  --mount "type=bind,source=$DataRoot,target=/datasets,readonly" `
+  --mount "type=bind,source=$OutputRoot\train,target=/output" `
+  datamate:gemini python -m evaluation.run_eval `
+  --backend gemini --gemini-model gemini-3.5-flash-lite `
+  --train-dir /datasets/train --out-dir /output `
+  --max-biz 1 --per-biz 5 --run-name gemini_train
+```
+
+Sinh bài nộp cho 5 câu public_test trước:
+
+```powershell
+docker run --rm --env-file .env `
+  --mount "type=bind,source=$DataRoot,target=/datasets,readonly" `
+  --mount "type=bind,source=$OutputRoot\public_test,target=/output" `
+  datamate:gemini python -m app.main `
+  --backend gemini --gemini-model gemini-3.5-flash-lite `
+  --test-dir /datasets/public_test --out-dir /output `
+  --limit-test 5 --run-name gemini_public
+```
+
+Bỏ `--limit-test 5` để chạy toàn bộ 1.000 câu. File `submission.jsonl` luôn đủ ID; những câu chưa chạy được
+ghi `abstain`. Kết quả trên Windows nằm ở `D:\DaiHoc\Nam3\ZAIC\output\public_test\submission.jsonl`.
+Lệnh chấm train đọc `answers.jsonl` để chấm sau suy luận; `app.main` chỉ sinh bài nộp, không chấm train.
+Mount cả split (có `questions.jsonl`, `rulebook.md`, `calendar.csv`, `data/`), không chỉ mount riêng thư mục `data/`.
+
+Không cần chạy `Read-Host`, đặt `$env:GEMINI_API_KEY` hoặc dùng `Remove-Item Env:` khi dùng `--env-file`.
+Không commit/chia sẻ file `.env`; Docker không đưa file này vào image.
+
+Chạy offline bằng GPU và model đã có trong một thư mục trên máy:
+
+```powershell
+docker build --target local -t datamate:local .
+
+# Thay bằng thư mục chứa config.json, tokenizer và trọng số model thực tế của bạn.
+$ModelDir = "D:\Models\datamate-model"
+
+docker run --rm --gpus all --network none `
+  --mount "type=bind,source=$DataRoot,target=/datasets,readonly" `
+  --mount "type=bind,source=$OutputRoot\public_test,target=/output" `
+  --mount "type=bind,source=$ModelDir,target=/models/model,readonly" `
+  datamate:local python3 -m app.main `
+  --backend local --local-model /models/model `
+  --test-dir /datasets/public_test --out-dir /output --limit-test 5
+```
+
+Model chưa được đóng gói vào image: dòng `COPY models/model` vẫn là comment. Có thể dùng
+`python3 -m evaluation.run_eval --backend local --train-dir /datasets/train --out-dir /output`
+để chấm train trong target local với các mount model/GPU tương tự. Chuẩn hóa câu hỏi mặc định bật trong cả hai target.
+
+Script smoke test Gemini riêng và dữ liệu thử sinh ra từ lần kiểm tra trước đã được dọn; chạy trực tiếp
+`app.main` hoặc `evaluation.run_eval` như trên. Backend `app/llm/gemini.py` được giữ vì target API cần nó.
+
+Đã build thành công `datamate:gemini` và chạy toàn bộ pytest trên Linux trong container tạm:
+**148 test đạt, 108 subtest đạt**. Đã kiểm tra mount train/public_test thật với `--no-llm --network none`:
+lệnh chấm train chạy được và submission public_test đủ 1.000 ID, kiểm định hợp lệ. Các đáp án của lần
+kiểm tra đường dẫn đều là `abstain`, không phải kết quả trả lời bằng LLM. Target GPU local chưa được build/chạy GPU.
+
 ## 5. Cấu hình
 
 Toàn bộ tham số nằm trong `app/config.py` (`Config`). Các tham số chính:
@@ -149,7 +256,7 @@ Toàn bộ tham số nằm trong `app/config.py` (`Config`). Các tham số chí
 pytest
 ```
 
-Bộ kiểm thử gồm 45 ca, sử dụng backend giả lập nên không cần GPU hay kết nối API. Các ca bao quát: chuẩn hóa và ép
+Bộ kiểm thử sử dụng backend giả lập nên không cần GPU hay kết nối API. Các ca bao quát: chuẩn hóa và ép
 kiểu kết quả, quy đổi thời gian, đọc dữ liệu và profiling, sandbox, biểu quyết và tự sửa lỗi, cache, cơ chế dừng sớm khi
 mô hình lỗi liên tiếp, gợi ý tất định, kho few-shot, ngưỡng đồng thuận theo loại, chia business, ghi và kiểm định
 bài nộp, chấm PA, xuất dữ liệu SFT.
@@ -160,8 +267,9 @@ bài nộp, chấm PA, xuất dữ liệu SFT.
 |---|---|
 | Logic lõi (ingestion, agent, tools, submission, evaluation) | Đã kiểm thử tự động bằng backend giả lập |
 | Điểm vào `app.main`, `evaluation.run_eval` | Đã chạy thử với `--no-llm` trên dữ liệu giả |
-| Backend `gemini`, `hf_local`, `vllm_local` | **Chưa chạy trên môi trường thật** (Kaggle/GPU/API) |
-| `Dockerfile` | **Chưa build.** Đường dẫn dữ liệu vào/ra và lệnh chạy là giả định, cần đối chiếu thể lệ |
+| Backend `gemini` | Đã chạy API `gemini-3.5-flash-lite` trên 3 câu dữ liệu giả: 3/3 đúng |
+| Backend `hf_local`, `vllm_local` | **Chưa chạy trên GPU thật** |
+| `Dockerfile` | Target `gemini` đã build và kiểm thử trên Linux; target `local` GPU/offline chưa build |
 | `requirements.txt` | Chưa ghim phiên bản |
 | Hiệu năng (PA) trên dữ liệu thật | **Chưa có số liệu đo.** Gợi ý tất định, few-shot và ngưỡng theo loại chưa được đo tác động |
 
@@ -169,4 +277,7 @@ Giới hạn của thiết kế:
 
 - `tools/sandbox.py` chỉ giới hạn thời gian thực thi, **không phải cơ chế cô lập bảo mật**. Môi trường nộp bài nên chạy
   mã sinh ra trong tiến trình hoặc container tách biệt.
+- Kiểm tra runtime Windows: 6 test tiến trình con/timeout đạt; 112 test function cũ gọi trực tiếp bằng adapter fixture
+  đều đạt sau sửa tương thích Windows (`docs/windows_runtime_regression.json`). Sau đó đã chạy pytest thật trong
+  container Linux: 148 test và 108 subtest đạt.
 - Chưa có bước kiểm chứng ngữ nghĩa độc lập giữa câu hỏi và kết quả (xem phần phương pháp ở mục 1).

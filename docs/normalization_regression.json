@@ -1,0 +1,133 @@
+{
+  "baseline": {
+    "runner": "direct assertions with local fixture adapter; not pytest",
+    "total": 112,
+    "passed": 98,
+    "failures": [
+      {
+        "test": "tests/agent/test_solver.py::test_consensus_answers_and_scores_pa[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_abstains_without_consensus[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_self_repairs_then_reaches_consensus[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_cache_is_reused_without_calling_model_again[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_run_inference_writes_complete_valid_submission[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_stricter_agreement_for_a_type_forces_abstain[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_stricter_agreement_is_met_when_all_samples_agree[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/test_helpers_wiring.py::test_helpers_available_inside_generated_code[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/tools/test_sandbox.py::test_sandbox_runs_and_times_out[0]",
+        "error": "AttributeError: module 'signal' has no attribute 'SIGALRM'"
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_collect_all_generates_every_sample_and_keeps_only_matching_ones[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_export_sft_all_samples_writes_system_with_helpers[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_failure_reasons_are_recorded[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_export_sft.py::test_export_sft_keeps_only_correct_answers[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_export_sft.py::test_build_exemplar_bank_and_reuse_as_few_shot[0]",
+        "error": "AssertionError: "
+      }
+    ]
+  },
+  "changed": {
+    "runner": "direct assertions with local fixture adapter; not pytest",
+    "total": 112,
+    "passed": 98,
+    "failures": [
+      {
+        "test": "tests/agent/test_solver.py::test_consensus_answers_and_scores_pa[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_abstains_without_consensus[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_self_repairs_then_reaches_consensus[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_cache_is_reused_without_calling_model_again[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_run_inference_writes_complete_valid_submission[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_stricter_agreement_for_a_type_forces_abstain[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/agent/test_solver.py::test_stricter_agreement_is_met_when_all_samples_agree[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/test_helpers_wiring.py::test_helpers_available_inside_generated_code[0]",
+        "error": "KeyError: 'answer'"
+      },
+      {
+        "test": "tests/tools/test_sandbox.py::test_sandbox_runs_and_times_out[0]",
+        "error": "AttributeError: module 'signal' has no attribute 'SIGALRM'"
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_collect_all_generates_every_sample_and_keeps_only_matching_ones[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_export_sft_all_samples_writes_system_with_helpers[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_collect_samples.py::test_failure_reasons_are_recorded[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_export_sft.py::test_export_sft_keeps_only_correct_answers[0]",
+        "error": "AssertionError: "
+      },
+      {
+        "test": "tests/training/test_export_sft.py::test_build_exemplar_bank_and_reuse_as_few_shot[0]",
+        "error": "AssertionError: "
+      }
+    ]
+  },
+  "new_failures": 0,
+  "environment_limitations": [
+    "pytest unavailable; no network installation",
+    "Windows lacks Unix SIGALRM used by unchanged sandbox"
+  ]
+}

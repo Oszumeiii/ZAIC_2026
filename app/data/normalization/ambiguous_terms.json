@@ -1,0 +1,349 @@
+[
+  {
+    "term": "dt",
+    "variants": [
+      "dt"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "doanh thu",
+        "context": [
+          "tháng",
+          "thang",
+          "tuần",
+          "tuan",
+          "tổng",
+          "tong",
+          "bao nhiêu",
+          "bn"
+        ],
+        "schema": [
+          "doanh thu",
+          "thanh tien",
+          "sales",
+          "revenue",
+          "don hang"
+        ]
+      },
+      {
+        "canonical": "điện thoại",
+        "context": [
+          "khách hàng",
+          "khach hang",
+          "kh",
+          "liên hệ",
+          "lien he"
+        ],
+        "schema": [
+          "dien thoai",
+          "phone",
+          "sdt"
+        ]
+      },
+      {
+        "canonical": "diện tích",
+        "context": [
+          "m2",
+          "mét vuông",
+          "vuông",
+          "phòng"
+        ],
+        "schema": [
+          "dien tich",
+          "area"
+        ]
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "kh",
+    "variants": [
+      "kh"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "khách hàng",
+        "context": [
+          "sdt",
+          "sđt",
+          "số điện thoại",
+          "khách",
+          "khach",
+          "nợ",
+          "no",
+          "của",
+          "cua"
+        ],
+        "schema": [
+          "khach hang",
+          "customer",
+          "ten kh"
+        ]
+      },
+      {
+        "canonical": "không",
+        "context": [
+          "có",
+          "co",
+          "còn",
+          "con",
+          "phải",
+          "phai"
+        ],
+        "schema": [
+          "trang thai",
+          "status"
+        ]
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "t7",
+    "variants": [
+      "t7"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "tháng 7",
+        "context": [],
+        "schema": []
+      },
+      {
+        "canonical": "thứ Bảy",
+        "context": [],
+        "schema": []
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "thg",
+    "variants": [
+      "thg"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "tháng",
+        "context": [
+          "trước",
+          "trc",
+          "này",
+          "nay",
+          "sau",
+          "rồi"
+        ],
+        "schema": [
+          "ngay",
+          "date",
+          "thang",
+          "month"
+        ]
+      },
+      {
+        "canonical": "thằng",
+        "context": [],
+        "schema": []
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "ck",
+    "variants": [
+      "ck"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "chuyển khoản",
+        "context": [
+          "thanh toán",
+          "thanh toan",
+          "ngân hàng",
+          "ngan hang"
+        ],
+        "schema": [
+          "phuong thuc",
+          "payment",
+          "tai khoan"
+        ]
+      },
+      {
+        "canonical": "chiết khấu",
+        "context": [
+          "giảm giá",
+          "giam gia",
+          "phần trăm",
+          "ty le"
+        ],
+        "schema": [
+          "chiet khau",
+          "discount"
+        ]
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "tk",
+    "variants": [
+      "tk"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "tài khoản",
+        "context": [
+          "ngân hàng",
+          "ngan hang",
+          "số dư",
+          "so du"
+        ],
+        "schema": [
+          "tai khoan",
+          "account",
+          "ngan hang"
+        ]
+      },
+      {
+        "canonical": "tồn kho",
+        "context": [
+          "còn",
+          "con",
+          "hết",
+          "het",
+          "nhập",
+          "nhap"
+        ],
+        "schema": [
+          "ton kho",
+          "inventory"
+        ]
+      },
+      {
+        "canonical": "thống kê",
+        "context": [],
+        "schema": []
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "cp",
+    "variants": [
+      "cp"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "chi phí",
+        "context": [
+          "tổng",
+          "tong",
+          "tháng",
+          "thang",
+          "phát sinh"
+        ],
+        "schema": [
+          "chi phi",
+          "expense",
+          "cost"
+        ]
+      },
+      {
+        "canonical": "cổ phần",
+        "context": [],
+        "schema": []
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "ln",
+    "variants": [
+      "ln"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "lợi nhuận",
+        "context": [
+          "tháng",
+          "thang",
+          "tổng",
+          "tong",
+          "lãi"
+        ],
+        "schema": [
+          "loi nhuan",
+          "profit",
+          "gia von"
+        ]
+      },
+      {
+        "canonical": "lớn nhất",
+        "context": [
+          "giá trị",
+          "gia tri",
+          "giá bán",
+          "gia ban"
+        ],
+        "schema": [
+          "gia ban",
+          "amount",
+          "value"
+        ]
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  },
+  {
+    "term": "k",
+    "variants": [
+      "k"
+    ],
+    "category": "ambiguous",
+    "safe": false,
+    "candidates": [
+      {
+        "canonical": "không",
+        "context": [
+          "có",
+          "co",
+          "còn",
+          "con",
+          "phải",
+          "phai",
+          "được",
+          "duoc"
+        ],
+        "schema": [
+          "san pham",
+          "product",
+          "don hang",
+          "khach hang"
+        ]
+      },
+      {
+        "canonical": "nghìn",
+        "context": [],
+        "schema": []
+      }
+    ],
+    "notes": "Chỉ thay khi tín hiệu lân cận và schema/README cùng ủng hộ duy nhất một nghĩa."
+  }
+]

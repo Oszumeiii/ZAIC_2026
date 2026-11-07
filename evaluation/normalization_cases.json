@@ -1,0 +1,437 @@
+[
+  {
+    "question": "sp nào bán nhiều nhất",
+    "expected": "sản phẩm nào bán nhiều nhất",
+    "group": "abbreviation"
+  },
+  {
+    "question": "sl hàng tồn kho",
+    "expected": "số lượng hàng tồn kho",
+    "group": "abbreviation"
+  },
+  {
+    "question": "hqa bán dc bnhieu",
+    "expected": "hôm qua bán được bao nhiêu",
+    "group": "abbreviation"
+  },
+  {
+    "question": "sp nào có hsd",
+    "expected": "sản phẩm nào có hạn sử dụng",
+    "group": "abbreviation"
+  },
+  {
+    "question": "sdt của kh A",
+    "expected": "số điện thoại của khách hàng A",
+    "schema": "khach_hang phone",
+    "entities": [
+      "A"
+    ],
+    "group": "context"
+  },
+  {
+    "question": "dt tháng này bao nhiêu",
+    "expected": "doanh thu tháng này bao nhiêu",
+    "schema": "sales doanh_thu thanh_tien",
+    "group": "context"
+  },
+  {
+    "question": "ck thanh toán ngân hàng",
+    "expected": "chuyển khoản thanh toán ngân hàng",
+    "schema": "payment phuong_thuc tai_khoan",
+    "group": "context"
+  },
+  {
+    "question": "tk số dư ngân hàng",
+    "expected": "tài khoản số dư ngân hàng",
+    "schema": "tai_khoan ngan_hang",
+    "group": "context"
+  },
+  {
+    "question": "doanh thuu tháng này",
+    "expected": "doanh thu tháng này",
+    "group": "typo"
+  },
+  {
+    "question": "sp nào bán nhìu nhất",
+    "expected": "sản phẩm nào bán nhiều nhất",
+    "group": "typo"
+  },
+  {
+    "question": "nhập khô tháng này",
+    "expected": "nhập kho tháng này",
+    "group": "typo"
+  },
+  {
+    "question": "chi phii tháng này",
+    "expected": "chi phí tháng này",
+    "group": "typo"
+  },
+  {
+    "question": "số lượg tồn kho",
+    "expected": "số lượng tồn kho",
+    "group": "typo"
+  },
+  {
+    "question": "san pham nao ban chay nhat",
+    "expected": "sản phẩm nào bán chạy nhất",
+    "group": "unaccented"
+  },
+  {
+    "question": "khach hang nao con no",
+    "expected": "khách hàng nào còn nợ",
+    "group": "unaccented"
+  },
+  {
+    "question": "tong doanh thu thang truoc",
+    "expected": "tổng doanh thu tháng trước",
+    "group": "unaccented"
+  },
+  {
+    "question": "hang ton kho sap het han",
+    "expected": "hàng tồn kho sắp hết hạn",
+    "group": "unaccented"
+  },
+  {
+    "question": "sp nào bán nhìu nhất thg trc",
+    "expected": "sản phẩm nào bán nhiều nhất tháng trước",
+    "group": "mixed"
+  },
+  {
+    "question": "doanh thuu thág này bn",
+    "expected": "doanh thu tháng này bao nhiêu",
+    "group": "mixed"
+  },
+  {
+    "question": "doanh thux tháng này",
+    "expected": "doanh thu tháng này",
+    "schema": "sales doanh_thu",
+    "group": "fuzzy_supported"
+  },
+  {
+    "question": "doanh thux tháng này",
+    "expected": "doanh thux tháng này",
+    "group": "fuzzy_unsupported"
+  },
+  {
+    "question": "dt tháng này",
+    "expected": "dt tháng này",
+    "ambiguous": [
+      "dt"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "dt khách hàng",
+    "expected": "dt khách hàng",
+    "ambiguous": [
+      "dt"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "t7 bán được bao nhiêu",
+    "expected": "t7 bán được bao nhiêu",
+    "ambiguous": [
+      "t7"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "ck tháng này",
+    "expected": "ck tháng này",
+    "ambiguous": [
+      "ck"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "tk tháng này",
+    "expected": "tk tháng này",
+    "ambiguous": [
+      "tk"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "cp tháng này",
+    "expected": "cp tháng này",
+    "ambiguous": [
+      "cp"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "ln tháng này",
+    "expected": "ln tháng này",
+    "ambiguous": [
+      "ln"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "dt khách hàng tháng này",
+    "expected": "dt khách hàng tháng này",
+    "schema": "phone doanh_thu khach_hang",
+    "ambiguous": [
+      "dt"
+    ],
+    "group": "ambiguous"
+  },
+  {
+    "question": "SP-001 bán bao nhiêu",
+    "expected": "SP-001 bán bao nhiêu",
+    "entities": [
+      "SP-001"
+    ],
+    "group": "identifier"
+  },
+  {
+    "question": "KH001 còn nợ không",
+    "expected": "KH001 còn nợ không",
+    "entities": [
+      "KH001"
+    ],
+    "group": "identifier"
+  },
+  {
+    "question": "Trà sữa 2T có tồn kho không",
+    "expected": "Trà sữa 2T có tồn kho không",
+    "values": [
+      "Trà sữa 2T"
+    ],
+    "entities": [
+      "Trà sữa 2T"
+    ],
+    "group": "entity"
+  },
+  {
+    "question": "sp của KH A",
+    "expected": "sản phẩm của KH A",
+    "values": [
+      "KH A"
+    ],
+    "entities": [
+      "KH A"
+    ],
+    "group": "entity"
+  },
+  {
+    "question": "Trái Thơm có tồn kho không",
+    "expected": "Trái Thơm có tồn kho không",
+    "values": [
+      "Trái Thơm"
+    ],
+    "entities": [
+      "Trái Thơm"
+    ],
+    "group": "entity"
+  },
+  {
+    "question": "mã SP bán bao nhiêu",
+    "expected": "mã SP bán bao nhiêu",
+    "entities": [
+      "SP"
+    ],
+    "group": "identifier"
+  },
+  {
+    "question": "SP-A bán bao nhiêu",
+    "expected": "SP-A bán bao nhiêu",
+    "entities": [
+      "SP-A"
+    ],
+    "group": "identifier"
+  },
+  {
+    "question": "0901 234 567 ngày 01/07/2026 số tiền 1.250.000đ",
+    "expected": "0901 234 567 ngày 01/07/2026 số tiền 1.250.000đ",
+    "entities": [
+      "0901 234 567",
+      "01/07/2026",
+      "1.250.000đ"
+    ],
+    "group": "literal"
+  },
+  {
+    "question": "có 100 k không",
+    "expected": "có 100 k không",
+    "schema": "san_pham",
+    "entities": [
+      "100 k"
+    ],
+    "group": "money"
+  },
+  {
+    "question": "https://shop.vn/sp/sl",
+    "expected": "https://shop.vn/sp/sl",
+    "entities": [
+      "https://shop.vn/sp/sl"
+    ],
+    "group": "literal"
+  },
+  {
+    "question": "SELECT sp, sl FROM sales WHERE kh = 1",
+    "expected": "SELECT sp, sl FROM sales WHERE kh = 1",
+    "entities": [
+      "SELECT sp, sl FROM sales WHERE kh = 1"
+    ],
+    "group": "sql"
+  },
+  {
+    "question": "cột `sp` = \"doanh thuu\"",
+    "expected": "cột `sp` = \"doanh thuu\"",
+    "entities": [
+      "`sp`",
+      "\"doanh thuu\""
+    ],
+    "group": "sql"
+  },
+  {
+    "question": "doanh thu tháng này",
+    "expected": "doanh thu tháng này",
+    "group": "correct"
+  },
+  {
+    "question": "Sản phẩm nào bán nhiều nhất?",
+    "expected": "Sản phẩm nào bán nhiều nhất?",
+    "group": "correct"
+  },
+  {
+    "question": "Khách hàng nào còn nợ?",
+    "expected": "Khách hàng nào còn nợ?",
+    "group": "correct"
+  },
+  {
+    "question": "Công ty Phúc An",
+    "expected": "Công ty Phúc An",
+    "entities": [
+      "Công ty Phúc An"
+    ],
+    "group": "unknown_name"
+  },
+  {
+    "question": "thg trc và hqa",
+    "expected": "tháng trước và hôm qua",
+    "group": "temporal"
+  },
+  {
+    "question": "cung ky nam ngoai",
+    "expected": "cùng kỳ năm ngoái",
+    "group": "temporal"
+  },
+  {
+    "question": "tháng ni bán dc bn",
+    "expected": "tháng này bán được bao nhiêu",
+    "group": "regional"
+  },
+  {
+    "question": "có hông",
+    "expected": "có không",
+    "group": "colloquial"
+  },
+  {
+    "question": "  sp   nào？ ",
+    "expected": "sản phẩm nào?",
+    "group": "unicode"
+  },
+  {
+    "question": "dthu hqua bn",
+    "expected": "doanh thu hôm qua bao nhiêu",
+    "group": "train_fit_abbreviation"
+  },
+  {
+    "question": "thangs này có bao nhieeu tieenf",
+    "expected": "tháng này có bao nhiêu tiền",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "cuwar hangf bán dduwowcj bn",
+    "expected": "cửa hàng bán được bao nhiêu",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "sp bán dc nhieeuf nhất",
+    "expected": "sản phẩm bán được nhiều nhất",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "soos đơn laf bn",
+    "expected": "số đơn là bao nhiêu",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "khachs còn nowj",
+    "expected": "khách còn nợ",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "họng",
+    "expected": "họng",
+    "group": "accent_collision_negative"
+  },
+  {
+    "question": "nhiêu",
+    "expected": "nhiêu",
+    "group": "accent_collision_negative"
+  },
+  {
+    "question": "thuốc trị họng có hàng không",
+    "expected": "thuốc trị họng có hàng không",
+    "group": "accent_collision_negative"
+  },
+  {
+    "question": "tỉ lệ là nhiêu %",
+    "expected": "tỉ lệ là nhiêu %",
+    "group": "accent_collision_negative"
+  },
+  {
+    "question": "vay",
+    "expected": "vay",
+    "group": "single_ascii_negative"
+  },
+  {
+    "question": "chua",
+    "expected": "chua",
+    "group": "single_ascii_negative"
+  },
+  {
+    "question": "voi",
+    "expected": "voi",
+    "group": "single_ascii_negative"
+  },
+  {
+    "question": "roi",
+    "expected": "roi",
+    "group": "single_ascii_negative"
+  },
+  {
+    "question": "so cùng kỳ",
+    "expected": "so cùng kỳ",
+    "group": "single_ascii_negative"
+  },
+  {
+    "question": "Namilux Powerflexx Plusssz gas",
+    "expected": "Namilux Powerflexx Plusssz gas",
+    "group": "brand_negative"
+  },
+  {
+    "question": "san phẩm nào",
+    "expected": "sản phẩm nào",
+    "group": "mixed_diacritics"
+  },
+  {
+    "question": "ddieenj thoaij",
+    "expected": "điện thoại",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "giumf nhaapj hangf",
+    "expected": "giùm nhập hàng",
+    "group": "train_fit_telex"
+  },
+  {
+    "question": "số tiền tính đươc",
+    "expected": "số tiền tính được",
+    "group": "train_fit_typo"
+  }
+]

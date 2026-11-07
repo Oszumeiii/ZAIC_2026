@@ -12,7 +12,7 @@ def build(cfg, split_dir, question, bank=None, business_id="b1"):
 
 def test_hints_precede_question_and_follow_profile(cfg, split_dirs):
     ctx = build(cfg, split_dirs[0], "Tuan truoc ca phe ban bao nhieu?")
-    assert ctx.index("SCHEMA + PROFILE") < ctx.index("GỢI Ý TỪ MÃ") < ctx.index("CÂU HỎI:")
+    assert ctx.index("SCHEMA + PROFILE") < ctx.index("GỢI Ý TỪ MÃ") < ctx.index("CÂU HỎI GỐC:")
     assert '"tuần trước" = 2026-08-17 đến 2026-08-23' in ctx
     assert "khớp giá trị 'Ca phe'" in ctx
 

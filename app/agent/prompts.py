@@ -37,9 +37,18 @@ result = float(pd.to_numeric(df["thanh_tien"], errors="coerce").sum())
 ''')
 
 
+NORMALIZATION_INSTRUCTION = '''
+Câu hỏi đã chuẩn hóa chỉ là trợ giúp ngôn ngữ; câu hỏi gốc là nguồn chính về ý định người dùng.
+Gợi ý chuẩn hóa không phải sự thật nghiệp vụ. Luôn đối chiếu SCHEMA, README và RULEBOOK;
+nếu có mâu thuẫn, ưu tiên câu hỏi gốc và ngữ cảnh có căn cứ. Các nghĩa đề xuất của từ chưa
+xác định KHÔNG có nghĩa là từ đó đã được giải nghĩa. Không tự chọn nghĩa chỉ vì có gợi ý.
+'''
+
+
 def build_system(cfg: Config) -> str:
     """System prompt theo cấu hình (thêm mô tả hàm trợ giúp nếu bật)."""
-    return SYSTEM + (HELPERS_DOC if cfg.use_helpers else "")
+    return (SYSTEM + (HELPERS_DOC if cfg.use_helpers else "")
+            + (NORMALIZATION_INSTRUCTION if cfg.enable_question_normalization else ""))
 
 
 def prompt_hash(cfg: Config, backend_tag: str, ctx: str) -> str:

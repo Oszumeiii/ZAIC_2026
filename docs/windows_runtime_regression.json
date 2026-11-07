@@ -1,0 +1,16 @@
+{
+  "runner": "direct assertions with local fixture adapter; not pytest",
+  "total": 112,
+  "passed": 112,
+  "failures": [],
+  "portable_sandbox_unittest": {
+    "passed": 6,
+    "failed": 0
+  },
+  "normalization_unittest": {
+    "passed": 30,
+    "failed": 0
+  },
+  "platform": "Windows",
+  "linux_signal_branch": "preserved; not executed in this Windows session"
+}
