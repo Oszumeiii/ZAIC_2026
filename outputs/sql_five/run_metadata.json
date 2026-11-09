@@ -1,0 +1,17 @@
+{
+  "selection": "First 5 rows in dataset/train/questions.jsonl, in file order",
+  "model": "gemini-3.5-flash",
+  "query_engine": "sql",
+  "n_samples": 3,
+  "agree_min": 2,
+  "git_head": "ab24e3f64481b2ea06ef04cf64b39b996fe295c7",
+  "working_tree_changes": true,
+  "dependencies": {
+    "duckdb": "2.0.0",
+    "pandas": "2.3.2",
+    "google-genai": "2.2.0"
+  },
+  "command": "python3 -u -m evaluation.run_eval --backend gemini --query-engine sql --train-dir dataset/train --out-dir outputs/sql_five --database-dir outputs/sql_five/databases --rebuild-database --max-biz 5 --limit-train 5 --n-samples 3 --agree-min 2 --gemini-model gemini-3.5-flash",
+  "questions_sha256": "b258ebd978a6d51b3b0b431b26926f958e56522beeb7da2984fea8333e21cec1",
+  "gold_usage": "Only evaluation after inference; not included in model prompts or SQL repair feedback"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "q_00195e1e4049",
+  "original_prediction": 3039800,
+  "gold": 2954200,
+  "exclude_cancelled_only": 3034200,
+  "deduplicate_only": 2959800,
+  "deduplicate_and_exclude_cancelled": 2954200,
+  "duplicate_detail_overcount": 80000,
+  "cancelled_order_overcount": 5600,
+  "note": "Post-evaluation diagnosis only; original predictions and metrics are unchanged."
+}
