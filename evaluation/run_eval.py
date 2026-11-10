@@ -7,9 +7,10 @@ import os
 
 from app.agent.context import ContextBuilder
 from app.agent.solver import Solver
+from app.agent.sql_solver import SQLSolver
 from app.config import Config
-from app.ingestion.dataset import load_split
-from app.ingestion.splitting import holdout_businesses
+from app.ingestion.datasets.loader import DatasetLoader
+from app.ingestion.datasets.splitting import BusinessSplitter
 from app.llm import create_backend
 from app.llm.base import LLMBackend
 from app.main import add_common_args, config_from_args
@@ -21,15 +22,18 @@ def run_train(cfg: Config, backend: LLMBackend | None, use_llm: bool = True, sub
     """Chạy một phần train (theo cfg.max_biz/per_biz) rồi chấm PA. Trả (solver, split, ev, subs, logs).
 
     subset: "all" | "fit" (trừ nhóm giữ lại, dùng để dựng kho ví dụ/SFT) | "holdout" (chỉ nhóm giữ lại, PA đáng tin)."""
-    split = load_split(cfg.train_dir)
-    solver = Solver(cfg, backend)
+    split = DatasetLoader.load_split(cfg.train_dir)
+    if split.answers is None:
+        raise ValueError("Evaluation cần answers.jsonl để đối chiếu")
+    solver = SQLSolver(cfg, backend) if cfg.query_engine == "sql" else Solver(cfg, backend)
     ids = None
     if subset != "all":
-        held = set(holdout_businesses(split.questions.business_id, holdout_n))
+        held = set(BusinessSplitter.holdout_businesses(split.questions.business_id, holdout_n))
         every = split.questions.business_id.unique()
         ids = [b for b in every if (b in held) == (subset == "holdout")]
     subs, logs = solver.solve_split(split, "train" if subset == "all" else f"train_{subset}", limit_biz=cfg.max_biz,
-                                    per_biz=cfg.per_biz, use_llm=use_llm, business_ids=ids)
+                                    per_biz=cfg.per_biz, use_llm=use_llm, business_ids=ids,
+                                    limit_q=cfg.limit_train, time_budget=cfg.time_budget_s)
     ev = scoring.evaluate(subs, logs, split.answers)
     print(scoring.summary_text(ev))
     summary = summarize(ev, logs, {"run_name": cfg.run_name or "default", "model": cfg.local_model if cfg.is_local else cfg.gemini_model,
@@ -42,6 +46,16 @@ def run_train(cfg: Config, backend: LLMBackend | None, use_llm: bool = True, sub
     with open(f"{cfg.out_dir}/logs/train_log.jsonl", "w", encoding="utf-8") as f:
         for lg in logs:
             f.write(json.dumps(lg, ensure_ascii=False, default=str) + "\n")
+    ev.to_json(f"{cfg.out_dir}/evaluation.jsonl", orient="records", lines=True, force_ascii=False)
+    with open(f"{cfg.out_dir}/predictions.jsonl", "w", encoding="utf-8") as f:
+        for sub in subs:
+            f.write(json.dumps(sub, ensure_ascii=False, allow_nan=False) + "\n")
+    summary = {"questions": len(ev), "correct": int((ev.status == "correct").sum()),
+               "wrong": int((ev.status == "wrong").sum()), "abstain": int((ev.status == "abstain").sum()),
+               "PA": float(scoring.pa(ev)), "query_engine": cfg.query_engine,
+               "model": backend.tag() if backend else None}
+    with open(f"{cfg.out_dir}/summary.json", "w", encoding="utf-8") as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
     return solver, split, ev, subs, logs
 
 
@@ -56,6 +70,8 @@ def main(argv=None) -> int:
     parser.add_argument("--build-exemplars", metavar="PATH", help="ghi kho few-shot từ lời giải đã đúng (nên dùng với --subset fit)")
     a = parser.parse_args(argv)
     cfg = config_from_args(a)
+    if cfg.query_engine == "sql" and (a.build_exemplars or a.export_sft):
+        parser.error("Export SFT/exemplars hiện dành cho Python; chọn --query-engine pandas")
     backend = None if a.no_llm else create_backend(cfg)
     _solver, split, ev, _subs, logs = run_train(cfg, backend, use_llm=not a.no_llm, subset=a.subset,
                                                 holdout_n=a.holdout_n)

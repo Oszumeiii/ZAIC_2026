@@ -1,0 +1,5 @@
+{"id":"q_001883280e83","type":"number","answer":89526400.0,"source":"sql","intent":"sql","agree":2,"gold_type":"number","gold":89526400,"alias":[],"answered":true,"status":"correct"}
+{"id":"q_00195e1e4049","type":"number","answer":3039800.0,"source":"sql","intent":"sql","agree":2,"gold_type":"number","gold":2954200,"alias":[],"answered":true,"status":"wrong"}
+{"id":"q_002d03ebbded","type":"number","answer":10309400.0,"source":"sql","intent":"sql","agree":2,"gold_type":"number","gold":10309400,"alias":[],"answered":true,"status":"correct"}
+{"id":"q_00558c1410ef","type":"percent","answer":2.08,"source":"sql","intent":"sql","agree":2,"gold_type":"percent","gold":2.08,"alias":[],"answered":true,"status":"correct"}
+{"id":"q_006c26c65d50","type":"number","answer":2345.0,"source":"sql","intent":"sql","agree":2,"gold_type":"number","gold":2345,"alias":[],"answered":true,"status":"correct"}

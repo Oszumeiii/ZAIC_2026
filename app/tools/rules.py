@@ -10,10 +10,10 @@ from typing import TYPE_CHECKING
 import pandas as pd
 
 from app.text import colnorm, norm
-from app.tools.timeutil import resolve_period
+from app.tools.timeutil import parse_cell_date, resolve_time
 
 if TYPE_CHECKING:
-    from app.ingestion.dataset import Business
+    from app.ingestion.datasets.loader import Business
 
 KEYS = dict(
     product=[r"ten_?(hang|sp|san_?pham|mon|mat_?hang)", r"^(san_?pham|mat_?hang|hang_?hoa|item|product|mon|ten)$",
@@ -77,20 +77,31 @@ def mentions_product(qn: str, biz: "Business", table_name: str, product_col: str
 
 def prep_fact(df: pd.DataFrame, prof: dict, period) -> pd.DataFrame:
     d = df.copy()
-    d["_date"] = pd.to_datetime(d[prof["date"]], errors="coerce")
+    table_year = re.search(r"\b(19|20)\d{2}\b", str(df.attrs.get("table_name", "")))
+    fallback_year = int(table_year[0]) if table_year else None
+    date_values = []
+    for i, value in enumerate(d[prof["date"]]):
+        sheet_year = fallback_year
+        if "_sheet" in d.columns and pd.notna(d.iloc[i]["_sheet"]):
+            sheet_match = re.search(r"\b(19|20)\d{2}\b", str(d.iloc[i]["_sheet"]))
+            if sheet_match:
+                sheet_year = int(sheet_match[0])
+        parsed = parse_cell_date(value, sheet_year=sheet_year)
+        date_values.append(pd.Timestamp(parsed) if parsed is not None else pd.NaT)
+    d["_date"] = pd.to_datetime(date_values, errors="coerce")
     d = d[d["_date"].notna()]
     if prof["status"]:                          # loại đơn hủy/hoàn (xấp xỉ rulebook)
         d = d[~d[prof["status"]].astype(str).map(is_cancel)]
     if period:
         start, end = period
-        d = d[(d["_date"] >= start) & (d["_date"] < end + pd.Timedelta(days=1))]
+        d = d[(d["_date"] >= start) & (d["_date"] <= end)]
     d["_qty"] = pd.to_numeric(d[prof["qty"]], errors="coerce")
     if prof["amount"]:
         d["_amt"] = pd.to_numeric(d[prof["amount"]], errors="coerce")
     return d
 
 
-def rule_solve(question: str, as_of, biz: "Business", rule_on: dict):
+def rule_solve(question: str, as_of, biz: "Business", rule_on: dict, calendar=None):
     """Trả (type, answer, intent, note). type="abstain" nếu không chắc."""
     qn = norm(question)
     top, low = bool(TOP_PAT.search(qn)), bool(LOW_PAT.search(qn))
@@ -111,10 +122,16 @@ def rule_solve(question: str, as_of, biz: "Business", rule_on: dict):
     name, prof = fact
     if mentions_product(qn, biz, name, prof["product"]):
         return "abstain", None, f"{intent}_mentions_product", name
-    period = resolve_period(qn, as_of)
-    if period is None:
+    time_spec = resolve_time(question, as_of, calendar)
+    main_periods = time_spec.main()
+    if (len(main_periods) != 1 or time_spec.baseline() is not None or time_spec.series
+            or time_spec.stock or time_spec.shift or time_spec.baseline_shift
+            or time_spec.needs_data or time_spec.flags or time_spec.time_cue):
         return "abstain", None, "no_period", name
-    d = prep_fact(biz.tables[name], prof, period)
+    period = (pd.Timestamp(main_periods[0].start), pd.Timestamp(main_periods[0].end))
+    fact_df = biz.tables[name].copy()
+    fact_df.attrs["table_name"] = name
+    d = prep_fact(fact_df, prof, period)
     if d.empty:
         return "abstain", None, "empty_period", name
     if intent in ("top", "low"):

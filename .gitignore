@@ -1,5 +1,11 @@
+.env
+.env.*
+!.env.example
 __pycache__/
+*.py[cod]
 .pytest_cache/
-*.pyc
+.venv/
 logs/
-*.jsonl
+outputs/
+/train/
+/public_test/

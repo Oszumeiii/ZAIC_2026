@@ -7,7 +7,7 @@ import pandas as pd
 
 from app.agent.context import ContextBuilder
 from app.agent.prompts import build_system
-from app.ingestion.dataset import Split
+from app.ingestion.datasets.loader import Split
 from app.tools.results import canon
 from evaluation.scoring import match
 

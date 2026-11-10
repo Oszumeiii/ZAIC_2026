@@ -1,0 +1,9 @@
+{
+  "questions": 5,
+  "correct": 4,
+  "wrong": 1,
+  "abstain": 0,
+  "PA": 0.6,
+  "query_engine": "sql",
+  "model": "gemini-3.5-flash|low"
+}

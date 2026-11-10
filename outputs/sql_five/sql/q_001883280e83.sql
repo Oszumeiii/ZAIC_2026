@@ -1,0 +1,1 @@
+SELECT COALESCE(SUM(can_tra_ncc), 0) FROM danh_sach_nhap_hang_sheet1 WHERE vn_date(CAST(thoi_gian AS VARCHAR)) >= DATE '2026-09-01' AND vn_date(CAST(thoi_gian AS VARCHAR)) <= DATE '2026-09-07' AND vn_norm(CAST(trang_thai AS VARCHAR)) NOT IN (vn_norm('hủy'), vn_norm('đã hủy'));

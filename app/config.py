@@ -43,6 +43,12 @@ class Config:
 
     # --- backend LLM ---
     backend: str = "local"            # "local" | "gemini"
+    query_engine: str = "sql"         # sql (DuckDB) | pandas (baseline)
+    database_dir: str = "data/cache"
+    ingestion_overrides: dict = field(default_factory=dict)
+    rebuild_database: bool = False
+    rewrite_questions: bool = True   # Gemini only; local backend keeps original text
+    limit_train: int | None = None
     gemini_model: str = "gemini-3.5-flash"
     thinking: str = "low"             # thinking_level của Gemini
     local_model: str = "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ"   # repo HF hoặc đường dẫn thư mục
@@ -62,6 +68,8 @@ class Config:
     allow_cpu: bool = False           # False = backend local không có GPU thì dừng ngay
 
     def __post_init__(self):
+        if self.query_engine not in ("sql", "pandas"):
+            raise ValueError("query_engine phải là sql hoặc pandas")
         if self.backend not in BACKENDS:
             raise ValueError(f"backend phải thuộc {BACKENDS}, nhận {self.backend!r}")
         if self.local_engine not in LOCAL_ENGINES:

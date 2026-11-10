@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
+from pathlib import Path
 
 from app.agent.pipeline import run_inference
 from app.config import Config
@@ -11,6 +13,12 @@ from app.llm import create_backend
 
 def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--backend", choices=["local", "gemini"], default="local")
+    p.add_argument("--query-engine", choices=["sql", "pandas"], default="sql")
+    p.add_argument("--database-dir")
+    p.add_argument("--ingestion-overrides", type=Path, help="JSON keyed by business id, shared with ingestion CLI")
+    p.add_argument("--rebuild-database", action="store_true")
+    p.add_argument("--no-rewrite", action="store_true")
+    p.add_argument("--limit-train", type=int)
     p.add_argument("--train-dir")
     p.add_argument("--test-dir", default=os.environ.get("TEST_DIR"))
     p.add_argument("--out-dir", default=os.environ.get("OUT_DIR"))

@@ -4,7 +4,7 @@ from __future__ import annotations
 import pandas as pd
 
 from app.agent.exemplars import ExemplarBank
-from app.ingestion.dataset import Split
+from app.ingestion.datasets.loader import Split
 from training.export_sft import correct_solutions
 
 

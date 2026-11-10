@@ -13,7 +13,7 @@ from app.agent.context import ContextBuilder
 from app.agent.exemplars import ExemplarBank
 from app.agent.prompts import build_system, prompt_hash
 from app.config import Config
-from app.ingestion.dataset import Split
+from app.ingestion.datasets.loader import Split
 from app.llm.base import LLMBackend, QuotaExhausted
 from app.submission import make_sub
 from app.tools.results import (VALID_TYPES, canon, clean, coerce_result, extract_code, final_fmt,
@@ -138,7 +138,7 @@ class Solver:
         src, codes, sample_results, agree, samples, errors = "rule", [], [], 0, [], []
         biz = split.business(r.business_id)
         if self.cfg.use_rules:
-            typ, ans, intent, note = rule_solve(r.question, r.as_of_date, biz, self.cfg.rule_on)
+            typ, ans, intent, note = rule_solve(r.question, r.as_of_date, biz, self.cfg.rule_on, split.calendar)
         else:
             typ, ans, intent, note = "abstain", None, "rules_off", ""
         if typ != "abstain":
