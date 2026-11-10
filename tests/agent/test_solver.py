@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from conftest import GOOD_CODE, OTHER_CODE, FakeBackend
+from evaluation.fakes import GOOD_CODE, OTHER_CODE, FakeBackend
 from app.agent.pipeline import run_inference
 from evaluation.run_eval import run_train
 from app.agent.solver import GenerationBroken, Solver

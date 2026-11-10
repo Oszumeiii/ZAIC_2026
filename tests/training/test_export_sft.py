@@ -1,7 +1,7 @@
 """Test xuất dữ liệu SFT."""
 import json
 
-from conftest import GOOD_CODE, FakeBackend
+from evaluation.fakes import GOOD_CODE, FakeBackend
 from app.agent.context import ContextBuilder
 from evaluation.run_eval import run_train
 from training.export_sft import export_sft

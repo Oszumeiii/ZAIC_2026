@@ -15,7 +15,7 @@ class Config:
     out_dir: str = "/kaggle/working"
 
     # --- phạm vi chạy ---
-    max_biz: int | None = 3           # số business train để chạy thử; None = tất cả
+    max_biz: int | None = None        # số business train để chạy thử; None = tất cả (muốn thử nhanh: --max-biz 1)
     per_biz: int | None = None        # tối đa ngần này câu mỗi business; None = hết
     limit_test: int | None = None     # số câu public test tối đa; None = tất cả
     time_budget_s: float | None = None  # hết giờ thì dừng gọi model, câu còn lại ghi abstain
@@ -29,7 +29,11 @@ class Config:
     agree_min: int = 2                # cần ít nhất ngần này lần ra CÙNG kết quả mới trả lời
     max_retry: int = 2                # số lần tự sửa lỗi cho mỗi lời giải
     code_timeout_s: int = 60          # giới hạn thời gian chạy một đoạn code
-    prompt_version: str = "v6"        # đổi khi sửa prompt để vô hiệu cache cũ
+    prompt_version: str = "v7"        # đổi khi sửa prompt để vô hiệu cache cũ
+    use_helpers: bool = True          # nêu các hàm trợ giúp (to_number, period_range, order_state...) trong prompt
+    collect_all: bool = False         # sinh ĐỦ n_samples (không dừng sớm khi đã đồng thuận): để thu dữ liệu SFT/few-shot
+    rulebook_select: bool = False     # chỉ đưa các mục rulebook liên quan câu hỏi (prompt ngắn hơn; phải đo PA có/không dùng)
+    run_name: str = ""                # nhãn lần chạy: tách cache và file kết quả giữa các model/cấu hình
     min_agree_by_type: dict = field(default_factory=dict)   # vd {"table": 3, "unanswerable": 3}: loại đáp án cần đồng thuận cao hơn
 
     # --- gợi ý tất định đưa vào prompt ---

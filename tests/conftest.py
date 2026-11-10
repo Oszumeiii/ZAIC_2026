@@ -1,11 +1,14 @@
-"""Dữ liệu giả + backend giả dùng chung cho các test (không cần GPU hay API)."""
+<<<<<<< HEAD
+"""Dữ liệu giả và backend giả dùng cho test và chạy thử offline (không cần GPU hay API).
+
+Cố ý nằm trong gói `evaluation` (không phải tests/ hay conftest.py): gói này luôn import được ở mọi chế độ của pytest,
+còn `from conftest import ...` hoặc module đặt cạnh test phụ thuộc sys.path và có thể bị module lạ che mất.
+"""
 import json
 import os
 
 import pandas as pd
-import pytest
 
-from app.config import Config
 from app.llm.base import GenerationError, LLMBackend
 
 SALES = pd.DataFrame({
@@ -49,6 +52,14 @@ def write_split(root, n_questions=4, with_answers=True):
     if with_answers:
         with open(f"{root}/answers.jsonl", "w", encoding="utf-8") as f:
             f.writelines(json.dumps({"id": q["id"], "type": "number", "answer": 130000}) + "\n" for q in qs)
+<<<<<<<< HEAD:tests/conftest.py
+=======
+"""Fixture dùng chung. Dữ liệu giả và backend giả nằm ở evaluation/fakes.py (xem lý do ở đó)."""
+import pytest
+
+from app.config import Config
+from evaluation.fakes import write_split
+>>>>>>> main
 
 
 @pytest.fixture
@@ -61,5 +72,12 @@ def split_dirs(tmp_path):
 @pytest.fixture
 def cfg(split_dirs):
     train, test, out = split_dirs
+<<<<<<< HEAD
     return Config(train_dir=train, test_dir=test, out_dir=out, backend="gemini", query_engine="pandas", max_biz=None,
                   n_samples=3, agree_min=2)
+========
+>>>>>>>> main:evaluation/fakes.py
+=======
+    return Config(train_dir=train, test_dir=test, out_dir=out, backend="gemini", max_biz=None,
+                  n_samples=3, agree_min=2)
+>>>>>>> main

@@ -31,9 +31,19 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--gemini-model")
     p.add_argument("--local-model", default=os.environ.get("LOCAL_MODEL"))
     p.add_argument("--local-engine", choices=["auto", "vllm", "hf"])
-    p.add_argument("--no-llm", action="store_true", help="không gọi model (SQL trả abstain; pandas dùng luật nếu bật)")
+    p.add_argument("--local-lora", help="thư mục LoRA adapter (sau fine-tune); nên gộp vào model rồi dùng --local-model")
+    p.add_argument("--temperature", type=float)
+    p.add_argument("--max-model-len", type=int, help="tổng token tối đa (prompt + trả lời); giảm khi hết VRAM, vd 12288")
+    p.add_argument("--max-retry", type=int)
+    p.add_argument("--no-llm", action="store_true", help="không gọi model (chỉ luật, nếu bật)")
     p.add_argument("--exemplars", help="kho few-shot (.jsonl) dựng từ train bằng evaluation.run_eval --build-exemplars")
     p.add_argument("--no-hints", action="store_true", help="tắt gợi ý tất định (khoảng thời gian, giá trị khớp)")
+    p.add_argument("--no-helpers", action="store_true", help="không nêu hàm trợ giúp (to_number, period_range...) trong prompt")
+    p.add_argument("--auto-model", action="store_true", help="chọn model/engine theo VRAM GPU (ghi đè --local-model/--local-engine)")
+    p.add_argument("--rulebook-select", action="store_true", help="chỉ đưa mục rulebook liên quan câu hỏi vào prompt")
+    p.add_argument("--no-thinking", action="store_true", help="tắt chế độ suy nghĩ của model (Qwen3): enable_thinking=False")
+    p.add_argument("--collect-all", action="store_true", help="sinh đủ n-samples, không dừng sớm (thu dữ liệu SFT/few-shot)")
+    p.add_argument("--run-name", default="", help="nhãn lần chạy: tách cache và file kết quả giữa các model/cấu hình")
     return p
 
 
@@ -41,13 +51,18 @@ def config_from_args(a: argparse.Namespace) -> Config:
     mapping = {"train_dir": a.train_dir, "test_dir": a.test_dir, "out_dir": a.out_dir, "max_biz": a.max_biz,
                "per_biz": a.per_biz, "limit_test": a.limit_test, "time_budget_s": a.time_budget,
                "n_samples": a.n_samples, "agree_min": a.agree_min, "gemini_model": a.gemini_model,
-               "local_model": a.local_model, "local_engine": a.local_engine}
+               "local_model": a.local_model, "local_engine": a.local_engine, "local_lora": a.local_lora,
+               "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len}
     mapping["exemplar_path"] = a.exemplars
-    mapping.update(query_engine=a.query_engine, database_dir=a.database_dir,
-                   ingestion_overrides=json.loads(a.ingestion_overrides.read_text()) if a.ingestion_overrides else {},
-                   rebuild_database=a.rebuild_database, rewrite_questions=not a.no_rewrite,
-                   limit_train=a.limit_train)
-    return Config(backend=a.backend, use_hints=not a.no_hints, **{k: v for k, v in mapping.items() if v is not None})
+    cfg = Config(backend=a.backend, use_hints=not a.no_hints, use_helpers=not a.no_helpers, collect_all=a.collect_all, rulebook_select=a.rulebook_select,
+                 run_name=a.run_name, chat_kwargs={"enable_thinking": False} if a.no_thinking else {},
+                 **{k: v for k, v in mapping.items() if v is not None})
+    if a.auto_model and cfg.is_local:
+        from app.llm.hardware import apply_recommendation, detect_gpu
+        gpu = detect_gpu()
+        cfg = apply_recommendation(cfg, gpu)
+        print(f"GPU {gpu['name']} {gpu['vram_gb']}GB -> model {cfg.local_model} engine {cfg.local_engine}")
+    return cfg
 
 
 def main(argv=None) -> int:

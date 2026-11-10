@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Callable
 
 from app.agent.exemplars import ExemplarBank
+from app.agent.rulebook_select import select_rulebook
 from app.config import Config
 from app.ingestion.datasets.loader import Business, Split
 from app.ingestion.datasets.profiling import DatasetProfiler
@@ -77,10 +78,10 @@ class ContextBuilder:
         tables = dict(biz.cache["merged"])
         extra = self._extra(question, as_of, biz, tables, business_id)
         profiles = biz.cache["profiles"]
-        rulebook = split.rulebook
+        rulebook = select_rulebook(split.rulebook, question) if self.cfg.rulebook_select else split.rulebook
         for name, text, limit in (("rulebook", rulebook, self.rulebook_limit), ("readme", biz.readme, self.readme_limit)):
             if len(text) > limit:
-                self._warn_once(name, f"⚠ {name} dài {len(text)} ký tự, bị cắt còn {limit}")
+                self._warn_once(name, f"{name} dài {len(text)} ký tự, bị cắt còn {limit}")
         budget = self.cfg.token_budget
         counter = self.count_tokens if budget is not None else None
         ctx = ""
@@ -100,5 +101,5 @@ class ContextBuilder:
             n = counter(ctx)
             if n <= budget:
                 return ctx, tables
-        self._warn_once(id(biz), f"⚠ prompt {n} token > ngân sách {budget} dù đã rút gọn hết mức; tăng max_model_len")
+        self._warn_once(id(biz), f"prompt {n} token > ngân sách {budget} dù đã rút gọn hết mức; tăng max_model_len")
         return ctx, tables
