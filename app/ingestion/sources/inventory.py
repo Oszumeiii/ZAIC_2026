@@ -7,10 +7,7 @@ import json
 import random
 
 from app.ingestion.sources.adapters.common import SourceTable
-from app.ingestion.sources.adapters.csv_adapter import CsvAdapter
-from app.ingestion.sources.adapters.excel_adapter import ExcelAdapter
-from app.ingestion.sources.adapters.parquet_adapter import ParquetAdapter
-from app.ingestion.sources.adapters.sqlite_adapter import SqliteAdapter
+from app.ingestion.sources.dispatch import SourceReader
 
 SUPPORTED_EXTENSIONS = {
     ".csv",
@@ -29,18 +26,10 @@ class SourceInventory:
 
     @staticmethod
     def read(path: Path, root: Path, expected_headers=()) -> Iterator[SourceTable]:
-        name = path.relative_to(root).as_posix()
-        suffix = path.suffix.casefold()
-        if suffix == '.csv':
-            yield CsvAdapter.read(path, name, expected_headers)
-        elif suffix in {'.xls', '.xlsx', '.xlsm'}:
-            yield from ExcelAdapter.read(path, name, expected_headers)
-        elif suffix in {'.sqlite', '.sqlite3', '.db'}:
-            yield from SqliteAdapter.read(path, name)
-        elif suffix == '.parquet':
-            yield from ParquetAdapter.read(path, name)
-        else:
-            raise ValueError(f'Unsupported source: {name}')
+        relative = path.relative_to(root).as_posix()
+        yield from SourceReader.read_tables(
+            path, relative, {"expected_headers": list(expected_headers)}
+        )
 
     @staticmethod
     def inspect(root: Path) -> dict[str, Any]:

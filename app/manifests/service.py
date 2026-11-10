@@ -1,6 +1,6 @@
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, TYPE_CHECKING
 import json
 import re
 import unicodedata
@@ -8,16 +8,79 @@ import unicodedata
 from jsonschema import Draft202012Validator, ValidationError
 
 from app.ingestion.sources.inventory import SourceInventory
-from app.llm.gemini import GeminiLLM
-from app.llm.prompts import BUSINESS_MANIFEST_SYSTEM_PROMPT
 from app.manifests.validation import ManifestValidator
 from app.rules.rulebook import Rulebook
+
+if TYPE_CHECKING:
+    from app.llm.gemini import GeminiLLM
 
 SCHEMA_FILE = Path(__file__).resolve().parents[2] / "schemas" / "business_manifest.schema.json"
 
 
 class BusinessManifestService:
     """Build evidence bundles and generate validated business manifests."""
+
+    @staticmethod
+    def build_draft(business_dir: Path, rulebook_text: str = "") -> dict[str, Any]:
+        """Create a local, conservative v2 manifest without inferring undocumented semantics."""
+        from app.manifests.migration import ManifestMigrator
+
+        schema_path = SCHEMA_FILE.with_name("business_manifest.v2.schema.json")
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        Draft202012Validator.check_schema(schema)
+        inventory = SourceInventory.inspect(business_dir)
+        if not inventory["objects"]:
+            raise ValueError(f"No supported source objects found in {business_dir}")
+
+        readme_path = business_dir / "README.md"
+        readme = readme_path.read_text(encoding="utf-8-sig") if readme_path.exists() else ""
+        readme_sections = BusinessManifestService._make_readme_sections(readme)
+        rulebook_sections = BusinessManifestService._make_rulebook_sections(rulebook_text)
+        survey_results = SourceInventory.evidence(inventory)
+        evidence_ids = {
+            section["evidence_id"]
+            for section in readme_sections + rulebook_sections + survey_results
+        }
+        business_input = {
+            "business_id": business_dir.name,
+            "source_inventory": inventory,
+            "readme_sections": readme_sections,
+            "rulebook_sections": rulebook_sections,
+            "_evidence_ids": sorted(evidence_ids),
+        }
+        legacy = {
+            "schema_version": "1.0",
+            "business_id": business_dir.name,
+            "tables": [],
+            "facts": [],
+            "unresolved": [],
+        }
+        manifest = ManifestMigrator.upgrade(legacy, business_input)
+        ManifestMigrator.enrich_explicit_readme_definitions(manifest, readme_sections)
+        manifest["unresolved"].extend(
+            ManifestValidator.issue(
+                f"table_role:{table['source_file']}:{table['source_object']}",
+                "Table role was not explicitly documented; this draft does not infer a business role from its name.",
+                "Document and review the table role and grain in the BusinessManifest.",
+            )
+            for table in manifest["tables"] if table["table_role"] == "unknown"
+        )
+        manifest["unresolved"].extend(
+            ManifestValidator.issue(
+                f"grain:{table['source_file']}:{table['source_object']}",
+                "Table grain was not explicitly documented.",
+                "Document what one row represents in the BusinessManifest.",
+            )
+            for table in manifest["tables"] if table["grain"] is None
+        )
+        report = ManifestValidator.validate(manifest, inventory, evidence_ids)
+        if report["errors"]:
+            raise ValueError("Generated manifest draft failed validation: " + "; ".join(report["errors"]))
+        manifest["unresolved"] = ManifestValidator.merge_issues(
+            manifest["unresolved"], report["unresolved"]
+        )
+        Draft202012Validator(schema).validate(manifest)
+        return manifest
 
     @staticmethod
     def _read_markdown_sections(text: str) -> list[tuple[str, str]]:
@@ -192,10 +255,12 @@ class BusinessManifestService:
 
     @staticmethod
     def generate(
-        llm: GeminiLLM,
+        llm: "GeminiLLM",
         business_input: dict[str, Any],
         output_schema: dict[str, Any],
     ) -> dict[str, Any]:
+        from app.llm.prompts import BUSINESS_MANIFEST_SYSTEM_PROMPT
+
         evidence_ids = set(business_input["_evidence_ids"])
         prompt_input = {
             key: value for key, value in business_input.items() if not key.startswith("_")

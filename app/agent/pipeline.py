@@ -8,15 +8,16 @@ import pandas as pd
 
 from app import submission
 from app.agent.solver import Solver
+from app.agent.sql_solver import SQLSolver
 from app.config import Config
-from app.ingestion.datasets.loader import load_split
+from app.ingestion.datasets.loader import DatasetLoader
 from app.llm.base import LLMBackend
 
 
 def run_inference(cfg: Config, backend: LLMBackend | None, use_llm: bool = True):
     """Dự đoán split ở cfg.test_dir, ghi submission.jsonl + log. Trả (subs, logs, problems)."""
-    split = load_split(cfg.test_dir)
-    solver = Solver(cfg, backend)
+    split = DatasetLoader.load_split(cfg.test_dir)
+    solver = SQLSolver(cfg, backend) if cfg.query_engine == "sql" else Solver(cfg, backend)
     subs, logs = solver.solve_split(split, "test", limit_q=cfg.limit_test, use_llm=use_llm,
                                     time_budget=cfg.time_budget_s)
     ids = list(split.questions["id"])

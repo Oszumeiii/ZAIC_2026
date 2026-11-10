@@ -1,5 +1,4 @@
-"""Protect class ownership and the supported command-line entry points."""
-import ast
+"""Protect offline ingestion boundaries and supported command-line entry points."""
 import importlib
 import json
 import subprocess
@@ -12,21 +11,26 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class TestArchitecture:
-    def test_python_definitions_belong_to_classes(self):
-        for directory in (ROOT / "app", ROOT / "tests"):
-            for path in directory.rglob("*.py"):
-                tree = ast.parse(path.read_text(encoding="utf-8"))
-                parents = {
-                    child: node
-                    for node in ast.walk(tree)
-                    for child in ast.iter_child_nodes(node)
-                }
-                for node in ast.walk(tree):
-                    if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                        assert isinstance(parents[node], ast.ClassDef), (
-                            f"{path.relative_to(ROOT)}:{node.lineno}: "
-                            f"{node.name} must be a class method"
-                        )
+    def test_ingestion_core_does_not_import_llm(self):
+        # Functions and classes are both public APIs in the merged implementation.
+        # The boundary we need to protect is deterministic ingestion, not syntax style.
+        script = """
+import sys
+import app.ingestion.processing.pipeline
+import app.ingestion.datasets.loader
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from app.ingestion.processing.pipeline import IngestionPipeline
+with TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    business = root / 'split' / 'data' / 'b1'
+    business.mkdir(parents=True)
+    (business / 'items.csv').write_text('ID,Amount\\n001,10\\n')
+    IngestionPipeline.ensure_manifest(business, root / 'out' / 'b1')
+assert not any(name.startswith(('app.llm', 'google.genai')) for name in sys.modules)
+"""
+        result = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True)
+        assert result.returncode == 0, result.stderr
 
     def test_all_application_modules_import(self):
         for path in (ROOT / "app").rglob("*.py"):

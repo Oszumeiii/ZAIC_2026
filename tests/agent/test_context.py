@@ -2,11 +2,11 @@
 from app.agent.context import ContextBuilder
 from app.agent.exemplars import ExemplarBank
 from app.config import Config
-from app.ingestion.datasets.loader import load_split
+from app.ingestion.datasets.loader import DatasetLoader
 
 
 def build(cfg, split_dir, question, bank=None, business_id="b1"):
-    split = load_split(split_dir)
+    split = DatasetLoader.load_split(split_dir)
     return ContextBuilder(cfg, bank=bank).build(question, "2026-08-27", split.business("b1"), split, business_id)[0]
 
 

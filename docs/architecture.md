@@ -8,9 +8,12 @@ functions, including nested helpers. Tests follow the same ownership convention.
 | Package | Responsibility | Main classes |
 | --- | --- | --- |
 | `app/ingestion/datasets` | Load splits and DataFrames, describe tables for agent prompts and select holdout businesses | `Business`, `Split` |
-| `app/ingestion/sources/adapters` | Read each source format and preserve row/header provenance | `SourceTable`, `TabularLayout`, `CsvAdapter`, `ExcelAdapter`, `SqliteAdapter`, `ParquetAdapter` |
+| `app/ingestion/sources/adapters` | Dispatch CSV/Excel/SQLite/Parquet to the loss-aware raw readers | `CsvAdapter`, `ExcelAdapter`, `SqliteAdapter`, `ParquetAdapter` |
 | `app/ingestion/sources` | Discover/profile source files and emit evidence | `SourceInventory` |
-| `app/ingestion/processing` | Normalize identifiers/values and load DuckDB/catalog | `IdentifierNormalizer`, `ValueNormalizer`, `IngestionPipeline` |
+| `app/ingestion` | Read Raw, type once, publish DuckDB/catalog and expose Typed frames | `IngestionPipeline`, `IngestedBusiness`, `Split` |
+| `app/ingestion/organization` | Analyze relationships and build validated semantic views | `analyze_connection`, `organize_connection` |
+| `app/ingestion/catalog.py` | Bind layered tables and manifest metadata to the SQL catalog contract | `install_catalog`, `read_catalog` |
+| `app/agent/sql_context.py` | Convert catalog and completeness metadata to per-business SQL context | `SQLContextBuilder` |
 | `app/ingestion/cli` | Command-line entry points for ingestion and manifest operations | Thin wrappers around processing/manifests APIs |
 | `app/manifests` | Evidence, generation, migration, source validation and commands | `BusinessManifestService`, `ManifestMigrator`, `ManifestValidator`, `BuildManifestsCommand`, `AuditManifestsCommand` |
 | `app/catalog` | Bind physical columns, verify relationships and guard joins | `CatalogBuilder`, `RelationshipService` |
@@ -56,15 +59,15 @@ to `app/ingestion/processing/pipeline.py`. The original commands
 entry points. See the [ingestion guide](../app/ingestion/README.md) for the full
 layout and updated Python imports.
 
-Consolidations:
+Ingestion/query integration:
 
-- Discovery and format dispatch share `SourceInventory` across profiling and ingestion.
-- Identifier normalization and aliases share one module with value normalization.
-- Source and semantic validation share `ManifestValidator`.
-- Relationship construction, verification, retrieval and join guards share `RelationshipService`.
-- Rulebook parsing and capability requirements share `Rulebook`.
-- All JSON writes use `JsonStore`; the unused DuckDB connection wrapper was removed.
-- The empty Colab notebook scaffold was removed; source data and manifests are retained.
+- CSV/Excel/SQLite/Parquet use one reader and type-conversion path for both DuckDB
+  ingestion and the pandas fallback.
+- `IngestionPipeline` writes Raw/Typed/Semantic, catalog, lineage and guide from
+  the same `IngestedBusiness`; the SQL agent consumes the structured catalog.
+- Parse failures and source NULLs are distinguished in each column's SQL context.
+- Catalog retains the existing SQL contract for physical names, semantic
+  mappings, relationships, facts and unresolved items.
 
 `tests/test_architecture.py` checks class ownership, imports and the CLI migration,
 audit and ingestion workflow so future file moves cannot silently break them.

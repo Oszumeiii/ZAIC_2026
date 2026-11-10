@@ -110,6 +110,25 @@ class ManifestMigrator:
         ]
         proposals = {}
         for section in sections:
+            file_section = re.search(r"^##\s+Cột trong `([^`]+)`", section['text'], re.M)
+            if file_section:
+                source_file = file_section.group(1)
+                for name, description in re.findall(
+                    r"^- \*\*(.*?)\*\*:\s*(.+)$", section['text'], re.M
+                ):
+                    candidates = [
+                        (table, column)
+                        for table in manifest['tables']
+                        for column in table['columns']
+                        if Path(table['source_file']).name == source_file
+                        and column['source_name'] == name
+                    ]
+                    if len(candidates) == 1:
+                        table, column = candidates[0]
+                        key = (table['source_file'], table['source_object'], name)
+                        proposals.setdefault(key, []).append(
+                            (column, description.strip(), section['evidence_id'])
+                        )
             for pattern, qualified in patterns:
                 for match in pattern.finditer(section['text']):
                     if qualified:

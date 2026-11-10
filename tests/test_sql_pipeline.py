@@ -13,11 +13,13 @@ class SQLBackend:
     def __init__(self, plans):
         self.plans = iter(plans)
         self.prompts = []
+        self.systems = []
 
     def tag(self):
         return "fake-sql"
 
     def generate_json(self, system, prompt, schema):
+        self.systems.append(system)
         self.prompts.append(prompt)
         return json.dumps(next(self.plans))
 
@@ -93,10 +95,32 @@ class TestSQLPipeline:
         assert logs[0]["sql"].startswith("SELECT")
         assert Path(logs[0]["database"]).is_file()
         assert Path(cfg.out_dir, "evaluation.jsonl").is_file()
+        prompt = json.loads(backend.prompts[0])
+        assert prompt["question"] == "Tổng doanh thu?"
+        assert prompt["rulebook"] == "Loại đơn hủy. Làm tròn 2 chữ số."
+        sales = next(table for table in prompt["tables"] if table["name"] == "sales")
+        assert sales["row_count"] == 4
+        assert {column["physical_name"] for column in sales["columns"]} >= {"thanh_tien", "trang_thai"}
+        statuses = next(column for column in sales["columns"] if column["physical_name"] == "trang_thai")
+        assert statuses["revenue_status_values"] == [
+            {"value": "hoan thanh", "count": 3, "classification": "include_completed"},
+            {"value": "huy", "count": 1, "classification": "exclude_cancelled"},
+        ]
+        assert "exclude_failed_delivery" in backend.systems[0]
+        assert "SELECT DISTINCT *" in backend.systems[0]
+        assert "parse_failed_count > 0" in backend.systems[0]
         _, _, again, _, cached_logs = run_train(cfg, backend)
         assert again.status.tolist() == ["correct"]
         assert len(backend.prompts) == 1
         assert cached_logs[0]["cache_hit"]
+
+    def test_revenue_status_classification_covers_failed_and_in_transit(self):
+        from app.agent.sql_context import SQLContextBuilder
+
+        assert SQLContextBuilder.classify_revenue_status("Không giao được") == "exclude_failed_delivery"
+        assert SQLContextBuilder.classify_revenue_status("Đang vận chuyển") == "include_in_transit"
+        assert SQLContextBuilder.classify_revenue_status("Đổi trả") == "exclude_returned"
+        assert SQLContextBuilder.classify_revenue_status("Trạng thái mới") == "unknown"
 
     def test_gold_is_not_used_to_generate_or_repair_sql(self, split_dirs):
         cfg = self.config(split_dirs)
@@ -110,6 +134,34 @@ class TestSQLPipeline:
         assert subs[0]["answer"] == 130000
         assert len(backend.prompts) == 2 and logs[0]["errors"]
         assert all("987654321" not in p for p in backend.prompts)
+
+    def test_prompt_reports_parse_completeness(self, split_dirs):
+        cfg = self.config(split_dirs, ingestion_overrides={"b1": {"tables": {"sales": {
+            "columns": {"thanh_tien": {"type": "number"}}
+        }}}})
+        source = Path(cfg.train_dir, "data", "b1", "sales.csv")
+        source.write_text(
+            "ngay,ten_hang,so_luong,thanh_tien,trang_thai\n"
+            "2026-08-24,Ca phe,3,90000,hoan thanh\n"
+            "2026-08-25,Tra,1,invalid,hoan thanh\n"
+            "2026-08-26,Ca phe,2,60000,huy\n"
+            "2026-08-27,Tra,1,20000,hoan thanh\n",
+            encoding="utf-8",
+        )
+        backend = SQLBackend([{"type": "unanswerable", "sql": "", "reason": "Một giá trị thành tiền lỗi parse"}])
+        _, _, _, _, logs = run_train(cfg, backend)
+        prompt = json.loads(backend.prompts[0])
+        sales = next(table for table in prompt["tables"] if table["name"] == "sales")
+        amount = next(column for column in sales["columns"] if column["physical_name"] == "thanh_tien")
+        assert amount["completeness"] == {
+            "row_count": 4,
+            "source_null_count": 0,
+            "parse_failed_count": 1,
+            "typed_value_count": 3,
+            "parse_success_rate": 0.75,
+            "status": "parse_failures",
+        }
+        assert logs[0]["type"] == "unanswerable"
 
     def test_no_consensus_abstains(self, split_dirs):
         cfg = self.config(split_dirs)

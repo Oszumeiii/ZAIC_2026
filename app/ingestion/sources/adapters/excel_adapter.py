@@ -24,23 +24,38 @@ class ExcelAdapter:
             yield from ExcelAdapter._read_xls(path, source_file, expected_headers)
             return
 
-        workbook = load_workbook(path, read_only=True, data_only=True)
+        workbook = load_workbook(path, read_only=True, data_only=False)
+        value_workbook = load_workbook(path, read_only=True, data_only=True)
         try:
             for worksheet in workbook.worksheets:
+                value_worksheet = value_workbook[worksheet.title]
+                cell_metadata = {}
+                issues = []
                 numbered_rows = (
                     (row_number, tuple(values))
-                    for row_number, values in enumerate(
-                        worksheet.iter_rows(values_only=True), start=1
+                    for row_number, values in ExcelAdapter._xlsx_rows(
+                        worksheet, value_worksheet, cell_metadata, issues
                     )
                     if TabularLayout.nonempty_row(values)
                 )
                 buffered = list(islice(numbered_rows, HEADER_SCAN_ROWS))
                 if not buffered:
+                    yield SourceTable(
+                        source_file=source_file,
+                        source_object=worksheet.title,
+                        source_headers=(),
+                        rows=iter(()),
+                        header_row_number=None,
+                        header_status="empty_sheet",
+                        positions=[],
+                        issues=[{"code": "empty_sheet"}],
+                    )
                     continue
                 header_number, header_values, header_status = TabularLayout.choose_header(
                     buffered, expected_headers
                 )
                 headers = IdentifierNormalizer.headers(header_values)
+                positions = []
                 remaining = (
                     (row_number, values) for row_number, values in numbered_rows
                 )
@@ -49,12 +64,18 @@ class ExcelAdapter:
                     source_object=worksheet.title,
                     source_headers=headers,
                     rows=TabularLayout.prepare_rows(
-                        buffered, remaining, header_number, len(headers)
+                        buffered, remaining, header_number, len(headers),
+                        positions=positions, position_key="row",
                     ),
                     header_row_number=header_number,
                     header_status=header_status,
+                    excel_epoch="1904" if workbook.epoch.year == 1904 else "1900",
+                    positions=positions,
+                    issues=issues,
+                    cell_metadata=cell_metadata,
                 )
         finally:
+            value_workbook.close()
             workbook.close()
 
     @staticmethod
@@ -75,6 +96,7 @@ class ExcelAdapter:
                     buffered, expected_headers
                 )
                 headers = IdentifierNormalizer.headers(header_values)
+                positions = []
                 remaining = (
                     (row_number, values) for row_number, values in numbered_rows
                 )
@@ -82,9 +104,14 @@ class ExcelAdapter:
                     source_file=source_file,
                     source_object=worksheet.name,
                     source_headers=headers,
-                    rows=TabularLayout.prepare_rows(buffered, remaining, header_number, len(headers)),
+                    rows=TabularLayout.prepare_rows(
+                        buffered, remaining, header_number, len(headers),
+                        positions=positions, position_key="row",
+                    ),
                     header_row_number=header_number,
                     header_status=header_status,
+                    excel_epoch="1904" if workbook.datemode == 1 else "1900",
+                    positions=positions,
                 )
         finally:
             workbook.release_resources()
@@ -117,3 +144,35 @@ class ExcelAdapter:
             )
             if TabularLayout.nonempty_row(values):
                 yield row_number, values
+
+    @staticmethod
+    def _xlsx_rows(worksheet, value_worksheet, cell_metadata, issues):
+        for row_number, (raw_row, cached_row) in enumerate(
+            zip(worksheet.iter_rows(), value_worksheet.iter_rows()), start=1
+        ):
+            values = []
+            for column_number, (cell, cached) in enumerate(zip(raw_row, cached_row), start=1):
+                value = cell.value
+                if cell.data_type == "f":
+                    cell_metadata[f"{row_number}:{column_number}"] = {
+                        "formula": value, "cached": cached.value, "number_format": cell.number_format
+                    }
+                    value = cached.value
+                    if value is None:
+                        issues.append({
+                            "code": "formula_cache_missing", "row": row_number,
+                            "column": column_number, "formula": cell.value
+                        })
+                elif cell.data_type == "e":
+                    cell_metadata[f"{row_number}:{column_number}"] = {"error": value}
+                    issues.append({
+                        "code": "excel_error", "row": row_number,
+                        "column": column_number, "value": value
+                    })
+                    value = None
+                elif value is not None and cell.number_format not in ("General", "@"):
+                    cell_metadata[f"{row_number}:{column_number}"] = {
+                        "number_format": cell.number_format
+                    }
+                values.append(value)
+            yield row_number, tuple(values)

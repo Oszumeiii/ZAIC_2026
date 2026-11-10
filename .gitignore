@@ -4,3 +4,8 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.venv/
+logs/
+outputs/
+/train/
+/public_test/

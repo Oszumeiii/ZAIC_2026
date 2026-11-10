@@ -14,6 +14,10 @@ class SourceTable:
     header_status: str # trạng thái của hàng header, ví dụ: "manifest_header_match", "heuristic_header", "first_nonempty_row"
     source_types: tuple[str | None, ...] = () # danh sách kiểu dữ liệu của các cột từ file nguồn, ví dụ: ("string", "string", "date")
     relationships: tuple[dict[str, Any], ...] = () # danh sách các quan hệ giữa các cột trong bảng nguồn, mỗi quan hệ là một dict chứa thông tin về các cột liên quan và loại quan hệ
+    positions: list[dict[str, Any]] | None = None
+    issues: list[dict[str, Any]] | None = None
+    cell_metadata: dict[str, dict[str, Any]] | None = None
+    excel_epoch: str | None = None
 
 
 class TabularLayout:
@@ -36,6 +40,9 @@ class TabularLayout:
         remaining_rows: Iterable[tuple[int, tuple[Any, ...]]],
         header_index: int,
         width: int,
+        positions: list[dict[str, Any]] | None = None,
+        position_key: str = "record",
+        position_details: dict[int, dict[str, Any]] | None = None,
     ) -> Iterator[tuple[Any, ...]]:
         for row_number, values in chain(buffered_rows, remaining_rows):
             if row_number <= header_index or not TabularLayout.nonempty_row(values):
@@ -45,6 +52,8 @@ class TabularLayout:
                     f"Row {row_number} has {len(values)} cells but the header has "
                     f"only {width} columns."
                 )
+            if positions is not None:
+                positions.append((position_details or {}).get(row_number, {position_key: row_number}))
             yield tuple(values[index] if index < len(values) else None for index in range(width))
 
     @staticmethod

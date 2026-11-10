@@ -27,6 +27,12 @@ class SqliteAdapter:
                     f"PRAGMA table_info({TabularLayout.quote_identifier(table_name)})"
                 ).fetchall()
                 columns = tuple(str(column[1]) for column in table_info)
+                primary_key = [
+                    (int(column[5]), str(column[1]), index)
+                    for index, column in enumerate(table_info)
+                    if int(column[5]) > 0
+                ]
+                primary_key.sort()
                 source_types = tuple(column[2] or None for column in table_info)
                 foreign_keys = connection.execute(
                     f"PRAGMA foreign_key_list({TabularLayout.quote_identifier(table_name)})"
@@ -71,22 +77,38 @@ class SqliteAdapter:
                 cursor = connection.execute(
                     f"SELECT * FROM {TabularLayout.quote_identifier(table_name)}"
                 )
-
+                positions = []
+                issues = [] if primary_key else [{"code": "sqlite_no_primary_key", "review_required": True}]
 
                 yield SourceTable(
                     source_file=source_file,
                     source_object=table_name,
                     source_headers=columns,
-                    rows=SqliteAdapter._rows_for_table(cursor),
+                    rows=SqliteAdapter._rows_for_table(
+                        cursor, positions, [(name, index) for _, name, index in primary_key]
+                    ),
                     header_row_number=None,
                     header_status="sqlite_schema",
                     source_types=source_types,
                     relationships=tuple(relationships),
+                    positions=positions,
+                    issues=issues,
                 )
         finally:
             connection.close()
 
     @staticmethod
-    def _rows_for_table(row_cursor: sqlite3.Cursor) -> Iterator[tuple[object, ...]]:
+    def _rows_for_table(
+        row_cursor: sqlite3.Cursor, positions, primary_key: list[tuple[str, int]]
+    ) -> Iterator[tuple[object, ...]]:
+        record = 0
         while batch := row_cursor.fetchmany(FETCH_SIZE):
-            yield from batch
+            for row in batch:
+                record += 1
+                position = {"record": record}
+                if primary_key:
+                    position["primary_key"] = {
+                        column: row[index] for column, index in primary_key
+                    }
+                positions.append(position)
+                yield row

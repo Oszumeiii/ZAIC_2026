@@ -7,8 +7,9 @@ from __future__ import annotations
 
 import hashlib
 
-
-def holdout_businesses(business_ids, n_holdout: int) -> list:
-    """n_holdout business giữ lại (xác định, không phụ thuộc thứ tự đầu vào)."""
-    unique = sorted(set(business_ids), key=lambda b: hashlib.md5(str(b).encode()).hexdigest())
-    return unique[:n_holdout]
+class BusinessSplitter:
+    @staticmethod
+    def holdout_businesses(business_ids, n_holdout: int) -> list:
+        """n_holdout business giữ lại (xác định, không phụ thuộc thứ tự đầu vào)."""
+        unique = sorted(set(business_ids), key=lambda b: hashlib.md5(str(b).encode()).hexdigest())
+        return unique[:n_holdout]

@@ -1,6 +1,0 @@
--r requirements.txt
-pytest
-google-genai
-# QLoRA / backend hf trên Kaggle
-bitsandbytes
-peft

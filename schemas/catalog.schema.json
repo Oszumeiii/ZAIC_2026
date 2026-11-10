@@ -259,6 +259,24 @@
           }
         }
       }
+    },
+    "pipeline_version": {
+      "type": "string"
+    },
+    "input_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "organization": {
+      "type": "object"
+    },
+    "semantic_views": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     }
   },
   "$defs": {
@@ -475,7 +493,7 @@
         },
         "columns": {
           "type": "array",
-          "minItems": 1,
+          "minItems": 0,
           "items": {
             "$ref": "#/$defs/column"
           }
@@ -488,6 +506,12 @@
             "string",
             "null"
           ]
+        },
+        "lineage": {
+          "type": "object"
+        },
+        "issue_counts": {
+          "type": "object"
         }
       }
     },
@@ -536,14 +560,8 @@
           ]
         },
         "duckdb_type": {
-          "enum": [
-            "BIGINT",
-            "DOUBLE",
-            "BOOLEAN",
-            "DATE",
-            "TIMESTAMP",
-            "VARCHAR"
-          ]
+          "type": "string",
+          "pattern": "^(BIGINT|HUGEINT|DOUBLE|BOOLEAN|DATE|TIMESTAMP|VARCHAR|DECIMAL\\(\\d+,\\d+\\))$"
         },
         "type_status": {
           "const": "profiled"
@@ -567,6 +585,10 @@
               "minimum": 0
             },
             "null_count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "parse_failed_count": {
               "type": "integer",
               "minimum": 0
             }
@@ -630,6 +652,9 @@
         },
         "aggregation": {
           "type": "string"
+        },
+        "conversion": {
+          "type": "object"
         }
       }
     }

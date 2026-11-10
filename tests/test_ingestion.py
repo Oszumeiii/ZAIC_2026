@@ -122,7 +122,8 @@ class TestIngestion:
         )
         output_dir = tmp_path / "cache" / "biz_test"
 
-        catalog = IngestionPipeline.ingest(business_dir, output_dir, manifest_path)
+        catalog = IngestionPipeline.ingest(business_dir, output_dir, manifest_path,
+            overrides={"tables": {"orders": {"columns": {"Thành tiền": {"decimal": "."}}}}})
 
         Draft202012Validator.check_schema(
             json.loads(CATALOG_SCHEMA_PATH.read_text(encoding="utf-8"))
@@ -130,7 +131,7 @@ class TestIngestion:
         Draft202012Validator(
             json.loads(CATALOG_SCHEMA_PATH.read_text(encoding="utf-8"))
         ).validate(catalog)
-        assert (output_dir / "business.duckdb").is_file()
+        assert (output_dir / "data.duckdb").is_file()
         assert json.loads((output_dir / "catalog.json").read_text(encoding="utf-8")) == catalog
         assert len(catalog["tables"]) == 5
         assert {table["table_role"] for table in catalog["tables"]} == {
@@ -146,7 +147,7 @@ class TestIngestion:
         assert csv_columns["Mã đơn"]["physical_name"] == "ma_don"
         assert csv_columns["Mã đơn"]["semantic_name"] == "ma_don"
         assert csv_columns["Mã đơn"]["duckdb_type"] == "VARCHAR"
-        assert csv_columns["Thành tiền"]["duckdb_type"] == "BIGINT"
+        assert csv_columns["Thành tiền"]["duckdb_type"] == "DECIMAL(38,0)"
         assert by_file["sales.xlsx"]["header"]["source_row_number"] == 3
         assert by_file["sales.xlsx"]["row_count"] == 2
         assert by_file["source.sqlite"]["columns"][0]["source_name"] == "MaHoaDon"
@@ -165,7 +166,7 @@ class TestIngestion:
             }
         ]
 
-        connection = duckdb.connect(str(output_dir / "business.duckdb"), read_only=True)
+        connection = duckdb.connect(str(output_dir / "data.duckdb"), read_only=True)
         try:
             rows = connection.execute(
                 'SELECT "ma_don", "thanh_tien" FROM "orders" ORDER BY "ma_don"'
@@ -179,7 +180,7 @@ class TestIngestion:
         finally:
             connection.close()
 
-    def test_ingestion_widens_mixed_datetime_column_to_preserve_summary_rows(
+    def test_ingestion_preserves_summary_in_raw_and_marks_typed_parse_failure(
         self, tmp_path: Path
     ) -> None:
         business_dir = tmp_path / "biz_mixed"
@@ -196,21 +197,76 @@ class TestIngestion:
         catalog = IngestionPipeline.ingest(business_dir, output_dir)
 
         table = catalog["tables"][0]
-        assert table["columns"][0]["duckdb_type"] == "VARCHAR"
+        assert table["columns"][0]["duckdb_type"] == "TIMESTAMP"
         assert any(
-            issue["topic"] == "type:sales.xlsx:Sheet:Ngày"
+            issue["topic"] == "ingestion:sales::Sheet:parse_failed"
             for issue in catalog["unresolved"]
         )
         connection = duckdb.connect(
-            str(output_dir / "business.duckdb"), read_only=True
+            str(output_dir / "data.duckdb"), read_only=True
         )
         try:
-            row_count, summary = connection.execute(
-                f'SELECT COUNT(*), SUM(CASE WHEN "ngay" = ? THEN 1 ELSE 0 END) '
-                f'FROM "{table["physical_name"]}"',
-                ["Tổng tháng"],
+            row_count, failed = connection.execute(
+                f'SELECT COUNT(*), COUNT(*) FILTER (WHERE ngay IS NULL) FROM "{table["physical_name"]}"'
             ).fetchone()
-            assert row_count == 1001
-            assert summary == 1
+            assert row_count == 1001 and failed == 1
+            assert table["columns"][0]["profile"]["parse_failed_count"] == 1
+            raw = table["lineage"]["raw_table"]
+            assert connection.execute(f"SELECT COUNT(*) FROM {raw} WHERE values_json LIKE '%Tổng tháng%'").fetchone()[0] == 1
+
         finally:
             connection.close()
+
+    def test_ingestion_creates_conservative_manifest_before_catalog(self, tmp_path: Path) -> None:
+        split_dir = tmp_path / "split"
+        business_dir = split_dir / "data" / "biz_auto"
+        business_dir.mkdir(parents=True)
+        (business_dir / "README.md").write_text(
+            "## Cột trong `sales.csv`\n- **Amount**: thành tiền dòng\n",
+            encoding="utf-8",
+        )
+        (business_dir / "sales.csv").write_text("Amount,Status\n10,paid\n")
+        manifest_path = split_dir / "manifests" / "biz_auto.json"
+
+        catalog = IngestionPipeline.ingest(
+            business_dir, tmp_path / "cache" / "biz_auto", rulebook="# Rules\n"
+        )
+
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        Draft202012Validator(
+            json.loads((ROOT / "schemas" / "business_manifest.v2.schema.json").read_text())
+        ).validate(manifest)
+        assert manifest["schema_version"] == "2.0"
+        assert all(table["table_role"] == "unknown" for table in manifest["tables"])
+        assert any(issue["topic"].startswith("table_role:") for issue in manifest["unresolved"])
+        assert any(issue["topic"].startswith("grain:") for issue in manifest["unresolved"])
+        manifest_columns = {
+            column["source_name"]: column
+            for table in manifest["tables"] for column in table["columns"]
+        }
+        assert manifest_columns["Amount"]["semantic_name"] == "line_amount"
+        assert manifest_columns["Amount"]["status"] == "documented"
+        assert manifest_columns["Status"]["status"] == "unresolved"
+        amount = next(
+            column
+            for table in catalog["tables"]
+            for column in table["columns"]
+            if column["source_name"] == "Amount"
+        )
+        assert amount["semantic_name"] == "line_amount"
+        assert amount["semantic_status"] == "documented"
+        assert any(issue["topic"].endswith(":Status") for issue in catalog["unresolved"])
+
+    def test_quantity_parse_failure_is_attached_to_numeric_view_column(self, tmp_path: Path) -> None:
+        business_dir = tmp_path / "biz_quantity"
+        business_dir.mkdir()
+        (business_dir / "items.csv").write_text(
+            "Mã;Số lượng\n001;not-a-quantity\n002;3 chai\n",
+            encoding="utf-8",
+        )
+
+        catalog = IngestionPipeline.ingest(business_dir, tmp_path / "cache" / "biz_quantity")
+        columns = {column["source_name"]: column for column in catalog["tables"][0]["columns"]}
+
+        assert columns["Số lượng"]["profile"]["parse_failed_count"] == 0
+        assert columns["Số lượng__quantity"]["profile"]["parse_failed_count"] == 1

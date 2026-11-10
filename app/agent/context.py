@@ -6,7 +6,7 @@ from typing import Callable
 from app.agent.exemplars import ExemplarBank
 from app.config import Config
 from app.ingestion.datasets.loader import Business, Split
-from app.ingestion.datasets.profiling import merge_same_schema, profile_min, profile_text
+from app.ingestion.datasets.profiling import DatasetProfiler
 from app.text import norm
 from app.tools.grounding import ValueIndex, format_hits
 from app.tools.timeutil import describe_period
@@ -36,7 +36,7 @@ class ContextBuilder:
     def _prepare(self, biz: Business, calendar):
         """Gộp sheet cùng cấu trúc một lần cho mỗi business."""
         if "merged" not in biz.cache:
-            merged, notes = merge_same_schema(biz.tables)
+            merged, notes = DatasetProfiler.merge_same_schema(biz.tables)
             if calendar is not None:
                 merged["calendar"] = calendar
             biz.cache.update(merged=merged, merge_notes=notes, profiles={})
@@ -86,14 +86,14 @@ class ContextBuilder:
         ctx = ""
         for si, (plim, ptab, head, mcat) in enumerate(self.steps):
             if si not in profiles:
-                profiles[si] = profile_text(tables, plim, ptab, head, mcat)
+                profiles[si] = DatasetProfiler.profile_text(tables, plim, ptab, head, mcat)
             ctx = self._build(question, as_of, biz, rulebook, profiles[si], self.rulebook_limit, self.readme_limit, extra)
             if counter is None or counter(ctx) <= budget:
                 return ctx, tables
         # vẫn dài: cắt dần rulebook/README, cuối cùng chỉ giữ tên bảng + cột
         last = profiles[len(self.steps) - 1]
         fallbacks = ((self.rulebook_limit // 2, 1000, last), (self.rulebook_limit // 4, 0, last),
-                     (1500, 0, profiles.setdefault("min", profile_min(tables))))
+                     (1500, 0, profiles.setdefault("min", DatasetProfiler.profile_min(tables))))
         n = 0
         for rb, rd, prof in fallbacks:
             ctx = self._build(question, as_of, biz, rulebook, prof, rb, rd, extra)

@@ -30,6 +30,28 @@ type: number|percent|string|date|boolean|list|table|unanswerable.
   hủy dùng TẤT CẢ đơn trong kỳ. Đếm đơn DISTINCT mã đơn, không đếm dòng chi tiết.
 - Tổng phiếu nhập dùng ngày phiếu và tiền phiếu, bỏ hủy; tránh nhân bản khi join chi tiết.
 - Join theo README/quan hệ đã xác minh, đúng grain; không suy ra quan hệ chỉ vì tên cột giống.
+- completeness.parse_failed_count, completeness.parse_success_rate, profile.parse_failed_count
+  và issue_counts cho biết dữ liệu chưa chuyển kiểu đầy đủ. SUM bỏ qua NULL nên không được coi
+  tổng là đầy đủ khi có lỗi parse ở cột cần tính; NULL do parse lỗi không phải 0. Chỉ truy vấn
+  Raw nếu có chính sách chuyển kiểu đã xác minh để xử lý giá trị đó; nếu không, trả
+  unanswerable và nêu rõ số ô lỗi/thiếu.
+- Nếu cột ngày dùng để lọc có completeness.parse_failed_count > 0, không được coi tổng trên
+  khoảng ngày là đầy đủ. Chỉ truy vấn Raw nếu có thể parse các giá trị bằng chính sách đã xác minh;
+  nếu không, trả unanswerable và nêu số ngày lỗi.
+- semantic_views dùng tên schema + tên view (quote riêng từng phần). View là nguồn thay thế:
+  không cộng cả view gộp và các bảng thành viên; kiểm tra grain và mapping trong organization.
+  View JOIN giữ số dòng vẫn có thể lặp tiền bảng cha. Aggregate nguồn chưa phải chỉ tiêu nghiệp vụ.
+- Dòng possible_duplicate/possible_total/repeated_header được giữ, cần xử lý theo rulebook.
+- Nếu bảng chi tiết hóa đơn có issue_counts.possible_duplicate > 0, các dòng giống hệt trong
+  cùng hóa đơn là lỗi xuất file và chỉ tính một lần theo rulebook. Dùng CTE SELECT DISTINCT *
+  trên bảng chi tiết trước khi join/tổng hợp; mã hóa đơn phải nằm trong các cột DISTINCT để
+  không gộp các giao dịch khác nhau. Không khử trùng bảng không theo hóa đơn.
+- Với doanh thu, dùng revenue_status_values của cột trạng thái để phân loại mọi trạng thái thực tế:
+  exclude_cancelled, exclude_returned và exclude_failed_delivery đều bị loại; include_completed và
+  include_in_transit được tính. Không giao được là giao thất bại, phải loại; đang vận chuyển vẫn
+  được tính theo rulebook. Không dùng NOT IN với một danh sách trạng thái tự đoán/không đầy đủ.
+  Nếu có trạng thái classification=unknown có thể ảnh hưởng phép tính thì trả unanswerable thay
+  vì âm thầm tính hoặc loại.
 - Tổng hợp các sheet cùng loại và cùng schema bằng UNION ALL khi dữ liệu chia nhiều sheet/tháng.
 - Với number/percent/string/date/boolean: SQL trả đúng một dòng một cột. Percent là 12.5 cho 12.5%.
   List: một cột, nhiều dòng, đúng thứ tự. Table: nhiều cột và alias đúng ý nghĩa câu hỏi.

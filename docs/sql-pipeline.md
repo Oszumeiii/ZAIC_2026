@@ -5,9 +5,12 @@ Luồng mặc định của `app.main` và `evaluation.run_eval` dùng DuckDB. C
 
 1. Nạp câu hỏi, rulebook, calendar từ thư mục split.
 2. Lấy DuckDB/catalog của đúng business trong `--database-dir`.
-   Nếu chưa có hoặc bật `--rebuild-database`, `IngestionPipeline.ingest()` dùng
-   chính các adapter CSV/Excel/SQLite/Parquet hiện có và manifest của business để dựng lại.
+   Nếu chưa có, fingerprint không khớp nguồn/manifest/rulebook/override, hoặc bật
+   `--rebuild-database`, `IngestionPipeline.ingest()` dùng reader và typing
+   Raw→Typed→Semantic dùng chung để dựng lại. Nếu business chưa có manifest,
+   ingestion tạo manifest v2 nháp local trước, lưu ở `<split>/manifests/`.
 3. Dựng context bằng schema vật lý, ánh xạ tên nguồn, vai trò cột, quan hệ,
+   facts, unresolved issues, quality, grain, semantic views, completeness,
    mẫu dữ liệu, phạm vi ngày và trạng thái. Đọc README và rulebook đầy đủ.
 4. Với backend Gemini, rewrite câu hỏi; lỗi rewrite thì giữ câu gốc và ghi lỗi.
    `--no-rewrite` bỏ bước này. Cả câu gốc và câu rewrite đều có trong context.
@@ -37,8 +40,7 @@ python -m evaluation.run_eval \
 `--max-biz 5` bảo đảm 5 câu đầu (có tối đa 5 business) không bị lọc bởi mặc định
 3 business. `--limit-train` lấy theo thứ tự câu hỏi sau các bộ lọc business.
 Bỏ `--rebuild-database` khi chạy lại để dùng database đã dựng. Khi dữ liệu nguồn
-hoặc manifest thay đổi, cần bật cờ này để cập nhật; cache database chưa tự phát
-hiện thay đổi ở file nguồn.
+hoặc manifest thay đổi, fingerprint tự phát hiện và dựng lại database.
 
 Đầu ra:
 
@@ -50,6 +52,8 @@ hiện thay đổi ở file nguồn.
 - `logs/llm_cache_train.jsonl`: kết quả thành công để tiếp tục lần sau. Khóa cache
   bao gồm model, prompt, câu hỏi, as_of_date, context, hash database và cấu hình đồng thuận.
 - `databases/<business_id>/current/`: DuckDB, catalog và manifest dùng cho lần chạy.
+  SQL prompt dùng catalog có cấu trúc; `DATABASE_GUIDE.md` là tài liệu hỗ trợ,
+  không phải nguồn metadata thay thế.
 
 Inference không cần đáp án chuẩn:
 

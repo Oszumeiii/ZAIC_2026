@@ -20,19 +20,25 @@ class ParquetAdapter:
                 [str(path)],
             )
             headers = tuple(description[0] for description in cursor.description)
+            positions = []
 
             yield SourceTable(
                 source_file=source_file,
                 source_object=path.stem,
                 source_headers=headers,
-                rows=ParquetAdapter._rows(cursor),
+                rows=ParquetAdapter._rows(cursor, positions),
                 header_row_number=None,
                 header_status="parquet_schema",
+                positions=positions,
             )
         finally:
             connection.close()
 
     @staticmethod
-    def _rows(cursor) -> Iterator[tuple[object, ...]]:
+    def _rows(cursor, positions) -> Iterator[tuple[object, ...]]:
+        record = 0
         while batch := cursor.fetchmany(FETCH_SIZE):
-            yield from batch
+            for row in batch:
+                record += 1
+                positions.append({"record": record})
+                yield row
