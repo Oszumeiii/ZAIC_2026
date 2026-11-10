@@ -1,5 +1,4 @@
 # Thư viện chạy lúc nộp bài (Docker, offline). CHƯA ghim phiên bản: ghim theo image đã build và chạy được.
--r requirements.txt
 pandas
 numpy
 duckdb>=1.4,<2
@@ -12,9 +11,3 @@ xlrd>=2.0.1
 jsonschema>=4.0.0
 openpyxl>=3.1.0
 python-dotenv>=1.0.0
-
-pytest
-google-genai
-# QLoRA / backend hf trên Kaggle
-bitsandbytes
-peft

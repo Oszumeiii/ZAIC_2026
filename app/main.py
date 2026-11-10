@@ -54,6 +54,10 @@ def config_from_args(a: argparse.Namespace) -> Config:
                "local_model": a.local_model, "local_engine": a.local_engine, "local_lora": a.local_lora,
                "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len}
     mapping["exemplar_path"] = a.exemplars
+    mapping.update(query_engine=a.query_engine, database_dir=a.database_dir,
+                   ingestion_overrides=json.loads(a.ingestion_overrides.read_text()) if a.ingestion_overrides else {},
+                   rebuild_database=a.rebuild_database, rewrite_questions=not a.no_rewrite,
+                   limit_train=a.limit_train)
     cfg = Config(backend=a.backend, use_hints=not a.no_hints, use_helpers=not a.no_helpers, collect_all=a.collect_all, rulebook_select=a.rulebook_select,
                  run_name=a.run_name, chat_kwargs={"enable_thinking": False} if a.no_thinking else {},
                  **{k: v for k, v in mapping.items() if v is not None})

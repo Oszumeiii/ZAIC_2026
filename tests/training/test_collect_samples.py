@@ -5,7 +5,7 @@ from evaluation.fakes import GOOD_CODE, OTHER_CODE, FakeBackend
 from app.llm.base import LLMBackend
 from app.agent.context import ContextBuilder
 from app.agent.solver import Solver
-from app.ingestion.dataset import load_split
+from app.ingestion.datasets.loader import DatasetLoader
 from evaluation.run_eval import run_train
 from training.export_sft import correct_samples, export_sft, is_clean_code
 
@@ -53,7 +53,7 @@ def test_export_sft_all_samples_writes_system_with_helpers(cfg, tmp_path):
 def test_failure_reasons_are_recorded(cfg):
     bad = '```python\nresult_type = "number"\nresult = float(tables["sales"]["khong_co"].sum())\n```'
     cfg.max_retry = 0
-    subs, logs = Solver(cfg, FakeBackend([bad])).solve_split(load_split(cfg.train_dir), "train", limit_q=1)
+    subs, logs = Solver(cfg, FakeBackend([bad])).solve_split(DatasetLoader.load_split(cfg.train_dir), "train", limit_q=1)
     assert logs[0]["intent"] == "llm_failed" and any("KeyError" in e for e in logs[0]["errors"])
 
 
