@@ -44,12 +44,36 @@ class TestSQLExecutor:
         "DELETE FROM sales", "DROP TABLE sales", "SELECT 1; SELECT 2",
         "COPY sales TO '/tmp/sql-pipeline-must-not-write.csv'", "PRAGMA version",
         "SET enable_external_access=true", "ATTACH '/tmp/no.db' AS other",
+        "-- model comment\nPrAgMa version", "/* SELECT */ PRAGMA version",
+        "/* outer /* nested */ comment */ PRAGMA version",
+        "WITH x AS (SELECT 1) DELETE FROM sales",
     ])
     def test_rejects_mutations_and_multiple_statements(self, database, sql):
         with SQLExecutor.connect(database) as c:
             with pytest.raises(ValueError, match="SELECT"):
                 SQLExecutor.query(c, sql)
             assert SQLExecutor.query(c, "SELECT count(*) FROM sales")[1] == [[2]]
+
+    @pytest.mark.parametrize("sql", [
+        "-- heading\nSELECT SUM(amount) FROM sales",
+        "/* outer /* nested */ comment */ select SUM(amount) FROM sales",
+        "/* heading */ WITH x AS (SELECT * FROM sales) SELECT SUM(amount) FROM x",
+    ])
+    def test_select_with_leading_comments(self, database, sql):
+        with SQLExecutor.connect(database) as c:
+            assert SQLExecutor.query(c, sql)[1] == [[3]]
+
+    def test_pragma_rejected_before_parser_rewriting(self):
+        class RewritingConnection:
+            def extract_statements(self, sql):
+                pytest.fail("PRAGMA must be rejected before DuckDB can rewrite it to SELECT")
+
+        with pytest.raises(ValueError, match="SELECT"):
+            SQLExecutor.query(RewritingConnection(), "PRAGMA version")
+
+    def test_keywords_in_string_literals_are_allowed(self, database):
+        with SQLExecutor.connect(database) as c:
+            assert SQLExecutor.query(c, "SELECT 'PRAGMA version; -- /* text */'")[1] == [["PRAGMA version; -- /* text */"]]
 
     def test_external_reads_are_disabled(self, database, tmp_path):
         outside = tmp_path / "secret.csv"

@@ -2,6 +2,7 @@
 from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
+import re
 from threading import Timer
 
 import duckdb
@@ -12,6 +13,44 @@ from app.tools.viet_time import parse_cell_date
 
 
 class SQLExecutor:
+    @staticmethod
+    def query_keyword(sql: str) -> str:
+        """Read the original leading keyword, skipping SQL comments (including nested blocks).
+
+        DuckDB 1.x can rewrite PRAGMA into a SELECT during extract_statements;
+        the parsed statement type alone therefore cannot enforce our input contract.
+        This lexical check supplements, rather than replaces, DuckDB's parser.
+        """
+        if not isinstance(sql, str):
+            return ""
+        position = 0
+        while position < len(sql):
+            if sql[position].isspace():
+                position += 1
+            elif sql.startswith("--", position):
+                end = re.search(r"[\r\n]", sql[position + 2:])
+                if end is None:
+                    return ""
+                position += 2 + end.end()
+            elif sql.startswith("/*", position):
+                depth = 1
+                position += 2
+                while position < len(sql) and depth:
+                    if sql.startswith("/*", position):
+                        depth += 1
+                        position += 2
+                    elif sql.startswith("*/", position):
+                        depth -= 1
+                        position += 2
+                    else:
+                        position += 1
+                if depth:
+                    return ""
+            else:
+                keyword = re.match(r"[A-Za-z_][A-Za-z_0-9]*", sql[position:])
+                return keyword[0].upper() if keyword else ""
+        return ""
+
     @staticmethod
     def date_value(value: str):
         return parse_cell_date(value)
@@ -42,6 +81,8 @@ class SQLExecutor:
 
     @staticmethod
     def query(connection, sql: str, *, timeout=30, max_rows=1000):
+        if SQLExecutor.query_keyword(sql) not in {"SELECT", "WITH"}:
+            raise ValueError("Chỉ chấp nhận đúng một câu SELECT/WITH, không cho phép thay đổi dữ liệu")
         statements = connection.extract_statements(sql)
         if len(statements) != 1 or statements[0].type != duckdb.StatementType.SELECT:
             raise ValueError("Chỉ chấp nhận đúng một câu SELECT/WITH, không cho phép thay đổi dữ liệu")
