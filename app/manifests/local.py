@@ -14,7 +14,7 @@ from app.text import norm
 
 
 class LocalManifestGenerator:
-    VERSION = "source-batches-v2"
+    VERSION = "source-batches-v3"
     COLUMNS_PER_BATCH = 12
 
     def __init__(self, llm):
@@ -24,6 +24,33 @@ class LocalManifestGenerator:
     @staticmethod
     def digest(value):
         return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+    @staticmethod
+    def canonicalize_metadata(manifest):
+        """Derive redundant fields from documented semantics, recording every correction.
+
+        Call only after source/evidence validation. Do not infer semantic names,
+        promote unresolved columns, change units, or fill unknown/null metadata.
+        """
+        result, corrections = deepcopy(manifest), []
+        for table in result["tables"]:
+            for column in table["columns"]:
+                if column["status"] != "documented":
+                    continue
+                semantic, updates = column["semantic_name"], {}
+                if semantic in ManifestValidator.COLUMN_CONTRACTS:
+                    expected = ManifestValidator.COLUMN_CONTRACTS[semantic][1]
+                    if column["aggregation"] not in (expected, "unknown"):
+                        updates["aggregation"] = expected
+                if semantic in ManifestValidator.TIME_ROLES and column["time_role"] not in (None, semantic):
+                    updates["time_role"] = semantic
+                for field, value in updates.items():
+                    corrections.append({"source_file": table["source_file"], "source_object": table["source_object"],
+                                        "source_name": column["source_name"], "semantic_name": semantic,
+                                        "field": field, "before": column[field], "after": value,
+                                        "reason": "Derived from documented semantic_name contract"})
+                    column[field] = value
+        return result, corrections
 
     def fit_evidence(self, prompt, schema):
         """Select complete evidence sections for a column batch, never truncate source/schema."""
@@ -91,6 +118,11 @@ class LocalManifestGenerator:
             prompt = {"business_id": directory.name, "target_source": source, "source_index": inventory,
                       "readme_sections": data["readme_sections"], "rulebook_sections": data["rulebook_sections"],
                       "evidence_ids": data["_evidence_ids"],
+                      "column_contracts": {
+                          "documented_semantics": {name: {"unit_basis": unit, "aggregation": aggregation}
+                                                   for name, (unit, aggregation) in ManifestValidator.COLUMN_CONTRACTS.items()},
+                          "time_role_matches_semantic_name": sorted(ManifestValidator.TIME_ROLES),
+                          "note": "Keep genuinely unknown metadata unknown/null. Do not guess semantic_name or units to satisfy these rules."},
                       "instruction": "Map exactly the supplied column batch of this source object. Include ALL supplied columns, no others. "
                                      "Keep undocumented semantics unknown. "
                                      "Include only facts/relationships supported by supplied evidence. "
@@ -106,6 +138,10 @@ class LocalManifestGenerator:
                     part = self.llm.json(BUSINESS_MANIFEST_SYSTEM_PROMPT, request, schema, task="manifest")
                 try:
                     Draft202012Validator(schema).validate(part)
+                    bindings = ManifestValidator.validate(part, data["source_inventory"], data["_evidence_ids"])
+                    if bindings["errors"]:
+                        raise ValueError("; ".join(bindings["errors"]))
+                    part, corrections = self.canonicalize_metadata(part)
                     self.validate(part, data, complete=False)
                     names = {c["source_name"] for c in part["tables"][0]["columns"]}
                     if names != {c["source_name"] for c in source["columns"] if c["source_name"]}:
@@ -113,10 +149,19 @@ class LocalManifestGenerator:
                     break
                 except (ValueError, ValidationError) as exc:
                     if attempt == 2:
+                        JsonStore.write({"error": str(exc), "manifest": part},
+                                        output / "reports" / "failures" / directory.name / f"{key}.json")
                         raise ValueError(f"Invalid manifest for {directory.name}/{source['source_object']}: {exc}") from exc
-                    error = "\nCorrect the previous source mapping: " + str(exc)[:1000]
+                    previous = [{k: c.get(k) for k in ("source_name", "semantic_name", "unit_basis", "time_role", "aggregation")}
+                                for t in part.get("tables", []) for c in t.get("columns", [])]
+                    error = "\nCorrect the source mapping and return complete JSON. " + json.dumps(
+                        {"validation_error": str(exc)[:1000], "previous_columns": previous}, ensure_ascii=False)
                     part = None
             JsonStore.write(part, cache)
+            if corrections:
+                JsonStore.write({"corrections": corrections},
+                                output / "reports" / "normalization" / directory.name / f"{key}.json")
+                print(f"[manifest] normalized {len(corrections)} dependent metadata fields; audit saved", flush=True)
             if prompt.get("omitted_evidence"):
                 part["unresolved"] = ManifestValidator.merge_issues(part["unresolved"], [ManifestValidator.issue(
                     f"context:{source['source_file']}:{source['source_object']}",
@@ -159,7 +204,8 @@ class LocalManifestGenerator:
         report = ManifestValidator.validate(manifest, data["source_inventory"], data["_evidence_ids"])
         for table in manifest["tables"]:
             for column in table["columns"]:
-                report["errors"].extend(ManifestValidator.validate_column_semantics(column))
+                location = f"{table['source_file']}/{table['source_object']}/{column['source_name']}"
+                report["errors"].extend(f"{location}: {message}" for message in ManifestValidator.validate_column_semantics(column))
         if complete and len(manifest["tables"]) != len(data["source_inventory"]["objects"]):
             report["errors"].append("Manifest must cover every source object")
         if report["errors"]:

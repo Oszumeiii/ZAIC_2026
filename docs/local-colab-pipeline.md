@@ -18,6 +18,12 @@ is configured. The optional Gemini SDK dependency supports legacy tests only.
    validate schema, source names, evidence references and semantic constraints.
    Unknown semantics remain unresolved. Existing source-dataset manifests are
    not treated as newly generated Qwen results.
+   For documented semantic names, conflicting redundant aggregation/time-role
+   metadata is canonicalized using the same contracts as the validator. Source
+   names, references, units and unknown/null values are not changed. Corrections
+   are recorded under `manifests/<split>/reports/normalization/<business>/`.
+   Remaining invalid mappings are retried with the previous column metadata;
+   exhausted failures are saved under `reports/failures/<business>/`.
 3. Ingest calendar and all businesses through the existing Raw/Typed/Semantic
    pipeline. Store DuckDB, catalog, guides and quality reports before inference.
 4. Verify source fingerprints and database tables. Missing/stale preparation

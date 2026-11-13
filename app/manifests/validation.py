@@ -4,6 +4,15 @@
 class ManifestValidator:
     """Validate source bindings, semantic constraints and coverage."""
 
+    COLUMN_CONTRACTS = {
+        'line_amount': ('currency', 'sum'),
+        'payment_amount': ('currency', 'sum'),
+        'base_quantity': ('base_unit', 'sum'),
+        'stock_balance': ('base_unit', 'last'),
+        'unit_cost': ('sale_unit', 'none'),
+    }
+    TIME_ROLES = frozenset({'order_date', 'payment_date', 'movement_time', 'effective_date'})
+
     @staticmethod
     def issue(topic, reason, needed='Provide source-specific evidence for this mapping.'):
         return {'topic': topic, 'reason': reason, 'needed_evidence': needed}
@@ -109,13 +118,7 @@ class ManifestValidator:
             return []
         semantic = column['semantic_name']
         errors = []
-        expected = {
-            'line_amount': ('currency', 'sum'),
-            'payment_amount': ('currency', 'sum'),
-            'base_quantity': ('base_unit', 'sum'),
-            'stock_balance': ('base_unit', 'last'),
-            'unit_cost': ('sale_unit', 'none'),
-        }
+        expected = ManifestValidator.COLUMN_CONTRACTS
         if semantic in expected:
             unit, aggregation = expected[semantic]
             if column['unit_basis'] not in (unit, 'unknown'):
@@ -124,7 +127,7 @@ class ManifestValidator:
                 errors.append(f'{semantic} requires aggregation={aggregation}')
         if semantic in {'unit_price', 'unit_conversion_factor'} and column['aggregation'] == 'sum':
             errors.append(f'{semantic} cannot be summed as a line amount')
-        if semantic in {'order_date', 'payment_date', 'movement_time', 'effective_date'}:
+        if semantic in ManifestValidator.TIME_ROLES:
             if column['time_role'] not in (None, semantic):
                 errors.append(f'{semantic} has conflicting time_role={column["time_role"]}')
         return errors

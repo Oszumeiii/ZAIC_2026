@@ -30,7 +30,7 @@ class LocalTransport:
 
     def generate_with_options(self, system, prompt, **options):
         self.calls.append((system, prompt, options))
-        request = json.loads(prompt)
+        request, _ = json.JSONDecoder().raw_decode(prompt)  # retries append validation feedback
         if "target_source" in request:
             source = request["target_source"]
             result = deepcopy(self.manifest)
@@ -130,3 +130,74 @@ def test_manifest_batches_cover_wide_source_without_duplicate_tables(tmp_path):
     assert len(result["tables"]) == 1
     assert len(result["tables"][0]["columns"]) == 25
     assert len(transport.calls) == 3
+
+
+@pytest.fixture
+def conflicting_manifest(tmp_path):
+    from app.manifests.migration import ManifestMigrator
+    business = tmp_path / "data" / "biz_101"
+    business.mkdir(parents=True)
+    (business / "ban_hang.csv").write_text("Ngày tháng,Thanh tien,Quy ra ĐV lẻ\n2026-08-24,12000,6\n")
+    (business / "README.md").write_text(
+        "# Dữ liệu biz_101\n## Quy ước\nNgày tháng là ngày bán, Thanh tien là thành tiền sau giảm, "
+        "Quy ra ĐV lẻ là số lượng đã đổi ra đơn vị cơ bản.\n")
+    draft = BusinessManifestService.build_draft(business)
+    table = draft["tables"][0]
+    table["columns"] = [ManifestMigrator.mapped_column(name, description, ["readme.conventions"]) for name, description in (
+        ("Ngày tháng", "ngày bán"), ("Thanh tien", "thành tiền sau giảm"),
+        ("Quy ra ĐV lẻ", "số lượng đã đổi ra đơn vị cơ bản"))]
+    table["columns"][0]["time_role"] = "transaction_date"
+    table["columns"][1]["aggregation"] = "none"
+    table["columns"][2]["aggregation"] = "none"
+    return business, draft
+
+
+def test_biz101_metadata_conflicts_are_canonicalized_and_audited(conflicting_manifest, tmp_path):
+    from app.manifests.local import LocalManifestGenerator
+    from app.manifests.validation import ManifestValidator
+    business, draft = conflicting_manifest
+    assert len([e for c in draft["tables"][0]["columns"] for e in ManifestValidator.validate_column_semantics(c)]) == 3
+    transport = LocalTransport(draft)
+    generator = LocalManifestGenerator(LocalLLMService(transport, Config()))
+    output = tmp_path / "manifests"
+    path = generator.generate(business, "", output)
+    result = json.loads(path.read_text())
+    columns = result["tables"][0]["columns"]
+    assert columns[0]["time_role"] == "order_date"
+    assert columns[1]["aggregation"] == columns[2]["aggregation"] == "sum"
+    assert all(ManifestValidator.validate_column_semantics(c) == [] for c in columns)
+    changes = json.loads(next((output / "reports/normalization/biz_101").glob("*.json")).read_text())["corrections"]
+    assert len(changes) == 3
+    assert {c["source_name"] for c in changes} == {"Ngày tháng", "Thanh tien", "Quy ra ĐV lẻ"}
+    assert draft["tables"][0]["columns"][0]["time_role"] == "transaction_date"  # no mutation of model reply
+    generator.generate(business, "", output)
+    assert len(transport.calls) == 1
+
+
+def test_metadata_normalization_preserves_unknowns_and_unit_errors(conflicting_manifest):
+    from app.manifests.local import LocalManifestGenerator
+    from app.manifests.validation import ManifestValidator
+    _, draft = conflicting_manifest
+    columns = draft["tables"][0]["columns"]
+    columns[0]["time_role"] = None
+    columns[1]["aggregation"] = "unknown"
+    columns[1]["unit_basis"] = "base_unit"
+    columns[2]["status"] = "unresolved"
+    result, changes = LocalManifestGenerator.canonicalize_metadata(draft)
+    assert result == draft and not changes
+    assert any("unit_basis=currency" in e for e in ManifestValidator.validate_column_semantics(result["tables"][0]["columns"][1]))
+
+
+def test_metadata_normalization_does_not_accept_invalid_evidence(conflicting_manifest, tmp_path):
+    from app.manifests.local import LocalManifestGenerator
+    business, draft = conflicting_manifest
+    draft["tables"][0]["columns"][0]["source_refs"] = ["invented.reference"]
+    transport = LocalTransport(draft)
+    generator = LocalManifestGenerator(LocalLLMService(transport, Config()))
+    output = tmp_path / "manifests"
+    with pytest.raises(ValueError, match="Unknown column evidence"):
+        generator.generate(business, "", output)
+    assert not (output / "biz_101.json").exists()
+    assert len(transport.calls) == 3
+    assert "previous_columns" in transport.calls[-1][1]
+    assert list((output / "reports/failures/biz_101").glob("*.json"))
