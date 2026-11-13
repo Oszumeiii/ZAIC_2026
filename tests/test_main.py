@@ -19,3 +19,21 @@ def test_cli_exemplars_and_no_hints():
 def test_cli_max_model_len_flag():
     p = add_common_args(argparse.ArgumentParser())
     assert config_from_args(p.parse_args(["--backend", "gemini", "--max-model-len", "12288"])).max_model_len == 12288
+
+
+def test_cli_hf_quant_flag():
+    p = add_common_args(argparse.ArgumentParser())
+    assert config_from_args(p.parse_args(["--backend", "gemini", "--hf-quant", "none"])).hf_quant == "none"
+    assert config_from_args(p.parse_args(["--backend", "gemini"])).hf_quant == "auto"
+
+
+def test_qwen3_models_turn_thinking_off_by_default():
+    p = add_common_args(argparse.ArgumentParser())
+    cfg = config_from_args(p.parse_args(["--backend", "local", "--local-model", "Qwen/Qwen3.5-9B"]))
+    assert cfg.chat_kwargs == {"enable_thinking": False}
+
+
+def test_other_models_keep_chat_kwargs_empty():
+    p = add_common_args(argparse.ArgumentParser())
+    cfg = config_from_args(p.parse_args(["--backend", "local", "--local-model", "Qwen/Qwen2.5-Coder-7B-Instruct"]))
+    assert cfg.chat_kwargs == {}

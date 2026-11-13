@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 
 BACKENDS = ("local", "gemini")
 LOCAL_ENGINES = ("auto", "vllm", "hf")
+HF_QUANT_MODES = ("auto", "4bit", "none")
 
 
 @dataclass
@@ -56,6 +57,7 @@ class Config:
     lora_rank: int = 64
     local_engine: str = "auto"        # "auto" | "vllm" | "hf"
     hf_base_model: str | None = None  # model gốc fp16 khi engine hf gặp bản AWQ/GPTQ
+    hf_quant: str = "auto"            # engine hf: "auto" (nén 4-bit chỉ khi VRAM không đủ cho bf16) | "4bit" | "none" (bf16 đầy đủ, nhanh hơn)
     tensor_parallel: int = 1
     vllm_extra: dict = field(default_factory=lambda: {"enforce_eager": True})
     vllm_env: dict = field(default_factory=lambda: {"VLLM_ENABLE_V1_MULTIPROCESSING": "0"})
@@ -74,6 +76,8 @@ class Config:
             raise ValueError(f"backend phải thuộc {BACKENDS}, nhận {self.backend!r}")
         if self.local_engine not in LOCAL_ENGINES:
             raise ValueError(f"local_engine phải thuộc {LOCAL_ENGINES}, nhận {self.local_engine!r}")
+        if self.hf_quant not in HF_QUANT_MODES:
+            raise ValueError(f"hf_quant phải thuộc {HF_QUANT_MODES}, nhận {self.hf_quant!r}")
         if not 1 <= self.agree_min <= self.n_samples:
             raise ValueError("cần 1 <= agree_min <= n_samples")
         if any(v > self.n_samples for v in self.min_agree_by_type.values()):

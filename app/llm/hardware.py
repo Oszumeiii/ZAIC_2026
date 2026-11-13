@@ -8,6 +8,7 @@ from app.config import Config
 MODEL_14B = "Qwen/Qwen2.5-Coder-14B-Instruct"          # ~14,7B tham số: dưới trần 15B (cần kiểm cách tính của ban tổ chức)
 MODEL_14B_AWQ = "Qwen/Qwen2.5-Coder-14B-Instruct-AWQ"  # bản nén 4-bit cho GPU 24GB; CHƯA xác nhận tên repo còn tồn tại
 MODEL_7B = "Qwen/Qwen2.5-Coder-7B-Instruct"
+MODEL_9B = "Qwen/Qwen3.5-9B"                            # 9,65B tham số, bf16 ~19GB; cần transformers >= 5.2
 
 
 def detect_gpu() -> dict:
@@ -24,13 +25,9 @@ def detect_gpu() -> dict:
 
 
 def recommend(vram_gb: float) -> dict:
-    """Cấu hình model theo VRAM của MỘT GPU. Ngưỡng dựa trên ước tính kích thước trọng số, chưa đo trên máy thật."""
-    # engine "auto": dùng vLLM nếu đã cài, không thì transformers + bitsandbytes 4-bit (chậm hơn nhưng không lỗi)
-    if vram_gb >= 38:       # A100 40/80GB: 14B bf16 (~29GB) + KV cache
-        return {"local_model": MODEL_14B, "local_engine": "auto", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
-    if vram_gb >= 22:       # L4 / A10 24GB: 14B nén 4-bit (~9,5GB)
-        return {"local_model": MODEL_14B_AWQ, "local_engine": "auto", "max_model_len": 16384, "gpu_memory_utilization": 0.90}
-    return {"local_model": MODEL_7B, "local_engine": "hf", "max_model_len": 16384, "gpu_memory_utilization": 0.88}
+    """Cấu hình model theo VRAM của MỘT GPU. Qwen3.5-9B chạy engine hf (vLLM cho Qwen3.5 chưa kiểm): GPU >= ~25GB nạp bf16 đầy đủ,
+    GPU nhỏ hơn (L4, T4) tự nén 4-bit khi nạp (hf_quant=auto). Ngưỡng dựa trên ước tính kích thước trọng số, chưa đo trên máy thật."""
+    return {"local_model": MODEL_9B, "local_engine": "hf", "max_model_len": 16384, "gpu_memory_utilization": 0.88}
 
 
 def apply_recommendation(cfg: Config, gpu: dict | None = None) -> Config:

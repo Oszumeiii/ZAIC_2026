@@ -9,6 +9,7 @@ from pathlib import Path
 from app.agent.pipeline import run_inference
 from app.config import Config
 from app.llm import create_backend
+from app.llm.local_common import is_qwen3_family
 
 
 def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -35,6 +36,8 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--temperature", type=float)
     p.add_argument("--max-model-len", type=int, help="tổng token tối đa (prompt + trả lời); giảm khi hết VRAM, vd 12288")
     p.add_argument("--max-retry", type=int)
+    p.add_argument("--hf-quant", choices=["auto", "4bit", "none"],
+                   help="engine hf: none = nạp bf16 đầy đủ (nhanh), 4bit = nén bitsandbytes (ít VRAM, chậm); auto = theo VRAM")
     p.add_argument("--no-llm", action="store_true", help="không gọi model (chỉ luật, nếu bật)")
     p.add_argument("--exemplars", help="kho few-shot (.jsonl) dựng từ train bằng evaluation.run_eval --build-exemplars")
     p.add_argument("--no-hints", action="store_true", help="tắt gợi ý tất định (khoảng thời gian, giá trị khớp)")
@@ -52,7 +55,8 @@ def config_from_args(a: argparse.Namespace) -> Config:
                "per_biz": a.per_biz, "limit_test": a.limit_test, "time_budget_s": a.time_budget,
                "n_samples": a.n_samples, "agree_min": a.agree_min, "gemini_model": a.gemini_model,
                "local_model": a.local_model, "local_engine": a.local_engine, "local_lora": a.local_lora,
-               "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len}
+               "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len,
+               "hf_quant": a.hf_quant}
     mapping["exemplar_path"] = a.exemplars
     mapping.update(query_engine=a.query_engine, database_dir=a.database_dir,
                    ingestion_overrides=json.loads(a.ingestion_overrides.read_text()) if a.ingestion_overrides else {},
@@ -66,6 +70,9 @@ def config_from_args(a: argparse.Namespace) -> Config:
         gpu = detect_gpu()
         cfg = apply_recommendation(cfg, gpu)
         print(f"GPU {gpu['name']} {gpu['vram_gb']}GB -> model {cfg.local_model} engine {cfg.local_engine}")
+    if cfg.is_local and not cfg.chat_kwargs and is_qwen3_family(cfg.local_model):
+        cfg.chat_kwargs = {"enable_thinking": False}      # Qwen3/3.5 mặc định suy nghĩ dài: tắt để 1024 token đủ cho code
+        print("Họ Qwen3: tự đặt enable_thinking=False")
     return cfg
 
 

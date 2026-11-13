@@ -6,7 +6,8 @@ import re
 
 from app.config import Config
 from .base import GenerationError, LLMBackend
-from .local_common import has_module, is_prequantized, quant_method, resolve_model_path
+from .local_common import (has_module, is_hybrid_model, is_prequantized, quant_method, resolve_model_path,
+                           sampling_kwargs, use_4bit, weights_gb)
 
 
 def hf_model_path(cfg: Config, path: str) -> str:
@@ -49,15 +50,25 @@ class HFBackend(LLMBackend):
         path = hf_model_path(cfg, path)
         self.tok = AutoTokenizer.from_pretrained(path)
         use_cuda = n_gpu > 0
+        vram_gb = torch.cuda.get_device_properties(0).total_memory / 1e9 if use_cuda else 0.0
+        quant4 = use_cuda and not is_prequantized(path) and use_4bit(cfg.hf_quant, vram_gb, weights_gb(path))
+        self.quant = "4bit" if quant4 else "full"
+        self.hybrid = is_hybrid_model(path)   # Qwen3.5: không dùng prefill_chunked (cache lai linear-attention)
         kw: dict = {"attn_implementation": "sdpa"}
         if use_cuda:
             kw["device_map"] = {"": 0}        # 1 GPU: 7B 4-bit chỉ ~5,5GB; chia qua 2 T4 chỉ thêm độ trễ
-            if not is_prequantized(path):     # model gốc fp16 -> nén 4-bit NF4 khi nạp (khớp cách QLoRA huấn luyện)
+            if quant4:                        # model gốc fp16 -> nén 4-bit NF4 khi nạp (khớp cách QLoRA huấn luyện)
                 from transformers import BitsAndBytesConfig
                 kw["quantization_config"] = BitsAndBytesConfig(
                     load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.float16,
                     bnb_4bit_use_double_quant=True)
-        dtype = torch.float16 if use_cuda else torch.float32
+        if not use_cuda:
+            dtype = torch.float32
+        elif quant4 or is_prequantized(path) or not torch.cuda.is_bf16_supported():
+            dtype = torch.float16
+        else:
+            dtype = torch.bfloat16            # Qwen3.5 huấn luyện bằng bf16; fp16 dễ tràn số
+        print(f"[hf] {path} | GPU {vram_gb:.0f}GB | nạp {self.quant} | {dtype} | lai linear-attention: {self.hybrid}")
         try:
             model = AutoModelForCausalLM.from_pretrained(path, dtype=dtype, **kw)          # transformers mới
         except TypeError:
@@ -65,11 +76,13 @@ class HFBackend(LLMBackend):
         if cfg.local_lora:
             from peft import PeftModel
             model = PeftModel.from_pretrained(model, cfg.local_lora)
+            if not quant4:                    # nạp đầy đủ thì gộp LoRA vào trọng số: sinh nhanh hơn, không còn nhánh LoRA mỗi lớp
+                model = model.merge_and_unload()
         self.model = model.eval()
 
     def tag(self) -> str:
         c = self.cfg
-        return f"local|{c.local_model}|{c.local_lora}|hf|T{c.temperature}|L{c.max_model_len}"
+        return f"local|{c.local_model}|{c.local_lora}|hf-{self.quant}|T{c.temperature}|L{c.max_model_len}"
 
     def count_tokens(self, text: str) -> int:
         return len(self.tok(text, add_special_tokens=False).input_ids)
@@ -83,10 +96,10 @@ class HFBackend(LLMBackend):
         prompt_len = ids.shape[1]
 
         def run(k: int) -> list[str]:
-            sample = (dict(do_sample=True, temperature=cfg.temperature, top_p=0.95)
+            sample = (dict(do_sample=True, **sampling_kwargs(cfg.local_model, cfg.temperature))
                       if cfg.temperature > 0 else dict(do_sample=False))
             x, extra = ids, {}
-            if cfg.prefill_chunk:
+            if cfg.prefill_chunk and not self.hybrid:
                 cache = prefill_chunked(self.model, ids, cfg.prefill_chunk)
                 if k > 1:
                     cache.batch_repeat_interleave(k)
