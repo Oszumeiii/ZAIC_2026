@@ -26,7 +26,9 @@ class SQLContextBuilder:
             raise ValueError("business_id không hợp lệ")
         output = Path(self.cfg.database_dir) / business_id / "current"
         database = output / "data.duckdb"
-        manifest = root / "manifests" / f"{business_id}.json"
+        manifest = (Path(self.cfg.manifest_dir) if self.cfg.manifest_dir else root / "manifests") / f"{business_id}.json"
+        if self.cfg.require_prepared_database and not manifest.is_file():
+            raise ValueError(f"Missing prepared manifest: {manifest}")
         manifest = manifest if manifest.exists() else None
         overrides = self.cfg.ingestion_overrides.get(business_id, split.ingestion_overrides.get(business_id))
         signature = IngestionPipeline.input_fingerprint(business_dir, rulebook=split.rulebook, manifest_path=manifest, overrides=overrides)
@@ -39,6 +41,8 @@ class SQLContextBuilder:
                 pass  # Old/incomplete cache: rebuild from sources.
         if (catalog is None or catalog.get("pipeline_version") != PIPELINE_VERSION
                 or catalog.get("input_fingerprint") != signature):
+            if self.cfg.require_prepared_database:
+                raise ValueError(f"Database missing or stale: {database}; run prepare_datasets() first")
             catalog = IngestionPipeline.ingest(business_dir, output, manifest,
                 rulebook=split.rulebook, overrides=overrides)
         if catalog["business_id"] != business_id:

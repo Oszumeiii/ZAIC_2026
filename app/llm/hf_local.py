@@ -7,7 +7,7 @@ import re
 from app.config import Config
 from .base import GenerationError, LLMBackend
 from .local_common import (has_module, is_hybrid_model, is_prequantized, quant_method, resolve_model_path,
-                           sampling_kwargs, use_4bit, weights_gb)
+                           sampling_kwargs, use_4bit, weights_gb, read_text_config)
 
 
 def hf_model_path(cfg: Config, path: str) -> str:
@@ -69,10 +69,15 @@ class HFBackend(LLMBackend):
         else:
             dtype = torch.bfloat16            # Qwen3.5 huấn luyện bằng bf16; fp16 dễ tràn số
         print(f"[hf] {path} | GPU {vram_gb:.0f}GB | nạp {self.quant} | {dtype} | lai linear-attention: {self.hybrid}")
+        model_class = AutoModelForCausalLM
+        if read_text_config(path).get("model_type") == "qwen3_5_text":
+            # Official text-only loader also accepts the composite Qwen3.5 checkpoint.
+            from transformers import Qwen3_5ForCausalLM
+            model_class = Qwen3_5ForCausalLM
         try:
-            model = AutoModelForCausalLM.from_pretrained(path, dtype=dtype, **kw)          # transformers mới
+            model = model_class.from_pretrained(path, dtype=dtype, **kw)
         except TypeError:
-            model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=dtype, **kw)
+            model = model_class.from_pretrained(path, torch_dtype=dtype, **kw)
         if cfg.local_lora:
             from peft import PeftModel
             model = PeftModel.from_pretrained(model, cfg.local_lora)
@@ -88,16 +93,30 @@ class HFBackend(LLMBackend):
         return len(self.tok(text, add_special_tokens=False).input_ids)
 
     def generate(self, system: str, prompt: str, n: int = 1) -> list[str]:
+        return self.generate_with_options(system, prompt, n=n)
+
+    def prompt_tokens(self, system: str, prompt: str) -> int:
+        text = self.tok.apply_chat_template(
+            [{"role": "system", "content": system}, {"role": "user", "content": prompt}],
+            tokenize=False, add_generation_prompt=True, **self.cfg.chat_kwargs)
+        return len(self.tok(text, add_special_tokens=False).input_ids)
+
+    def generate_with_options(self, system: str, prompt: str, n: int = 1,
+                              max_new_tokens: int | None = None, temperature: float | None = None) -> list[str]:
         """n lời giải trong MỘT lượt (prefill một lần rồi nhân bản cache); hết VRAM thì tách lẻ từng mẫu."""
         torch, cfg, tok = self._torch, self.cfg, self.tok
         msgs = [{"role": "system", "content": system}, {"role": "user", "content": prompt}]
         text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, **cfg.chat_kwargs)
         ids = tok(text, return_tensors="pt", add_special_tokens=False)["input_ids"].to(self.model.device)
         prompt_len = ids.shape[1]
+        output_tokens = max_new_tokens if max_new_tokens is not None else cfg.max_new_tokens
+        temp = cfg.temperature if temperature is None else temperature
+        if prompt_len + output_tokens > cfg.max_model_len:
+            raise GenerationError(f"Context too long: {prompt_len} prompt + {output_tokens} output > {cfg.max_model_len}")
 
         def run(k: int) -> list[str]:
-            sample = (dict(do_sample=True, **sampling_kwargs(cfg.local_model, cfg.temperature))
-                      if cfg.temperature > 0 else dict(do_sample=False))
+            sample = (dict(do_sample=True, **sampling_kwargs(cfg.local_model, temp))
+                      if temp > 0 else dict(do_sample=False))
             x, extra = ids, {}
             if cfg.prefill_chunk and not self.hybrid:
                 cache = prefill_chunked(self.model, ids, cfg.prefill_chunk)
@@ -108,7 +127,7 @@ class HFBackend(LLMBackend):
                 x = ids.repeat(k, 1)
             with torch.no_grad():
                 out = self.model.generate(input_ids=x, attention_mask=torch.ones_like(x),
-                                          max_new_tokens=cfg.max_new_tokens, pad_token_id=tok.eos_token_id,
+                                          max_new_tokens=output_tokens, pad_token_id=tok.eos_token_id,
                                           **extra, **sample)
             return [tok.decode(o[prompt_len:], skip_special_tokens=True) for o in out]
 

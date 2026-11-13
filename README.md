@@ -2,6 +2,11 @@
 
 Agent hỏi đáp dữ liệu bảng bằng tiếng Việt, phát triển cho **Zalo AI Challenge 2026, nhiệm vụ DataMate (Track 2)**.
 
+Chạy toàn bộ pipeline SQL trên Colab Pro bằng Qwen local: xem
+[notebook](notebooks/colab_pro.ipynb) và [hướng dẫn](docs/local-colab-pipeline.md).
+Luồng này tạo manifest, dựng DuckDB cho cả train/public test trước agent, rồi dùng
+Qwen để rewrite và sinh SQL; không cần Gemini API key.
+
 Với mỗi câu hỏi về dữ liệu của một doanh nghiệp nhỏ (CSV, XLSX, SQLite), hệ thống sinh mã pandas, thực thi và trả về
 đáp án đúng định dạng yêu cầu. Cuộc thi chấm theo **Penalized Accuracy (PA)**: trả lời đúng +1 điểm, từ chối trả lời
 (abstain) 0 điểm, trả lời sai −1 điểm. Vì vậy hệ thống chỉ trả lời khi đủ độ tin cậy; các trường hợp còn lại được ghi

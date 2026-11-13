@@ -119,6 +119,8 @@ class SQLSolver(Solver):
         question_context = self.builder.question_context(context, original, rewritten, r.as_of_date, split.calendar)
         if not self.cfg.use_hints:
             question_context.pop("time_hint", None)
+        if hasattr(self.backend, "fit_sql_context"):
+            question_context = self.backend.fit_sql_context(question_context, SQL_SYSTEM, SQL_SCHEMA)
         prompt = json.dumps(question_context, ensure_ascii=False, default=str)
         samples, errors, votes = [], [], Counter()
         decision = None

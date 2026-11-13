@@ -46,9 +46,11 @@ class Config:
     backend: str = "local"            # "local" | "gemini"
     query_engine: str = "sql"         # sql (DuckDB) | pandas (baseline)
     database_dir: str = "data/cache"
+    manifest_dir: str | None = None
+    require_prepared_database: bool = False
     ingestion_overrides: dict = field(default_factory=dict)
     rebuild_database: bool = False
-    rewrite_questions: bool = True   # Gemini only; local backend keeps original text
+    rewrite_questions: bool = True
     limit_train: int | None = None
     gemini_model: str = "gemini-3.5-flash"
     thinking: str = "low"             # thinking_level của Gemini

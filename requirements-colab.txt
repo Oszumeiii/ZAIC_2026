@@ -1,0 +1,17 @@
+# Colab supplies CUDA-enabled torch. The full local pipeline uses HF, not vLLM.
+transformers>=5.2,<6
+huggingface_hub
+accelerate
+bitsandbytes
+peft
+pandas
+numpy
+duckdb>=1.4,<2
+jsonschema>=4
+openpyxl>=3.1
+xlrd>=2.0.1
+pyarrow
+pytest
+python-dotenv
+# Needed only by the legacy Gemini modules and their tests; no API key is used.
+google-genai>=1
