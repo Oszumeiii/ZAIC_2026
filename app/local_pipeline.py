@@ -115,16 +115,19 @@ class LocalSQLPipeline:
                        out_dir=str(out / split), database_dir=str(out / "databases" / split),
                        manifest_dir=str(out / "manifests" / split), run_name="qwen_local_full")
 
-    def prepare_datasets(self):
+    def prepare_datasets(self, splits=("train", "public_test")):
+        splits = (splits,) if isinstance(splits, str) else tuple(splits)
+        if not splits or any(split not in ("train", "public_test") for split in splits):
+            raise ValueError("splits must contain train and/or public_test")
         # Validate inputs before downloading/loading model weights.
-        for split in ("train", "public_test"):
+        for split in splits:
             root = Path(self.config.dataset_dir).resolve() / split
             DatasetPreparationPipeline.businesses(root)
             for name in ("rulebook.md", "calendar.csv"):
                 if not (root / name).is_file():
                     raise FileNotFoundError(root / name)
         pipeline = DatasetPreparationPipeline(self.config, self.llm)
-        return {split: pipeline.prepare(split) for split in ("train", "public_test")}
+        return {split: pipeline.prepare(split) for split in splits}
 
     def validate_databases(self, splits=("train", "public_test")):
         import duckdb

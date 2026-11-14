@@ -88,6 +88,22 @@ def test_raw_data_to_manifests_duckdb_evaluation_and_submission(pipeline):
     assert all('"answers"' not in prompt for _, prompt, _ in transport.calls)
 
 
+@pytest.mark.parametrize("split", ["train", "public_test"])
+def test_selected_split_runs_without_other_dataset(pipeline, split):
+    import shutil
+    runner, _ = pipeline
+    other = "public_test" if split == "train" else "train"
+    shutil.rmtree(Path(runner.config.dataset_dir) / other)
+    assert set(runner.prepare_datasets(splits=(split,))) == {split}
+    assert all(row["split"] == split for row in runner.validate_databases((split,)))
+    assert not (Path(runner.config.out_dir) / "databases" / other).exists()
+    if split == "train":
+        runner.smoke_test()
+        runner.evaluate()
+    else:
+        assert runner.predict_public_test().is_file()
+
+
 def test_agent_requires_preparation_and_detects_source_changes(pipeline):
     runner, _ = pipeline
     with pytest.raises(RuntimeError, match="Missing prepared"):
