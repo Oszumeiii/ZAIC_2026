@@ -64,7 +64,7 @@ class Config:
     vllm_extra: dict = field(default_factory=lambda: {"enforce_eager": True})
     vllm_env: dict = field(default_factory=lambda: {"VLLM_ENABLE_V1_MULTIPROCESSING": "0"})
     max_model_len: int = 16384        # tổng token tối đa (prompt + trả lời)
-    max_new_tokens: int = 1024
+    max_new_tokens: int = 4096
     prefill_chunk: int = 512          # engine hf: nạp prompt từng đoạn để khỏi OOM (0 = tắt)
     gpu_memory_utilization: float = 0.88
     temperature: float = 0.7          # phải > 0 để các lần sinh độc lập khác nhau
