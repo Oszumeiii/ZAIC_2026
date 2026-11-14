@@ -1,5 +1,10 @@
 # ZAIC 2026 — offline SQL worker
 
+For a **single A100 80 GB**, follow [the A100 server guide](A100.md) (inside the
+image: `/code/docker/A100.md`). Set `DATAMATE_TENSOR_PARALLEL=1` on `docker run`;
+the competition default remains two GPUs. Actual configuration is logged in
+`/result/logs/run.json`. A100 hardware execution has not yet been verified.
+
 ## Container contract
 
 `/code/predict.sh` is the image entrypoint. BTC mounts the dataset at `/data`

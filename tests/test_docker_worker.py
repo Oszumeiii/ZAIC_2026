@@ -48,7 +48,11 @@ def dataset(tmp_path):
     return root, manifest
 
 
-def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch):
+@pytest.mark.parametrize('parallel', [None, '1'])
+def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch, parallel):
+    monkeypatch.delenv('DATAMATE_TENSOR_PARALLEL', raising=False)
+    if parallel:
+        monkeypatch.setenv('DATAMATE_TENSOR_PARALLEL', parallel)
     root, manifest = dataset(tmp_path)
     original_read = Path.read_text
     def read(path, *args, **kwargs):
@@ -63,7 +67,11 @@ def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch):
     for i in range(2):
         output = tmp_path / f'output{i}'
         backend = Transport(manifest)
-        assert run(root, output, tmp_path/'model', backend_factory=lambda cfg: backend, verify_weights=False) == 0
+        def factory(cfg):
+            assert cfg.tensor_parallel == int(parallel or '2')
+            return backend
+        assert run(root, output, tmp_path/'model', backend_factory=factory, verify_weights=False) == 0
+        assert json.loads((output/'logs/run.json').read_text())['config']['tensor_parallel'] == int(parallel or '2')
         outputs.append((output/'submission.jsonl').read_bytes())
         assert validate_submission(str(output/'submission.jsonl'), ['q0','q1']) == []
         logs = [json.loads(p.read_text()) for p in sorted((output/'logs').glob('question_*.json'))]
@@ -76,6 +84,42 @@ def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch):
         assert backend.seeds[-1] == seed_for(json.loads((root/'questions.jsonl').read_text().splitlines()[-1]))
     assert outputs[0] == outputs[1]
     assert hashes == {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in hashes}
+
+
+def test_single_gpu_preflight_never_accesses_second_device():
+    from types import SimpleNamespace
+    from docker.worker import gpu_preflight
+    devices = []
+    class Probe:
+        def __matmul__(self, other): return self
+        def float(self): return self
+        def sum(self): return self
+        def item(self): return 32768
+    def device_name(index):
+        assert index == 0
+        return 'A100'
+    def ones(shape, dtype, device):
+        devices.append(device)
+        return Probe()
+    torch = SimpleNamespace(__version__='fixture', version=SimpleNamespace(cuda='12.8'),
+        bfloat16='bf16', ones=ones, cuda=SimpleNamespace(is_available=lambda: True,
+        device_count=lambda: 1, get_device_name=device_name,
+        get_device_capability=lambda i: (8, 0),
+        can_device_access_peer=lambda *a: pytest.fail('No second device')))
+    assert gpu_preflight(torch, 1)['peer_access_0_1'] is None
+    assert devices == ['cuda:0']
+    with pytest.raises(RuntimeError, match='requires 2 CUDA'):
+        gpu_preflight(torch, 2)
+
+
+def test_invalid_gpu_override_preserves_submission(tmp_path, monkeypatch):
+    root, _ = dataset(tmp_path)
+    monkeypatch.setenv('DATAMATE_TENSOR_PARALLEL', 'auto')
+    with pytest.raises(ValueError, match='must be 1 or 2'):
+        run(root, tmp_path/'out', tmp_path/'model',
+            backend_factory=lambda cfg: pytest.fail('Invalid config must not load model'), verify_weights=False)
+    assert validate_submission(str(tmp_path/'out/submission.jsonl'), ['q0','q1']) == []
+    assert 'must be 1 or 2' in json.loads((tmp_path/'out/logs/fatal.json').read_text())['error']
 
 
 def test_deadline_leaves_valid_pending_answers(tmp_path):

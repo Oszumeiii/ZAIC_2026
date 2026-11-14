@@ -75,6 +75,25 @@ def seed_for(question, seed=2026):
     return int.from_bytes(hashlib.sha256(text.encode()).digest()[:4], 'big')
 
 
+def gpu_preflight(torch, tensor_parallel):
+    if not torch.cuda.is_available() or torch.cuda.device_count() < tensor_parallel:
+        raise RuntimeError(f'Worker requires {tensor_parallel} CUDA GPU(s); '
+                           'set DATAMATE_TENSOR_PARALLEL=1 for a single A100')
+    cuda = tuple(int(v) for v in torch.version.cuda.split('.')[:2])
+    if cuda < (12, 8):
+        raise RuntimeError('Worker image requires CUDA >= 12.8')
+    hardware = {'torch': torch.__version__, 'cuda': torch.version.cuda,
+                'tensor_parallel': tensor_parallel,
+                'devices': [torch.cuda.get_device_name(i) for i in range(tensor_parallel)],
+                'compute_capability': [torch.cuda.get_device_capability(i) for i in range(tensor_parallel)],
+                'peer_access_0_1': torch.cuda.can_device_access_peer(0, 1) if tensor_parallel > 1 else None}
+    for index in range(tensor_parallel):
+        probe = torch.ones((32, 32), dtype=torch.bfloat16, device=f'cuda:{index}')
+        if (probe @ probe).float().sum().item() != 32768:
+            raise RuntimeError(f'CUDA BF16 preflight failed on GPU {index}')
+    return hardware
+
+
 def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weights=True):
     started = time.monotonic()
     deadline = started + seconds
@@ -103,27 +122,17 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
                      database_dir=str(work / 'databases'), manifest_dir=str(work / 'manifests'),
                      out_dir=str(output), test_dir=str(data))
         try:
+            parallel = os.environ.get('DATAMATE_TENSOR_PARALLEL', '2')
+            if parallel not in ('1', '2'):
+                raise ValueError('DATAMATE_TENSOR_PARALLEL must be 1 or 2')
+            cfg.tensor_parallel = int(parallel)
             manifest = verify(model) if verify_weights else {'test_fixture': True}
             if time.monotonic() >= deadline:
                 return 0
             hardware = {"test_backend": backend_factory is not None}
             if backend_factory is None:
                 import torch
-                if not torch.cuda.is_available() or torch.cuda.device_count() < 2:
-                    raise RuntimeError('Frozen worker requires two CUDA GPUs')
-                cuda = tuple(int(v) for v in torch.version.cuda.split('.')[:2])
-                if cuda < (12, 8):
-                    raise RuntimeError('Blackwell requires CUDA >= 12.8')
-                hardware = {"torch": torch.__version__, "cuda": torch.version.cuda,
-                            "devices": [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]}
-                hardware['compute_capability'] = [torch.cuda.get_device_capability(i) for i in range(2)]
-                hardware['peer_access_0_1'] = torch.cuda.can_device_access_peer(0, 1)
-                # Execute a real BF16 kernel on both devices before expensive model loading.
-                for index in range(2):
-                    probe = torch.ones((32, 32), dtype=torch.bfloat16, device=f'cuda:{index}')
-                    if (probe @ probe).float().sum().item() != 32768:
-                        raise RuntimeError(f'CUDA BF16 preflight failed on GPU {index}')
-                    del probe
+                hardware = gpu_preflight(torch, cfg.tensor_parallel)
                 torch.manual_seed(2026)
                 torch.cuda.manual_seed_all(2026)
             random.seed(2026)
