@@ -1,11 +1,16 @@
-# Thư viện chạy lúc nộp bài (Docker, offline). CHƯA ghim phiên bản: ghim theo image đã build và chạy được.
+# Shared requirements for development and the Colab HF pipeline.
+transformers>=5.2,<6
+huggingface_hub
+accelerate
+bitsandbytes
+peft
 pandas
 numpy
 duckdb>=1.4,<2
-transformers
-huggingface_hub
-accelerate
-vllm
-xlrd>=2.0.1
-jsonschema>=4.0.0
+jsonschema>=4
 openpyxl>=3.1.0
+xlrd>=2.0.1
+pyarrow
+pytest
+
+# vLLM is supplied by the pinned Docker base image; Colab uses HF/Transformers.

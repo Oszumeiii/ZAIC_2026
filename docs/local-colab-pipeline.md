@@ -4,7 +4,7 @@ Open `notebooks/colab_pro.ipynb` in a GPU runtime and run its cells in order.
 The GitHub branch being cloned must contain these changes. `GITHUB_TOKEN` is
 only for cloning the private repository; no LLM API key is needed.
 
-The notebook installs `requirements-colab.txt`, validates the code, and creates
+The notebook installs `requirements.txt`, validates the code, and creates
 one `LocalSQLPipeline`. Its lazy local HF backend is loaded once and reused for
 manifest generation, question rewriting and SQL generation. No remote fallback
 is configured.

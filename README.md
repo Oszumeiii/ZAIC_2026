@@ -62,8 +62,7 @@ training/               Chỉ dùng khi phát triển: export_sft.py (dữ liệ
 notebooks/              kaggle_run.ipynb (cấu hình mỏng, gọi vào app)
 tests/                  Kiểm thử, tổ chức phản chiếu cấu trúc của app
 Dockerfile
-requirements.txt        Thư viện chạy khi nộp bài
-requirements-dev.txt    Thư viện phát triển và kiểm thử
+requirements.txt        Thư viện dùng chung cho phát triển và Colab
 ```
 
 Nguyên tắc phụ thuộc (một chiều):
@@ -78,7 +77,7 @@ Nguyên tắc phụ thuộc (một chiều):
 Yêu cầu: Python 3.10 trở lên.
 
 ```bash
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 ```
 
 Biến môi trường:
@@ -206,7 +205,7 @@ dùng metadata tương ứng hoặc không suy đoán.
 | Điểm vào `app.main`, `evaluation.run_eval` | Đã chạy thử với `--no-llm` trên dữ liệu giả |
 | Backend `hf_local`, `vllm_local` | **Chưa chạy trên môi trường thật** (Kaggle/GPU) |
 | `Dockerfile` | Cấu hình offline `/data` → `/result`; **chưa build/smoke-test** vì thiếu weights và Docker daemon |
-| `requirements.txt` | Chưa ghim phiên bản |
+| `requirements.txt` | Dùng chung cho phát triển/Colab; một số phiên bản được giới hạn |
 | Hiệu năng (PA) trên dữ liệu thật | **Chưa có số liệu đo.** Gợi ý tất định, few-shot và ngưỡng theo loại chưa được đo tác động |
 
 Giới hạn của thiết kế:

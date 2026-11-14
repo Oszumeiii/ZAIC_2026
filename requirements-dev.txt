@@ -1,5 +1,0 @@
--r requirements.txt
-pytest
-# QLoRA / backend hf trên Kaggle
-bitsandbytes
-peft
