@@ -4,6 +4,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import time
 
 from app.config import Config
 from app.ingestion.catalog import CatalogService, PIPELINE_VERSION
@@ -53,7 +54,9 @@ class DatasetPreparationPipeline:
             raise ValueError(f"Questions reference missing businesses: {sorted(unknown)}")
         return businesses
 
-    def prepare(self, split):
+    def prepare(self, split, *, deadline=None, keep_going=False):
+        """`deadline` (time.monotonic) quá hạn thì bỏ qua business còn lại; `keep_going` ghi lỗi rồi làm tiếp business sau.
+        Business bị bỏ qua/lỗi sẽ được dựng bằng manifest nháp tất định ở bước SQL (cần require_prepared_database=False)."""
         root = Path(self.config.dataset_dir).resolve() / split
         out = Path(self.config.out_dir).resolve()
         rules = (root / "rulebook.md").read_text(encoding="utf-8-sig")
@@ -67,6 +70,9 @@ class DatasetPreparationPipeline:
                         shared.with_suffix(".source.json"))
         reports = []
         for business in self.businesses(root):
+            if deadline is not None and time.monotonic() > deadline:
+                reports.append({"business_id": business.name, "status": "skipped", "error": "prepare budget exhausted"})
+                continue
             print(f"[prepare/{split}] {business.name}: Qwen manifest", flush=True)
             try:
                 manifest = self.generator.generate(business, rules, out / "manifests" / split)
@@ -86,7 +92,9 @@ class DatasetPreparationPipeline:
                                 "tables": len(catalog["tables"]), "database": str(target / "data.duckdb")})
             except Exception as exc:
                 reports.append({"business_id": business.name, "status": "failed", "error": str(exc)})
-                raise
+                if not keep_going:
+                    raise
+                print(f"[prepare/{split}] {business.name}: lỗi, bỏ qua và tiếp tục: {exc!r}"[:300], flush=True)
             finally:
                 JsonStore.write({"split": split, "businesses": reports}, out / "reports" / f"prepare_{split}.json")
         return reports

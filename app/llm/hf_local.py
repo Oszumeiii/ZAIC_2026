@@ -1,6 +1,7 @@
 """Backend local bằng transformers (+ bitsandbytes 4-bit). Chậm hơn vLLM nhưng ổn định, chạy được trên T4/P100."""
 from __future__ import annotations
 
+import hashlib
 import os
 import re
 
@@ -53,6 +54,7 @@ class HFBackend(LLMBackend):
         vram_gb = torch.cuda.get_device_properties(0).total_memory / 1e9 if use_cuda else 0.0
         quant4 = use_cuda and not is_prequantized(path) and use_4bit(cfg.hf_quant, vram_gb, weights_gb(path))
         self.quant = "4bit" if quant4 else "full"
+        self._seed_calls: dict = {}           # số lần đã sinh cho từng prompt: các mẫu của một câu khác nhau nhưng lặp lại được
         self.hybrid = is_hybrid_model(path)   # Qwen3.5: không dùng prefill_chunked (cache lai linear-attention)
         kw: dict = {"attn_implementation": "sdpa"}
         if use_cuda:
@@ -95,6 +97,14 @@ class HFBackend(LLMBackend):
     def generate(self, system: str, prompt: str, n: int = 1) -> list[str]:
         return self.generate_with_options(system, prompt, n=n)
 
+    def next_seed(self, system: str, prompt: str) -> int:
+        """Hạt giống tất định: suy ra từ nội dung prompt + số thứ tự lần gọi cùng prompt + cfg.seed (không dùng mã câu hỏi).
+        Chạy lại cùng dữ liệu cho đúng cùng chuỗi lấy mẫu; các mẫu liên tiếp của một câu vẫn khác nhau."""
+        key = hashlib.sha256((system + "\x00" + prompt).encode("utf-8")).hexdigest()
+        index = self._seed_calls.get(key, 0)
+        self._seed_calls[key] = index + 1
+        return (int(key[:12], 16) + 1_000_003 * index + self.cfg.seed) % (2 ** 63)
+
     def prompt_tokens(self, system: str, prompt: str) -> int:
         text = self.tok.apply_chat_template(
             [{"role": "system", "content": system}, {"role": "user", "content": prompt}],
@@ -113,6 +123,12 @@ class HFBackend(LLMBackend):
         temp = cfg.temperature if temperature is None else temperature
         if prompt_len + output_tokens > cfg.max_model_len:
             raise GenerationError(f"Context too long: {prompt_len} prompt + {output_tokens} output > {cfg.max_model_len}")
+
+        if temp > 0:
+            seed = self.next_seed(system, prompt)
+            torch.manual_seed(seed)
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(seed)
 
         def run(k: int) -> list[str]:
             sample = (dict(do_sample=True, **sampling_kwargs(cfg.local_model, temp))

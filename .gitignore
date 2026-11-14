@@ -9,3 +9,13 @@ logs/
 outputs/
 /train/
 /public_test/
+
+# Gói nộp Docker: trọng số, dữ liệu huấn luyện đóng gói, kết quả chạy thử, tệp lưu image (không đưa lên git)
+submission/models/
+submission/training_code/data/
+submission/training_code/src/
+submission/training_code/data_manifest.json
+submission/*.tar
+submission/*.tar.gz
+submission_out*/
+zaic2026_datamate_*.tar.gz*

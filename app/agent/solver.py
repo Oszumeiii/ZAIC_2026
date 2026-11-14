@@ -176,8 +176,9 @@ class Solver:
 
     def solve_split(self, split: Split, tag: str, *, limit_biz: int | None = None, per_biz: int | None = None,
                     limit_q: int | None = None, use_llm: bool = True, time_budget: float | None = None,
-                    business_ids: list | None = None):
-        """Giải một tập câu hỏi. Trả (danh sách bài nộp, danh sách log)."""
+                    business_ids: list | None = None, on_result=None):
+        """Giải một tập câu hỏi. Trả (danh sách bài nộp, danh sách log). `on_result(sub, log)` được gọi ngay sau mỗi câu
+        (container dùng để ghi submission.jsonl và nhật ký từng câu, lỡ dừng giữa chừng vẫn còn kết quả)."""
         q = split.questions
         if business_ids is not None:
             q = q[q.business_id.isin(business_ids)]
@@ -214,6 +215,8 @@ class Solver:
                        "note": repr(e)[:200], "elapsed_s": 0.0, "agree": 0, "codes": [], "sample_results": [], "samples": [], "errors": []}
             subs.append(sub)
             logs.append(log)
+            if on_result is not None:
+                on_result(sub, log)
             if len(subs) % 20 == 0:
                 by_source = pd.Series([lg["source"] for lg in logs]).value_counts().to_dict()
                 print(f"  [{tag}] {len(subs)}/{len(q)} câu | {time.time() - t_start:.0f}s | nguồn {by_source} "

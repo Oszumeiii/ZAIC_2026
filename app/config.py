@@ -68,6 +68,7 @@ class Config:
     prefill_chunk: int = 512          # engine hf: nạp prompt từng đoạn để khỏi OOM (0 = tắt)
     gpu_memory_utilization: float = 0.88
     temperature: float = 0.7          # phải > 0 để các lần sinh độc lập khác nhau
+    seed: int = 0                     # hạt giống gốc; mỗi lần sinh có hạt riêng suy ra từ prompt nên chạy lại cho cùng kết quả
     chat_kwargs: dict = field(default_factory=dict)
     allow_cpu: bool = False           # False = backend local không có GPU thì dừng ngay
 
