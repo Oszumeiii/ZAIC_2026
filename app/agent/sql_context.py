@@ -29,7 +29,10 @@ class SQLContextBuilder:
         manifest = (Path(self.cfg.manifest_dir) if self.cfg.manifest_dir else root / "manifests") / f"{business_id}.json"
         if self.cfg.require_prepared_database and not manifest.is_file():
             raise ValueError(f"Missing prepared manifest: {manifest}")
-        manifest = manifest if manifest.exists() else None
+        if not self.cfg.require_prepared_database:
+            manifest, _ = IngestionPipeline.ensure_manifest(
+                business_dir, output, manifest if self.cfg.manifest_dir else None, rulebook=split.rulebook
+            )
         overrides = self.cfg.ingestion_overrides.get(business_id, split.ingestion_overrides.get(business_id))
         signature = IngestionPipeline.input_fingerprint(business_dir, rulebook=split.rulebook, manifest_path=manifest, overrides=overrides)
         catalog = None

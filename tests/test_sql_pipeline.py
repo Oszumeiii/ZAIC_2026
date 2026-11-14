@@ -102,7 +102,7 @@ class TestSQLPipeline:
     @staticmethod
     def config(split_dirs, **kwargs):
         train, test, out = split_dirs
-        return Config(train_dir=train, test_dir=test, out_dir=out, backend="gemini",
+        return Config(train_dir=train, test_dir=test, out_dir=out, backend="local",
                       query_engine="sql", database_dir=f"{out}/databases", limit_train=1,
                       n_samples=1, agree_min=1, rewrite_questions=False, **kwargs)
 
@@ -137,6 +137,17 @@ class TestSQLPipeline:
         assert again.status.tolist() == ["correct"]
         assert len(backend.prompts) == 1
         assert cached_logs[0]["cache_hit"]
+
+    def test_manifest_and_database_can_be_written_outside_read_only_dataset(self, split_dirs):
+        cfg = self.config(split_dirs)
+        cfg.manifest_dir = str(Path(cfg.out_dir, "manifests"))
+        backend = SQLBackend([self.plan()])
+
+        run_train(cfg, backend)
+
+        assert Path(cfg.manifest_dir, "b1.json").is_file()
+        assert not Path(cfg.train_dir, "manifests").exists()
+        assert Path(cfg.database_dir, "b1", "current", "data.duckdb").is_file()
 
     def test_revenue_status_classification_covers_failed_and_in_transit(self):
         from app.agent.sql_context import SQLContextBuilder

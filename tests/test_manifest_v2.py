@@ -73,10 +73,10 @@ class TestManifestV2:
     def test_generator_repairs_physical_error_and_computes_missing_columns(self, tmp_path):
         _,data,manifest,schema=TestManifestV2.fixture_business(tmp_path)
         bad=json.loads(json.dumps(manifest)); bad['tables'][0]['columns'][0]['source_name']='invented'
-        llm=Mock();llm.generate.side_effect=[json.dumps(bad),json.dumps(manifest)]
+        llm=Mock();llm.json.side_effect=[bad,manifest]
         result=BusinessManifestService.generate(llm,data,schema)
-        assert llm.generate.call_count==2
-        assert 'Unknown source column' in llm.generate.call_args.args[0]
+        assert llm.json.call_count==2
+        assert 'Unknown source column' in llm.json.call_args.args[1]
         assert any(i['topic'].startswith('column_mapping:') for i in result['unresolved'])
 
     def test_profiler_covers_multiple_sheets_and_records_uncertain_header(self, tmp_path):

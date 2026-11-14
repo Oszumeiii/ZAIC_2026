@@ -20,6 +20,8 @@ def resolve_model_path(name: str) -> str:
     """Đường dẫn thư mục thì dùng luôn; tên repo HF thì tải về /tmp/models (cần Internet)."""
     if os.path.isdir(name):
         return name
+    if os.environ.get("HF_HUB_OFFLINE") == "1" or os.environ.get("TRANSFORMERS_OFFLINE") == "1":
+        raise FileNotFoundError(f"Offline model directory is missing: {name}")
     from huggingface_hub import snapshot_download
     dst = "./models/" + name.replace("/", "__")
     print(f"Tải {name} về {dst} (cần bật Internet trong Settings của notebook) ...")

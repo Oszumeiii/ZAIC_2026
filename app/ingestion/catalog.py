@@ -11,7 +11,7 @@ from app.ingestion.processing.normalization import IdentifierNormalizer
 from app.manifests.validation import ManifestValidator
 from app.rules.rulebook import Rulebook
 from .raw import RawData
-PIPELINE_VERSION = "layered-catalog-v2"
+PIPELINE_VERSION = "layered-catalog-v3"
 SCHEMA_DIR = Path(__file__).resolve().parents[2] / "schemas"
 
 class CatalogService:

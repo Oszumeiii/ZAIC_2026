@@ -14,7 +14,7 @@ from app.agent.exemplars import ExemplarBank
 from app.agent.prompts import build_system, prompt_hash
 from app.config import Config
 from app.ingestion.datasets.loader import Split
-from app.llm.base import LLMBackend, QuotaExhausted
+from app.llm.base import LLMBackend
 from app.submission import make_sub
 from app.tools.results import (VALID_TYPES, canon, clean, coerce_result, extract_code, final_fmt,
                                is_empty_result)
@@ -44,11 +44,9 @@ class Solver:
         self.builder = ContextBuilder(cfg, backend.count_tokens if backend else None, bank)
 
     def _generate(self, prompt: str, n: int) -> list[str] | None:
-        """Gọi backend; lỗi sinh được đếm và trả None (KHÔNG cache). Hết quota thì ném lên để dừng hẳn."""
+        """Gọi backend; lỗi sinh được đếm và trả None (KHÔNG cache)."""
         try:
             return self.backend.generate(self.system, prompt, n)
-        except QuotaExhausted:
-            raise
         except Exception as e:
             self.stats.llm_failures += 1
             if self.stats.llm_failures <= 3:
@@ -176,7 +174,7 @@ class Solver:
 
     def solve_split(self, split: Split, tag: str, *, limit_biz: int | None = None, per_biz: int | None = None,
                     limit_q: int | None = None, use_llm: bool = True, time_budget: float | None = None,
-                    business_ids: list | None = None):
+                    business_ids: list | None = None, progress_callback=None):
         """Giải một tập câu hỏi. Trả (danh sách bài nộp, danh sách log)."""
         q = split.questions
         if business_ids is not None:
@@ -201,7 +199,7 @@ class Solver:
                 break
             try:
                 sub, log = self._solve_row(r, split, cache, use_llm)
-            except (QuotaExhausted, GenerationBroken):
+            except GenerationBroken:
                 print(f"Dừng ở câu {len(subs) + 1}/{len(q)}. Kết quả đã cache được giữ, chạy lại sẽ tiếp tục.")
                 raise
             except Exception as e:
@@ -214,6 +212,8 @@ class Solver:
                        "note": repr(e)[:200], "elapsed_s": 0.0, "agree": 0, "codes": [], "sample_results": [], "samples": [], "errors": []}
             subs.append(sub)
             logs.append(log)
+            if progress_callback and len(subs) % 10 == 0:
+                progress_callback(subs, logs)
             if len(subs) % 20 == 0:
                 by_source = pd.Series([lg["source"] for lg in logs]).value_counts().to_dict()
                 print(f"  [{tag}] {len(subs)}/{len(q)} câu | {time.time() - t_start:.0f}s | nguồn {by_source} "

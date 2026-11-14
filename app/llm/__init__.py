@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 from app.config import Config
-from .base import GenerationError, LLMBackend, QuotaExhausted
+from .base import GenerationError, LLMBackend
 
-__all__ = ["GenerationError", "LLMBackend", "QuotaExhausted", "create_backend"]
+__all__ = ["GenerationError", "LLMBackend", "create_backend"]
 
 
 def _create_local(cfg: Config) -> LLMBackend:
@@ -36,7 +36,4 @@ def _create_local(cfg: Config) -> LLMBackend:
 
 
 def create_backend(cfg: Config) -> LLMBackend:
-    if cfg.backend == "gemini":
-        from .gemini import GeminiBackend
-        return GeminiBackend(cfg)
     return _create_local(cfg)

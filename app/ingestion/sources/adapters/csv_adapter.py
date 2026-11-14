@@ -77,7 +77,7 @@ class CsvAdapter:
             row_number = 0
             for values in reader:
                 line_end = reader.line_num
-                if TabularLayout.nonempty_row(values):
+                if values:  # Preserve explicit empty CSV records; skip physically blank lines.
                     row_number += 1
                     positions[row_number] = {
                         "record": row_number,

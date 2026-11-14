@@ -15,5 +15,5 @@ def split_dirs(tmp_path):
 @pytest.fixture
 def cfg(split_dirs):
     train, test, out = split_dirs
-    return Config(train_dir=train, test_dir=test, out_dir=out, backend="gemini", query_engine="pandas", max_biz=None,
+    return Config(train_dir=train, test_dir=test, out_dir=out, backend="local", query_engine="pandas", max_biz=None,
                   n_samples=3, agree_min=2)

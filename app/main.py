@@ -13,9 +13,11 @@ from app.llm.local_common import is_qwen3_family
 
 
 def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
-    p.add_argument("--backend", choices=["local", "gemini"], default="local")
+    p.add_argument("--backend", choices=["local"], default="local")
     p.add_argument("--query-engine", choices=["sql", "pandas"], default="sql")
     p.add_argument("--database-dir")
+    p.add_argument("--manifest-dir")
+    p.add_argument("--tensor-parallel", type=int)
     p.add_argument("--ingestion-overrides", type=Path, help="JSON keyed by business id, shared with ingestion CLI")
     p.add_argument("--rebuild-database", action="store_true")
     p.add_argument("--no-rewrite", action="store_true")
@@ -29,7 +31,6 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
     p.add_argument("--time-budget", type=float, help="giây; hết giờ thì câu còn lại ghi abstain")
     p.add_argument("--n-samples", type=int)
     p.add_argument("--agree-min", type=int)
-    p.add_argument("--gemini-model")
     p.add_argument("--local-model", default=os.environ.get("LOCAL_MODEL"))
     p.add_argument("--local-engine", choices=["auto", "vllm", "hf"])
     p.add_argument("--local-lora", help="thư mục LoRA adapter (sau fine-tune); nên gộp vào model rồi dùng --local-model")
@@ -53,8 +54,9 @@ def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
 def config_from_args(a: argparse.Namespace) -> Config:
     mapping = {"train_dir": a.train_dir, "test_dir": a.test_dir, "out_dir": a.out_dir, "max_biz": a.max_biz,
                "per_biz": a.per_biz, "limit_test": a.limit_test, "time_budget_s": a.time_budget,
-               "n_samples": a.n_samples, "agree_min": a.agree_min, "gemini_model": a.gemini_model,
+               "n_samples": a.n_samples, "agree_min": a.agree_min,
                "local_model": a.local_model, "local_engine": a.local_engine, "local_lora": a.local_lora,
+               "tensor_parallel": a.tensor_parallel, "manifest_dir": a.manifest_dir,
                "temperature": a.temperature, "max_retry": a.max_retry, "max_model_len": a.max_model_len,
                "hf_quant": a.hf_quant}
     mapping["exemplar_path"] = a.exemplars

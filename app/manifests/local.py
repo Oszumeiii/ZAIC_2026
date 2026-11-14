@@ -132,7 +132,7 @@ class LocalManifestGenerator:
             cache = output / "batches" / directory.name / f"{key}.json"
             part = json.loads(cache.read_text()) if cache.exists() else None
             error = ""
-            for attempt in range(3):
+            for attempt in range(self.llm.cfg.max_retry + 1):
                 if part is None:
                     request = json.dumps(prompt, ensure_ascii=False) + error
                     part = self.llm.json(BUSINESS_MANIFEST_SYSTEM_PROMPT, request, schema, task="manifest")
@@ -148,7 +148,7 @@ class LocalManifestGenerator:
                         raise ValueError("Target source must include every observed column")
                     break
                 except (ValueError, ValidationError) as exc:
-                    if attempt == 2:
+                    if attempt == self.llm.cfg.max_retry:
                         JsonStore.write({"error": str(exc), "manifest": part},
                                         output / "reports" / "failures" / directory.name / f"{key}.json")
                         raise ValueError(f"Invalid manifest for {directory.name}/{source['source_object']}: {exc}") from exc

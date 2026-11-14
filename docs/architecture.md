@@ -1,9 +1,9 @@
 # Repository structure
 
 Application operations are class methods. Pure transformations use static
-methods; `GeminiLLM.from_env()` is a class factory, and the internal table writer
-owns its connection, normalization configuration and counters. There are no free
-functions, including nested helpers. Tests follow the same ownership convention.
+methods; LLM clients are created by the local backend factory, and the internal
+table writer owns its connection, normalization configuration and counters. There
+are no free functions, including nested helpers. Tests follow the same ownership convention.
 
 | Package | Responsibility | Main classes |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ functions, including nested helpers. Tests follow the same ownership convention.
 | `app/catalog` | Bind physical columns, verify relationships and guard joins | `CatalogBuilder`, `RelationshipService` |
 | `app/rules` | Preserve Rulebook sections and report capability gaps | `Rulebook` |
 | `app/storage` | Atomic JSON persistence for manifests, evidence and catalogs | `JsonStore` |
-| `app/llm` | Gemini configuration, calls and prompt constants | `GeminiLLM` |
+| `app/llm` | Local Qwen backend, structured generation and prompt constants | `LocalLLMService`, `HFBackend`, `VLLMBackend` |
 
 Python API examples:
 

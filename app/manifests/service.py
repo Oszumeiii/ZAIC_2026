@@ -1,6 +1,6 @@
 from collections import Counter
 from pathlib import Path
-from typing import Any, TYPE_CHECKING
+from typing import Any
 import json
 import re
 import unicodedata
@@ -10,9 +10,6 @@ from jsonschema import Draft202012Validator, ValidationError
 from app.ingestion.sources.inventory import SourceInventory
 from app.manifests.validation import ManifestValidator
 from app.rules.rulebook import Rulebook
-
-if TYPE_CHECKING:
-    from app.llm.gemini import GeminiLLM
 
 SCHEMA_FILE = Path(__file__).resolve().parents[2] / "schemas" / "business_manifest.schema.json"
 
@@ -255,7 +252,7 @@ class BusinessManifestService:
 
     @staticmethod
     def generate(
-        llm: "GeminiLLM",
+        llm,
         business_input: dict[str, Any],
         output_schema: dict[str, Any],
     ) -> dict[str, Any]:
@@ -279,13 +276,13 @@ class BusinessManifestService:
                     f"and schema. Validation error: {last_error}"
                 )
             )
-            response_text = llm.generate(
+            manifest = llm.json(
+                BUSINESS_MANIFEST_SYSTEM_PROMPT,
                 prompt + repair_instruction,
-                system_instruction=BUSINESS_MANIFEST_SYSTEM_PROMPT,
-                response_json_schema=output_schema,
+                output_schema,
+                task="manifest",
             )
             try:
-                manifest = json.loads(response_text)
                 if "oneOf" in output_schema and manifest.get("schema_version") in {"1.0", "2.0"}:
                     branch = 0 if manifest["schema_version"] == "1.0" else 1
                     selected = {**output_schema["oneOf"][branch], "$defs": output_schema.get("$defs", {})}
@@ -294,7 +291,7 @@ class BusinessManifestService:
                     validator.validate(manifest)
                 if manifest["business_id"] != business_input["business_id"]:
                     raise ValueError(
-                        "Gemini returned a manifest for a different business_id."
+                        "Model returned a manifest for a different business_id."
                     )
 
                 inventory = set(business_input["file_inventory"])
@@ -327,10 +324,6 @@ class BusinessManifestService:
                         raise ValueError("; ".join(report["errors"]))
                     manifest["unresolved"] = ManifestValidator.merge_issues(manifest["unresolved"], report["unresolved"])
                 return manifest
-            except json.JSONDecodeError as error:
-                last_error = (
-                    f"Response was invalid JSON at character {error.pos}: {error.msg}"
-                )
             except ValidationError as error:
                 path = "/".join(str(part) for part in error.absolute_path) or "(root)"
                 last_error = f"Schema validation failed at {path}: {error.message}"
@@ -338,6 +331,6 @@ class BusinessManifestService:
                 last_error = str(error)
 
         raise RuntimeError(
-            f"Gemini failed to generate a valid manifest for "
+            f"Model failed to generate a valid manifest for "
             f"{business_input['business_id']} after 3 attempts: {last_error}"
         )

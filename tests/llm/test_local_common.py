@@ -72,4 +72,4 @@ def test_recommendation_is_qwen35_9b_on_hf_engine(vram):
 
 def test_invalid_hf_quant_is_rejected():
     with pytest.raises(ValueError):
-        Config(backend="gemini", hf_quant="8bit")
+        Config(backend="local", hf_quant="8bit")

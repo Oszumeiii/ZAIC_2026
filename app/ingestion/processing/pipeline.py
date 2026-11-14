@@ -20,13 +20,13 @@ class IngestionPipeline:
                 if business_dir.parent.name == "data"
                 else output_dir / "manifest.json"
             )
-            if not manifest_path.exists():
-                from app.manifests.service import BusinessManifestService
+        if not manifest_path.exists():
+            from app.manifests.service import BusinessManifestService
 
-                manifest = BusinessManifestService.build_draft(business_dir, rulebook)
-                JsonStore.write(manifest, manifest_path)
-                print(f"Created local BusinessManifest draft: {manifest_path}", flush=True)
-                return manifest_path, manifest
+            manifest = BusinessManifestService.build_draft(business_dir, rulebook)
+            JsonStore.write(manifest, manifest_path)
+            print(f"Created local BusinessManifest draft: {manifest_path}", flush=True)
+            return manifest_path, manifest
         return manifest_path, CatalogService.load_manifest(manifest_path, business_dir.name)
 
     @staticmethod

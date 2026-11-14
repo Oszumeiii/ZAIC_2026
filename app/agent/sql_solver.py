@@ -6,7 +6,6 @@ from collections import Counter
 
 from app.agent.solver import Solver, Stats
 from app.agent.sql_context import SQLContextBuilder
-from app.llm.base import QuotaExhausted
 from app.llm.prompts import QUESTION_REWRITE_SYSTEM_PROMPT
 from app.submission import make_sub
 from app.tools.results import canon
@@ -44,7 +43,7 @@ type: number|percent|string|date|boolean|list|table|unanswerable.
 - Dòng possible_duplicate/possible_total/repeated_header được giữ, cần xử lý theo rulebook.
 - Nếu bảng chi tiết hóa đơn có issue_counts.possible_duplicate > 0, các dòng giống hệt trong
   cùng hóa đơn là lỗi xuất file và chỉ tính một lần theo rulebook. Dùng CTE SELECT DISTINCT *
-  trên bảng chi tiết trước khi join/tổng hợp; mã hóa đơn phải nằm trong các cột DISTINCT để
+  trên các CỘT NGHIỆP VỤ trước khi join/tổng hợp, loại cột lineage/row_id kỹ thuật khỏi DISTINCT; mã hóa đơn phải nằm trong các cột DISTINCT để
   không gộp các giao dịch khác nhau. Không khử trùng bảng không theo hóa đơn.
 - Với doanh thu, dùng revenue_status_values của cột trạng thái để phân loại mọi trạng thái thực tế:
   exclude_cancelled, exclude_returned và exclude_failed_delivery đều bị loại; include_completed và
@@ -54,6 +53,7 @@ type: number|percent|string|date|boolean|list|table|unanswerable.
   vì âm thầm tính hoặc loại.
 - Tổng hợp các sheet cùng loại và cùng schema bằng UNION ALL khi dữ liệu chia nhiều sheet/tháng.
 - Với number/percent/string/date/boolean: SQL trả đúng một dòng một cột. Percent là 12.5 cho 12.5%.
+  Date: YYYY-MM-DD khi hỏi ngày; YYYY-MM khi hỏi tháng, không tự thêm ngày 01.
   List: một cột, nhiều dòng, đúng thứ tự. Table: nhiều cột và alias đúng ý nghĩa câu hỏi.
 - Nếu cần dữ liệu không có, type=unanswerable, sql="", reason giải thích ngắn dựa trên bằng chứng.
   Nếu sinh được SQL, reason mô tả ngắn cách tính. Không được bịa bảng/cột hoặc đáp án.
@@ -71,6 +71,14 @@ class SQLSolver(Solver):
         self.stats = Stats()
         self._fail_streak = 0
         self.builder = SQLContextBuilder(cfg)
+        from app.agent.exemplars import ExemplarBank
+        self.exemplars = ExemplarBank.load(cfg.exemplar_path) if cfg.exemplar_path else None
+        self.confidence = json.loads(open(cfg.confidence_path).read()) if cfg.confidence_path else None
+        from evaluation.confidence import policy_signature
+        self.policy_signature = policy_signature(cfg, backend) if backend else None
+        if self.confidence and (self.confidence['model'] != backend.tag() or
+                self.confidence.get('policy_signature') != self.policy_signature):
+            raise ValueError("Confidence report belongs to a different model/configuration")
 
     def _plan(self, prompt):
         if hasattr(self.backend, "generate_json"):
@@ -92,6 +100,8 @@ class SQLSolver(Solver):
     def _solve_row(self, r, split, cache, use_llm):
         started = time.monotonic()
         original = r.question
+        if self.confidence and r.business_id in self.confidence.get('business_ids', []):
+            raise ValueError('Calibration businesses cannot also be used to evaluate the calibrated policy')
         if not use_llm or self.backend is None:
             return make_sub(r.id, "abstain", None), {
                 "id": r.id, "source": "abstain", "intent": "sql_llm_off", "agree": 0,
@@ -101,7 +111,8 @@ class SQLSolver(Solver):
         payload = json.dumps([SQL_SYSTEM, SQL_SCHEMA, QUESTION_REWRITE_SYSTEM_PROMPT,
             context, fingerprint, original, str(r.as_of_date), self.backend.tag(),
             self.cfg.rewrite_questions, self.cfg.n_samples, self.cfg.agree_min,
-            self.cfg.min_agree_by_type, self.cfg.use_hints], ensure_ascii=False, default=str, sort_keys=True)
+            self.cfg.min_agree_by_type, self.cfg.use_hints, self.cfg.max_retry, self.cfg.sql_review, self.cfg.collect_all,
+            self.exemplars.items if self.exemplars else [], self.confidence, self.policy_signature, "sql-reviewed-v1"], ensure_ascii=False, default=str, sort_keys=True)
         key = hashlib.sha256(payload.encode()).hexdigest()
         existing = cache.get(r.id)
         if existing and existing.get("hash") == key:
@@ -112,13 +123,17 @@ class SQLSolver(Solver):
         if self.cfg.rewrite_questions and hasattr(self.backend, "rewrite_question"):
             try:
                 rewritten = self.backend.rewrite_question(original)
-            except QuotaExhausted:
-                raise
             except Exception as error:
                 rewrite_error = f"{type(error).__name__}: {error}"[:500]
         question_context = self.builder.question_context(context, original, rewritten, r.as_of_date, split.calendar)
         if not self.cfg.use_hints:
             question_context.pop("time_hint", None)
+        if self.exemplars:
+            examples = self.exemplars.top_k(original, self.cfg.exemplar_k, exclude_business=r.business_id)
+            question_context["sql_examples"] = [e for e in examples if e.get("query_engine") == "sql"]
+            question_context["example_notice"] = "Examples illustrate reasoning only; bind current business schema and rules."
+        full_context = question_context
+        required_tables = set()
         if hasattr(self.backend, "fit_sql_context"):
             question_context = self.backend.fit_sql_context(question_context, SQL_SYSTEM, SQL_SCHEMA)
         prompt = json.dumps(question_context, ensure_ascii=False, default=str)
@@ -129,15 +144,42 @@ class SQLSolver(Solver):
                 repair = ""
                 for attempt in range(self.cfg.max_retry + 1):
                     plan = None
+                    phase = "generation"
                     try:
                         plan = self._plan(prompt + repair)
                         if plan["type"] == "unanswerable":
                             answer = plan["reason"]
                             columns, rows = [], []
                         else:
+                            import re
+                            mentioned = {name for name in question_context.get('omitted_tables', [])
+                                         if re.search(r'(?<!\w)' + re.escape(name) + r'(?!\w)', plan['sql'])}
+                            if mentioned:
+                                required_tables.update(mentioned)
+                                question_context = self.backend.fit_sql_context(
+                                    full_context, SQL_SYSTEM, SQL_SCHEMA, required_tables=required_tables)
+                                prompt = json.dumps(question_context, ensure_ascii=False, default=str)
+                                raise ValueError('Referenced schemas restored; regenerate SQL with full column evidence')
+                            phase = "execution"
                             columns, rows = SQLExecutor.query(connection, plan["sql"], timeout=self.cfg.code_timeout_s)
                             answer = SQLExecutor.answer(plan["type"], columns, rows)
-                        sample = {**plan, "answer": answer, "columns": columns, "rows": rows,
+                        review = None
+                        if self.cfg.sql_review:
+                            phase = "business_review"
+                            from app.agent.sql_review import verify
+                            if not hasattr(self.backend, "json"):
+                                raise ValueError("SQL review requires a structured local backend")
+                            review = verify(self.backend, connection, question_context, plan, columns, rows)
+                            if review['required_tables']:
+                                required_tables.update(review['required_tables'])
+                                question_context = self.backend.fit_sql_context(
+                                    full_context, SQL_SYSTEM, SQL_SCHEMA, required_tables=required_tables)
+                                prompt = json.dumps(question_context, ensure_ascii=False, default=str)
+                                raise ValueError("Context expanded; regenerate using requested tables")
+                        phase = "answer_format"
+                        from app.submission import validate_answer
+                        validate_answer(make_sub(r.id, plan["type"], answer))
+                        sample = {**plan, "review": review, "answer": answer, "columns": columns, "rows": rows,
                                   "canon": canon(plan["type"], answer)}
                         samples.append(sample)
                         votes[sample["canon"]] += 1
@@ -145,27 +187,41 @@ class SQLSolver(Solver):
                         if votes[sample["canon"]] >= needed:
                             decision = sample
                         break
-                    except QuotaExhausted:
-                        raise
                     except Exception as error:
                         message = f"{type(error).__name__}: {error}"[:1500]
-                        errors.append({"attempt": attempt + 1, "plan": plan, "error": message})
+                        errors.append({"phase": phase, "attempt": attempt + 1, "plan": plan, "error": message})
                         repair = "\nKế hoạch trước và lỗi thực thi; hãy sửa, không đổi ý câu hỏi:\n" + json.dumps(
                             {"plan": plan, "error": message}, ensure_ascii=False)
-                if decision:
+                if decision and not self.cfg.collect_all:
                     break
+        if samples:
+            leaders = votes.most_common()
+            if len(leaders) > 1 and leaders[0][1] == leaders[1][1]:
+                decision = None
+            else:
+                candidate = next(s for s in samples if s['canon'] == leaders[0][0])
+                needed = max(self.cfg.agree_min, self.cfg.min_agree_by_type.get(candidate['type'], 0))
+                decision = candidate if leaders[0][1] >= needed else None
+        confidence_rejected = False
+        if decision and self.confidence:
+            bucket = f"{decision['type']}:{votes[decision['canon']]}"
+            metric = self.confidence['buckets'].get(bucket, {})
+            confidence_rejected = metric.get('n', 0) < 20 or metric.get('lower_precision', 0) <= 0.5
+            if confidence_rejected:
+                decision = None
         typ = decision["type"] if decision else "abstain"
         answer = decision["answer"] if decision else None
         submission = make_sub(r.id, typ, answer)
         log = {"id": r.id, "business_id": r.business_id, "as_of_date": r.as_of_date,
                "question": original, "rewritten_question": rewritten, "rewrite_error": rewrite_error,
                "type": typ, "answer": answer, "source": "sql" if decision else "abstain",
-               "intent": "sql" if decision else "sql_no_consensus", "note": decision["reason"] if decision else "",
+               "intent": "sql" if decision else "sql_no_consensus", "confidence_rejected": confidence_rejected, "note": decision["reason"] if decision else "",
                "sql": decision["sql"] if decision else None, "database": str(database),
                "database_sha256": fingerprint, "agree": max(votes.values(), default=0),
                "codes": [s["sql"] for s in samples], "sample_results": [s["canon"] for s in samples],
                "samples": samples, "errors": errors, "cache_hit": False,
-               "elapsed_s": round(time.monotonic() - started, 3)}
+               "elapsed_s": round(time.monotonic() - started, 3),
+               "training_context": prompt if self.cfg.collect_all else None}
         if decision and not errors and not rewrite_error:
             cache.put({"id": r.id, "hash": key, "decision": [typ, answer],
                        "samples": samples, "submission": submission, "log": log})

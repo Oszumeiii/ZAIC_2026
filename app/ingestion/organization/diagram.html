@@ -1,0 +1,11 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Database relationships</title>
+<style>body{font:16px system-ui;max-width:1100px;margin:2rem auto}article{border:1px solid #bbb;padding:1rem;margin:1rem 0}pre{white-space:pre-wrap}select{font:inherit}</style>
+<h1>Database relationships</h1><select id="business"></select><main id="graph"></main>
+<script type="application/json" id="data">@@GRAPH_DATA@@</script>
+<script>
+const data=JSON.parse(document.getElementById('data').textContent),select=document.getElementById('business'),root=document.getElementById('graph');
+for(const b of data.businesses){const o=document.createElement('option');o.value=b.id;o.textContent=b.id;select.append(o)}
+select.value=data.selected;
+function render(){root.replaceChildren();const b=data.businesses.find(b=>b.id===select.value);if(!b)return;for(const node of b.nodes||[]){const a=document.createElement('article'),h=document.createElement('h2'),p=document.createElement('pre');h.textContent=node.label||node.logical||node.id;p.textContent=JSON.stringify(node,null,2);a.append(h,p);root.append(a)}const links=document.createElement('pre');links.textContent=JSON.stringify({relationships:b.edges,diagnostics:b.diagnostics},null,2);root.append(links)}
+select.onchange=render;render();
+</script></html>

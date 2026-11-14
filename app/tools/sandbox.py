@@ -26,6 +26,8 @@ def _on_alarm(*_args):
 def run_code(code: str, tables: dict, as_of, secs: int = 60):
     """Chạy `code` với tables/pd/np/AS_OF; trả (result_type, result) do code gán."""
     ns = {"tables": {k: v.copy() for k, v in tables.items()}, "pd": pd, "np": np, "AS_OF": pd.Timestamp(as_of)}
+    ns.update(HELPERS)
+    ns.update(parse_cell_date=parse_cell_date, parse_time_of_day=parse_time_of_day, in_shift=in_shift)
     signal.signal(signal.SIGALRM, _on_alarm)
     signal.alarm(secs)
     try:

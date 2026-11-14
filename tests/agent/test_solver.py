@@ -1,5 +1,6 @@
 import json
 
+import pandas as pd
 import pytest
 
 from evaluation.fakes import GOOD_CODE, OTHER_CODE, FakeBackend
@@ -56,6 +57,22 @@ def test_run_inference_writes_complete_valid_submission(cfg):
     lines = [json.loads(x) for x in open(f"{cfg.out_dir}/submission.jsonl", encoding="utf-8")]
     assert [x["id"] for x in lines] == ["q0", "q1", "q2", "q3"]
     assert [x["type"] for x in lines] == ["number", "number", "abstain", "abstain"]
+
+
+def test_solve_split_calls_checkpoint_after_every_ten_questions(cfg):
+    from app.ingestion.datasets.loader import DatasetLoader
+
+    split = DatasetLoader.load_split(cfg.train_dir)
+    first = split.questions.iloc[[0]].copy()
+    split.questions = pd.concat([first.assign(id=f"checkpoint-{i}") for i in range(10)], ignore_index=True)
+    checkpoints = []
+
+    Solver(cfg, None).solve_split(
+        split, "checkpoint", use_llm=False,
+        progress_callback=lambda subs, logs: checkpoints.append((len(subs), len(logs))),
+    )
+
+    assert checkpoints == [(10, 10)]
 
 
 def test_stricter_agreement_for_a_type_forces_abstain(cfg):

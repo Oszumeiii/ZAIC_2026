@@ -12,6 +12,3 @@ openpyxl>=3.1
 xlrd>=2.0.1
 pyarrow
 pytest
-python-dotenv
-# Needed only by the legacy Gemini modules and their tests; no API key is used.
-google-genai>=1

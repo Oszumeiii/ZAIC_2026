@@ -2,7 +2,6 @@
 from copy import deepcopy
 import json
 from pathlib import Path
-import sys
 
 import pytest
 
@@ -31,6 +30,9 @@ class LocalTransport:
     def generate_with_options(self, system, prompt, **options):
         self.calls.append((system, prompt, options))
         request, _ = json.JSONDecoder().raw_decode(prompt)  # retries append validation feedback
+        if "plan" in request and "result_preview" in request:
+            return [json.dumps({'checks': dict.fromkeys(('grain', 'joins', 'time', 'units', 'rules'), 'pass'),
+                                'reason': 'fixture verified', 'required_tables': [], 'assertions': []})]
         if "target_source" in request:
             source = request["target_source"]
             result = deepcopy(self.manifest)
@@ -47,9 +49,7 @@ class LocalTransport:
 
 
 @pytest.fixture
-def pipeline(tmp_path, monkeypatch):
-    # Even an accidental import of the remote client is a failure in this path.
-    monkeypatch.setitem(sys.modules, "app.llm.gemini", None)
+def pipeline(tmp_path):
     for split in ("train", "public_test"):
         root = tmp_path / "dataset" / split
         write_split(root, n_questions=2, with_answers=split == "train")
@@ -214,6 +214,46 @@ def test_metadata_normalization_does_not_accept_invalid_evidence(conflicting_man
     with pytest.raises(ValueError, match="Unknown column evidence"):
         generator.generate(business, "", output)
     assert not (output / "biz_101.json").exists()
-    assert len(transport.calls) == 3
+    assert len(transport.calls) == generator.llm.cfg.max_retry + 1
     assert "previous_columns" in transport.calls[-1][1]
     assert list((output / "reports/failures/biz_101").glob("*.json"))
+
+
+def test_develop_fit_calibration_holdout_are_disjoint(pipeline):
+    """Real three-stage orchestration; a small calibration must abstain on final holdout."""
+    import shutil
+    runner, transport = pipeline
+    root = Path(runner.config.dataset_dir) / 'train'
+    questions = [json.loads(line) for line in (root / 'questions.jsonl').read_text().splitlines()]
+    answers = [json.loads(line) for line in (root / 'answers.jsonl').read_text().splitlines()]
+    original_questions, original_answers = deepcopy(questions), deepcopy(answers)
+    for business in ('b2', 'b3'):
+        shutil.copytree(root / 'data/b1', root / 'data' / business)
+        questions.extend({**q, 'id':business + q['id'], 'business_id':business} for q in original_questions)
+        answers.extend({**a, 'id':business + a['id']} for a in original_answers)
+    (root / 'questions.jsonl').write_text(''.join(json.dumps(q)+'\n' for q in questions))
+    (root / 'answers.jsonl').write_text(''.join(json.dumps(a)+'\n' for a in answers))
+    original_generate = transport.generate_with_options
+    def generate(system, prompt, **options):
+        request, _ = json.JSONDecoder().raw_decode(prompt)
+        response = original_generate(system, prompt, **options)
+        if 'target_source' in request:
+            result = json.loads(response[0])
+            result['business_id'] = request['business_id']
+            response = [json.dumps(result)]
+        return response
+    transport.generate_with_options = generate
+    runner.prepare_datasets(('train',))
+    _, _, scores, _, logs = runner.develop(holdout_n=1, calibration_n=1)
+    learning = Path(runner.config.out_dir) / 'learning'
+    groups = json.loads((learning / 'business_groups.json').read_text())
+    assert set(groups) == {'fit', 'calibration', 'holdout'}
+    assert len(set(sum(groups.values(), []))) == 3
+    bank = [json.loads(line) for line in (learning / 'sql_examples.jsonl').read_text().splitlines()]
+    assert bank and {e['business_id'] for e in bank} == set(groups['fit'])
+    report = json.loads((learning / 'calibration/confidence.json').read_text())
+    assert set(report['business_ids']) == set(groups['calibration'])
+    assert all(row == 'abstain' for row in scores.status)
+    assert all(log['confidence_rejected'] for log in logs)
+    assert set(log['business_id'] for log in logs) == set(groups['holdout'])
+    assert (learning / 'sql_sft.jsonl').read_text().strip()

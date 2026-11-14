@@ -87,9 +87,15 @@ def coerce_result(typ: str, val):
             raise ValueError(f"string phải là chuỗi đơn, nhận {type(val).__name__}")
         return val.strip()
     if typ == "date":
-        m = re.match(r"^\s*(\d{4}-\d{2}-\d{2})", str(val))
+        from datetime import date
+        value = str(val).strip()
+        if re.fullmatch(r"\d{4}-\d{2}", value):
+            date.fromisoformat(value + "-01")  # Validate month, preserve requested granularity.
+            return value
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})(?:$|[ T])", value)
         if not m:
-            raise ValueError(f"date phải dạng 'YYYY-MM-DD', nhận {val!r}")
+            raise ValueError(f"date phải dạng YYYY-MM hoặc YYYY-MM-DD, nhận {val!r}")
+        date.fromisoformat(m.group(1))
         return m.group(1)
     if typ == "boolean":
         if isinstance(val, bool):

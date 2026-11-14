@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-BACKENDS = ("local", "gemini")
+BACKENDS = ("local",)
 LOCAL_ENGINES = ("auto", "vllm", "hf")
 HF_QUANT_MODES = ("auto", "4bit", "none")
 
@@ -28,7 +28,7 @@ class Config:
     # --- sinh nhiều lần + đồng thuận ---
     n_samples: int = 3                # số lần sinh độc lập tối đa cho một câu
     agree_min: int = 2                # cần ít nhất ngần này lần ra CÙNG kết quả mới trả lời
-    max_retry: int = 2                # số lần tự sửa lỗi cho mỗi lời giải
+    max_retry: int = 5                # số lần tự sửa lỗi cho mỗi lời giải
     code_timeout_s: int = 60          # giới hạn thời gian chạy một đoạn code
     prompt_version: str = "v7"        # đổi khi sửa prompt để vô hiệu cache cũ
     use_helpers: bool = True          # nêu các hàm trợ giúp (to_number, period_range, order_state...) trong prompt
@@ -43,17 +43,17 @@ class Config:
     exemplar_k: int = 2               # số ví dụ tương tự đưa vào prompt
 
     # --- backend LLM ---
-    backend: str = "local"            # "local" | "gemini"
+    backend: str = "local"
     query_engine: str = "sql"         # sql (DuckDB) | pandas (baseline)
     database_dir: str = "data/cache"
     manifest_dir: str | None = None
     require_prepared_database: bool = False
     ingestion_overrides: dict = field(default_factory=dict)
     rebuild_database: bool = False
+    sql_review: bool = False
+    confidence_path: str | None = None
     rewrite_questions: bool = True
     limit_train: int | None = None
-    gemini_model: str = "gemini-3.5-flash"
-    thinking: str = "low"             # thinking_level của Gemini
     local_model: str = "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ"   # repo HF hoặc đường dẫn thư mục
     local_lora: str | None = None     # thư mục LoRA adapter sau khi fine-tune
     lora_rank: int = 64
@@ -93,10 +93,10 @@ class Config:
 
     @property
     def context_limits(self) -> tuple[int, int, int]:
-        """(rulebook, readme, profile) tính bằng ký tự. Model local có ngữ cảnh nhỏ hơn Gemini nhiều."""
-        return (16000, 4000, 16000) if self.is_local else (30000, 15000, 40000)
+        """(rulebook, readme, profile) context character budgets for the local model."""
+        return (16000, 4000, 16000)
 
     @property
     def token_budget(self) -> int | None:
         """Ngân sách token cho phần ngữ cảnh (chỉ local); 800 token dự phòng cho system + lần retry."""
-        return self.max_model_len - self.max_new_tokens - 800 if self.is_local else None
+        return self.max_model_len - self.max_new_tokens - 800

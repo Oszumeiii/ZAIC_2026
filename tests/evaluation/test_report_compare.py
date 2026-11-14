@@ -1,7 +1,7 @@
 """Tóm tắt lần chạy và so sánh có tính sai số."""
 import pandas as pd
 
-from app.llm.hardware import MODEL_7B, MODEL_14B, MODEL_14B_AWQ, apply_recommendation, recommend
+from app.llm.hardware import MODEL_9B, MODEL_7B, MODEL_14B, MODEL_14B_AWQ, apply_recommendation, recommend
 from app.config import Config
 from evaluation.compare import load_runs, verdict
 from evaluation.report import save_summary, summarize
@@ -34,8 +34,9 @@ def test_compare_accepts_clear_winner(tmp_path):
 
 
 def test_hardware_recommendation_by_vram():
-    assert recommend(40)["local_model"] == MODEL_14B and recommend(80)["local_engine"] == "auto"
-    assert recommend(24)["local_model"] == MODEL_14B_AWQ
-    assert recommend(15)["local_model"] == MODEL_7B and recommend(15)["local_engine"] == "hf"
-    cfg = apply_recommendation(Config(backend="local"), {"name": "A100", "vram_gb": 40.0, "bf16": True, "count": 1})
-    assert cfg.local_model == MODEL_14B
+    for memory in (15, 24, 40, 80):
+        assert recommend(memory)["local_model"] == MODEL_9B
+        assert recommend(memory)["local_engine"] == "hf"
+    from app.llm.local_common import use_4bit
+    assert use_4bit("auto", 15, 19)
+    assert not use_4bit("auto", 40, 19)

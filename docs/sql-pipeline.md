@@ -12,7 +12,7 @@ Luồng mặc định của `app.main` và `evaluation.run_eval` dùng DuckDB. C
 3. Dựng context bằng schema vật lý, ánh xạ tên nguồn, vai trò cột, quan hệ,
    facts, unresolved issues, quality, grain, semantic views, completeness,
    mẫu dữ liệu, phạm vi ngày và trạng thái. Đọc README và rulebook đầy đủ.
-4. Với backend Gemini, rewrite câu hỏi; lỗi rewrite thì giữ câu gốc và ghi lỗi.
+4. Qwen local có thể rewrite câu hỏi; lỗi rewrite thì giữ câu gốc và ghi lỗi.
    `--no-rewrite` bỏ bước này. Cả câu gốc và câu rewrite đều có trong context.
 5. Model sinh JSON chứa `type`, `sql`, `reason`. SQL được thực thi trên DuckDB
    chỉ đọc. Model nhận lỗi SQL để sửa tối đa `max_retry` lần, không nhận đáp án chuẩn.
@@ -23,18 +23,17 @@ Luồng mặc định của `app.main` và `evaluation.run_eval` dùng DuckDB. C
 
 ## Chạy thử đúng 5 câu đầu tiên
 
-Đặt `GEMINI_API_KEY` hoặc `GEMINI_APIKEY` trong môi trường hay `.env` ở gốc repo.
-Lệnh sau gửi câu hỏi và context dữ liệu business tới Google Gemini, không gửi
-`answers.jsonl`:
+Đặt weights Qwen sẵn trên máy và trỏ `--local-model` tới thư mục đó. Lệnh chạy
+inference local, không đọc `answers.jsonl` và không gọi dịch vụ LLM bên ngoài:
 
 ```bash
 python -m evaluation.run_eval \
-  --backend gemini --query-engine sql \
+  --backend local --query-engine sql --local-model /models/Qwen3.5-9B \
   --train-dir dataset/train \
   --out-dir outputs/sql_five \
   --database-dir outputs/sql_five/databases \
   --rebuild-database --max-biz 5 --limit-train 5 \
-  --n-samples 3 --agree-min 2 --gemini-model gemini-3.5-flash
+  --n-samples 3 --agree-min 2
 ```
 
 `--max-biz 5` bảo đảm 5 câu đầu (có tối đa 5 business) không bị lọc bởi mặc định
@@ -58,7 +57,7 @@ hoặc manifest thay đổi, fingerprint tự phát hiện và dựng lại data
 Inference không cần đáp án chuẩn:
 
 ```bash
-python -m app.main --backend gemini --query-engine sql \
+python -m app.main --backend local --query-engine sql --local-model /models/Qwen3.5-9B \
   --test-dir dataset/train --out-dir outputs/sql_inference \
   --database-dir outputs/sql_five/databases --limit-test 5
 ```
@@ -85,4 +84,4 @@ dữ liệu huấn luyện SQL.
 Tham khảo API:
 [DuckDB Python](https://duckdb.org/docs/stable/clients/python/reference/),
 [cấu hình truy cập DuckDB](https://www.duckdb.org/docs/current/operations_manual/securing_duckdb/overview),
-[Gemini structured outputs](https://ai.google.dev/gemini-api/docs/generate-content/structured-output).
+Qwen structured output được kiểm định bằng JSON Schema trước khi thực thi.

@@ -1,0 +1,26 @@
+# Include source, provided train verification data and one declared model; exclude test data/caches.
+**
+!Dockerfile
+!.dockerignore
+!predict.sh
+!app/
+!app/**
+!training/
+!training/**
+!evaluation/
+!evaluation/**
+!dataset/
+!dataset/train/
+!dataset/train/**
+!schemas/
+!schemas/**
+!docker/
+!docker/**
+!models/
+!models/Qwen3.5-9B/
+!models/Qwen3.5-9B/**
+**/__pycache__
+**/*.pyc
+**/.cache
+**/.git
+**/.env

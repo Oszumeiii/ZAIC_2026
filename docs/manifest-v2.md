@@ -11,7 +11,7 @@ Pipeline:
    counts/samples and fingerprints source files without using a manifest.
 2. `BusinessManifestService.build_input()` combines that inventory with README and the entire
    Rulebook. Every object receives a stable `profile:<file>::<object>` evidence ID.
-3. Gemini produces v2 or `upgrade_manifests` expands existing v1 mappings offline.
+3. Qwen local produces v2 or `upgrade_manifests` expands existing v1 mappings offline.
 4. `ManifestValidator.validate()` checks exact object/column identity, duplicate
    bindings, relationship endpoints, evidence IDs and structured semantic
    contradictions. It computes unresolved columns independently of the model.

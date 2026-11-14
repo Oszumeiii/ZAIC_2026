@@ -13,7 +13,7 @@ from app.text import norm
 
 class LocalLLMService:
     supports_batch = False
-    VERSION = "local-json-v1"
+    VERSION = "local-json-v2"
 
     def __init__(self, backend, cfg, *, manifest_tokens=6144, rewrite_tokens=512):
         self.backend, self.cfg = backend, cfg
@@ -34,7 +34,7 @@ class LocalLLMService:
 
     def json(self, system, prompt, schema, *, task="sql"):
         budget = {"manifest": self.manifest_tokens, "rewrite": self.rewrite_tokens,
-                  "sql": self.cfg.max_new_tokens}[task]
+                  "sql": self.cfg.max_new_tokens, "review": self.cfg.max_new_tokens}[task]
         temperature = self.cfg.temperature if task == "sql" else 0.0
         system = self.json_system(system, schema)
         validator = Draft202012Validator(schema)
@@ -64,6 +64,14 @@ class LocalLLMService:
         return json.dumps(self.json(system, prompt, schema), ensure_ascii=False)
 
     def rewrite_question(self, question, *, protected_terms=()):
+        if not isinstance(question, str):
+            raise TypeError("question must be a string")
+        if not question.strip():
+            raise ValueError("question must not be empty")
+        if isinstance(protected_terms, str) or any(
+            not isinstance(term, str) or not term.strip() for term in protected_terms
+        ):
+            raise ValueError("protected_terms must be a sequence of non-empty strings")
         schema = {"type": "object", "properties": {"question": {"type": "string", "minLength": 1}},
                   "required": ["question"], "additionalProperties": False}
         # Explicit caller terms, quoted names and alphanumeric identifiers must survive rewriting.
@@ -78,7 +86,7 @@ class LocalLLMService:
             raise GenerationError("Rewrite changed a protected identifier/name")
         return result
 
-    def fit_sql_context(self, context, system, schema):
+    def fit_sql_context(self, context, system, schema, required_tables=()):
         """Keep rules and complete selected table schemas; explicitly disclose omitted tables."""
         result = deepcopy(context)
         system = self.json_system(system, schema)
@@ -94,12 +102,47 @@ class LocalLLMService:
                 column.pop("profile", None)  # completeness/parse counts remain available
         if fits():
             return result
+        # Keep explicit dependencies and connected tables together, including bridge tables.
         words = set(norm(result["original_question"]).split())
         result["tables"].sort(key=lambda t: len(words & set(norm(json.dumps(t, ensure_ascii=False)).split())), reverse=True)
+        required = set(required_tables)
+        known = {t["name"] for t in result["tables"]}
+        if not required <= known:
+            raise GenerationError(f"Unknown required tables: {sorted(required - known)}")
+        if not required:
+            required.add(result["tables"][0]["name"])
+        relations = result.get("relationships", []) + result.get("organization", {}).get("relationships", [])
+        # Match both catalog physical names and source object identities.
+        aliases = {t["name"]: {t["name"], *t.get("source_objects", [])} for t in result["tables"]}
+        from pathlib import Path
+        for table in result['tables']:
+            aliases[table['name']].update(
+                f"{Path(source).stem}::{obj}" for source in table.get('sources', [])
+                for obj in table.get('source_objects', []))
+        edges = []
+        for relation in relations:
+            tokens = {str(relation[k]) for k in ('from_table', 'to_table', 'source_table', 'target_table')
+                      if relation.get(k) is not None}
+            edge = {name for name, names in aliases.items() if names & tokens}
+            if len(edge) > 1:
+                edges.append(edge)
+        changed = True
+        while changed:
+            previous = set(required)
+            for edge in edges:
+                if edge & required:
+                    required.update(edge)
+            changed = required != previous
+        result["table_directory"] = [{"name": t["name"], "role": t.get("role"),
+                                      "sources": t.get("sources", [])} for t in result["tables"]]
         result["omitted_tables"] = []
         result["context_notice"] = "Some tables were omitted for context size. Omission is not evidence that data does not exist."
         while len(result["tables"]) > 1 and not fits():
-            removed = result["tables"].pop()
+            removable = [t for t in reversed(result["tables"]) if t["name"] not in required]
+            if not removable:
+                break
+            removed = removable[0]
+            result["tables"].remove(removed)
             result["omitted_tables"].append(removed["name"])
         if not fits():
             raise GenerationError("SQL rulebook/README and one table exceed context budget; increase max_model_len")

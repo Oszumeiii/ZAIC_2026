@@ -27,7 +27,9 @@ class LocalPipelineConfig:
     manifest_tokens: int = 6144
     n_samples: int = 3
     agree_min: int = 2
-    max_retry: int = 2
+    max_retry: int = 5
+    exemplar_path: str | None = None
+    confidence_path: str | None = None
 
     def __post_init__(self):
         if min(self.sql_tokens, self.manifest_tokens) <= 0 or max(self.sql_tokens, self.manifest_tokens) >= self.max_model_len:
@@ -99,7 +101,8 @@ class LocalSQLPipeline:
                            local_engine="hf", hf_quant=config.hf_quant,
                            max_model_len=config.max_model_len, max_new_tokens=config.sql_tokens,
                            n_samples=config.n_samples, agree_min=config.agree_min, max_retry=config.max_retry,
-                           chat_kwargs={"enable_thinking": False}, require_prepared_database=True)
+                           chat_kwargs={"enable_thinking": False}, require_prepared_database=True,
+                           sql_review=True, exemplar_path=config.exemplar_path, confidence_path=config.confidence_path)
 
     @property
     def llm(self):
@@ -176,6 +179,35 @@ class LocalSQLPipeline:
         cfg = replace(self.split_config("train"), per_biz=per_biz)
         return run_train(cfg, self.llm, subset=subset, holdout_n=holdout_n)
 
+    def develop(self, holdout_n=6, calibration_n=6):
+        """Fit SQL examples, calibrate votes, then evaluate untouched businesses."""
+        from evaluation.run_eval import run_train
+        from training.sql_examples import export_sql_examples
+        from app.ingestion.datasets.splitting import BusinessSplitter
+        root = Path(self.config.dataset_dir) / "train"
+        ids = [json.loads(line)["business_id"] for line in (root / "questions.jsonl").read_text().splitlines() if line.strip()]
+        if calibration_n < 1:
+            raise ValueError("develop requires at least one calibration business")
+        groups = BusinessSplitter.development_groups(ids, holdout_n, calibration_n)
+        self.validate_databases(("train",))
+        learning = Path(self.config.out_dir).resolve() / "learning"
+        JsonStore.write(groups, learning / "business_groups.json")
+        cfg = replace(self.split_config("train"), exemplar_path=None, confidence_path=None,
+                      collect_all=True, out_dir=str(learning / "fit"))
+        _, split, scores, _, logs = run_train(cfg, self.llm, subset="fit", holdout_n=holdout_n, calibration_n=calibration_n)
+        bank = learning / "sql_examples.jsonl"
+        export_sql_examples(scores, logs, split, bank, holdout_n=holdout_n + calibration_n,
+                            sft_path=learning / "sql_sft.jsonl")
+        cfg = replace(cfg, exemplar_path=str(bank), collect_all=False, out_dir=str(learning / "calibration"))
+        run_train(cfg, self.llm, subset="calibration", holdout_n=holdout_n, calibration_n=calibration_n)
+        confidence = learning / "calibration/confidence.json"
+        cfg = replace(cfg, confidence_path=str(confidence), out_dir=str(learning / "holdout"))
+        result = run_train(cfg, self.llm, subset="holdout", holdout_n=holdout_n, calibration_n=calibration_n)
+        # Subsequent prediction in this process uses exactly the measured policy.
+        self.base = replace(self.base, exemplar_path=str(bank), confidence_path=str(confidence))
+        print(f"SQL examples: {bank}; calibration: {confidence}; final evaluation: {cfg.out_dir}", flush=True)
+        return result
+
     def predict_public_test(self):
         from app.agent.pipeline import run_inference
         self.validate_databases(("public_test",))
@@ -202,12 +234,16 @@ class LocalSQLPipeline:
         parser.add_argument("--max-model-len", type=int, default=16384)
         parser.add_argument("--manifest-tokens", type=int, default=6144)
         parser.add_argument("--sql-tokens", type=int, default=2048)
-        parser.add_argument("--stage", choices=("all", "prepare", "validate", "smoke", "evaluate", "predict"), default="all")
+        parser.add_argument("--stage", choices=("all", "prepare", "validate", "smoke", "evaluate", "develop", "predict"), default="all")
+        parser.add_argument("--max-retry", type=int, default=5)
+        parser.add_argument("--exemplar-path")
+        parser.add_argument("--confidence-path")
         args = vars(parser.parse_args())
         stage = args.pop("stage")
         pipeline = LocalSQLPipeline(LocalPipelineConfig(**args))
         method = {"all": pipeline.run_all, "prepare": pipeline.prepare_datasets, "validate": pipeline.validate_databases,
-                  "smoke": pipeline.smoke_test, "evaluate": pipeline.evaluate, "predict": pipeline.predict_public_test}[stage]
+                  "smoke": pipeline.smoke_test, "evaluate": pipeline.evaluate, "develop": pipeline.develop,
+                  "predict": pipeline.predict_public_test}[stage]
         method()
         return 0
 

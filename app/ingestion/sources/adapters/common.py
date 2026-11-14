@@ -45,7 +45,7 @@ class TabularLayout:
         position_details: dict[int, dict[str, Any]] | None = None,
     ) -> Iterator[tuple[Any, ...]]:
         for row_number, values in chain(buffered_rows, remaining_rows):
-            if row_number <= header_index or not TabularLayout.nonempty_row(values):
+            if row_number <= header_index:
                 continue
             if len(values) > width and any(value is not None for value in values[width:]):
                 raise ValueError(

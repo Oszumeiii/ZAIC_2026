@@ -22,11 +22,20 @@ def test_hints_can_be_disabled(cfg, split_dirs):
     assert "GỢI Ý" not in build(cfg, split_dirs[0], "Tuan truoc ca phe ban bao nhieu?")
 
 
+def test_context_builds_when_backend_cannot_count_tokens(cfg, split_dirs):
+    split = DatasetLoader.load_split(split_dirs[0])
+    business = split.business("b1")
+    ctx, _ = ContextBuilder(cfg, count_tokens=lambda _text: None).build(
+        "Tong doanh thu?", "2026-08-27", business, split, "b1"
+    )
+    assert "CÂU HỎI: Tong doanh thu?" in ctx
+
+
 def test_long_rulebook_is_truncated_without_crashing(split_dirs):
     """Hồi quy: f-string cảnh báo cắt rulebook từng tham chiếu biến không tồn tại (NameError) khi rulebook quá dài."""
     train, _test, out = split_dirs
     open(f"{train}/rulebook.md", "w", encoding="utf-8").write("Quy tắc. " * 5000)       # 45k ký tự > giới hạn
-    cfg = Config(train_dir=train, out_dir=out, backend="gemini")
+    cfg = Config(train_dir=train, out_dir=out, backend="local")
     ctx = build(cfg, train, "Tong doanh thu?")
     assert "RULEBOOK:" in ctx and len(ctx) < 45000
 

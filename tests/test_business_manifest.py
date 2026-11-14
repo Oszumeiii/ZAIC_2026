@@ -1,11 +1,9 @@
 from pathlib import Path
-from types import SimpleNamespace
 from unittest.mock import Mock
 import json
 
 import pytest
 
-from app.llm import gemini
 from app.manifests.service import BusinessManifestService
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,7 +75,7 @@ class TestBusinessManifest:
             "unresolved": [],
         }
         llm = Mock()
-        llm.generate.return_value = json.dumps(manifest)
+        llm.json.return_value = manifest
         business_input = {
             "business_id": "biz_101",
             "file_inventory": ["README.md", "ban_hang.csv"],
@@ -91,9 +89,10 @@ class TestBusinessManifest:
         result = BusinessManifestService.generate(llm, business_input, SCHEMA)
 
         assert result == manifest
-        kwargs = llm.generate.call_args.kwargs
-        assert kwargs["system_instruction"]
-        assert kwargs["response_json_schema"] == SCHEMA
+        args, kwargs = llm.json.call_args
+        assert args[0]
+        assert args[2] == SCHEMA
+        assert kwargs == {"task": "manifest"}
 
     @pytest.mark.parametrize(
         ("field", "value", "message"),
@@ -123,7 +122,7 @@ class TestBusinessManifest:
         }
         manifest["tables"][0][field] = value
         llm = Mock()
-        llm.generate.return_value = json.dumps(manifest)
+        llm.json.return_value = manifest
         business_input = {
             "business_id": "biz_101",
             "file_inventory": ["ban_hang.csv"],
@@ -157,7 +156,7 @@ class TestBusinessManifest:
             "tables": [{**manifest["tables"][0], "columns": {}}],
         }
         llm = Mock()
-        llm.generate.side_effect = [json.dumps(invalid_manifest), json.dumps(manifest)]
+        llm.json.side_effect = [invalid_manifest, manifest]
         business_input = {
             "business_id": "biz_101",
             "file_inventory": ["ban_hang.csv"],
@@ -171,41 +170,5 @@ class TestBusinessManifest:
         result = BusinessManifestService.generate(llm, business_input, SCHEMA)
 
         assert result == manifest
-        assert llm.generate.call_count == 2
-        assert "Schema validation failed at tables/0/columns" in llm.generate.call_args.args[0]
-
-    def test_gemini_generate_attaches_system_instruction_and_json_schema(self) -> None:
-        client = Mock()
-        client.models.generate_content.return_value = SimpleNamespace(text="{}")
-        llm = gemini.GeminiLLM(client=client, model="test-model")
-
-        result = llm.generate(
-            "{}",
-            system_instruction="Act as a JSON generator.",
-            response_json_schema={"type": "object"},
-        )
-
-        config = client.models.generate_content.call_args.kwargs["config"]
-        assert result == "{}"
-        assert config.system_instruction == "Act as a JSON generator."
-        assert config.response_mime_type == "application/json"
-        assert config.response_json_schema == {"type": "object"}
-
-    def test_gemini_generate_respects_minimum_request_interval(self,
-        monkeypatch: pytest.MonkeyPatch,
-    ) -> None:
-        client = Mock()
-        client.models.generate_content.return_value = SimpleNamespace(text="{}")
-        sleep = Mock()
-        monkeypatch.setattr(gemini.time, "monotonic", Mock(side_effect=[10.0, 10.1, 13.0, 14.1]))
-        monkeypatch.setattr(gemini.time, "sleep", sleep)
-        llm = gemini.GeminiLLM(
-            client=client,
-            model="test-model",
-            min_request_interval_seconds=4.0,
-        )
-
-        llm.generate("first")
-        llm.generate("second")
-
-        sleep.assert_called_once_with(pytest.approx(1.1))
+        assert llm.json.call_count == 2
+        assert "Schema validation failed at tables/0/columns" in llm.json.call_args.args[1]

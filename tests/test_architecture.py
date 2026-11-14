@@ -27,7 +27,7 @@ with TemporaryDirectory() as tmp:
     business.mkdir(parents=True)
     (business / 'items.csv').write_text('ID,Amount\\n001,10\\n')
     IngestionPipeline.ensure_manifest(business, root / 'out' / 'b1')
-assert not any(name.startswith(('app.llm', 'google.genai')) for name in sys.modules)
+assert not any(name.startswith('app.llm') for name in sys.modules)
 """
         result = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True)
         assert result.returncode == 0, result.stderr

@@ -89,7 +89,8 @@ class ContextBuilder:
             if si not in profiles:
                 profiles[si] = DatasetProfiler.profile_text(tables, plim, ptab, head, mcat)
             ctx = self._build(question, as_of, biz, rulebook, profiles[si], self.rulebook_limit, self.readme_limit, extra)
-            if counter is None or counter(ctx) <= budget:
+            token_count = counter(ctx) if counter is not None else None
+            if token_count is None or token_count <= budget:
                 return ctx, tables
         # vẫn dài: cắt dần rulebook/README, cuối cùng chỉ giữ tên bảng + cột
         last = profiles[len(self.steps) - 1]
@@ -99,7 +100,7 @@ class ContextBuilder:
         for rb, rd, prof in fallbacks:
             ctx = self._build(question, as_of, biz, rulebook, prof, rb, rd, extra)
             n = counter(ctx)
-            if n <= budget:
+            if n is None or n <= budget:
                 return ctx, tables
         self._warn_once(id(biz), f"prompt {n} token > ngân sách {budget} dù đã rút gọn hết mức; tăng max_model_len")
         return ctx, tables

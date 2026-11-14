@@ -6,8 +6,6 @@ transformers
 huggingface_hub
 accelerate
 vllm
-google-genai>=1.0.0
 xlrd>=2.0.1
 jsonschema>=4.0.0
 openpyxl>=3.1.0
-python-dotenv>=1.0.0
