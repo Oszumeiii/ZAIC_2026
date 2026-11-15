@@ -148,6 +148,54 @@ def test_manifest_batches_cover_wide_source_without_duplicate_tables(tmp_path):
     assert len(transport.calls) == 3
 
 
+def test_manifest_batch_prompt_and_schema_repair_extra_table(tmp_path):
+    from app.manifests.local import BATCH_SYSTEM_PROMPT, LocalManifestGenerator
+    business = tmp_path / 'data' / 'two_sources'
+    business.mkdir(parents=True)
+    (business / 'README.md').write_text('Two sales sources')
+    (business / 'products.csv').write_text('id,name\n1,Coffee\n')
+    (business / 'sales.csv').write_text('id,amount\n1,10\n')
+    draft = BusinessManifestService.build_draft(business)
+    transport = LocalTransport(draft)
+    original = transport.generate_with_options
+    def generate(system, prompt, **options):
+        response = original(system, prompt, **options)
+        request, _ = json.JSONDecoder().raw_decode(prompt)
+        if 'target_source' in request and 'Previous response failed validation' not in prompt:
+            return [json.dumps(draft)]  # wrong: two tables in one source batch
+        return response
+    transport.generate_with_options = generate
+    generator = LocalManifestGenerator(LocalLLMService(transport, Config(max_retry=1)))
+    path = generator.generate(business, '', tmp_path / 'manifests')
+    result = json.loads(path.read_text())
+    assert len(result['tables']) == 2
+    calls = [c for c in transport.calls if 'target_source' in json.JSONDecoder().raw_decode(c[1])[0]]
+    assert calls and all(c[0].startswith(BATCH_SYSTEM_PROMPT) for c in calls)
+    assert all('ĐÚNG MỘT' in c[0] for c in calls)
+    assert any('tables: violates maxItems=1' in c[1] for c in calls)
+    assert any('tables/1/source_file' in c[1] for c in calls)
+    assert {c[2]['temperature'] for c in calls} == {0.0, 0.2}
+
+
+def test_manifest_generation_failure_saves_raw_attempts(tmp_path):
+    from app.manifests.local import LocalManifestGenerator
+    business = tmp_path / 'data' / 'bad_manifest'
+    business.mkdir(parents=True)
+    (business / 'README.md').write_text('Sales')
+    (business / 'sales.csv').write_text('id,amount\n1,10\n')
+    draft = BusinessManifestService.build_draft(business)
+    transport = LocalTransport(draft)
+    transport.generate_with_options = lambda *args, **kwargs: [json.dumps({**draft, 'tables': []})]
+    output = tmp_path / 'manifests'
+    generator = LocalManifestGenerator(LocalLLMService(transport, Config(max_retry=1)))
+    with pytest.raises(GenerationError, match='tables: violates minItems=1'):
+        generator.generate(business, '', output)
+    report = json.loads(next((output / 'reports/failures/bad_manifest').glob('*.json')).read_text())
+    assert len(report['attempts']) == 2
+    assert all(attempt['raw'] for attempt in report['attempts'])
+    assert report['target_source']['source_file'] == 'sales.csv'
+
+
 @pytest.fixture
 def conflicting_manifest(tmp_path):
     from app.manifests.migration import ManifestMigrator

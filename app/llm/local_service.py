@@ -39,13 +39,19 @@ class LocalLLMService:
         system = self.json_system(system, schema)
         validator = Draft202012Validator(schema)
         repair = ""
+        attempts = []
         for attempt in range(self.cfg.max_retry + 1):
             request = prompt + repair
             if not self.fits(system, request, budget):
                 raise GenerationError(f"{task}: prompt exceeds local context budget ({self.cfg.max_model_len}); "
                                       "increase context or reduce the evidence batch")
+            # A small, seeded variation helps a failed greedy manifest escape the
+            # same malformed output while keeping the first attempt deterministic.
+            retry_temperature = 0.2 if task == "manifest" and attempt else temperature
             raw = self.backend.generate_with_options(system, request, max_new_tokens=budget,
-                                                     temperature=temperature)[0]
+                                                     temperature=retry_temperature)[0]
+            record = {"attempt": attempt + 1, "raw": raw}
+            attempts.append(record)
             try:
                 text = raw.strip()
                 if text.startswith("```") and text.endswith("```"):
@@ -56,9 +62,21 @@ class LocalLLMService:
             except (ValueError, TypeError, IndexError) as error:
                 failure = str(error)[:600]
             except ValidationError as error:
-                failure = error.message[:600]
+                problems = sorted(validator.iter_errors(result),
+                                  key=lambda e: (list(map(str, e.absolute_path)), e.validator or ""))
+                def describe(problem):
+                    path = "/".join(map(str, problem.absolute_path)) or "$"
+                    if problem.validator in ("maxItems", "minItems", "maxLength", "minLength"):
+                        message = f"violates {problem.validator}={problem.validator_value}"
+                    else:
+                        message = problem.message[:180]
+                    return f"{path}: {message}"
+                failure = "; ".join(describe(problem) for problem in problems[:3])[:600]
+            record["error"] = failure
             repair = "\nPrevious response failed validation: " + failure + ". Return the complete corrected JSON."
-        raise GenerationError(f"{task}: invalid JSON after {self.cfg.max_retry + 1} attempts: {failure}")
+        error = GenerationError(f"{task}: invalid JSON/schema after {self.cfg.max_retry + 1} attempts: {failure}")
+        error.attempts = attempts
+        raise error
 
     def generate_json(self, system, prompt, schema):
         return json.dumps(self.json(system, prompt, schema), ensure_ascii=False)
