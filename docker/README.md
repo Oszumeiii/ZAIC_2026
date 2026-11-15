@@ -27,6 +27,11 @@ Outputs:
   verbatim reasoning strings in call order, including shared manifest calls.
   Raw generated responses are also retained without truncation.
 - `/result/logs/run.json`: configuration and frozen model inventory.
+- `/result/logs/progress.jsonl`: timestamped events for input/imports, model
+  verification/loading, shared data, per-business manifest and ingestion,
+  per-question start/completion, submission or fatal failure. Each event is
+  flushed to disk and printed on stdout for live SSH monitoring. Detailed model
+  calls and SQL results remain in the per-question JSON files.
 - `/result/logs/completion.json` or `fatal.json`: completion/failure information.
 
 Temporary databases and manifests live in a fresh directory under `/tmp`, never

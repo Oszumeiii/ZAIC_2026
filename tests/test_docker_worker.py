@@ -72,6 +72,12 @@ def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch, par
             return backend
         assert run(root, output, tmp_path/'model', backend_factory=factory, verify_weights=False) == 0
         assert json.loads((output/'logs/run.json').read_text())['config']['tensor_parallel'] == int(parallel or '2')
+        events = [json.loads(line) for line in (output/'logs/progress.jsonl').read_text().splitlines()]
+        assert [(e['stage'], e['status']) for e in events if e['stage'] == 'question'] == [
+            ('question', 'started'), ('question', 'completed')] * 2
+        assert {'input', 'imports', 'model_verification', 'model_loading', 'shared_data',
+                'business', 'manifest', 'ingestion', 'question', 'submission'} <= {e['stage'] for e in events}
+        assert events[-1]['stage'] == 'submission' and events[-1]['completed_questions'] == 2
         outputs.append((output/'submission.jsonl').read_bytes())
         assert validate_submission(str(output/'submission.jsonl'), ['q0','q1']) == []
         logs = [json.loads(p.read_text()) for p in sorted((output/'logs').glob('question_*.json'))]
@@ -172,6 +178,8 @@ def test_model_load_failure_preserves_baseline_and_logs(tmp_path):
         run(root, tmp_path/'out', tmp_path/'model', backend_factory=broken, verify_weights=False)
     assert validate_submission(str(tmp_path/'out/submission.jsonl'), ['q0','q1']) == []
     assert json.loads((tmp_path/'out/logs/fatal.json').read_text())['elapsed_s'] >= 0
+    events = [json.loads(line) for line in (tmp_path/'out/logs/progress.jsonl').read_text().splitlines()]
+    assert events[-1]['stage'] == 'pipeline' and events[-1]['status'] == 'fatal'
 
 
 def test_vllm_adapter_budgets_and_seeds(monkeypatch):

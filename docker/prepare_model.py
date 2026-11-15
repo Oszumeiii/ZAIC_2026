@@ -17,18 +17,28 @@ def main():
     if not re.fullmatch('[0-9a-f]{40}', args.revision):
         raise ValueError('Provide an immutable commit SHA')
     repo = 'Qwen/Qwen3.5-9B'
-    info = HfApi().model_info(repo, revision=args.revision)
-    history = HfApi().list_repo_commits(repo, revision=args.revision)
+    api = HfApi()
+    print(f'[model] Checking revision {args.revision}', flush=True)
+    info = api.model_info(repo, revision=args.revision)
+    print('[model] Checking release history and cutoff', flush=True)
+    history = api.list_repo_commits(repo, revision=args.revision)
     commit = history[0]
     if commit.created_at >= datetime(2026, 10, 26, tzinfo=timezone.utc):
         raise ValueError('Revision is not before the competition cutoff')
     if info.card_data.license != 'apache-2.0':
         raise ValueError('Review the actual model licence before packaging')
-    first_weights = next(c for c in reversed(history) if any(
-        name.endswith('.safetensors') for name in HfApi().list_repo_files(repo, revision=c.commit_id)))
+    first_weights = None
+    for candidate in reversed(history):
+        if any(name.endswith('.safetensors') for name in api.list_repo_files(repo, revision=candidate.commit_id)):
+            first_weights = candidate
+            break
+    if first_weights is None:
+        raise ValueError('No public safetensors weights found in revision history')
+    print(f'[model] Downloading {repo}@{args.revision} into {args.output}', flush=True)
     snapshot_download(repo, revision=args.revision, local_dir=args.output,
                       allow_patterns=['*.json', '*.safetensors', '*.jinja', '*.txt', '*.model', 'LICENSE*', 'README.md'])
     root = Path(args.output)
+    print('[model] Checking weights and SHA-256 checksums', flush=True)
     report = inventory(root)
     report.update(repo=repo, revision=args.revision, revision_date=commit.created_at.isoformat(),
                   licence='apache-2.0', fine_tuned=False,

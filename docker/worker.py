@@ -6,6 +6,7 @@ import random
 import tempfile
 import time
 from dataclasses import asdict
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -36,6 +37,29 @@ def atomic_json(path, value):
         os.replace(temporary, path)
     finally:
         Path(temporary).unlink(missing_ok=True)
+
+
+class ProgressLog:
+    """Compact, durable stage events for SSH monitoring and post-run diagnosis."""
+    def __init__(self, output, started):
+        self.path = Path(output) / 'logs/progress.jsonl'
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.started = started
+
+    def write(self, stage, status, **details):
+        event = {'time_utc': datetime.now(timezone.utc).isoformat(),
+                 'elapsed_s': round(time.monotonic() - self.started, 3),
+                 'stage': stage, 'status': status, **details}
+        with self.path.open('a', encoding='utf-8') as stream:
+            stream.write(json.dumps(json_safe(event), ensure_ascii=False, default=str, allow_nan=False) + '\n')
+            stream.flush()
+            os.fsync(stream.fileno())
+        summary = ', '.join(f'{key}={value}' for key, value in details.items()
+                            if key not in ('error', 'answer'))
+        if 'error' in details:
+            summary += f", error={details['error']}"
+        print(f"[pipeline +{event['elapsed_s']:.1f}s] {stage}: {status}"
+              f"{', ' + summary if summary else ''}", flush=True)
 
 
 class OutputJournal:
@@ -100,8 +124,12 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
     data, output, model = Path(data).resolve(), Path(output).resolve(), Path(model).resolve()
     if output == data or data in output.parents:
         raise ValueError('Output must be outside the read-only dataset')
+    progress = ProgressLog(output, started)
+    progress.write('input', 'started')
     questions = [json.loads(line) for line in (data / 'questions.jsonl').read_text().splitlines() if line.strip()]
     journal = OutputJournal(questions, output)
+    progress.write('input', 'completed', questions=len(questions))
+    progress.write('imports', 'started')
     import pandas as pd
     from app.config import Config
     from app.agent.cache import ResultCache
@@ -113,6 +141,7 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
     from app.llm.local_service import LocalLLMService
     from app.manifests.local import LocalManifestGenerator
     from docker.verify_model import verify
+    progress.write('imports', 'completed')
     with tempfile.TemporaryDirectory(prefix='zaic_worker_') as workspace:
         work = Path(workspace)
         cfg = Config(local_model=str(model), local_engine='vllm', tensor_parallel=2,
@@ -126,13 +155,18 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
             if parallel not in ('1', '2'):
                 raise ValueError('DATAMATE_TENSOR_PARALLEL must be 1 or 2')
             cfg.tensor_parallel = int(parallel)
+            progress.write('model_verification', 'started')
             manifest = verify(model) if verify_weights else {'test_fixture': True}
+            progress.write('model_verification', 'completed', parameters=manifest.get('parameters'))
             if time.monotonic() >= deadline:
+                progress.write('deadline', 'reached', stage_at_timeout='model_verification')
                 return 0
             hardware = {"test_backend": backend_factory is not None}
             if backend_factory is None:
                 import torch
+                progress.write('gpu_preflight', 'started', tensor_parallel=cfg.tensor_parallel)
                 hardware = gpu_preflight(torch, cfg.tensor_parallel)
+                progress.write('gpu_preflight', 'completed', devices=hardware['devices'])
                 torch.manual_seed(2026)
                 torch.cuda.manual_seed_all(2026)
             random.seed(2026)
@@ -140,9 +174,13 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
             np.random.seed(2026)
             atomic_json(output / 'logs/run.json', {'config': asdict(cfg), 'model': manifest,
                         'hardware': hardware, 'time_budget_s': seconds, 'status': 'loading', 'started_unix': time.time()})
+            progress.write('model_loading', 'started', engine=cfg.local_engine,
+                           tensor_parallel=cfg.tensor_parallel)
             backend = AuditedBackend((backend_factory or create_backend)(cfg))
+            progress.write('model_loading', 'completed')
             llm = LocalLLMService(backend, cfg, manifest_tokens=6144)
             generator = LocalManifestGenerator(llm)
+            progress.write('shared_data', 'started')
             rules = (data / 'rulebook.md').read_text(encoding='utf-8-sig')
             calendar = BusinessIngestion.ingest_calendar(data / 'calendar.csv', rulebook=rules).frames['calendar']
             # Never load answers.jsonl, even if supplied by a development mount.
@@ -152,22 +190,35 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
             groups = {}
             for q in questions:
                 groups.setdefault(q['business_id'], []).append(q)
-            for business_id, rows in groups.items():
+            progress.write('shared_data', 'completed', businesses=len(groups), questions=len(questions))
+            completed_questions = 0
+            for business_index, (business_id, rows) in enumerate(groups.items(), 1):
                 if time.monotonic() >= deadline:
+                    progress.write('deadline', 'reached', completed_questions=completed_questions)
                     break
                 business_started = time.monotonic()
                 backend.calls = []
                 business = data / 'data' / business_id
+                progress.write('business', 'started', business=business_id,
+                               index=business_index, total=len(groups), questions=len(rows))
                 try:
                     if business.resolve().parent != data / 'data':
                         raise ValueError('Invalid business path')
                     if hasattr(backend, 'reset_seed'):
                         backend.reset_seed(2026)
+                    progress.write('manifest', 'started', business=business_id)
                     mapped = generator.generate(business, rules, cfg.manifest_dir)
+                    progress.write('manifest', 'completed', business=business_id,
+                                   elapsed_s=round(time.monotonic() - business_started, 3))
                     if time.monotonic() >= deadline:
+                        progress.write('deadline', 'reached', stage_at_timeout='manifest', business=business_id)
                         break
+                    ingestion_started = time.monotonic()
+                    progress.write('ingestion', 'started', business=business_id)
                     catalog = IngestionPipeline.ingest(business, Path(cfg.database_dir) / business_id / 'current',
                                              mapped, rulebook=rules, mode='production')
+                    progress.write('ingestion', 'completed', business=business_id,
+                                   elapsed_s=round(time.monotonic() - ingestion_started, 3))
                     preparation_s = time.monotonic() - business_started
                     preparation_calls = list(backend.calls)
                     preparation_execution = {'code': 'app/ingestion/processing/pipeline.py::IngestionPipeline.ingest',
@@ -175,12 +226,17 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
                                    'manifest_path': str(mapped), 'rulebook': rules, 'mode': 'production'},
                         'output': catalog}
                 except Exception as error:
+                    progress.write('business', 'preparation_failed', business=business_id,
+                                   error=repr(error), elapsed_s=round(time.monotonic() - business_started, 3))
                     for q in rows:
                         journal.record(make_sub(q['id'], 'abstain', None), {'status': 'preparation_failed',
                             'elapsed_s': time.monotonic() - business_started, 'model_calls': list(backend.calls), 'error': repr(error)})
+                        completed_questions += 1
                     continue
+                business_question_start = completed_questions
                 for q in rows:
                     if time.monotonic() >= deadline:
+                        progress.write('deadline', 'reached', completed_questions=completed_questions)
                         break
                     question_started = time.monotonic()
                     backend.calls = []
@@ -189,6 +245,8 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
                         backend.reset_seed(seed)
                     journal.log(q['id'], {'status': 'running', 'elapsed_s': 0.0, 'seed': seed,
                                          'preparation_s': preparation_s})
+                    progress.write('question', 'started', business=business_id, id=q['id'],
+                                   index=completed_questions + 1, total=len(questions))
                     executions = []
                     try:
                         with record_sql() as executions:
@@ -200,10 +258,22 @@ def run(data, output, model, *, seconds=21300, backend_factory=None, verify_weig
                                    'model_calls': preparation_calls + backend.calls,
                                    'execution_trace': [preparation_execution] + executions,
                                    'elapsed_s': time.monotonic() - business_started})
+                    completed_questions += 1
+                    progress.write('question', 'completed', business=business_id, id=q['id'],
+                                   answer_type=result['type'],
+                                   elapsed_s=round(time.monotonic() - question_started, 3),
+                                   completed_questions=completed_questions, total=len(questions))
+                progress.write('business', 'completed' if completed_questions - business_question_start == len(rows) else 'partial', business=business_id,
+                               elapsed_s=round(time.monotonic() - business_started, 3))
             atomic_json(output / 'logs/completion.json', {'elapsed_s': time.monotonic() - started,
                         'deadline_reached': time.monotonic() >= deadline})
-            return int(bool(validate_submission(str(output / 'submission.jsonl'), journal.ids)))
+            errors = validate_submission(str(output / 'submission.jsonl'), journal.ids)
+            progress.write('submission', 'completed' if not errors else 'invalid',
+                           completed_questions=completed_questions, total=len(questions),
+                           elapsed_s=round(time.monotonic() - started, 3), errors=len(errors))
+            return int(bool(errors))
         except Exception as error:
+            progress.write('pipeline', 'fatal', error=repr(error))
             atomic_json(output / 'logs/fatal.json', {'error': repr(error), 'elapsed_s': time.monotonic() - started})
             raise
 
