@@ -48,8 +48,10 @@ def dataset(tmp_path):
     return root, manifest
 
 
-@pytest.mark.parametrize('parallel', [None, '1'])
-def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch, parallel):
+@pytest.mark.parametrize('parallel,profile', [
+    (None, 'balanced'), ('1', 'balanced'), (None, 'rtx5090-6h'), (None, 'rtx5090-2gpu-6h')])
+def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch, parallel, profile):
+    monkeypatch.setenv('DATAMATE_PROFILE', profile)
     monkeypatch.delenv('DATAMATE_TENSOR_PARALLEL', raising=False)
     if parallel:
         monkeypatch.setenv('DATAMATE_TENSOR_PARALLEL', parallel)
@@ -67,17 +69,23 @@ def test_worker_offline_incremental_and_deterministic(tmp_path, monkeypatch, par
     for i in range(2):
         output = tmp_path / f'output{i}'
         backend = Transport(manifest)
+        expected_parallel = int(parallel or ('1' if profile == 'rtx5090-6h' else '2'))
         def factory(cfg):
-            assert cfg.tensor_parallel == int(parallel or '2')
+            assert cfg.tensor_parallel == expected_parallel
             return backend
         assert run(root, output, tmp_path/'model', backend_factory=factory, verify_weights=False) == 0
-        assert json.loads((output/'logs/run.json').read_text())['config']['tensor_parallel'] == int(parallel or '2')
+        assert json.loads((output/'logs/run.json').read_text())['config']['tensor_parallel'] == expected_parallel
         events = [json.loads(line) for line in (output/'logs/progress.jsonl').read_text().splitlines()]
         assert [(e['stage'], e['status']) for e in events if e['stage'] == 'question'] == [
             ('question', 'started'), ('question', 'completed')] * 2
         assert {'input', 'imports', 'model_verification', 'model_loading', 'shared_data',
                 'business', 'manifest', 'ingestion', 'question', 'submission'} <= {e['stage'] for e in events}
         assert events[-1]['stage'] == 'submission' and events[-1]['completed_questions'] == 2
+        assert [e['elapsed_s'] for e in events] == sorted(e['elapsed_s'] for e in events)
+        if profile in ('rtx5090-6h', 'rtx5090-2gpu-6h'):
+            assert all(e['model_calls'] == 5 for e in events if e['stage'] == 'question' and e['status'] == 'completed')
+        if profile == 'rtx5090-2gpu-6h':
+            assert len([e for e in events if e['stage'] == 'context' and e['status'] == 'completed']) == 1
         outputs.append((output/'submission.jsonl').read_bytes())
         assert validate_submission(str(output/'submission.jsonl'), ['q0','q1']) == []
         logs = [json.loads(p.read_text()) for p in sorted((output/'logs').glob('question_*.json'))]
@@ -116,6 +124,45 @@ def test_single_gpu_preflight_never_accesses_second_device():
     assert devices == ['cuda:0']
     with pytest.raises(RuntimeError, match='requires 2 CUDA'):
         gpu_preflight(torch, 2)
+
+
+def test_preparation_timeout_does_not_skip_next_business(tmp_path, monkeypatch):
+    import shutil
+    from app.llm.base import InferenceBudgetExceeded
+    from docker.runtime import ingest_before_deadline
+
+    monkeypatch.setenv('DATAMATE_PROFILE', 'rtx5090-2gpu-6h')
+    monkeypatch.delenv('DATAMATE_TENSOR_PARALLEL', raising=False)
+    root, manifest = dataset(tmp_path)
+    shutil.copytree(root/'data/b1', root/'data/b2')
+    questions = [json.loads(line) for line in (root/'questions.jsonl').read_text().splitlines()]
+    questions[1]['business_id'] = 'b2'
+    (root/'questions.jsonl').write_text(''.join(json.dumps(q) + '\n' for q in questions))
+
+    class MultiBusinessTransport(Transport):
+        def generate_with_options(self, system, prompt, **kw):
+            request, _ = json.JSONDecoder().raw_decode(prompt)
+            replies = super().generate_with_options(system, prompt, **kw)
+            if 'target_source' in request:
+                reply = json.loads(replies[0])
+                reply['business_id'] = request['business_id']
+                return [json.dumps(reply)]
+            return replies
+
+    def ingest(business, *args):
+        if business.name == 'b1':
+            raise InferenceBudgetExceeded('Preparation budget exhausted during ingestion')
+        return ingest_before_deadline(business, *args)
+
+    monkeypatch.setattr('docker.worker.ingest_before_deadline', ingest)
+    output = tmp_path/'out'
+    assert run(root, output, tmp_path/'model', backend_factory=lambda cfg: MultiBusinessTransport(manifest),
+               verify_weights=False) == 0
+    rows = [json.loads(line) for line in (output/'submission.jsonl').read_text().splitlines()]
+    assert rows == [{'id': 'q0', 'type': 'abstain'}, {'id': 'q1', 'type': 'number', 'answer': 130000}]
+    report = json.loads((output/'logs/completion.json').read_text())
+    assert report['completed_questions'] == 2 and report['answered_questions'] == 1
+    assert report['preparation_budget_exhausted_businesses'] == report['preparation_failed_businesses'] == 1
 
 
 def test_invalid_gpu_override_preserves_submission(tmp_path, monkeypatch):
@@ -247,6 +294,8 @@ def test_training_manifest_contains_local_paths_sizes_and_checksums(tmp_path):
     result = build(tmp_path)
     assert result['splits']['verification_questions']==1
     assert result['splits']['training_samples_used']==0
+    assert result['splits']['profile'] == 'rtx5090-2gpu-6h'
+    assert result['splits']['rewrite_questions'] and result['splits']['tensor_parallel'] == 2
     for entry in result['files']:
         path = Path(entry['path'])
         assert path.stat().st_size == entry['bytes']

@@ -3,6 +3,8 @@ from contextlib import contextmanager
 import re
 import time
 
+from app.llm.base import InferenceBudgetExceeded
+
 
 def thinking_in(text):
     matches = re.findall(r'<think>(.*?)(?:</think>|\Z)', text, flags=re.S)
@@ -12,11 +14,23 @@ def thinking_in(text):
 class AuditedBackend:
     def __init__(self, backend):
         self.backend, self.calls = backend, []
+        self.set_budget()
+
+    def set_budget(self, *, deadline=None, max_calls=None):
+        self.deadline, self.max_calls, self.used_calls = deadline, max_calls, 0
+
+    def check_budget(self):
+        if self.deadline is not None and time.monotonic() >= self.deadline:
+            raise InferenceBudgetExceeded('Inference time budget exhausted')
+        if self.max_calls is not None and self.used_calls >= self.max_calls:
+            raise InferenceBudgetExceeded('Inference model-call budget exhausted')
 
     def __getattr__(self, name):
         return getattr(self.backend, name)
 
     def generate_with_options(self, system, prompt, **options):
+        self.check_budget()
+        self.used_calls += 1
         started = time.monotonic()
         call = {'system': system, 'prompt': prompt, 'options': options}
         self.calls.append(call)

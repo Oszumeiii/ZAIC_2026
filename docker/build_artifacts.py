@@ -5,6 +5,11 @@ from pathlib import Path
 
 
 def build(root):
+    from app.config import Config
+    from docker.runtime import configure_runtime, PREPARATION_BUDGET_S, QUESTION_MAX_CALLS
+    runtime_cfg = Config(sql_review=True, vllm_extra={
+        'enforce_eager': True, 'seed': 2026, 'disable_custom_all_reduce': True})
+    profile = configure_runtime(runtime_cfg, {})  # frozen default, independent of build-host env
     root = Path(root)
     training = root / 'training_code'
     data = training / 'data/train'
@@ -12,9 +17,13 @@ def build(root):
     config = {'checkpoint_training': 'none', 'synthetic_data_generation': 'none',
               'training_samples_used': 0, 'validation_samples_used_to_fit_policy': 0,
               'verification_questions': len(questions), 'verification_businesses': len({q['business_id'] for q in questions}),
-              'seed':2026, 'temperature':0.7, 'n_samples':3, 'agree_min':2, 'max_retry':5,
+              'seed':2026, 'temperature':0.7, 'n_samples':3, 'agree_min':2, 'max_retry':runtime_cfg.max_retry,
               'max_model_len':16384, 'sql_tokens':2048, 'manifest_tokens':6144,
-              'engine':'vllm', 'tensor_parallel':2, 'dtype':'bfloat16', 'thinking_enabled':False}
+              'engine':'vllm', 'tensor_parallel':runtime_cfg.tensor_parallel, 'dtype':'bfloat16', 'thinking_enabled':False,
+              'profile':profile, 'rewrite_questions':runtime_cfg.rewrite_questions,
+              'vllm_extra':runtime_cfg.vllm_extra, 'code_timeout_s':runtime_cfg.code_timeout_s,
+              'preparation_budget_s':PREPARATION_BUDGET_S, 'question_max_calls':QUESTION_MAX_CALLS,
+              'time_budget_s':21300}
     (training/'configs').mkdir(parents=True, exist_ok=True)
     (training/'configs/frozen.json').write_text(json.dumps(config, indent=2))
     files = []

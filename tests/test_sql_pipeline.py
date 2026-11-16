@@ -138,6 +138,48 @@ class TestSQLPipeline:
         assert len(backend.prompts) == 1
         assert cached_logs[0]["cache_hit"]
 
+    @pytest.mark.parametrize('omit_sales', [False, True])
+    def test_repeated_review_table_request_reaches_consensus(self, split_dirs, omit_sales):
+        from app.agent.sql_review import DIMENSIONS
+        from app.llm.local_service import LocalLLMService
+
+        cfg = self.config(split_dirs, sql_review=True)
+        cfg.n_samples, cfg.agree_min, cfg.max_retry = 2, 2, 1
+        Path(cfg.train_dir, 'data/b1/products.csv').write_text('id,name\n1,Coffee\n')
+        plan = self.plan()
+
+        class ReviewBackend(SQLBackend):
+            def __init__(self):
+                super().__init__([plan] * 4)
+                self.cfg = cfg
+                self.reviews = []
+                self.expansions = []
+
+            def json(self, system, prompt, schema, **kwargs):
+                self.reviews.append(json.loads(prompt))
+                return {'checks': dict.fromkeys(DIMENSIONS, 'pass'), 'reason': 'verified',
+                        'required_tables': ['sales'], 'assertions': []}
+
+            def fit_sql_context(self, context, system, schema, required_tables=()):
+                self.expansions.append(set(required_tables))
+                service = LocalLLMService(None, cfg)
+                service.fits = lambda system, prompt, budget: len(json.loads(prompt)['tables']) <= 1
+                return service.fit_sql_context(context, system, schema,
+                    required_tables=required_tables or (['products'] if omit_sales else ['sales']))
+
+        backend = ReviewBackend()
+        if omit_sales:
+            # First SQL executes successfully; its reviewer then asks for an omitted schema.
+            backend.plans = iter([self.plan('SELECT 130000'), plan, plan])
+        _, _, ev, subs, logs = run_train(cfg, backend)
+        assert subs == [{'id': 'q0', 'type': 'number', 'answer': 130000}]
+        assert ev.status.tolist() == ['correct']
+        assert logs[0]['agree'] == 2
+        assert len(backend.prompts) == (3 if omit_sales else 2)
+        assert backend.expansions == ([set(), {'sales'}] if omit_sales else [set()])
+        assert all(sample['review']['required_tables'] == [] for sample in logs[0]['samples'])
+        assert len(logs[0]['errors']) == int(omit_sales)
+
     def test_manifest_and_database_can_be_written_outside_read_only_dataset(self, split_dirs):
         cfg = self.config(split_dirs)
         cfg.manifest_dir = str(Path(cfg.out_dir, "manifests"))
@@ -205,6 +247,28 @@ class TestSQLPipeline:
         _, _, ev, subs, _ = run_train(cfg, backend)
         assert subs == [{"id": "q0", "type": "abstain"}]
         assert ev.status.tolist() == ["abstain"]
+
+    def test_budget_exhaustion_stops_repairs_without_accepting_one_vote(self, split_dirs):
+        from app.llm.base import InferenceBudgetExceeded
+
+        cfg = self.config(split_dirs)
+        cfg.n_samples, cfg.agree_min = 3, 2
+        plan = self.plan()
+
+        class BudgetBackend(SQLBackend):
+            checks = 0
+
+            def check_budget(self):
+                self.checks += 1
+                if self.checks > 1:
+                    raise InferenceBudgetExceeded('time budget')
+
+        backend = BudgetBackend([plan])
+        _, _, _, subs, logs = run_train(cfg, backend)
+        assert subs == [{'id': 'q0', 'type': 'abstain'}]
+        assert backend.checks == 2 and len(backend.prompts) == 1
+        assert logs[0]['budget_exhausted'] and logs[0]['agree'] == 1
+        assert len(logs[0]['samples']) == len(logs[0]['errors']) == 1
 
     def test_calendar_changes_invalidate_cache(self, split_dirs):
         cfg = self.config(split_dirs)

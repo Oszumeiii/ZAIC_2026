@@ -21,7 +21,10 @@ For joins with aggregation, require executable assertions proving join cardinali
 measure at its original grain. Assertions must each return exactly one BOOLEAN cell; true means pass.
 Do not use tautologies. Check actual key uniqueness, multiplicity, data coverage and relevant totals.
 For unanswerable, verify missing evidence, not merely missing tables from the shortened context.
-Request omitted table names in required_tables when necessary. Mark unknown when evidence is insufficient.
+required_tables is ONLY a request to restore missing schemas, not a list of tables used by SQL.
+Use exact physical names from context.omitted_tables only; return [] if no omitted schema is needed.
+Never request tables already present in context.tables, calendar or semantic_views.
+Mark unknown when evidence is insufficient, even if all table schemas are present.
 Never invent missing evidence. Return checks, reason, required_tables, assertions as JSON.'''
 
 
@@ -30,6 +33,19 @@ def verify(service, connection, context, plan, columns, rows):
                'result_preview': rows[:10], 'result_row_count': len(rows)}
     report = service.json(REVIEW_SYSTEM, json.dumps(payload, ensure_ascii=False, default=str),
                           REVIEW_SCHEMA, task='review')
+    # Models sometimes echo every SQL dependency here. Only omitted schemas can
+    # expand the context; already visible dependencies must still pass all checks.
+    available = {table['name'] for table in context.get('tables', [])}
+    if context.get('calendar'):
+        available.add(context['calendar']['name'])
+    available.update(f"{view['schema']}.{view['name']}" for view in context.get('semantic_views', []))
+    omitted = set(context.get('omitted_tables', [])) - available
+    requested = set(report['required_tables'])
+    unknown = requested - available - omitted
+    if unknown:
+        raise ValueError(f"Unknown required tables: {sorted(unknown)}; "
+                         "use exact physical names from omitted_tables only")
+    report = {**report, 'required_tables': sorted(requested & omitted)}
     if report['required_tables']:
         return report
     if any(v != 'pass' for v in report['checks'].values()):

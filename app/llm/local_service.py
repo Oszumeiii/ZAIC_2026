@@ -13,7 +13,7 @@ from app.text import norm
 
 class LocalLLMService:
     supports_batch = False
-    VERSION = "local-json-v2"
+    VERSION = "local-json-v3"
 
     def __init__(self, backend, cfg, *, manifest_tokens=6144, rewrite_tokens=512):
         self.backend, self.cfg = backend, cfg
@@ -24,6 +24,10 @@ class LocalLLMService:
 
     def count_tokens(self, text):
         return self.backend.count_tokens(text)
+
+    def check_budget(self):
+        if hasattr(self.backend, 'check_budget'):
+            self.backend.check_budget()
 
     @staticmethod
     def json_system(system, schema):
@@ -41,6 +45,7 @@ class LocalLLMService:
         repair = ""
         attempts = []
         for attempt in range(self.cfg.max_retry + 1):
+            self.check_budget()
             request = prompt + repair
             if not self.fits(system, request, budget):
                 raise GenerationError(f"{task}: prompt exceeds local context budget ({self.cfg.max_model_len}); "
@@ -107,6 +112,10 @@ class LocalLLMService:
     def fit_sql_context(self, context, system, schema, required_tables=()):
         """Keep rules and complete selected table schemas; explicitly disclose omitted tables."""
         result = deepcopy(context)
+        required = set(required_tables)
+        known = {t['name'] for t in result['tables']}
+        if not required <= known:
+            raise GenerationError(f"Unknown required tables: {sorted(required - known)}")
         system = self.json_system(system, schema)
         # Reserve room for the SQL error feedback used by the solver on retries.
         def fits():
@@ -123,10 +132,6 @@ class LocalLLMService:
         # Keep explicit dependencies and connected tables together, including bridge tables.
         words = set(norm(result["original_question"]).split())
         result["tables"].sort(key=lambda t: len(words & set(norm(json.dumps(t, ensure_ascii=False)).split())), reverse=True)
-        required = set(required_tables)
-        known = {t["name"] for t in result["tables"]}
-        if not required <= known:
-            raise GenerationError(f"Unknown required tables: {sorted(required - known)}")
         if not required:
             required.add(result["tables"][0]["name"])
         relations = result.get("relationships", []) + result.get("organization", {}).get("relationships", [])

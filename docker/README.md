@@ -1,7 +1,16 @@
 # ZAIC 2026 — offline SQL worker
 
+For **600 questions on two RTX 5090s**, use the [six-hour runtime guide](RTX5090.md).
+The default `rtx5090-2gpu-6h` profile keeps rewrite, review and 2-of-3 consensus,
+uses TP=2 and CUDA graphs, reduces retries and budgets preparation plus inference
+together. CPU ingestion has a subprocess timeout. This profile is not yet
+hardware-benchmarked; measure answer coverage and accuracy as well as wall time.
+The older `balanced` profile remains available explicitly. For one RTX 5090,
+select `rtx5090-6h`; this profile also keeps rewrite.
+
 For a **single A100 80 GB**, follow [the A100 server guide](A100.md) (inside the
-image: `/code/docker/A100.md`). Set `DATAMATE_TENSOR_PARALLEL=1` on `docker run`;
+image: `/code/docker/A100.md`). Set `DATAMATE_PROFILE=balanced` and
+`DATAMATE_TENSOR_PARALLEL=1` on `docker run`;
 the competition default remains two GPUs. Actual configuration is logged in
 `/result/logs/run.json`. A100 hardware execution has not yet been verified.
 
@@ -32,6 +41,8 @@ Outputs:
   per-question start/completion, submission or fatal failure. Each event is
   flushed to disk and printed on stdout for live SSH monitoring. Detailed model
   calls and SQL results remain in the per-question JSON files.
+  `elapsed_s` is the run timeline; `duration_s` is a stage's own duration.
+  `python3 -m docker.runtime_report /path/to/result` estimates full-run time.
 - `/result/logs/completion.json` or `fatal.json`: completion/failure information.
 
 Temporary databases and manifests live in a fresh directory under `/tmp`, never
@@ -128,7 +139,7 @@ per-call seeds; temperature remains nonzero for diverse consensus samples.
 Run twice from empty result directories on identical hardware/image/input and
 compare submissions and PA. These measures do **not** guarantee the required
 PA difference <= 0.03; that requires measurement. Preserve both sets of logs. Estimate private runtime as model initialization plus
-mean end-to-end question time times 500, and validate on the full run; shared
+total preparation time plus mean question time times 600, and validate on the full run; shared
 business batch elapsed_ms values overlap and must not simply be summed.
 
 The frozen worker currently uses reviewed consensus without a Colab confidence

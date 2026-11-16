@@ -7,6 +7,7 @@ from collections import Counter
 from app.agent.solver import Solver, Stats
 from app.agent.sql_context import SQLContextBuilder
 from app.llm.prompts import QUESTION_REWRITE_SYSTEM_PROMPT
+from app.llm.base import InferenceBudgetExceeded
 from app.submission import make_sub
 from app.tools.results import canon
 from app.tools.sql import SQLExecutor
@@ -123,6 +124,8 @@ class SQLSolver(Solver):
         if self.cfg.rewrite_questions and hasattr(self.backend, "rewrite_question"):
             try:
                 rewritten = self.backend.rewrite_question(original)
+            except InferenceBudgetExceeded:
+                raise
             except Exception as error:
                 rewrite_error = f"{type(error).__name__}: {error}"[:500]
         question_context = self.builder.question_context(context, original, rewritten, r.as_of_date, split.calendar)
@@ -139,6 +142,7 @@ class SQLSolver(Solver):
         prompt = json.dumps(question_context, ensure_ascii=False, default=str)
         samples, errors, votes = [], [], Counter()
         decision = None
+        budget_exhausted = False
         with SQLExecutor.connect(database, split.calendar) as connection:
             for _ in range(self.cfg.n_samples):
                 repair = ""
@@ -146,6 +150,8 @@ class SQLSolver(Solver):
                     plan = None
                     phase = "generation"
                     try:
+                        if hasattr(self.backend, 'check_budget'):
+                            self.backend.check_budget()
                         plan = self._plan(prompt + repair)
                         if plan["type"] == "unanswerable":
                             answer = plan["reason"]
@@ -190,9 +196,12 @@ class SQLSolver(Solver):
                     except Exception as error:
                         message = f"{type(error).__name__}: {error}"[:1500]
                         errors.append({"phase": phase, "attempt": attempt + 1, "plan": plan, "error": message})
+                        if isinstance(error, InferenceBudgetExceeded):
+                            budget_exhausted = True
+                            break
                         repair = "\nKế hoạch trước và lỗi thực thi; hãy sửa, không đổi ý câu hỏi:\n" + json.dumps(
                             {"plan": plan, "error": message}, ensure_ascii=False)
-                if decision and not self.cfg.collect_all:
+                if budget_exhausted or (decision and not self.cfg.collect_all):
                     break
         if samples:
             leaders = votes.most_common()
@@ -220,6 +229,7 @@ class SQLSolver(Solver):
                "database_sha256": fingerprint, "agree": max(votes.values(), default=0),
                "codes": [s["sql"] for s in samples], "sample_results": [s["canon"] for s in samples],
                "samples": samples, "errors": errors, "cache_hit": False,
+               "budget_exhausted": budget_exhausted,
                "elapsed_s": round(time.monotonic() - started, 3),
                "training_context": prompt if self.cfg.collect_all else None}
         if decision and not errors and not rewrite_error:

@@ -8,6 +8,10 @@ class GenerationError(Exception):
     """Backend không sinh được (mạng, OOM...). Kết quả của câu đó KHÔNG được cache."""
 
 
+class InferenceBudgetExceeded(GenerationError):
+    """Stop repair loops when the time or model-call budget is exhausted."""
+
+
 class LLMBackend(ABC):
     #: True nếu `generate(n>1)` sinh n mẫu trong MỘT lượt (nhanh hơn gọi n lần); False thì solver gọi lần lượt
     supports_batch: bool = False

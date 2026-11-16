@@ -27,6 +27,52 @@ def test_review_executes_assertions_and_rejects_fanout():
             verify(service, con, {}, {'sql': ''}, [], [])
 
 
+@pytest.mark.parametrize('requested', ['sales', 'calendar', 'semantic.sales_summary'])
+def test_review_already_visible_tables_do_not_skip_checks(requested):
+    report = {'checks': dict.fromkeys(DIMENSIONS, 'pass'), 'reason': 'verified',
+              'required_tables': [requested], 'assertions': []}
+    context = {'tables': [{'name': 'sales'}], 'calendar': {'name': 'calendar'},
+               'semantic_views': [{'schema': 'semantic', 'name': 'sales_summary'}]}
+    service = SimpleNamespace(json=lambda *a, **k: report, cfg=Config())
+    with duckdb.connect() as con:
+        result = verify(service, con, context, {'sql': 'SELECT 1'}, ['n'], [[1]])
+        assert result['required_tables'] == []
+        assert report['required_tables'] == [requested]
+        report['checks']['rules'] = 'unknown'
+        with pytest.raises(ValueError, match='Business review failed'):
+            verify(service, con, context, {'sql': 'SELECT 1'}, ['n'], [[1]])
+        report['checks']['rules'] = 'pass'
+        report['assertions'] = [{'sql': 'SELECT FALSE', 'reason': 'bad grain'}]
+        with pytest.raises(ValueError, match='Business assertion failed'):
+            verify(service, con, context, {'sql': 'SELECT 1'}, ['n'], [[1]])
+        report['assertions'] = []
+        with pytest.raises(ValueError, match='requires grain/cardinality assertions'):
+            verify(service, con, context,
+                   {'sql': 'SELECT SUM(a.id) FROM sales a JOIN sales b USING (id)'}, ['n'], [[1]])
+
+
+def test_review_requests_only_omitted_tables_and_rejects_unknown_names():
+    report = {'checks': dict.fromkeys(DIMENSIONS, 'unknown'), 'reason': 'need schema',
+              'required_tables': ['sales', 'products', 'products'], 'assertions': []}
+    context = {'tables': [{'name': 'sales'}], 'omitted_tables': ['products']}
+    service = SimpleNamespace(json=lambda *a, **k: report, cfg=Config())
+    result = verify(service, None, context, {'sql': 'SELECT 1'}, ['n'], [[1]])
+    assert result['required_tables'] == ['products']
+    report['required_tables'] = ['invented']
+    with pytest.raises(ValueError, match='Unknown required tables'):
+        verify(service, None, context, {'sql': 'SELECT 1'}, ['n'], [[1]])
+
+
+@pytest.mark.parametrize('fits', [True, False])
+def test_context_rejects_unknown_required_tables_before_budget_shortcuts(fits):
+    service = LocalLLMService(None, Config())
+    service.fits = lambda *args: fits
+    context = {'tables': [{'name': 'sales', 'columns': [], 'sample_rows': []}],
+               'original_question': 'sales'}
+    with pytest.raises(GenerationError, match='Unknown required tables'):
+        service.fit_sql_context(context, '', {}, required_tables=['invented'])
+
+
 @pytest.mark.parametrize('typ,answer', [('boolean', 1), ('number', True), ('percent', '12%'), ('date','2026-02-30'), ('table', {'columns':['a'], 'rows':[[1,2]]})])
 def test_strict_format(typ, answer):
     with pytest.raises(ValueError):

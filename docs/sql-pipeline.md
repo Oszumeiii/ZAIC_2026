@@ -21,6 +21,14 @@ Luồng mặc định của `app.main` và `evaluation.run_eval` dùng DuckDB. C
    thì có thể trả `unanswerable` kèm lý do.
 7. Chỉ sau suy luận, evaluation ghép đáp án chuẩn theo ID và chấm đúng/sai/abstain.
 
+Khi bật `sql_review` (worker Docker bật mặc định), SQL chạy thành công vẫn phải
+qua kiểm tra nghiệp vụ và assertion trước khi được tính phiếu đồng thuận.
+`required_tables` trong review chỉ dùng để khôi phục schema thuộc `omitted_tables`.
+Nếu model liệt kê lại bảng đã có trong context, hệ thống tiếp tục kiểm tra review,
+không sinh lại SQL chỉ vì danh sách đó khác rỗng. Tên bảng không có trong catalog
+được báo `Unknown required tables`; review `fail`/`unknown` hoặc assertion sai vẫn
+bị từ chối. Hết lượt thử mà không đủ mẫu hợp lệ sẽ trả `abstain`.
+
 ## Chạy thử đúng 5 câu đầu tiên
 
 Đặt weights Qwen sẵn trên máy và trỏ `--local-model` tới thư mục đó. Lệnh chạy
